@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | StressReleasor</title>
+    <meta name="description" content="Get in touch with StressReleasor. We're here to help with your questions and support needs.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background: #f8f9ff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 32px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .btn-nav {
+            background: #667eea;
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .btn-nav:hover {
+            background: #5568d3;
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: #667eea;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-info h2 {
+            font-size: 32px;
+            color: #667eea;
+            margin-bottom: 30px;
+        }
+
+        .contact-method {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .contact-method:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .contact-method-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .contact-method h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .contact-method p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .contact-method a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-method a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Form */
+        .contact-form-wrapper {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-form-wrapper h2 {
+            font-size: 32px;
+            color: #667eea;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background: #667eea;
+            color: white;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+
+        .btn-submit:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #c3e6cb;
+            display: none;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #f5c6cb;
+            display: none;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 50px;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #f8f9ff;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .faq-question {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .faq-answer {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 60px 0 20px;
+        } 
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            opacity: 0.8;
+            margin-top: 15px;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+
+        .footer-column a {
+            display: block;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 250px;
+                height: calc(100vh - 70px);
+                background: white;
+                flex-direction: column;
+                padding: 30px 20px;
+                box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+                transition: right 0.3s ease;
+                gap: 20px;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .page-header h1 {
+                font-size: 32px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🧘</span>
+                    <span class="logo-text">StressReleasor</span>
+                </a>
+                
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <div class="nav-links" id="navLinks">
+                    <a href="index.html#how-it-works" onclick="closeMobileMenu()">How It Works</a>
+                    <a href="index.html#about" onclick="closeMobileMenu()">About</a>
+                    <a href="blog.html" onclick="closeMobileMenu()">Blog</a>
+                    <a href="stressreleasor.php" class="btn-nav">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>We're here to help. Get in touch with any questions or concerns.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    
+                    <div class="contact-method">
+                        <div class="contact-method-icon">📧</div>
+                        <h3>Email Support</h3>
+                        <p>
+                            General Inquiries: <a href="mailto:support@stressreleasor.com">support@stressreleasor.com</a><br>
+                            Technical Issues: <a href="mailto:tech@stressreleasor.com">tech@stressreleasor.com</a><br>
+                            <br>
+                            <strong>Response Time:</strong> We typically respond within 24-48 hours
+                        </p>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-method-icon">💼</div>
+                        <h3>Business Inquiries</h3>
+                        <p>
+                            Partnerships: <a href="mailto:partnerships@stressreleasor.com">partnerships@stressreleasor.com</a><br>
+                            Press & Media: <a href="mailto:press@stressreleasor.com">press@stressreleasor.com</a>
+                        </p>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-method-icon">🔒</div>
+                        <h3>Privacy & Legal</h3>
+                        <p>
+                            Privacy Concerns: <a href="mailto:privacy@stressreleasor.com">privacy@stressreleasor.com</a><br>
+                            Legal Matters: <a href="mailto:legal@stressreleasor.com">legal@stressreleasor.com</a>
+                        </p>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-method-icon">🏢</div>
+                        <h3>Mailing Address</h3>
+                        <p>
+                            247 Online Therapy / StressReleasor<br>
+                            [Your Street Address]<br>
+                            [City, State ZIP]
+                        </p>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-method-icon">⏰</div>
+                        <h3>Business Hours</h3>
+                        <p>
+                            Monday - Friday: 9:00 AM - 6:00 PM EST<br>
+                            Saturday - Sunday: Closed<br>
+                            <br>
+                            <em>The AI service is available 24/7</em>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <h2>Send Us a Message</h2>
+                    
+                    <div id="successMessage" class="success-message">
+                        ✓ Thank you! Your message has been sent successfully. We'll get back to you within 24-48 hours.
+                    </div>
+                    
+                    <div id="errorMessage" class="error-message">
+                        ✗ Oops! Something went wrong. Please try again or email us directly at support@stressreleasor.com
+                    </div>
+                    
+                    <form id="contactForm" onsubmit="submitContactForm(event)">
+                        <div class="form-group">
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject...</option>
+                                <option value="general">General Question</option>
+                                <option value="technical">Technical Issue</option>
+                                <option value="billing">Billing/Payment Question</option>
+                                <option value="feedback">Feedback/Suggestion</option>
+                                <option value="partnership">Partnership Inquiry</option>
+                                <option value="press">Press/Media Request</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required placeholder="Please describe your question or issue in detail..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit" id="submitBtn">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>Common Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3 class="faq-question">How quickly will I get a response?</h3>
+                    <p class="faq-answer">We typically respond to all inquiries within 24-48 hours during business days. For urgent technical issues affecting service access, we prioritize those first.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">I have a technical problem, what should I include?</h3>
+                    <p class="faq-answer">Please include: device type (computer/phone), browser you're using, what you were trying to do, and any error messages you saw. Screenshots are very helpful!</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Can I get a refund?</h3>
+                    <p class="faq-answer">Yes! We offer refunds within 7 days of purchase. Email support@stressreleasor.com with your request and we'll process it within 5-10 business days.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Do you offer phone support?</h3>
+                    <p class="faq-answer">Currently we provide support via email only to ensure thorough, documented assistance. This allows us to provide detailed solutions and keep a record of your support history.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">🧘</span>
+                        <span class="logo-text">StressReleasor</span>
+                    </div>
+                    <p>Affordable AI-powered stress relief created by certified therapist</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <a href="index.html#how-it-works">How It Works</a>
+                        <a href="index.html#about">About</a>
+                        <a href="blog.html">Blog</a>
+                        <a href="stressreleasor.php">Get Started</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 StressReleasor.com. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            navLinks.classList.toggle('active');
+            menuBtn.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            navLinks.classList.remove('active');
+            menuBtn.classList.remove('active');
+        }
+
+        document.addEventListener('click', function(event) {
+            const navLinks = document.getElementById('navLinks');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const isClickInsideNav = navLinks.contains(event.target);
+            const isClickOnMenuBtn = menuBtn.contains(event.target);
+            
+            if (!isClickInsideNav && !isClickOnMenuBtn && navLinks.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Contact Form Submission
+        function submitContactForm(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const successMsg = document.getElementById('successMessage');
+            const errorMsg = document.getElementById('errorMessage');
+            
+            // Hide previous messages
+            successMsg.style.display = 'none';
+            errorMsg.style.display = 'none';
+            
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            
+            // Submit to backend (you'll need to create this PHP file)
+            fetch('submit-contact.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    successMsg.style.display = 'block';
+                    event.target.reset();
+                    // Scroll to success message
+                    successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                } else {
+                    errorMsg.style.display = 'block';
+                    errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                errorMsg.style.display = 'block';
+                errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            });
+        }
+    </script>
+</body>
+</html>

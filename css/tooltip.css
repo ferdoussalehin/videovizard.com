@@ -1,0 +1,78 @@
+<!-- Include the CSS -->
+<link rel="stylesheet" href="/css/tooltip.css">
+
+<!-- Basic usage - works with ANY button -->
+<div class="tooltip">
+    <button class="btn btn-primary">Save</button>
+    <span class="tooltiptext">Save your changes</span>
+</div>
+
+<!-- Different positions -->
+<div class="tooltip tooltip-top">
+    <button>Top Tooltip</button>
+    <span class="tooltiptext">I'm on top</span>
+</div>
+
+<div class="tooltip tooltip-bottom">
+    <button>Bottom Tooltip</button>
+    <span class="tooltiptext">I'm at bottom</span>
+</div>
+
+<div class="tooltip tooltip-left">
+    <button>Left Tooltip</button>
+    <span class="tooltiptext">I'm on left</span>
+</div>
+
+<div class="tooltip tooltip-right">
+    <button>Right Tooltip</button>
+    <span class="tooltiptext">I'm on right</span>
+</div>
+
+<!-- Different colors -->
+<div class="tooltip tooltip-info">
+    <button>Info</button>
+    <span class="tooltiptext">Information tooltip</span>
+</div>
+
+<div class="tooltip tooltip-success">
+    <button>Success</button>
+    <span class="tooltiptext">Success message</span>
+</div>
+
+<div class="tooltip tooltip-warning">
+    <button>Warning</button>
+    <span class="tooltiptext">Warning message</span>
+</div>
+
+<div class="tooltip tooltip-error">
+    <button>Error</button>
+    <span class="tooltiptext">Error message</span>
+</div>
+
+<!-- Different sizes -->
+<div class="tooltip tooltip-sm">
+    <button>Small</button>
+    <span class="tooltiptext">Small tooltip</span>
+</div>
+
+<div class="tooltip tooltip-lg">
+    <button>Large</button>
+    <span class="tooltiptext">This is a larger tooltip that can contain more text and will wrap to multiple lines if needed</span>
+</div>
+
+<!-- Different animations -->
+<div class="tooltip tooltip-slide">
+    <button>Slide</button>
+    <span class="tooltiptext">Sliding animation</span>
+</div>
+
+<div class="tooltip tooltip-scale">
+    <button>Scale</button>
+    <span class="tooltiptext">Scale animation</span>
+</div>
+
+<!-- Combined classes -->
+<div class="tooltip tooltip-bottom tooltip-success tooltip-lg tooltip-slide">
+    <button class="btn btn-ok">Publish</button>
+    <span class="tooltiptext">Publish this video to all platforms</span>
+</div>

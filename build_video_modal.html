@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build Video Modal — VideoVizard</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Inter,sans-serif;background:#e0f2fe;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:16px;}
+.s2-overlay{position:fixed;inset:0;background:rgba(2,48,71,.55);display:flex;align-items:center;justify-content:center;padding:16px;}
+.s2-panel{background:#fff;border-radius:16px;width:100%;max-width:520px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 12px 40px rgba(2,48,71,.3);}
+.s2-header{padding:12px 18px 10px;border-bottom:1px solid #bae6fd;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;background:#f0f9ff;}
+.s2-header h2{font-size:16px;font-weight:700;color:#0c4a6e;margin:0;}
+.s2-close{background:none;border:none;font-size:20px;color:#0369a1;cursor:pointer;}
+.s2-body{padding:12px 16px;display:flex;flex-direction:column;}
+.s2-steps{display:flex;flex-direction:column;gap:3px;margin:0 0 7px;flex-shrink:0;}
+.s2-step{display:flex;align-items:center;gap:7px;padding:5px 9px;border:1px solid #bae6fd;border-radius:7px;background:#f0f9ff;min-height:30px;}
+.s2-step.active{border-color:#0284c7;background:#e0f2fe;}
+.s2-step.done{border-color:#0369a1;background:#dbeafe;}
+.s2-step-icon{font-size:13px;flex-shrink:0;}
+.s2-step-title{font-size:12px;font-weight:700;color:#0c4a6e;white-space:nowrap;flex-shrink:0;}
+.s2-step-sub{font-size:11px;color:#0369a1;margin-left:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;}
+.s2-log{background:#0c4a6e;border-radius:7px;padding:8px 10px;max-height:120px;flex-shrink:0;overflow-y:auto;font-family:monospace;font-size:10px;line-height:1.5;margin-top:5px;}
+.s2-log p{margin:0;color:#7dd3fc;}
+.s2-log p.ok{color:#38bdf8;}
+.s2-log p.warn{color:#fde68a;}
+.game-strip{flex-shrink:0;border-top:2px solid #bae6fd;}
+.token-bar{display:flex;align-items:center;justify-content:space-between;background:#0c4a6e;padding:4px 10px 3px;}
+.tk-left{font-size:10px;color:#7dd3fc;font-weight:700;text-transform:uppercase;letter-spacing:.04em;}
+.tk-val{font-size:12px;font-weight:700;color:#38bdf8;}
+.tk-msg{font-size:9px;color:#fde68a;font-weight:700;min-width:70px;text-align:right;}
+.arc-bg{background:#e0f2fe;padding:5px 8px 6px;}
+.arc-tabs{display:flex;gap:2px;margin-bottom:5px;}
+.arc-tab{flex:1;padding:3px 2px;border-radius:5px;border:1px solid #7dd3fc;background:#bae6fd;color:#0c4a6e;font-size:9px;font-weight:700;cursor:pointer;text-transform:uppercase;text-align:center;transition:all .12s;-webkit-tap-highlight-color:transparent;}
+.arc-tab:hover{background:#7dd3fc;}
+.arc-tab.active{background:#0284c7;border-color:#0284c7;color:#fff;}
+.arc-panel{display:none;}
+.arc-panel.active{display:block;}
+.arc-stat{font-size:10px;font-weight:600;color:#0369a1;text-align:center;min-height:13px;margin-bottom:2px;}
+.arc-btn{width:100%;padding:5px;border-radius:5px;border:1px solid #7dd3fc;background:#f0f9ff;color:#0369a1;font-size:10px;font-weight:700;cursor:pointer;text-transform:uppercase;margin-top:3px;transition:all .1s;}
+.arc-btn:hover{background:#bae6fd;border-color:#0284c7;}
+.arc-btn.primary{background:#0284c7;border-color:#0284c7;color:#fff;}
+.arc-btn.primary:hover{background:#0369a1;}
+
+/* ── TTT: 3 stacked rows filling full width ── */
+.ttt-wrap{display:flex;flex-direction:column;gap:4px;max-width:280px;margin:0 auto;}
+/* Row 1 — level */
+.ttt-r1{display:flex;gap:3px;}
+.ttt-diff{flex:1;padding:5px 0;border-radius:5px;border:1px solid #7dd3fc;background:#f0f9ff;color:#0369a1;font-size:13px;font-weight:700;cursor:pointer;text-align:center;transition:all .1s;}
+.ttt-diff:hover{background:#bae6fd;}
+.ttt-diff.sel{background:#0284c7;border-color:#0284c7;color:#fff;}
+/* Row 2 — 9 game cells, full width */
+.ttt-board{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;}
+.ttt-cell{height:40px;border-radius:6px;border:2px solid #7dd3fc;background:#f0f9ff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;cursor:pointer;transition:all .1s;-webkit-tap-highlight-color:transparent;user-select:none;}
+.ttt-cell:hover:not(.taken){border-color:#0284c7;background:#bae6fd;}
+.ttt-cell.taken{cursor:default;}
+.ttt-cell.cx{color:#0284c7;}
+.ttt-cell.co{color:#ea580c;}
+.ttt-cell.win{background:#bbf7d0;border-color:#16a34a;animation:pop .3s ease;}
+/* Row 3 — counters + status + button */
+.ttt-r3{display:flex;align-items:center;gap:3px;}
+.ttt-sc{flex:1;background:#f0f9ff;border:1px solid #bae6fd;border-radius:5px;padding:3px 0;text-align:center;}
+.ttt-slbl{font-size:10px;color:#0369a1;text-transform:uppercase;line-height:1.2;}
+.ttt-snum{font-size:17px;font-weight:700;color:#0c4a6e;line-height:1.2;}
+.ttt-stat{font-size:12px;font-weight:600;color:#0369a1;flex:2;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.ttt-newbtn{padding:6px 11px;border-radius:5px;border:1.5px solid #0284c7;background:#0284c7;color:#fff;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all .1s;}
+.ttt-newbtn:hover{background:#0369a1;}
+
+/* ── Word Guess — easy hangman ── */
+.wg-word{display:flex;gap:4px;justify-content:center;flex-wrap:wrap;margin:3px 0;}
+.wg-ltr{width:24px;height:28px;border-radius:4px;border:2px solid #7dd3fc;background:#f0f9ff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#0c4a6e;text-transform:uppercase;}
+.wg-ltr.blank{background:#e0f2fe;border-color:#bae6fd;color:transparent;}
+.wg-ltr.hit{background:#bbf7d0;border-color:#16a34a;color:#166534;}
+.wg-ltr.pre{background:#dbeafe;border-color:#3b82f6;color:#1e40af;}
+.wg-hint{font-size:13px;color:#0369a1;text-align:center;margin-bottom:3px;font-weight:600;}
+.wg-tries{font-size:12px;text-align:center;margin-bottom:2px;}
+.wg-hangman{font-size:26px;text-align:center;margin-bottom:2px;min-height:32px;}
+.wg-kb{display:flex;flex-wrap:wrap;gap:2px;justify-content:center;}
+.wg-key{min-width:22px;height:24px;padding:0 2px;border-radius:3px;border:1px solid #7dd3fc;background:#f0f9ff;color:#0c4a6e;font-size:12px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .1s;-webkit-tap-highlight-color:transparent;}
+.wg-key:active{transform:scale(.93);}
+.wg-key.used{opacity:.3;cursor:default;}
+.wg-key.correct{background:#bbf7d0;border-color:#16a34a;color:#166534;}
+.wg-key.wrong{background:#fee2e2;border-color:#ef4444;color:#991b1b;}
+
+/* ── Emoji choices ── */
+.eg-emojis{font-size:30px;text-align:center;letter-spacing:8px;margin:2px 0 5px;}
+.eg-choices{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:4px;}
+.eg-choice{padding:8px 4px;border-radius:6px;border:1.5px solid #7dd3fc;background:#f0f9ff;color:#0c4a6e;font-size:13px;font-weight:600;cursor:pointer;text-align:center;transition:all .1s;-webkit-tap-highlight-color:transparent;line-height:1.4;}
+.eg-choice:hover{background:#bae6fd;border-color:#0284c7;}
+.eg-choice.correct{background:#bbf7d0;border-color:#16a34a;color:#166534;cursor:default;}
+.eg-choice.wrong{background:#fee2e2;border-color:#ef4444;color:#991b1b;cursor:default;}
+.eg-scores{display:flex;gap:3px;}
+
+/* ── Math ── */
+.sm-eq{font-size:20px;font-weight:700;color:#0c4a6e;text-align:center;margin:3px 0;font-family:monospace;min-height:26px;}
+.sm-timer{height:4px;background:#bae6fd;border-radius:2px;overflow:hidden;margin:2px 0 4px;}
+.sm-bar{height:100%;background:#0284c7;transition:width .5s linear;}
+.sm-row{display:flex;gap:3px;margin-bottom:3px;align-items:center;}
+.sm-inp{flex:1;padding:6px 7px;border-radius:5px;border:1.5px solid #7dd3fc;background:#f0f9ff;color:#0c4a6e;font-size:16px;font-weight:700;text-align:center;outline:none;}
+.sm-inp:focus{border-color:#0284c7;}
+.sm-inp::placeholder{color:#bae6fd;}
+.sm-ok{padding:6px 14px;border-radius:5px;border:none;background:#0284c7;color:#fff;font-size:13px;font-weight:700;cursor:pointer;}
+.sm-ok:hover{background:#0369a1;}
+.sm-scores{display:flex;gap:3px;}
+
+/* ── Grid ── */
+.ms-intro{font-size:10px;color:#0369a1;background:#f0f9ff;border:1px solid #bae6fd;border-radius:6px;padding:5px 8px;margin-bottom:4px;line-height:1.5;}
+.ms-intro strong{color:#0c4a6e;}
+.ms-grid{display:grid;grid-template-columns:repeat(4,32px);grid-template-rows:repeat(4,32px);gap:3px;}
+.ms-cell{width:32px;height:32px;border-radius:6px;border:2px solid #7dd3fc;background:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#0c4a6e;cursor:pointer;transition:all .1s;-webkit-tap-highlight-color:transparent;user-select:none;}
+.ms-cell.given{color:#0284c7;cursor:default;border-color:#0284c7;background:#dbeafe;}
+.ms-cell.sel{background:#bae6fd;border-color:#0284c7;border-width:2.5px;}
+.ms-cell.err{background:#fee2e2;border-color:#ef4444;color:#991b1b;}
+.ms-cell.good{background:#bbf7d0;border-color:#16a34a;color:#166534;}
+.ms-num{flex:1;height:30px;border-radius:5px;border:1.5px solid #7dd3fc;background:#f0f9ff;color:#0284c7;font-size:15px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .12s;-webkit-tap-highlight-color:transparent;}
+.ms-num:hover{background:#bae6fd;border-color:#0284c7;}
+
+@keyframes pop{0%{transform:scale(.7)}60%{transform:scale(1.1)}100%{transform:scale(1)}}
+</style>
+</head>
+<body>
+<div class="s2-overlay">
+<div class="s2-panel">
+
+  <div class="s2-header">
+    <h2>🎬 Build Video</h2>
+    <button class="s2-close">✕</button>
+  </div>
+
+  <div class="s2-body">
+    <div class="s2-steps">
+      <div class="s2-step done">
+        <span class="s2-step-icon">✨</span>
+        <span class="s2-step-title">AI Prompts</span>
+        <span class="s2-step-sub">✓ 7 scenes enhanced</span>
+      </div>
+      <div class="s2-step active">
+        <span class="s2-step-icon">📝</span>
+        <span class="s2-step-title">Create Scenes</span>
+        <span class="s2-step-sub">Setting up podcast…</span>
+      </div>
+      <div class="s2-step">
+        <span class="s2-step-icon">🎤</span>
+        <span class="s2-step-title">Audio</span>
+        <span class="s2-step-sub">Waiting…</span>
+      </div>
+      <div class="s2-step">
+        <span class="s2-step-icon">🖼️</span>
+        <span class="s2-step-title">Media</span>
+        <span class="s2-step-sub">Waiting…</span>
+      </div>
+    </div>
+    <div class="s2-log">
+      <p class="ok">✅ AI prompts generated</p>
+      <p>✅ Reusing existing podcast #132</p>
+      <p class="ok">✅ Voices saved — host: openai:alloy</p>
+      <p>📝 Creating scenes from script…</p>
+      <p class="ok">✅ 7 scenes created</p>
+      <p>🎤 Starting audio generation…</p>
+      <p class="warn">⚠ Scene 3: no text, skipping</p>
+      <p class="ok">✓ Scene 1 audio OK</p>
+      <p class="ok">✓ Scene 2 audio OK</p>
+      <p>🔍 Batch searching 7 scenes…</p>
+    </div>
+  </div>
+
+  <!-- ══ GAME STRIP ══ -->
+  <div class="game-strip">
+    <div class="token-bar">
+      <span class="tk-left">🎮 Play &amp; Earn</span>
+      <span class="tk-val">⚡ <span id="tCount">0</span> tokens</span>
+      <span class="tk-msg" id="tMsg"></span>
+    </div>
+    <div class="arc-bg">
+      <div class="arc-tabs">
+        <div class="arc-tab active" onclick="arcSw('ttt',this)">TTT</div>
+        <div class="arc-tab" onclick="arcSw('wg',this)">Words</div>
+        <div class="arc-tab" onclick="arcSw('eg',this)">Emoji</div>
+        <div class="arc-tab" onclick="arcSw('sm',this)">Math</div>
+        <div class="arc-tab" onclick="arcSw('ms',this)">Grid</div>
+      </div>
+
+      <!-- GAME 1: TikTokToe — 3 full-width rows -->
+      <div class="arc-panel active" id="arc-ttt">
+        <div class="ttt-wrap">
+          <!-- ROW 1: level buttons, equal width, full width -->
+          <div class="ttt-r1">
+            <div class="ttt-diff" onclick="tSetD('easy',this)">Easy</div>
+            <div class="ttt-diff sel" onclick="tSetD('medium',this)">Medium</div>
+            <div class="ttt-diff" onclick="tSetD('hard',this)">Hard</div>
+          </div>
+          <!-- ROW 2: 9 game cells, full width -->
+          <div class="ttt-board" id="tBoard"></div>
+          <!-- ROW 3: You / Draw / AI + status + New Game, full width -->
+          <div class="ttt-r3">
+            <div class="ttt-sc"><div class="ttt-slbl">You</div><div class="ttt-snum" id="tSY">0</div></div>
+            <div class="ttt-sc"><div class="ttt-slbl">Draw</div><div class="ttt-snum" id="tSD">0</div></div>
+            <div class="ttt-sc"><div class="ttt-slbl">AI</div><div class="ttt-snum" id="tSA">0</div></div>
+            <div class="ttt-stat" id="tStat">Your turn</div>
+            <button class="ttt-newbtn" onclick="tReset()">New Game</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- GAME 2: Word Guess — easy hangman -->
+      <div class="arc-panel" id="arc-wg">
+        <div class="wg-hint" id="wHint">Loading…</div>
+        <div class="wg-hangman" id="wHang">😊</div>
+        <div class="wg-word" id="wWord"></div>
+        <div class="wg-tries" id="wTries"></div>
+        <div class="wg-kb" id="wKb"></div>
+        <button class="arc-btn" onclick="wReset()" style="margin-top:2px;">New Word</button>
+      </div>
+
+      <!-- GAME 3: Emoji Guess -->
+      <div class="arc-panel" id="arc-eg">
+        <div class="arc-stat" id="eStat">Tap the correct answer!</div>
+        <div class="eg-emojis" id="eEmojis"></div>
+        <div class="eg-choices" id="eChoices"></div>
+        <div class="eg-scores">
+          <div class="ttt-sc"><div class="ttt-slbl">Score</div><div class="ttt-snum" id="eScore">0</div></div>
+          <div class="ttt-sc"><div class="ttt-slbl">Round</div><div class="ttt-snum" id="eRound">1</div></div>
+        </div>
+      </div>
+
+      <!-- GAME 4: Speed Math -->
+      <div class="arc-panel" id="arc-sm">
+        <div class="arc-stat" id="mStat">Multi-step math — 60 seconds!</div>
+        <div class="sm-eq" id="mEq" style="display:none;"></div>
+        <div class="sm-timer" style="display:none;"><div class="sm-bar" id="mBar" style="width:100%"></div></div>
+        <div class="sm-row" id="mRow" style="display:none;">
+          <input class="sm-inp" id="mInp" type="number" placeholder="your answer" inputmode="numeric" autocomplete="off"/>
+          <button class="sm-ok" onclick="mSub()">OK ✓</button>
+        </div>
+        <div class="sm-scores">
+          <div class="ttt-sc"><div class="ttt-slbl">Score</div><div class="ttt-snum" id="mScore">0</div></div>
+          <div class="ttt-sc"><div class="ttt-slbl">Best</div><div class="ttt-snum" id="mBest">0</div></div>
+          <div class="ttt-sc"><div class="ttt-slbl">Time</div><div class="ttt-snum" id="mTime">60</div></div>
+        </div>
+        <button class="arc-btn primary" id="mBtn" onclick="mStart()">▶ Start</button>
+      </div>
+
+      <!-- GAME 5: Mini Grid with instructions -->
+      <div class="arc-panel" id="arc-ms">
+        <div class="ttt-wrap">
+          <!-- ROW 1: instruction -->
+          <div class="ttt-r1" style="background:#f0f9ff;border:1.5px solid #bae6fd;border-radius:7px;padding:5px 8px;font-size:10px;color:#0369a1;line-height:1.5;display:block;">
+            Fill every row <strong>→</strong> and column <strong>↓</strong> with <strong>1 2 3 4</strong> once each. <strong style="color:#0284c7;">Blue</strong> = given. Tap a white cell, then tap a number.
+          </div>
+          <!-- ROW 2: 4x4 grid centered -->
+          <div style="background:#f0f9ff;border:1.5px solid #bae6fd;border-radius:7px;padding:6px;display:flex;justify-content:center;">
+            <div class="ms-grid" id="gGrid"></div>
+          </div>
+          <!-- ROW 3: number pad + status + new puzzle -->
+          <div style="background:#f0f9ff;border:1.5px solid #bae6fd;border-radius:7px;padding:5px 6px;display:flex;align-items:center;gap:4px;">
+            <div class="ms-num" onclick="gPad(1)">1</div>
+            <div class="ms-num" onclick="gPad(2)">2</div>
+            <div class="ms-num" onclick="gPad(3)">3</div>
+            <div class="ms-num" onclick="gPad(4)">4</div>
+            <div class="ms-num" onclick="gPad(0)" style="color:#dc2626;font-size:10px;flex:1.5;">✕ Del</div>
+            <div class="ttt-stat" id="gStat" style="flex:2;font-size:10px;"></div>
+            <button class="ttt-newbtn" onclick="gReset()">New</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /game-strip -->
+
+</div>
+</div>
+
+<script>
+/* ── Tokens ── */
+let tokens=parseInt(localStorage.getItem('vv_tok')||'0');
+document.getElementById('tCount').textContent=tokens;
+
+function addTok(n,msg,game){
+  tokens+=n;
+  localStorage.setItem('vv_tok',tokens);
+  document.getElementById('tCount').textContent=tokens;
+  const m=document.getElementById('tMsg');
+  m.textContent='+'+n+' '+msg;
+  clearTimeout(m._t); m._t=setTimeout(()=>m.textContent='',2400);
+  // Save to server with game name — updates hdb_users.game_tokens + hdb_game_tokens
+  const fd=new FormData();
+  fd.append('earned',n);
+  fd.append('game',game);
+  fetch('save_tokens.php',{method:'POST',body:fd})
+    .then(r=>r.json())
+    .then(d=>{
+      if(d.success){
+        tokens=d.total;
+        localStorage.setItem('vv_tok',tokens);
+        document.getElementById('tCount').textContent=tokens;
+      }
+    })
+    .catch(()=>{});
+}
+
+/* ── Tab switch ── */
+function arcSw(id,btn){
+  document.querySelectorAll('.arc-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.arc-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('arc-'+id).classList.add('active');
+}
+
+/* ════════════════════════════════════
+   GAME 1 — TikTokToe
+   Left panel: level + scores
+   Right panel: full-width board
+════════════════════════════════════ */
+let tBd=Array(9).fill(''),tOver=false,tDiff='medium',tSc={y:0,d:0,a:0};
+const tW=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+function tRender(){
+  const b=document.getElementById('tBoard'); b.innerHTML='';
+  tBd.forEach((v,i)=>{
+    const c=document.createElement('div');
+    c.className='ttt-cell'+(v?' taken':'')+(v==='X'?' cx':'')+(v==='O'?' co':'');
+    c.textContent=v; c.onclick=()=>tMove(i); b.appendChild(c);
+  });
+}
+function tChk(p){return tW.find(w=>w.every(i=>tBd[i]===p));}
+function tFull(){return tBd.every(v=>v);}
+function tMM(b,mx,d){
+  if(tW.find(w=>w.every(i=>b[i]==='O')))return 10-d;
+  if(tW.find(w=>w.every(i=>b[i]==='X')))return d-10;
+  if(b.every(v=>v))return 0;
+  let best=mx?-99:99;
+  for(let i=0;i<9;i++){if(!b[i]){b[i]=mx?'O':'X';const s=tMM(b,!mx,d+1);b[i]='';best=mx?Math.max(best,s):Math.min(best,s);}}
+  return best;
+}
+function tAI(){
+  const emp=tBd.map((v,i)=>v?null:i).filter(i=>i!==null); if(!emp.length)return;
+  let mv=-1,best=-99;
+  if(tDiff==='easy'){mv=emp[Math.floor(Math.random()*emp.length)];}
+  else if(tDiff==='medium'){mv=Math.random()<0.5?emp[Math.floor(Math.random()*emp.length)]:emp.reduce((bm,i)=>{const b=[...tBd];b[i]='O';const s=tMM(b,false,0);return s>best?(best=s,i):bm},-1);}
+  else{emp.forEach(i=>{const b=[...tBd];b[i]='O';const s=tMM(b,false,0);if(s>best){best=s;mv=i;}});}
+  if(mv===-1)return;
+  tBd[mv]='O'; tRender();
+  const w=tChk('O');
+  if(w){w.forEach(i=>document.getElementById('tBoard').children[i].classList.add('win'));tSc.a++;document.getElementById('tSA').textContent=tSc.a;document.getElementById('tStat').textContent='AI wins!';tOver=true;return;}
+  if(tFull()){tSc.d++;document.getElementById('tSD').textContent=tSc.d;document.getElementById('tStat').textContent='Draw! +1 token';tOver=true;addTok(1,'draw','ttt');return;}
+  document.getElementById('tStat').textContent='Your turn — place X';
+}
+function tMove(i){
+  if(tOver||tBd[i])return;
+  tBd[i]='X'; tRender();
+  const w=tChk('X');
+  if(w){w.forEach(j=>document.getElementById('tBoard').children[j].classList.add('win'));tSc.y++;document.getElementById('tSY').textContent=tSc.y;document.getElementById('tStat').textContent='You win! +2 tokens 🎉';tOver=true;addTok(2,'win!','ttt');return;}
+  if(tFull()){tSc.d++;document.getElementById('tSD').textContent=tSc.d;document.getElementById('tStat').textContent='Draw! +1 token';tOver=true;addTok(1,'draw','ttt');return;}
+  document.getElementById('tStat').textContent='AI thinking…'; setTimeout(tAI,260);
+}
+function tReset(){tBd=Array(9).fill('');tOver=false;tRender();document.getElementById('tStat').textContent='Your turn — place X';}
+function tSetD(d,el){tDiff=d;document.querySelectorAll('.ttt-diff').forEach(b=>b.classList.remove('sel'));el.classList.add('sel');tReset();}
+tReset();
+
+/* ════════════════════════════════════
+   GAME 2 — Easy Hangman
+   Simple 5-6 letter words
+   Most letters shown, only 2-3 hidden
+   Hangman emoji shows progress
+════════════════════════════════════ */
+const wWords=[
+  {w:'VIRAL',h:'📈 Spreads fast online'},
+  {w:'NICHE',h:'🎯 Your target market'},
+  {w:'REEL',h:'📱 Short video format'},
+  {w:'HOOK',h:'🎣 Attention grabber'},
+  {w:'REACH',h:'👀 How many people see it'},
+  {w:'TREND',h:'🔥 What\'s popular now'},
+  {w:'BRAND',h:'⭐ Your unique identity'},
+  {w:'AUDIO',h:'🎤 Sound in your video'},
+  {w:'SCENE',h:'🎬 One video segment'},
+  {w:'VOICE',h:'🗣️ Narration style'},
+  {w:'SCRIPT',h:'📝 Written words for video'},
+  {w:'INTRO',h:'▶️ Opening of your video'},
+  {w:'OUTRO',h:'⏹️ Ending of your video'},
+  {w:'TOPIC',h:'💡 What your video is about'},
+  {w:'LEADS',h:'🤝 Potential customers'},
+];
+const wHangs=['😊','😐','😟','😨','😱','💀','☠️'];
+let wW='',wG=[],wWr=0,wMax=6,wHidden=[];
+
+function wReset(){
+  const pick=wWords[Math.floor(Math.random()*wWords.length)];
+  wW=pick.w; wG=[]; wWr=0;
+  // Only hide 2 letters in short words, 3 in longer
+  const unique=[...new Set(wW.split(''))];
+  const hideCount=wW.length<=4?1:wW.length<=6?2:3;
+  // Pick random letters to hide (not first, not last)
+  const hideable=unique.filter((_,i)=>i>0&&i<unique.length-1);
+  wHidden=hideable.sort(()=>Math.random()-.5).slice(0,Math.min(hideCount,hideable.length));
+  // Pre-reveal everything except hidden
+  wG=unique.filter(c=>!wHidden.includes(c));
+  document.getElementById('wHint').textContent=pick.h;
+  wRenderAll();
+}
+function wRenderAll(){
+  // Word display
+  document.getElementById('wWord').innerHTML=wW.split('').map(c=>{
+    if(wG.includes(c))return '<div class="wg-ltr '+(wHidden.includes(c)?'hit':'pre')+'">'+c+'</div>';
+    return '<div class="wg-ltr blank">_</div>';
+  }).join('');
+  // Hangman emoji
+  document.getElementById('wHang').textContent=wHangs[Math.min(wWr,wHangs.length-1)];
+  // Tries
+  const left=wMax-wWr;
+  document.getElementById('wTries').textContent=
+    wWr===0?'Guess the missing letters!':
+    left>0?'Wrong guesses: '+wWr+' · '+left+' left':
+    'No more tries!';
+  // Keyboard — only show hidden letters + some random wrong options
+  const needed=wHidden.filter(c=>!wG.includes(c));
+  // Build keyboard: all 26 letters
+  document.getElementById('wKb').innerHTML='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(c=>{
+    const u=wG.includes(c)||(!wHidden.includes(c)&&wW.includes(c));
+    const isCorrectGuess=wG.includes(c)&&wHidden.includes(c);
+    const isWrongGuess=wG.includes(c)&&!wW.includes(c);
+    const cl=isCorrectGuess?'correct':isWrongGuess?'wrong':'';
+    const disabled=u&&!isCorrectGuess&&!isWrongGuess;
+    return '<div class="wg-key '+cl+' '+(disabled?'used':'')+'" onclick="wGuess(\''+c+'\')">'+c+'</div>';
+  }).join('');
+}
+function wGuess(c){
+  const needed=wHidden.filter(l=>!wG.includes(l));
+  if(!needed.length)return; // already solved
+  if(wG.includes(c)&&!wHidden.includes(c))return; // pre-revealed, can't click
+  if(wWr>=wMax)return;
+  if(wG.includes(c))return; // already guessed
+  wG.push(c);
+  if(!wHidden.includes(c))wWr++; // wrong if not a hidden letter
+  wRenderAll();
+  const solved=wHidden.every(l=>wG.includes(l));
+  if(solved){
+    document.getElementById('wHint').textContent='You got it! +2 tokens 🎉';
+    addTok(2,'word!','words');
+  } else if(wWr>=wMax){
+    document.getElementById('wHint').textContent='Word was: '+wW+' 😅';
+  }
+}
+wReset();
+
+/* ════════════════════════════════════
+   GAME 3 — Emoji (4 choices)
+════════════════════════════════════ */
+const ePz=[
+  {e:'🎬🤖',a:'AI Video'},{e:'📱🎵',a:'TikTok'},{e:'🎙️🎧',a:'Podcast'},
+  {e:'🧠💡',a:'Bright Idea'},{e:'😌🌊',a:'Calm Vibes'},{e:'🔥📈',a:'Going Viral'},
+  {e:'🎯👥',a:'Target Audience'},{e:'🌍📢',a:'Global Reach'},
+  {e:'💆🎶',a:'Music Therapy'},{e:'🤝💼',a:'Business Deal'},
+  {e:'📸✨',a:'Photo Magic'},{e:'🏆🥇',a:'Champion'},
+  {e:'📅✅',a:'Schedule Done'},{e:'🚀📊',a:'Growth Launch'},
+  {e:'💬❤️',a:'Social Love'},{e:'🎨🖥️',a:'Design Work'},
+];
+let eScore=0,eRound=1,eCurr=null,eUsed=[];
+function eShuffle(a){return[...a].sort(()=>Math.random()-.5);}
+function eNext(){
+  if(eUsed.length>=ePz.length)eUsed=[];
+  let idx;do{idx=Math.floor(Math.random()*ePz.length);}while(eUsed.includes(idx));
+  eUsed.push(idx); eCurr=ePz[idx];
+  document.getElementById('eEmojis').textContent=eCurr.e;
+  document.getElementById('eStat').textContent='Tap the correct answer!';
+  document.getElementById('eRound').textContent=eRound;
+  const wrongs=eShuffle(ePz.filter((_,i)=>i!==idx)).slice(0,3).map(p=>p.a);
+  const choices=eShuffle([eCurr.a,...wrongs]);
+  document.getElementById('eChoices').innerHTML=choices.map(c=>
+    '<div class="eg-choice" onclick="ePick(this,\''+c.replace(/'/g,'\\\'')+'\')" data-v="'+c.replace(/"/g,'&quot;')+'">'+c+'</div>'
+  ).join('');
+}
+function ePick(el,val){
+  document.querySelectorAll('.eg-choice').forEach(c=>c.style.pointerEvents='none');
+  if(val===eCurr.a){
+    el.classList.add('correct');
+    document.getElementById('eStat').textContent='Correct! +2 tokens 🎉';
+    eScore++; document.getElementById('eScore').textContent=eScore;
+    addTok(2,'emoji!','emoji'); eRound++; setTimeout(eNext,1000);
+  } else {
+    el.classList.add('wrong');
+    document.querySelectorAll('.eg-choice').forEach(c=>{if(c.dataset.v===eCurr.a)c.classList.add('correct');});
+    document.getElementById('eStat').textContent='Wrong — it was: '+eCurr.a;
+    eRound++; setTimeout(eNext,1400);
+  }
+}
+eNext();
+
+/* ════════════════════════════════════
+   GAME 4 — Multi-step Math
+════════════════════════════════════ */
+let mScore=0,mBest=0,mTimer=null,mAns=0,mActive=false,mTL=60;
+function r(min,max){return Math.floor(Math.random()*(max-min+1))+min;}
+function mNewEq(){
+  const type=Math.floor(Math.random()*5);
+  let eq='',ans=0;
+  if(type===0){const a=r(12,60),b=r(11,55),c=r(8,40);eq=a+' + '+b+' + '+c;ans=a+b+c;}
+  else if(type===1){const a=r(30,80),b=r(12,45),c=r(5,25);eq=a+' + '+b+' - '+c;ans=a+b-c;}
+  else if(type===2){const a=r(50,99),b=r(15,40),c=r(8,30);eq=a+' - '+b+' + '+c;ans=a-b+c;}
+  else if(type===3){const a=r(3,9),b=r(3,9),c=r(8,35);eq=a+' × '+b+' + '+c;ans=a*b+c;}
+  else{const a=r(3,9),b=r(3,9),c=r(2,15);eq=a+' × '+b+' - '+c;ans=a*b-c;}
+  mAns=ans;
+  document.getElementById('mEq').textContent=eq+' = ?';
+  document.getElementById('mInp').value='';
+  if(mActive)document.getElementById('mInp').focus();
+}
+function mStart(){
+  mScore=0; mTL=60; mActive=true;
+  document.getElementById('mScore').textContent=0;
+  document.getElementById('mTime').textContent=60;
+  document.getElementById('mBtn').style.display='none';
+  document.getElementById('mEq').style.display='block';
+  document.getElementById('mEq').closest('.arc-panel').querySelector('.sm-timer').style.display='block';
+  document.getElementById('mRow').style.display='flex';
+  document.getElementById('mStat').textContent='Go — solve as many as you can!';
+  mNewEq();
+  mTimer=setInterval(()=>{
+    mTL--; document.getElementById('mBar').style.width=(mTL/60*100)+'%'; document.getElementById('mTime').textContent=mTL;
+    if(mTL<=0){
+      clearInterval(mTimer); mActive=false;
+      if(mScore>mBest){mBest=mScore;document.getElementById('mBest').textContent=mBest;}
+      const earned=Math.floor(mScore/3);
+      document.getElementById('mStat').textContent='Done! Score: '+mScore+(earned?' → +'+earned+' tokens':'');
+      if(earned)addTok(earned,'math!','math');
+      document.getElementById('mEq').textContent='Time up!';
+      document.getElementById('mRow').style.display='none';
+      document.getElementById('mBtn').style.display='block';
+      document.getElementById('mBtn').textContent='▶ Play Again';
+    }
+  },1000);
+}
+function mSub(){
+  if(!mActive)return;
+  const v=parseInt(document.getElementById('mInp').value,10);
+  if(isNaN(v))return;
+  if(v===mAns){mScore++;document.getElementById('mScore').textContent=mScore;document.getElementById('mStat').textContent='✓ Correct! Score: '+mScore;mNewEq();}
+  else{document.getElementById('mStat').textContent='✗ Answer was '+mAns;document.getElementById('mInp').value='';document.getElementById('mInp').focus();}
+}
+document.getElementById('mInp').addEventListener('keydown',e=>{if(e.key==='Enter')mSub();});
+
+/* ════════════════════════════════════
+   GAME 5 — Mini 4×4 Grid
+   Clear instructions shown above grid
+════════════════════════════════════ */
+const gPuzz=[
+  {g:[0,3,0,0, 0,0,2,0, 0,0,0,4, 0,0,0,1],s:[2,3,1,4, 4,1,2,3, 3,2,4,1, 1,4,3,2]},
+  {g:[1,0,0,4, 0,3,0,0, 0,0,4,0, 2,0,0,3],s:[1,2,3,4, 4,3,1,2, 3,1,4,2, 2,4,1,3]},
+  {g:[4,0,0,2, 0,2,0,0, 0,0,1,0, 3,0,0,4],s:[4,3,1,2, 1,2,4,3, 2,4,3,1, 3,1,2,4]},
+  {g:[0,0,4,0, 3,0,0,1, 0,1,0,0, 0,4,0,0],s:[1,2,4,3, 3,4,2,1, 4,1,3,2, 2,3,1,4]},
+  {g:[2,0,0,3, 0,3,0,0, 0,0,4,0, 4,0,0,2],s:[2,1,4,3, 1,3,2,4, 3,2,4,1, 4,1,3,2]},
+];
+let gGiv=[],gRef=[],gSt=[],gSel=-1;
+function gReset(){
+  const p=gPuzz[Math.floor(Math.random()*gPuzz.length)];
+  gGiv=[...p.g]; gRef=[...p.s]; gSt=[...p.g]; gSel=-1;
+  document.getElementById('gStat').textContent='';
+  gRender();
+}
+function gRender(){
+  const el=document.getElementById('gGrid'); el.innerHTML='';
+  for(let i=0;i<16;i++){
+    const c=document.createElement('div');
+    const isG=!!gGiv[i]; const val=gSt[i];
+    const isErr=val&&!isG&&val!==gRef[i];
+    const isGood=val&&!isG&&val===gRef[i];
+    c.className='ms-cell'+(isG?' given':'')+(i===gSel&&!isG?' sel':'')+(isErr?' err':'')+(isGood?' good':'');
+    c.textContent=val||'';
+    c.onclick=()=>{if(!isG){gSel=i;gRender();}};
+    el.appendChild(c);
+  }
+}
+function gPad(n){
+  if(gSel<0||gGiv[gSel])return;
+  gSt[gSel]=n||0; gRender();
+  if(n&&gSt.every((v,i)=>v===gRef[i])){document.getElementById('gStat').textContent='Solved! +5 tokens 🎉';addTok(5,'puzzle!','grid');}
+}
+gReset();
+</script>
+</body>
+</html>

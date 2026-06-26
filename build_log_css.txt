@@ -1,0 +1,7 @@
+/* ── Inline build log (add to vizard_browser.php <style> block) ── */
+.build-log { margin-top: 8px; background: #0f2a44; border-radius: 8px; padding: 10px 12px; max-height: 120px; overflow-y: auto; font-family: monospace; font-size: 11px; line-height: 1.6; }
+.build-log p { margin: 0; }
+.bl-info    { color: #7dd3fc; }
+.bl-success { color: #86efac; }
+.bl-warning { color: #fde68a; }
+.bl-error   { color: #fca5a5; }

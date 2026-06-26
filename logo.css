@@ -1,0 +1,71 @@
+/* Logo Styles */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    text-decoration: none;
+}
+
+.logo-icon {
+    font-size: 50px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.logo-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #667eea;
+    line-height: 1.1;
+}
+
+.logo-tagline {
+    font-size: 16px;
+    color: #666;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .logo-icon {
+        font-size: 34px;
+    }
+    
+    .logo-title {
+        font-size: 24px;
+    }
+    
+    .logo-tagline {
+        font-size: 12px;
+    }
+}
+        /* Navigation */
+			.navbar {
+			position: fixed;
+			top: 0;
+			width: 100%;
+			background: rgba(255, 255, 255, 0.95);
+			backdrop-filter: blur(10px);
+			z-index: 1000;
+			box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+			height: 70px;  /* Fixed height */
+		}
+
+		.nav-content {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0;  /* Remove padding */
+			height: 100%;  /* Fill navbar height */
+		}

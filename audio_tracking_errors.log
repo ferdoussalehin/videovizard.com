@@ -1,0 +1,230 @@
+[08-Dec-2025 09:13:05 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:13:05 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:13:15 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:13:15 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:13:25 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:13:25 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:13:35 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:13:35 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:13:45 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:13:45 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:13:55 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:13:55 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:14:05 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:14:05 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:14:15 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:14:15 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:14:25 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:14:25 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:14:35 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:14:35 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:14:45 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:14:45 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:14:55 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:14:55 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:15:05 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:15:05 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:15:15 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:15:15 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:15:25 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:15:25 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:15:35 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:15:35 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:15:45 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:15:45 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:15:55 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:15:55 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:16:05 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:16:05 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:16:15 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:16:15 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:16:25 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:16:25 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:16:35 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:16:35 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:16:45 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:16:45 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:16:55 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:16:55 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:17:05 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:17:05 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:17:15 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:17:15 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:17:25 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:17:25 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:17:35 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:17:35 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:17:45 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:17:45 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:17:55 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:17:55 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:18:05 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:18:05 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:18:15 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:18:15 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:18:25 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:18:25 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:18:35 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:18:35 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:18:45 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:18:45 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:18:55 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:18:55 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:19:05 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:19:05 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:19:15 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:19:15 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:19:25 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:19:25 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:19:35 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:19:35 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:19:45 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:19:45 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:19:55 UTC] PHP Warning:  require_once(db_connection_hdb.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:19:55 UTC] PHP Fatal error:  require_once(): Failed opening required 'db_connection_hdb.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 8
+[08-Dec-2025 09:20:05 UTC] ERROR: db_connection.php not found
+[08-Dec-2025 09:20:15 UTC] ERROR: db_connection.php not found
+[08-Dec-2025 09:20:25 UTC] ERROR: db_connection.php not found
+[08-Dec-2025 09:20:35 UTC] ERROR: db_connection.php not found
+[08-Dec-2025 09:20:45 UTC] ERROR: db_connection.php not found
+[08-Dec-2025 09:20:55 UTC] ERROR: db_connection.php not found
+[08-Dec-2025 09:21:05 UTC] ERROR: db_connection.php not found
+[08-Dec-2025 09:21:15 UTC] ERROR: db_connection.php not found
+[08-Dec-2025 09:21:25 UTC] ERROR: db_connection.php not found
+[08-Dec-2025 09:21:35 UTC] ERROR: db_connection.php not found
+[08-Dec-2025 09:21:45 UTC] ERROR: db_connection.php not found
+[08-Dec-2025 09:21:55 UTC] ERROR: db_connection.php not found
+[08-Dec-2025 09:22:51 UTC] ERROR: db_connection_hdb.php not found
+[08-Dec-2025 09:23:01 UTC] ERROR: db_connection_hdb.php not found
+[08-Dec-2025 09:23:12 UTC] ERROR: db_connection_hdb.php not found
+[08-Dec-2025 09:23:21 UTC] ERROR: db_connection_hdb.php not found
+[08-Dec-2025 09:23:31 UTC] ERROR: db_connection_hdb.php not found
+[08-Dec-2025 09:23:52 UTC] PHP Warning:  require_once(/home/syjy0p3q5yjb/public_html/247onlinetherapy.com/dbconnect_hdb.php.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 32
+[08-Dec-2025 09:23:52 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/syjy0p3q5yjb/public_html/247onlinetherapy.com/dbconnect_hdb.php.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 32
+[08-Dec-2025 09:24:01 UTC] PHP Warning:  require_once(/home/syjy0p3q5yjb/public_html/247onlinetherapy.com/dbconnect_hdb.php.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 32
+[08-Dec-2025 09:24:01 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/syjy0p3q5yjb/public_html/247onlinetherapy.com/dbconnect_hdb.php.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 32
+[08-Dec-2025 09:24:11 UTC] PHP Warning:  require_once(/home/syjy0p3q5yjb/public_html/247onlinetherapy.com/dbconnect_hdb.php.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 32
+[08-Dec-2025 09:24:11 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/syjy0p3q5yjb/public_html/247onlinetherapy.com/dbconnect_hdb.php.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 32
+[08-Dec-2025 09:24:21 UTC] PHP Warning:  require_once(/home/syjy0p3q5yjb/public_html/247onlinetherapy.com/dbconnect_hdb.php.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 32
+[08-Dec-2025 09:24:21 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/syjy0p3q5yjb/public_html/247onlinetherapy.com/dbconnect_hdb.php.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 32
+[08-Dec-2025 09:24:31 UTC] PHP Warning:  require_once(/home/syjy0p3q5yjb/public_html/247onlinetherapy.com/dbconnect_hdb.php.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 32
+[08-Dec-2025 09:24:31 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/syjy0p3q5yjb/public_html/247onlinetherapy.com/dbconnect_hdb.php.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 32
+[08-Dec-2025 09:24:41 UTC] PHP Warning:  require_once(/home/syjy0p3q5yjb/public_html/247onlinetherapy.com/dbconnect_hdb.php.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 32
+[08-Dec-2025 09:24:41 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/syjy0p3q5yjb/public_html/247onlinetherapy.com/dbconnect_hdb.php.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 32
+[08-Dec-2025 09:24:52 UTC] PHP Warning:  require_once(/home/syjy0p3q5yjb/public_html/247onlinetherapy.com/dbconnect_hdb.php.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 32
+[08-Dec-2025 09:24:52 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/syjy0p3q5yjb/public_html/247onlinetherapy.com/dbconnect_hdb.php.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 32
+[08-Dec-2025 09:25:01 UTC] PHP Warning:  require_once(/home/syjy0p3q5yjb/public_html/247onlinetherapy.com/dbconnect_hdb.php.php): failed to open stream: No such file or directory in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 32
+[08-Dec-2025 09:25:01 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/syjy0p3q5yjb/public_html/247onlinetherapy.com/dbconnect_hdb.php.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 32
+[08-Dec-2025 09:25:11 UTC] Raw input: {"action":"track_audio","client_id":1,"user_id":1,"audio_url":"https://247onlinetherapy.com/audio_files/1-client_script.mp3","audio_duration":1647,"play_count":3,"total_listen_time":878,"engagement_pe
+[08-Dec-2025 09:25:11 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_stmt_get_result() in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php:125
+Stack trace:
+#0 {main}
+  thrown in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 125
+[08-Dec-2025 09:25:21 UTC] Raw input: {"action":"track_audio","client_id":1,"user_id":1,"audio_url":"https://247onlinetherapy.com/audio_files/1-client_script.mp3","audio_duration":1647,"play_count":3,"total_listen_time":888,"engagement_pe
+[08-Dec-2025 09:25:21 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_stmt_get_result() in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php:125
+Stack trace:
+#0 {main}
+  thrown in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 125
+[08-Dec-2025 09:25:31 UTC] Raw input: {"action":"track_audio","client_id":1,"user_id":1,"audio_url":"https://247onlinetherapy.com/audio_files/1-client_script.mp3","audio_duration":1647,"play_count":3,"total_listen_time":898,"engagement_pe
+[08-Dec-2025 09:25:31 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_stmt_get_result() in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php:125
+Stack trace:
+#0 {main}
+  thrown in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 125
+[08-Dec-2025 09:25:41 UTC] Raw input: {"action":"track_audio","client_id":1,"user_id":1,"audio_url":"https://247onlinetherapy.com/audio_files/1-client_script.mp3","audio_duration":1647,"play_count":3,"total_listen_time":908,"engagement_pe
+[08-Dec-2025 09:25:41 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_stmt_get_result() in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php:125
+Stack trace:
+#0 {main}
+  thrown in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 125
+[08-Dec-2025 09:25:51 UTC] Raw input: {"action":"track_audio","client_id":1,"user_id":1,"audio_url":"https://247onlinetherapy.com/audio_files/1-client_script.mp3","audio_duration":1647,"play_count":3,"total_listen_time":918,"engagement_pe
+[08-Dec-2025 09:25:52 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_stmt_get_result() in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php:125
+Stack trace:
+#0 {main}
+  thrown in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 125
+[08-Dec-2025 09:26:01 UTC] Raw input: {"action":"track_audio","client_id":1,"user_id":1,"audio_url":"https://247onlinetherapy.com/audio_files/1-client_script.mp3","audio_duration":1647,"play_count":3,"total_listen_time":928,"engagement_pe
+[08-Dec-2025 09:26:02 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_stmt_get_result() in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php:125
+Stack trace:
+#0 {main}
+  thrown in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 125
+[08-Dec-2025 09:26:12 UTC] Raw input: {"action":"track_audio","client_id":1,"user_id":1,"audio_url":"https://247onlinetherapy.com/audio_files/1-client_script.mp3","audio_duration":1647,"play_count":3,"total_listen_time":938,"engagement_pe
+[08-Dec-2025 09:26:12 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_stmt_get_result() in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php:125
+Stack trace:
+#0 {main}
+  thrown in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 125
+[08-Dec-2025 09:26:22 UTC] Raw input: {"action":"track_audio","client_id":1,"user_id":1,"audio_url":"https://247onlinetherapy.com/audio_files/1-client_script.mp3","audio_duration":1647,"play_count":3,"total_listen_time":948,"engagement_pe
+[08-Dec-2025 09:26:22 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_stmt_get_result() in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php:125
+Stack trace:
+#0 {main}
+  thrown in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 125
+[08-Dec-2025 09:26:32 UTC] Raw input: {"action":"track_audio","client_id":1,"user_id":1,"audio_url":"https://247onlinetherapy.com/audio_files/1-client_script.mp3","audio_duration":1647,"play_count":3,"total_listen_time":958,"engagement_pe
+[08-Dec-2025 09:26:32 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_stmt_get_result() in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php:125
+Stack trace:
+#0 {main}
+  thrown in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 125
+[08-Dec-2025 09:26:41 UTC] Raw input: {"action":"track_audio","client_id":1,"user_id":1,"audio_url":"https://247onlinetherapy.com/audio_files/1-client_script.mp3","audio_duration":1647,"play_count":3,"total_listen_time":968,"engagement_pe
+[08-Dec-2025 09:26:41 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_stmt_get_result() in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php:125
+Stack trace:
+#0 {main}
+  thrown in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 125
+[08-Dec-2025 09:26:52 UTC] Raw input: {"action":"track_audio","client_id":1,"user_id":1,"audio_url":"https://247onlinetherapy.com/audio_files/1-client_script.mp3","audio_duration":1647,"play_count":3,"total_listen_time":978,"engagement_pe
+[08-Dec-2025 09:26:52 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_stmt_get_result() in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php:125
+Stack trace:
+#0 {main}
+  thrown in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 125
+[08-Dec-2025 09:27:01 UTC] Raw input: {"action":"track_audio","client_id":1,"user_id":1,"audio_url":"https://247onlinetherapy.com/audio_files/1-client_script.mp3","audio_duration":1647,"play_count":3,"total_listen_time":988,"engagement_pe
+[08-Dec-2025 09:27:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_stmt_get_result() in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php:125
+Stack trace:
+#0 {main}
+  thrown in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 125
+[08-Dec-2025 09:27:12 UTC] Raw input: {"action":"track_audio","client_id":1,"user_id":1,"audio_url":"https://247onlinetherapy.com/audio_files/1-client_script.mp3","audio_duration":1647,"play_count":3,"total_listen_time":998,"engagement_pe
+[08-Dec-2025 09:27:12 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_stmt_get_result() in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php:125
+Stack trace:
+#0 {main}
+  thrown in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 125
+[08-Dec-2025 09:27:21 UTC] Raw input: {"action":"track_audio","client_id":1,"user_id":1,"audio_url":"https://247onlinetherapy.com/audio_files/1-client_script.mp3","audio_duration":1647,"play_count":3,"total_listen_time":1008,"engagement_p
+[08-Dec-2025 09:27:21 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_stmt_get_result() in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php:125
+Stack trace:
+#0 {main}
+  thrown in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 125
+[08-Dec-2025 09:27:32 UTC] Raw input: {"action":"track_audio","client_id":1,"user_id":1,"audio_url":"https://247onlinetherapy.com/audio_files/1-client_script.mp3","audio_duration":1647,"play_count":3,"total_listen_time":1018,"engagement_p
+[08-Dec-2025 09:27:32 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_stmt_get_result() in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php:125
+Stack trace:
+#0 {main}
+  thrown in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 125
+[08-Dec-2025 09:27:41 UTC] Raw input: {"action":"track_audio","client_id":1,"user_id":1,"audio_url":"https://247onlinetherapy.com/audio_files/1-client_script.mp3","audio_duration":1647,"play_count":3,"total_listen_time":1028,"engagement_p
+[08-Dec-2025 09:27:41 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_stmt_get_result() in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php:125
+Stack trace:
+#0 {main}
+  thrown in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 125
+[08-Dec-2025 09:27:52 UTC] Raw input: {"action":"track_audio","client_id":1,"user_id":1,"audio_url":"https://247onlinetherapy.com/audio_files/1-client_script.mp3","audio_duration":1647,"play_count":3,"total_listen_time":1038,"engagement_p
+[08-Dec-2025 09:27:52 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_stmt_get_result() in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php:125
+Stack trace:
+#0 {main}
+  thrown in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 125
+[08-Dec-2025 09:28:01 UTC] Raw input: {"action":"track_audio","client_id":1,"user_id":1,"audio_url":"https://247onlinetherapy.com/audio_files/1-client_script.mp3","audio_duration":1647,"play_count":3,"total_listen_time":1048,"engagement_p
+[08-Dec-2025 09:28:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_stmt_get_result() in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php:125
+Stack trace:
+#0 {main}
+  thrown in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 125
+[08-Dec-2025 09:28:12 UTC] Raw input: {"action":"track_audio","client_id":1,"user_id":1,"audio_url":"https://247onlinetherapy.com/audio_files/1-client_script.mp3","audio_duration":1647,"play_count":3,"total_listen_time":1058,"engagement_p
+[08-Dec-2025 09:28:12 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_stmt_get_result() in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php:125
+Stack trace:
+#0 {main}
+  thrown in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 125
+[08-Dec-2025 09:28:21 UTC] PHP Warning:  mysqli_stmt_bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 164
+[08-Dec-2025 09:28:21 UTC] Audio Tracking ERROR: Insert failed: No data supplied for parameters in prepared statement
+[08-Dec-2025 09:28:32 UTC] PHP Warning:  mysqli_stmt_bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 164
+[08-Dec-2025 09:28:32 UTC] Audio Tracking ERROR: Insert failed: No data supplied for parameters in prepared statement
+[08-Dec-2025 09:28:41 UTC] PHP Warning:  mysqli_stmt_bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 164
+[08-Dec-2025 09:28:41 UTC] Audio Tracking ERROR: Insert failed: No data supplied for parameters in prepared statement
+[08-Dec-2025 09:28:52 UTC] PHP Warning:  mysqli_stmt_bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 164
+[08-Dec-2025 09:28:52 UTC] Audio Tracking ERROR: Insert failed: No data supplied for parameters in prepared statement
+[08-Dec-2025 09:29:01 UTC] PHP Warning:  mysqli_stmt_bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 164
+[08-Dec-2025 09:29:01 UTC] Audio Tracking ERROR: Insert failed: No data supplied for parameters in prepared statement
+[08-Dec-2025 09:29:12 UTC] PHP Warning:  mysqli_stmt_bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 164
+[08-Dec-2025 09:29:12 UTC] Audio Tracking ERROR: Insert failed: No data supplied for parameters in prepared statement
+[08-Dec-2025 09:29:22 UTC] PHP Warning:  mysqli_stmt_bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 164
+[08-Dec-2025 09:29:22 UTC] Audio Tracking ERROR: Insert failed: No data supplied for parameters in prepared statement
+[08-Dec-2025 09:29:32 UTC] PHP Warning:  mysqli_stmt_bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 164
+[08-Dec-2025 09:29:32 UTC] Audio Tracking ERROR: Insert failed: No data supplied for parameters in prepared statement
+[08-Dec-2025 09:29:41 UTC] PHP Warning:  mysqli_stmt_bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/audio_tracking.php on line 164
+[08-Dec-2025 09:29:41 UTC] Audio Tracking ERROR: Insert failed: No data supplied for parameters in prepared statement

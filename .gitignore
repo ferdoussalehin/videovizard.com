@@ -1,0 +1,26 @@
+.claude/*
+.well-known/
+ffmpeg/
+ffmpeg_jobs/
+images/
+# All users media
+user_media/
+# All podcast foleders
+podcast_*/
+# All promo models foleders
+promo_models/
+# All podcast foleders
+published_videos/
+# Others
+recorded_videos/
+socialmedia_audios/
+socialmedia_Videos/
+tmp/
+uploads/
+voice_samples
+# stich jobs
+stich_jobs/*
+# vps temps
+vps_tmp/
+# stripe
+stripe/

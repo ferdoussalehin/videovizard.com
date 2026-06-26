@@ -1,0 +1,17 @@
+2026-03-02 18:10:23 - GET_MEDIA_LIBRARY STARTED
+2026-03-02 18:10:23 - DB query returned 562 rows
+2026-03-02 18:10:23 - DB images loaded: 536
+2026-03-02 18:10:23 - DB Sample: 9345580935.png -> 'calmwoman,peacefulwoman'
+2026-03-02 18:10:23 - DB Sample: 9002733501.png -> 'calmwoman,peacefulwoman'
+2026-03-02 18:10:23 - DB Sample: 9144143453.png -> 'calmwoman,relaxedperson'
+2026-03-02 18:10:23 - DB Sample: 9698263259.png -> 'calmwoman,peacefulwoman'
+2026-03-02 18:10:23 - DB Sample: generated_159_008.png -> 'determinedathletes,competitiveplayers'
+2026-03-02 18:10:23 - Directory scanned, found 381 files
+2026-03-02 18:10:23 - Image 1: 1029241379.png - hashtags: 'calmwoman,sereneindividual'
+2026-03-02 18:10:23 - Image 2: 1061946509.png - hashtags: 'hopefulwoman,determinedperson'
+2026-03-02 18:10:23 - Image 3: 1066362127.png - hashtags: 'thoughtfulperson,hopefuladult'
+2026-03-02 18:10:23 - Image 4: 1110531349.png - hashtags: 'confidentwoman,,victoriousperson'
+2026-03-02 18:10:23 - Image 5: 1116637634.png - hashtags: 'hopefulwoman,independentperson'
+2026-03-02 18:10:23 - Total images found: 376
+2026-03-02 18:10:23 - Returning 376 images in JSON
+2026-03-02 18:10:23 - Sample JSON data: [{"image_name":"1029241379.png","hashtags":"calmwoman,sereneindividual","file_size":2378284},{"image_name":"1061946509.png","hashtags":"hopefulwoman,determinedperson","file_size":2523187},{"image_name":"1066362127.png","hashtags":"thoughtfulperson,hopefuladult","file_size":2526271}]

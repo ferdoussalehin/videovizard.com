@@ -1,0 +1,30 @@
+RewriteEngine On
+RewriteBase /
+
+# Force the server to ignore existing folders for the 'blog' path
+Options -MultiViews
+
+# If the URL starts with /blog/ followed by anything, send it to blog_view.php
+RewriteRule ^blog/(.+)$ blog_view.php?slug=$1 [L,QSA]
+
+# Language version
+RewriteRule ^(en|ur|ar|hi|es|fr)/blog/(.+)$ blog_view.php?lang=$1&slug=$2 [L,QSA]
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(mp4|webm|mov|avi|mkv|m4v)$">
+        Header set Content-Encoding: identity
+        Header unset Accept-Ranges
+        SetEnv no-gzip 1
+    </FilesMatch>
+    Header set Cross-Origin-Opener-Policy "same-origin"
+    Header set Cross-Origin-Embedder-Policy "require-corp"
+</IfModule>
+
+# Allow large file uploads via .htaccess (works on some hosts)
+<IfModule mod_php.c>
+    php_value upload_max_filesize 200M
+    php_value post_max_size 200M
+    php_value max_execution_time 300
+    php_value max_input_time 300
+    php_value memory_limit 256M
+</IfModule>

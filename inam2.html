@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Hypnotherapy Session – Inam Alvi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- HERO / FORM SECTION -->
+  <section class="min-h-screen flex items-center justify-center px-6">
+    <div class="w-full max-w-2xl bg-white rounded-2xl shadow-xl p-8">
+
+      <!-- Heading --> 
+      <h1 class="text-2xl md:text-3xl font-bold text-indigo-600 mb-2 text-center">
+        Yes! I want to have the complementary hypnotherapy session.
+      </h1>
+      <p class="text-center text-gray-600 mb-6">Here are my details:</p>
+
+      <!-- Form -->
+      <form action="https://api.web3forms.com/submit" method="POST" id="sessionForm">
+        <!-- Web3Forms access key (replace with your own) -->
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE">
+
+        <!-- Hidden field to set recipient email -->
+        <input type="hidden" name="from_name" value="Session Request – Inam Alvi Site">
+        <input type="hidden" name="subject" value="New Complementary Session Request">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input required name="name" type="text" placeholder="Your Name *" class="px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400">
+          <input required name="phone" type="tel" placeholder="Phone no. *" class="px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400">
+          <input required name="email" type="email" placeholder="Email *" class="px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400">
+          <input required name="city_country" type="text" placeholder="City / Country *" class="px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400">
+          <input required name="best_time" type="text" placeholder="Best time of call-back *" class="px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 md:col-span-2">
+        </div>
+
+        <label class="block mt-4 text-sm font-medium text-gray-700">Main issue you’d like help with *</label>
+        <textarea required name="main_issue" rows="3" placeholder="e.g. quit smoking, anxiety, chronic pain..." class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"></textarea>
+
+        <!-- Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 mt-6">
+          <button type="submit" class="w-full sm:w-auto bg-indigo-600 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-indigo-700 transition">Submit Request</button>
+          <a href="quit_smoking.html" class="w-full sm:w-auto text-center bg-gray-200 text-gray-800 font-semibold px-6 py-3 rounded-lg shadow hover:bg-gray-300 transition">Go to Quit-Smoking Info</a>
+        </div>
+      </form>
+
+      <!-- Thank-you message (hidden until form sends) -->
+      <div id="thankYou" class="hidden mt-6 p-4 bg-green-50 text-green-800 rounded-lg">
+        ✅ Your request has been submitted. Someone from Inam Alvi’s office will be in touch with you shortly.
+      </div>
+    </div>
+  </section>
+
+  <!-- Simple JS to handle the form locally -->
+  <script>
+    const form = document.getElementById('sessionForm');
+    const thankYou = document.getElementById('thankYou');
+
+    form.addEventListener('submit', function () {
+      // Show thank-you bar
+      thankYou.classList.remove('hidden');
+      // Scroll it into view
+      thankYou.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // (Web3Forms will redirect or show its own confirmation after a second;
+      // we still give immediate feedback.)
+    });
+  </script>
+</body>
+</html>

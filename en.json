@@ -1,0 +1,257 @@
+{
+    "site_name": "StressReleasor",
+    "tagline": "Always here to help & support",
+    
+    "nav": {
+        "how_it_works": "How It Works",
+        "about": "About",
+        "founder": "Founder",
+        "blog": "Blog",
+        "community": "Community",
+        "get_started": "Get Started"
+    },
+    
+    "footer": {
+        "description": "Affordable AI-powered stress relief created by certified therapist",
+        "resources": "Resources",
+        "legal": "Legal",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service",
+        "contact": "Contact",
+        "how_it_works": "How It Works",
+        "about": "About",
+        "blog": "Blog",
+        "get_started": "Get Started",
+        "copyright": "2025 StressReleasor.com. All rights reserved."
+    },
+    
+    "index": {
+        "hero_badge": "Your Calm Companion — Anytime You Need It",
+        "hero_title": "Get Rid of Stress in Minutes",
+        "hero_subtitle": "Discover Your Stress Impact<br>Receive a Personalized Report and Relief Audio for $2",
+        "btn_inner_strength": "Discover Your Inner Strength",
+        "btn_inner_strength_sub": "See the hero you already are",
+        "btn_relax": "Help Me Relax Now",
+        "btn_relax_sub": "Instant stress relief & impact report",
+        
+        "stats": {
+            "instant_relief": "Instant Stress Relief ($2)",
+            "instant_relief_desc": "Settle your mind and body immediately with a personalized audio session.",
+            "deep_session": "Deep Root-Cause Session",
+            "deep_session_desc": "Work on the real source of your stress patterns for lasting change.",
+            "live_sessions": "Live Guided Sessions",
+            "live_sessions_desc": "Get one-on-one support for clarity, relief, and lasting transformation."
+        },
+        
+        "categories": {
+            "title": "The 8 Key Sources of Your Stress",
+            "subtitle": "Find out exactly what's triggering stress in each area of your life.",
+            "work": "Work & Career",
+            "work_desc": "Job pressure, deadlines, workplace conflicts, career transitions",
+            "money": "Money & Finance",
+            "money_desc": "Bills, debt, financial insecurity, budget concerns",
+            "relationships": "Relationship Issues",
+            "relationships_desc": "Family conflicts, romantic stress, friendship problems",
+            "physical": "Physical Well-being",
+            "physical_desc": "Health concerns, chronic pain, sleep problems, fatigue",
+            "mental": "Mental & Emotional Health",
+            "mental_desc": "Anxiety, depression, overwhelm, emotional struggles",
+            "studies": "Studies & Performance",
+            "studies_desc": "Exam stress, academic pressure, learning challenges",
+            "life_changes": "Life Changes & Events",
+            "life_changes_desc": "Moving, divorce, loss, major transitions, uncertainty",
+            "lifestyle": "Lifestyle Overload",
+            "lifestyle_desc": "Too much to do, no time for self, constant rushing",
+            "listen_free": "Listen Free"
+        },
+        
+        "how_it_works": {
+            "title": "How It Works",
+            "subtitle": "Everything you need to understand and relieve your stress immediately.",
+            "step1_title": "Share What's on Your Mind",
+            "step1_desc": "Tell the AI what's weighing on you — work pressure, relationships, health concerns, or anything else. The system asks a few gentle questions to understand your unique situation.",
+            "step2_title": "Discover Your Stress Impact",
+            "step2_desc": "See exactly how stress is affecting 8 key areas of your life: work, relationships, physical health, mental health, finances, and more. Understand where your stress is strongest and where support can help most.",
+            "step3_title": "Get Personalized Relief",
+            "step3_desc": "Get a hypnotherapy audio session designed specifically for your stress areas. Calm your mind, release tension, and reconnect with your inner calm — anytime you need it."
+        },
+        
+        "benefits": {
+            "title": "Why Choose StressReleasor?",
+            "price": "Just $2 Per Session",
+            "price_desc": "Covers AI processing, audio generation, and server costs. No subscriptions or hidden fees — pay only when you use it.",
+            "instant": "Instant Access",
+            "instant_desc": "No appointments, no waiting. Start getting relief right now.",
+            "report": "Life Stress Impact Report",
+            "report_desc": "Discover how your stress affects 8 key life areas: work, relationships, health, finances, and more. Know exactly where to focus.",
+            "private": "Private & Confidential",
+            "private_desc": "Your conversations are completely private. No judgment, just support.",
+            "expert": "Expert-Created",
+            "expert_desc": "Developed by a certified hypnotherapist from Toronto, Canada with years of experience.",
+            "available": "Available 24/7",
+            "available_desc": "Stress doesn't wait. Neither should relief. Access anytime, anywhere.",
+            "chronic": "Day-to-Day or Chronic Stress",
+            "chronic_desc": "Whether your stress is short-term or long-standing, you can experience relief within minutes.",
+            "value": "Incredible Value",
+            "value_desc": "For just $2, you get personalized stress relief and a full stress impact report — a service worth $100–$150 if you went to a hypnotherapist, counselor, or therapist."
+        },
+        
+        "cta": {
+            "title": "Ready to See How Stress Is Affecting Your Life?",
+            "subtitle": "Get your personalized Stress Impact Report across 8 life areas + instant relief techniques and custom audio. Just $2, no subscription.",
+            "button": "Give Me My Stress Impact Report & Personalized Audio"
+        }
+    },
+    
+    "about": {
+        "title": "About StressReleasor",
+        "intro": "We're on a mission to make mental health support accessible to everyone.",
+        "our_story": "Our Story",
+        "our_mission": "Our Mission",
+        "mission_text": "Making effective stress management accessible and affordable to everyone who needs it."
+    },
+    
+    "founder": {
+        "title": "Meet the Founder",
+        "name": "Inam Alvi",
+        "credentials": "Certified Hypnotherapist, Life Coach & NLP Practitioner",
+        "bio": "Inam Alvi is a Hypnotherapist, Life Coach, and NLP Practitioner who has guided countless individuals toward a brighter, more balanced life. His background in IT before transitioning to mental health gave him the edge to develop a one-of-its-kind platform, designed to help millions of people facing different mental health challenges. He is committed to making support accessible 24/7 and affordable, helping individuals transform their lives effectively."
+    },
+    
+    "blog": {
+        "title": "Blog",
+        "latest_posts": "Latest Posts",
+        "read_more": "Read More",
+        "read_full": "Read Full Article",
+        "categories": "Categories",
+        "read_time": "min read",
+        "published_on": "Published on",
+        "by_author": "By",
+        "related_posts": "Related Posts",
+        "share": "Share this article"
+    },
+    
+    "community": {
+        "title": "Community Support",
+        "tagline": "Together, We Rise Above Stress",
+        "intro": "Our community is built on compassion and mutual support. If you're facing financial hardship and need stress relief, our community is here to help. If you're able to give, your generosity can change someone's life.",
+        
+        "how_it_works": {
+            "title": "How Community Support Works",
+            "step1": "Request Help",
+            "step1_desc": "Share your story and the support you need",
+            "step2": "Community Reviews",
+            "step2_desc": "Sponsors browse appeals and choose who to support",
+            "step3": "Receive Support",
+            "step3_desc": "Get the stress relief sessions you need",
+            "step4": "Pay It Forward",
+            "step4_desc": "When you're able, help others in the community"
+        },
+        
+        "actions": {
+            "request_help": "Request Help",
+            "browse_appeals": "Browse Appeals",
+            "become_sponsor": "Become a Sponsor"
+        },
+        
+        "appeal_form": {
+            "title": "Request Community Support",
+            "subtitle": "Share your story with our community",
+            "name": "Your Name",
+            "name_placeholder": "Enter your full name",
+            "email": "Email Address",
+            "email_placeholder": "your@email.com",
+            "phone": "Phone Number (Optional)",
+            "phone_placeholder": "+1 234 567 8900",
+            "country": "Country",
+            "country_placeholder": "Select your country",
+            "amount_needed": "Amount Needed (USD)",
+            "amount_placeholder": "e.g., 50",
+            "sessions_needed": "Number of Sessions Needed",
+            "sessions_placeholder": "How many sessions?",
+            "reason": "Why do you need support?",
+            "reason_placeholder": "Please share your story and why you need stress relief support...",
+            "situation": "Current Situation",
+            "situation_placeholder": "Briefly describe your current circumstances...",
+            "submit": "Submit Request",
+            "submitting": "Submitting...",
+            "success": "Your appeal has been submitted successfully!",
+            "error": "There was an error submitting your appeal. Please try again."
+        },
+        
+        "browse": {
+            "title": "Active Appeals",
+            "subtitle": "Help someone find peace and relief from stress",
+            "filter_by": "Filter by",
+            "all_countries": "All Countries",
+            "sort_by": "Sort by",
+            "newest": "Newest First",
+            "oldest": "Oldest First",
+            "most_needed": "Most Needed",
+            "nearly_funded": "Nearly Funded",
+            "no_appeals": "No active appeals at the moment",
+            "loading": "Loading appeals...",
+            
+            "card": {
+                "from": "From",
+                "requested": "Requested",
+                "amount_needed": "Amount Needed",
+                "amount_raised": "Amount Raised",
+                "sponsored_by": "sponsored by",
+                "sponsors": "sponsors",
+                "sessions": "sessions",
+                "submitted": "Submitted",
+                "sponsor_now": "Sponsor Now",
+                "view_details": "View Details",
+                "fully_funded": "Fully Funded"
+            }
+        },
+        
+        "payment": {
+            "title": "Sponsor This Appeal",
+            "subtitle": "Your generosity changes lives",
+            "appeal_details": "Appeal Details",
+            "requested_by": "Requested By",
+            "total_needed": "Total Needed",
+            "already_raised": "Already Raised",
+            "remaining": "Remaining",
+            "your_contribution": "Your Contribution",
+            "amount": "Sponsorship Amount (USD)",
+            "amount_placeholder": "Enter amount",
+            "suggested": "Suggested amounts",
+            "full_amount": "Full Amount",
+            "sponsor_name": "Your Name (Optional)",
+            "sponsor_name_placeholder": "Leave blank to remain anonymous",
+            "sponsor_email": "Your Email",
+            "sponsor_email_placeholder": "your@email.com",
+            "message": "Message to Recipient (Optional)",
+            "message_placeholder": "Send a message of encouragement...",
+            "pay_now": "Complete Sponsorship",
+            "processing": "Processing...",
+            "thank_you_title": "Thank You for Your Generosity!",
+            "thank_you_message": "Your sponsorship will help someone find relief from stress.",
+            "receipt_sent": "A receipt has been sent to your email.",
+            "back_to_appeals": "Back to Appeals"
+        }
+    },
+     
+    "common": {
+        "loading": "Loading...",
+        "error": "Error",
+        "success": "Success",
+        "cancel": "Cancel",
+        "save": "Save",
+        "edit": "Edit",
+        "delete": "Delete",
+        "confirm": "Confirm",
+        "back": "Back",
+        "next": "Next",
+        "submit": "Submit",
+        "close": "Close",
+        "search": "Search",
+        "filter": "Filter",
+        "sort": "Sort",
+        "view_all": "View All",
+        "learn_more": "Learn More"
+    }
+}

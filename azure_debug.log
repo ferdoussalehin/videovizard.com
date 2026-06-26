@@ -1,0 +1,71 @@
+[27-Apr-2026 20:52:33 UTC] --- NEW REQUEST [OpenAI] (Row 2349) ---
+[27-Apr-2026 20:52:33 UTC] DEBUG voice: alloy | chars: 15
+[27-Apr-2026 20:52:35 UTC] DEBUG: DB Success for row 2349
+[27-Apr-2026 20:56:11 UTC] --- NEW REQUEST [OpenAI] (Row 2349) ---
+[27-Apr-2026 20:56:11 UTC] DEBUG voice: alloy | chars: 20
+[27-Apr-2026 20:56:12 UTC] DEBUG: DB Success for row 2349
+[27-Apr-2026 21:02:03 UTC] --- NEW REQUEST [OpenAI] (Row 2349) ---
+[27-Apr-2026 21:02:03 UTC] DEBUG voice: alloy | chars: 15
+[27-Apr-2026 21:02:04 UTC] DEBUG: DB Success for row 2349
+[27-Apr-2026 21:19:07 UTC] --- NEW REQUEST [OpenAI] (Row 2349) ---
+[27-Apr-2026 21:19:07 UTC] DEBUG voice: alloy | chars: 180
+[27-Apr-2026 21:19:10 UTC] DEBUG: DB Success for row 2349
+[27-Apr-2026 21:39:14 UTC] --- NEW REQUEST [OpenAI] (Row 2349) ---
+[27-Apr-2026 21:39:14 UTC] DEBUG voice: alloy | chars: 438
+[27-Apr-2026 21:39:19 UTC] DEBUG: DB Success for row 2349
+[28-Apr-2026 05:34:47 UTC] --- NEW REQUEST [Azure] (Row 2348) ---
+[28-Apr-2026 05:34:47 UTC] DEBUG SSML: <speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='nova'><voice name='nova'><prosody rate='1.0'>Are you ready to embark on a flavor-packed journey through India's vibrant streets? Today, we’ll unveil the top five must-try street foods that capture the spirit of our culinary heritage. First up, we have Pani Puri — crispy, hollow puris filled with a tangy water and chickpea mix that bursts with flavor. Watch as vendors skillfully assemble these delightful bites, making them a must-have for any food lover. Next, indulge in the rich aromas of Vada Pav, a spicy potato fritter nestled within a soft bun, often served with chutneys that create a symphony of tastes. Witness the hustle and bustle of the streets as this iconic snack is crafted with love. Don't miss out on the sweet and savory delight of Chaat, where various ingredients come together in a vibrant medley. Experience the artistry behind this popular dish as it’s plated with a dash of spice and a splash of color. Ready to savor these street food sensations? Book a free call to discover the best spots in your city and dive into the delicious world of Indian street food! </prosody></voice></speak>
+[28-Apr-2026 05:34:49 UTC] DEBUG: Azure Fail - HTTP 400
+[28-Apr-2026 05:34:49 UTC] DEBUG: Azure Response Body: 
+[06-May-2026 21:50:09 UTC] --- NEW REQUEST [Azure] (Row 0) ---
+[06-May-2026 21:50:09 UTC] DEBUG SSML: <speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='nova'><voice name='nova'><prosody rate='1'>This is a good way to listen to audio and make sure if it is good fit for your video </prosody></voice></speak>
+[06-May-2026 21:50:10 UTC] DEBUG: Azure Fail - HTTP 400
+[06-May-2026 21:50:10 UTC] DEBUG: Azure Response Body: 
+[06-May-2026 21:50:13 UTC] --- NEW REQUEST [Azure] (Row 0) ---
+[06-May-2026 21:50:13 UTC] DEBUG SSML: <speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='nova'><voice name='nova'><prosody rate='1'>This is a good way to listen to audio and make sure if it is good fit for your video </prosody></voice></speak>
+[06-May-2026 21:50:14 UTC] DEBUG: Azure Fail - HTTP 400
+[06-May-2026 21:50:14 UTC] DEBUG: Azure Response Body: 
+[06-May-2026 21:50:21 UTC] --- NEW REQUEST [Azure] (Row 0) ---
+[06-May-2026 21:50:21 UTC] DEBUG SSML: <speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='nova'><voice name='nova'><prosody rate='1'>This is a good way to listen to audio and make sure if it is good fit for your video </prosody></voice></speak>
+[06-May-2026 21:50:22 UTC] DEBUG: Azure Fail - HTTP 400
+[06-May-2026 21:50:22 UTC] DEBUG: Azure Response Body: 
+[06-May-2026 21:50:24 UTC] --- NEW REQUEST [Azure] (Row 0) ---
+[06-May-2026 21:50:24 UTC] DEBUG SSML: <speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='nova'><voice name='nova'><prosody rate='1'>This is a good way to listen to audio and make sure if it is good fit for your video </prosody></voice></speak>
+[06-May-2026 21:50:24 UTC] DEBUG: Azure Fail - HTTP 400
+[06-May-2026 21:50:24 UTC] DEBUG: Azure Response Body: 
+[06-May-2026 21:50:36 UTC] --- NEW REQUEST [Azure] (Row 0) ---
+[06-May-2026 21:50:36 UTC] DEBUG SSML: <speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='shimm'><voice name='shimmer'><prosody rate='1'>This is a good way to listen to audio and make sure if it is good fit for your video </prosody></voice></speak>
+[06-May-2026 21:50:37 UTC] DEBUG: Azure Fail - HTTP 400
+[06-May-2026 21:50:37 UTC] DEBUG: Azure Response Body: 
+[06-May-2026 21:50:38 UTC] --- NEW REQUEST [Azure] (Row 0) ---
+[06-May-2026 21:50:38 UTC] DEBUG SSML: <speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='shimm'><voice name='shimmer'><prosody rate='1'>This is a good way to listen to audio and make sure if it is good fit for your video </prosody></voice></speak>
+[06-May-2026 21:50:39 UTC] DEBUG: Azure Fail - HTTP 400
+[06-May-2026 21:50:39 UTC] DEBUG: Azure Response Body: 
+[06-May-2026 21:50:42 UTC] --- NEW REQUEST [Azure] (Row 0) ---
+[06-May-2026 21:50:42 UTC] DEBUG SSML: <speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='shimm'><voice name='shimmer'><prosody rate='1'>This is a good way to listen to audio and make sure if it is good fit for your video </prosody></voice></speak>
+[06-May-2026 21:50:43 UTC] DEBUG: Azure Fail - HTTP 400
+[06-May-2026 21:50:43 UTC] DEBUG: Azure Response Body: 
+[06-May-2026 21:54:26 UTC] --- NEW REQUEST [Azure] (Row 0) ---
+[06-May-2026 21:54:26 UTC] DEBUG SSML: <speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='nova'><voice name='nova'><prosody rate='1'>This is a good way to listen to audio and make sure if it is good fit for your video </prosody></voice></speak>
+[06-May-2026 21:54:28 UTC] DEBUG: Azure Fail - HTTP 400
+[06-May-2026 21:54:28 UTC] DEBUG: Azure Response Body: 
+[06-May-2026 21:54:31 UTC] --- NEW REQUEST [Azure] (Row 0) ---
+[06-May-2026 21:54:31 UTC] DEBUG SSML: <speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='nova'><voice name='nova'><prosody rate='1'>This is a good way to listen to audio and make sure if it is good fit for your video </prosody></voice></speak>
+[06-May-2026 21:54:32 UTC] DEBUG: Azure Fail - HTTP 400
+[06-May-2026 21:54:32 UTC] DEBUG: Azure Response Body: 
+[06-May-2026 21:54:40 UTC] --- NEW REQUEST [Azure] (Row 0) ---
+[06-May-2026 21:54:40 UTC] DEBUG SSML: <speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='nova'><voice name='nova'><prosody rate='1'>This is a good way to listen to audio and make sure if it is good fit for your video </prosody></voice></speak>
+[06-May-2026 21:54:41 UTC] DEBUG: Azure Fail - HTTP 400
+[06-May-2026 21:54:41 UTC] DEBUG: Azure Response Body: 
+[06-May-2026 21:54:44 UTC] --- NEW REQUEST [Azure] (Row 0) ---
+[06-May-2026 21:54:44 UTC] DEBUG SSML: <speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='nova'><voice name='nova'><prosody rate='1'>This is a good way to listen to audio and make sure if it is good fit for your video </prosody></voice></speak>
+[06-May-2026 21:54:45 UTC] DEBUG: Azure Fail - HTTP 400
+[06-May-2026 21:54:45 UTC] DEBUG: Azure Response Body: 
+[06-May-2026 21:59:44 UTC] --- NEW REQUEST [Azure] (Row 0) ---
+[06-May-2026 21:59:44 UTC] DEBUG SSML: <speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='nova'><voice name='nova'><prosody rate='1'>This is a good way to listen to audio and make sure if it is good fit for your video </prosody></voice></speak>
+[06-May-2026 21:59:45 UTC] DEBUG: Azure Fail - HTTP 400
+[06-May-2026 21:59:45 UTC] DEBUG: Azure Response Body: 
+[06-May-2026 22:05:53 UTC] --- NEW REQUEST [Azure] (Row 0) ---
+[06-May-2026 22:05:53 UTC] DEBUG SSML: <speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='nova'><voice name='nova'><prosody rate='1'>This is a good way to listen to audio and make sure if it is good fit for your video </prosody></voice></speak>
+[06-May-2026 22:05:54 UTC] DEBUG: Azure Fail - HTTP 400
+[06-May-2026 22:05:54 UTC] DEBUG: Azure Response Body: 

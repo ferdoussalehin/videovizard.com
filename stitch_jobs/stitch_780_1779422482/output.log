@@ -1,0 +1,24 @@
+Job: stitch_780_1779422482
+Downloading scene 0: https://www.videovizard.com/published_videos/podcast_780_scene_0.webm
+  -> 1.04 MB
+Downloading scene 1: https://www.videovizard.com/published_videos/podcast_780_scene_1.webm
+  -> 1.15 MB
+Downloading scene 2: https://www.videovizard.com/published_videos/podcast_780_scene_2.webm
+  -> 1.17 MB
+Downloading scene 3: https://www.videovizard.com/published_videos/podcast_780_scene_3.webm
+  -> 1.18 MB
+Downloading scene 4: https://www.videovizard.com/published_videos/podcast_780_scene_4.webm
+  -> 1.22 MB
+Downloading scene 5: https://www.videovizard.com/published_videos/podcast_780_scene_5.webm
+  -> 1.19 MB
+Downloading scene 6: https://www.videovizard.com/published_videos/podcast_780_scene_6.webm
+  -> 1.16 MB
+Downloading scene 7: https://www.videovizard.com/published_videos/podcast_780_scene_7.webm
+  -> 1.09 MB
+Stitching 8 clips...
+Stitched: 9.2 MB
+Converting to MP4...
+MP4 ready: 39.39 MB
+PHP Warning:  chown(): Operation not permitted in /var/www/html/videovizard.com/vps_stitch.php on line 161
+Copied to: /var/www/html/videovizard.com/published_videos/podcast_780.mp4
+Done.

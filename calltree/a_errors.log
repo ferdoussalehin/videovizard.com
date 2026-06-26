@@ -1,0 +1,22 @@
+[17-Apr-2026 17:46:19 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/syjy0p3q5yjb/public_html/videovizard.com/calltree/active_campaigns.php on line 176
+[18-Apr-2026 08:23:12 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/syjy0p3q5yjb/public_html/videovizard.com/calltree/active_campaigns.php on line 176
+[18-Apr-2026 08:23:46 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/syjy0p3q5yjb/public_html/videovizard.com/calltree/active_campaigns.php on line 176
+[18-Apr-2026 08:25:47 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/syjy0p3q5yjb/public_html/videovizard.com/calltree/active_campaigns.php on line 176
+[18-Apr-2026 08:25:53 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/syjy0p3q5yjb/public_html/videovizard.com/calltree/active_campaigns.php on line 176
+[18-Apr-2026 08:25:55 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/syjy0p3q5yjb/public_html/videovizard.com/calltree/active_campaigns.php on line 176
+[18-Apr-2026 08:51:15 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/syjy0p3q5yjb/public_html/videovizard.com/calltree/active_campaigns.php on line 211
+[18-Apr-2026 08:51:21 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/syjy0p3q5yjb/public_html/videovizard.com/calltree/active_campaigns.php on line 211
+[18-Apr-2026 09:02:30 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/syjy0p3q5yjb/public_html/videovizard.com/calltree/active_campaigns.php on line 43
+[18-Apr-2026 09:02:30 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/syjy0p3q5yjb/public_html/videovizard.com/calltree/active_campaigns.php on line 53
+[18-Apr-2026 09:02:38 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/syjy0p3q5yjb/public_html/videovizard.com/calltree/active_campaigns.php on line 43
+[18-Apr-2026 09:02:38 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/syjy0p3q5yjb/public_html/videovizard.com/calltree/active_campaigns.php on line 53
+[18-Apr-2026 09:13:21 UTC] [vapi_call] CALL START — lead_id=1 | name=John Smith | phone=+14165551001 | campaign=1
+[18-Apr-2026 09:13:25 UTC] [vapi_call] CALL END — lead_id=1 | outcome=do_not_call | duration=4s
+[18-Apr-2026 09:13:38 UTC] [vapi_call] CALL START — lead_id=3 | name=Michael Brown | phone=+14375551003 | campaign=1
+[18-Apr-2026 09:13:42 UTC] [vapi_call] CALL END — lead_id=3 | outcome=invalid | duration=4s
+[18-Apr-2026 09:15:00 UTC] [vapi_call] CALL START — lead_id=2 | name=Sarah Johnson | phone=+16475551002 | campaign=1
+[18-Apr-2026 09:15:03 UTC] [vapi_call] CALL END — lead_id=2 | outcome=voicemail | duration=3s
+[18-Apr-2026 09:18:35 UTC] [vapi_call] CALL START — lead_id=3 | name=Michael Brown | phone=+14375551003 | campaign=1
+[18-Apr-2026 09:18:42 UTC] [vapi_call] CALL END — lead_id=3 | outcome=retry | duration=7s
+[18-Apr-2026 09:24:09 UTC] [vapi_call] CALL START — lead_id=4 | name=Emily Davis | phone=+14165551004 | campaign=1
+[18-Apr-2026 09:24:15 UTC] [vapi_call] CALL END — lead_id=4 | outcome=retry | duration=6s

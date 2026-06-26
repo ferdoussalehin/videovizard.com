@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>VideoWizard Quick Start</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #e5e7eb;
+  }
+
+  .btn {
+    background: #6366f1;
+    border: none;
+    padding: 14px 22px;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content {
+    background: #1e293b;
+    width: 92%;
+    max-width: 620px;
+    max-height: 85vh;
+    overflow-y: auto;
+    border-radius: 12px;
+    padding: 24px;
+    position: relative;
+  }
+
+  .close {
+    position: absolute;
+    right: 16px;
+    top: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #94a3b8;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+
+  .step {
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+
+  .step-number {
+    font-size: 30px;
+    font-weight: bold;
+    color: #a78bfa;
+    min-width: 30px;
+  }
+
+  .step-title {
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .desc {
+    font-size: 14px;
+    color: #cbd5e1;
+    line-height: 1.5;
+  }
+
+  .highlight {
+    color: #a78bfa;
+    font-weight: bold;
+  }
+</style>
+</head>
+
+<body>
+
+<button class="btn" onclick="openModal()">Quick Start Guide</button>
+
+<div class="modal" id="modal">
+  <div class="content">
+    <div class="close" onclick="closeModal()">✕</div>
+
+    <h2>🚀 How to Create Your Video</h2>
+
+    <div class="step">
+      <div class="step-header">
+        <div class="step-number">1</div>
+        <div class="step-title">Choose how you want to start</div>
+      </div>
+      <div class="desc">
+        Start by selecting how you'd like to create your video:<br><br>
+
+        <b>Script Generation</b> → Use this if you want to create a script from scratch.<br>
+        You can let AI fully generate the script for you, or guide it with your own inputs.<br><br>
+
+        <b>I Have Content</b> → Choose this if you already have a script ready.<br>
+        Simply paste your content and it will be automatically split into scenes.<br><br>
+
+        <b>Generate Campaign</b> → Select this if you want to create multiple videos at once.<br>
+        Ideal for planning content over a specific time period.
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-header">
+        <div class="step-number">2</div>
+        <div class="step-title">Set your video preferences</div>
+      </div>
+      <div class="desc">
+        Customize how your video should look and feel.<br>
+        Choose options like language, reel type, content goal, target audience, tone, and media style.<br><br>
+        When you're done, click <span class="highlight">“Save & Continue”</span>.
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-header">
+        <div class="step-number">3</div>
+        <div class="step-title">Provide your video details</div>
+      </div>
+      <div class="desc">
+        Enter the key information needed to generate your script.<br>
+        This includes your industry, niche, video idea, hook or style, duration, and call-to-action.<br><br>
+        Once everything is filled in, continue to generate your script.
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-header">
+        <div class="step-number">4</div>
+        <div class="step-title">Review and refine your script</div>
+      </div>
+      <div class="desc">
+        Go through the generated script carefully.<br>
+        Make any edits or adjustments to ensure it matches your message and style before moving forward.
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-header">
+        <div class="step-number">5</div>
+        <div class="step-title">Turn your script into a video</div>
+      </div>
+      <div class="desc">
+        Convert your finalized script into a video automatically with one click.
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-header">
+        <div class="step-number">6</div>
+        <div class="step-title">Edit and preview your video</div>
+      </div>
+      <div class="desc">
+        Customize your video by adjusting visuals, audio, and text styles.<br>
+        Use the preview to see how everything comes together and make final tweaks.
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-header">
+        <div class="step-number">7</div>
+        <div class="step-title">Generate your final video</div>
+      </div>
+      <div class="desc">
+        Once you're satisfied, render your video to produce the final version ready for export.
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-header">
+        <div class="step-number">8</div>
+        <div class="step-title">Download or publish</div>
+      </div>
+      <div class="desc">
+        Download your completed video or publish it directly to your social media platforms.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function openModal() {
+  document.getElementById('modal').style.display = 'flex';
+}
+
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+}
+
+window.onclick = function(e) {
+  if (e.target === document.getElementById('modal')) {
+    closeModal();
+  }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+const vidLibrary = [
+  // 🌌 Sky & Space
+  { url: 'https://assets.mixkit.co/videos/preview/mixkit-stars-in-the-night-sky-11640-large.mp4' },
+  { url: 'https://assets.mixkit.co/videos/preview/mixkit-galaxy-with-stars-1590-large.mp4' },
+  { url: 'https://assets.mixkit.co/videos/preview/mixkit-night-sky-with-stars-3971-large.mp4' },
+
+  // 🚗 Motion & Travel
+  { url: 'https://assets.mixkit.co/videos/preview/mixkit-driving-in-a-dark-tunnel-with-bright-lights-40046-large.mp4' },
+  { url: 'https://assets.mixkit.co/videos/preview/mixkit-driving-through-a-tunnel-at-night-38759-large.mp4' },
+  { url: 'https://assets.mixkit.co/videos/preview/mixkit-road-trip-through-mountains-20038-large.mp4' },
+
+  // 🌊 Water & Ocean
+  { url: 'https://assets.mixkit.co/videos/preview/mixkit-waves-in-the-ocean-1164-large.mp4' },
+  { url: 'https://assets.mixkit.co/videos/preview/mixkit-sea-waves-crashing-on-rocks-1188-large.mp4' },
+  { url: 'https://assets.mixkit.co/videos/preview/mixkit-waterfall-in-forest-2213-large.mp4' },
+
+  // 🌲 Nature & Forest
+  { url: 'https://assets.mixkit.co/videos/preview/mixkit-sunlight-coming-through-trees-4006-large.mp4' },
+  { url: 'https://assets.mixkit.co/videos/preview/mixkit-path-in-the-middle-of-a-forest-1109-large.mp4' },
+  { url: 'https://assets.mixkit.co/videos/preview/mixkit-misty-forest-in-the-mountains-1117-large.mp4' },
+
+  // ☁️ Clouds & Sky
+  { url: 'https://assets.mixkit.co/videos/preview/mixkit-clouds-moving-over-mountains-1987-large.mp4' },
+  { url: 'https://assets.mixkit.co/videos/preview/mixkit-time-lapse-of-clouds-1424-large.mp4' },
+  { url: 'https://assets.mixkit.co/videos/preview/mixkit-sky-with-moving-clouds-3158-large.mp4' },
+
+  // 🌄 Mountains & Landscapes
+  { url: 'https://assets.mixkit.co/videos/preview/mixkit-mountain-landscape-at-sunset-3306-large.mp4' },
+  { url: 'https://assets.mixkit.co/videos/preview/mixkit-mountain-range-under-clouds-4510-large.mp4' },
+  { url: 'https://assets.mixkit.co/videos/preview/mixkit-sunrise-over-mountains-2283-large.mp4' },
+
+  // 🔥 Abstract & Aesthetic
+  { url: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-light-moving-1244-large.mp4' },
+  { url: 'https://assets.mixkit.co/videos/preview/mixkit-colorful-particles-moving-1997-large.mp4' },
+  { url: 'https://assets.mixkit.co/videos/preview/mixkit-smoke-background-1184-large.mp4' }
+];

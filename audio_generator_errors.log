@@ -1,0 +1,8 @@
+[30-Dec-2025 22:34:15 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/script_azure_batch_generation.php:211
+Stack trace:
+#0 {main}
+  thrown in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/script_azure_batch_generation.php on line 211
+[30-Dec-2025 22:35:58 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/script_azure_batch_generation.php:211
+Stack trace:
+#0 {main}
+  thrown in /home/syjy0p3q5yjb/public_html/247onlinetherapy.com/script_azure_batch_generation.php on line 211

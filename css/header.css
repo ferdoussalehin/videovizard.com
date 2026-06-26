@@ -1,0 +1,87 @@
+/* VideoVizard Universal Header Styles */
+.vidora-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 12px 25px;
+    background: linear-gradient(90deg, #0f2a44, #143b63);
+    color: #fff;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.brand-container a {
+    text-decoration: none;
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px;
+}
+
+/* Force Icon to be Large */
+.main-icon {
+    font-size: 45px !important; /* Base size */
+    line-height: 1 !important;
+    display: block;
+    flex-shrink: 0; /* Prevents icon from getting squashed */
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.brand-video { color: #5fd1ff !important; } /* Theme Light Blue */
+.brand-vizard { color: #ffffff !important; }
+
+.tagline {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #cde9ff;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+/* Right-Aligned Navigation */
+.vidora-nav {
+    display: flex !important;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.vidora-nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 13px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.vidora-nav a:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.vidora-nav a.active {
+    background: #5fd1ff !important; /* Active light blue */
+    color: #0f2a44 !important;      /* Contrast dark text */
+    font-weight: 700;
+}
+
+/* Mobile Responsive adjustment */
+@media (max-width: 900px) {
+    .vidora-header { flex-direction: column; gap: 15px; text-align: center; }
+    .vidora-nav { justify-content: center; }
+    .brand-container a { justify-content: center; }
+}

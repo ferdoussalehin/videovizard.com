@@ -1,0 +1,253 @@
+[22-Apr-2026 06:41:05 UTC] === DASHBOARD LOADED at 2026-04-22 06:41:05 ===
+[22-Apr-2026 06:41:05 UTC] GET params: Array
+(
+)
+
+[22-Apr-2026 06:41:05 UTC] POST params: Array
+(
+)
+
+[22-Apr-2026 06:41:05 UTC] === DASHBOARD LOADED at 2026-04-22 06:41:05 ===
+[22-Apr-2026 06:41:05 UTC] GET params: Array
+(
+)
+
+[22-Apr-2026 06:41:05 UTC] POST params: Array
+(
+    [ajax_action] => get_rows
+    [filter] => recorded
+)
+
+[22-Apr-2026 06:41:05 UTC] === GET_ROWS CALLED ===
+[22-Apr-2026 06:41:05 UTC] Filter: recorded
+[22-Apr-2026 06:41:05 UTC] Client ID: 0
+[22-Apr-2026 06:41:05 UTC] Total rows for client_id 0: 123
+[22-Apr-2026 06:41:05 UTC] Rows with video_filename: 9
+[22-Apr-2026 06:41:05 UTC] Rows by status:
+[22-Apr-2026 06:41:05 UTC]   approval_required: 1
+[22-Apr-2026 06:41:05 UTC]   draft: 43
+[22-Apr-2026 06:41:05 UTC]   published: 15
+[22-Apr-2026 06:41:05 UTC]   ready: 59
+[22-Apr-2026 06:41:05 UTC]   RECORDED: 4
+[22-Apr-2026 06:41:05 UTC]   scheduled: 1
+[22-Apr-2026 06:41:05 UTC] Final query: SELECT p.*, u.user_name as admin_name 
+              FROM hdb_podcasts p 
+              LEFT JOIN hdb_users u ON p.admin_id = u.id 
+              WHERE p.client_id = '0' AND p.video_status = 'RECORDED' 
+              ORDER BY p.id DESC 
+              LIMIT 200
+[22-Apr-2026 06:41:05 UTC] Number of rows found: 4
+[22-Apr-2026 06:41:05 UTC] Row ID: 355, Title: Behind the Scenes: Making Authentic Dosa Batter, Video: podcast_355.mp4
+[22-Apr-2026 06:41:05 UTC]   Thumbnail URL: /podcast_images/podcast_355.jpg
+[22-Apr-2026 06:41:05 UTC] Row ID: 316, Title: Real Client Transformations: Hypnotherapy Success Stories, Video: podcast_316.webm
+[22-Apr-2026 06:41:05 UTC]   Thumbnail URL: /podcast_images/podcast_316.jpg
+[22-Apr-2026 06:41:05 UTC] Row ID: 304, Title: my test, Video: podcast_304.mp4
+[22-Apr-2026 06:41:05 UTC]   Thumbnail URL: /podcast_images/podcast_304.jpg
+[22-Apr-2026 06:41:05 UTC] Row ID: 302, Title: How to Conduct a Successful Industrial Property Tour, Video: podcast_302.mp4
+[22-Apr-2026 06:41:05 UTC]   Thumbnail URL: /podcast_images/podcast_302.jpg
+[22-Apr-2026 06:41:05 UTC] Returning 4 rows
+[22-Apr-2026 06:41:05 UTC] === DASHBOARD LOADED at 2026-04-22 06:41:05 ===
+[22-Apr-2026 06:41:05 UTC] GET params: Array
+(
+)
+
+[22-Apr-2026 06:41:05 UTC] POST params: Array
+(
+    [ajax_action] => get_stats
+)
+
+[22-Apr-2026 07:04:14 UTC] === DASHBOARD LOADED at 2026-04-22 07:04:14 ===
+[22-Apr-2026 07:04:14 UTC] GET params: Array
+(
+)
+
+[22-Apr-2026 07:04:14 UTC] POST params: Array
+(
+)
+
+[22-Apr-2026 07:04:14 UTC] === DASHBOARD LOADED at 2026-04-22 07:04:14 ===
+[22-Apr-2026 07:04:14 UTC] GET params: Array
+(
+)
+
+[22-Apr-2026 07:04:14 UTC] POST params: Array
+(
+    [ajax_action] => get_rows
+    [filter] => recorded
+)
+
+[22-Apr-2026 07:04:14 UTC] === GET_ROWS CALLED ===
+[22-Apr-2026 07:04:14 UTC] Filter: recorded
+[22-Apr-2026 07:04:14 UTC] Company ID: 50
+[22-Apr-2026 07:04:14 UTC] Final query: SELECT p.*, u.user_name as admin_name 
+                      FROM hdb_podcasts p 
+                      LEFT JOIN hdb_users u ON p.admin_id = u.id 
+                      WHERE p.client_id = '50' AND p.video_status = 'RECORDED' 
+                      ORDER BY p.id DESC 
+                      LIMIT 200
+[22-Apr-2026 07:04:14 UTC] === DASHBOARD LOADED at 2026-04-22 07:04:14 ===
+[22-Apr-2026 07:04:14 UTC] GET params: Array
+(
+)
+
+[22-Apr-2026 07:04:14 UTC] POST params: Array
+(
+    [ajax_action] => get_stats
+)
+
+[22-Apr-2026 16:54:33 UTC] === DASHBOARD LOADED at 2026-04-22 16:54:33 ===
+[22-Apr-2026 16:54:33 UTC] GET params: Array
+(
+)
+
+[22-Apr-2026 16:54:33 UTC] POST params: Array
+(
+)
+
+[22-Apr-2026 16:54:34 UTC] === DASHBOARD LOADED at 2026-04-22 16:54:34 ===
+[22-Apr-2026 16:54:34 UTC] GET params: Array
+(
+)
+
+[22-Apr-2026 16:54:34 UTC] POST params: Array
+(
+    [ajax_action] => get_rows
+    [filter] => recorded
+)
+
+[22-Apr-2026 16:54:34 UTC] === GET_ROWS CALLED ===
+[22-Apr-2026 16:54:34 UTC] Filter: recorded
+[22-Apr-2026 16:54:34 UTC] Company ID: 
+[22-Apr-2026 16:54:34 UTC] Final query: SELECT p.*, u.user_name as admin_name 
+                      FROM hdb_podcasts p 
+                      LEFT JOIN hdb_users u ON p.admin_id = u.id 
+                      WHERE p.client_id = '' AND p.video_status = 'RECORDED' 
+                      ORDER BY p.id DESC 
+                      LIMIT 200
+[22-Apr-2026 16:54:34 UTC] === DASHBOARD LOADED at 2026-04-22 16:54:34 ===
+[22-Apr-2026 16:54:34 UTC] GET params: Array
+(
+)
+
+[22-Apr-2026 16:54:34 UTC] POST params: Array
+(
+    [ajax_action] => get_stats
+)
+
+[23-Apr-2026 20:51:52 UTC] === DASHBOARD LOADED at 2026-04-23 20:51:52 ===
+[23-Apr-2026 20:51:52 UTC] GET params: Array
+(
+)
+
+[23-Apr-2026 20:51:52 UTC] POST params: Array
+(
+)
+
+[23-Apr-2026 20:51:52 UTC] === DASHBOARD LOADED at 2026-04-23 20:51:52 ===
+[23-Apr-2026 20:51:52 UTC] GET params: Array
+(
+)
+
+[23-Apr-2026 20:51:52 UTC] POST params: Array
+(
+    [ajax_action] => get_rows
+    [filter] => recorded
+)
+
+[23-Apr-2026 20:51:52 UTC] === GET_ROWS CALLED ===
+[23-Apr-2026 20:51:52 UTC] Filter: recorded
+[23-Apr-2026 20:51:52 UTC] Company ID: 0
+[23-Apr-2026 20:51:52 UTC] Final query: SELECT p.*, u.user_name as admin_name 
+                      FROM hdb_podcasts p 
+                      LEFT JOIN hdb_users u ON p.admin_id = u.id 
+                      WHERE p.client_id = '0' AND p.video_status = 'RECORDED' 
+                      ORDER BY p.id DESC 
+                      LIMIT 200
+[23-Apr-2026 20:51:52 UTC] === DASHBOARD LOADED at 2026-04-23 20:51:52 ===
+[23-Apr-2026 20:51:52 UTC] GET params: Array
+(
+)
+
+[23-Apr-2026 20:51:52 UTC] POST params: Array
+(
+    [ajax_action] => get_stats
+)
+
+[23-Apr-2026 20:54:51 UTC] === DASHBOARD LOADED at 2026-04-23 20:54:51 ===
+[23-Apr-2026 20:54:51 UTC] GET params: Array
+(
+)
+
+[23-Apr-2026 20:54:51 UTC] POST params: Array
+(
+    [ajax_action] => get_rows
+    [filter] => recorded
+)
+
+[23-Apr-2026 20:54:51 UTC] === GET_ROWS CALLED ===
+[23-Apr-2026 20:54:51 UTC] Filter: recorded
+[23-Apr-2026 20:54:51 UTC] Company ID: 0
+[23-Apr-2026 20:54:51 UTC] Final query: SELECT p.*, u.user_name as admin_name 
+                      FROM hdb_podcasts p 
+                      LEFT JOIN hdb_users u ON p.admin_id = u.id 
+                      WHERE p.client_id = '0' AND p.video_status = 'RECORDED' 
+                      ORDER BY p.id DESC 
+                      LIMIT 200
+[23-Apr-2026 20:57:24 UTC] === DASHBOARD LOADED at 2026-04-23 20:57:24 ===
+[23-Apr-2026 20:57:24 UTC] GET params: Array
+(
+)
+
+[23-Apr-2026 20:57:24 UTC] POST params: Array
+(
+    [ajax_action] => get_row
+    [id] => 418
+)
+
+[23-Apr-2026 20:57:42 UTC] === DASHBOARD LOADED at 2026-04-23 20:57:42 ===
+[23-Apr-2026 20:57:42 UTC] GET params: Array
+(
+)
+
+[23-Apr-2026 20:57:42 UTC] POST params: Array
+(
+    [ajax_action] => update_row
+    [id] => 418
+    [schedule_date] => 2026-04-24
+    [schedule_time] => 09:00
+    [video_status] => RECORDED
+    [caption_text] => Is social anxiety impacting your daily life? Discover how hypnotherapy can help you reclaim your confidence and live fully. Visit our website today!
+    [hashtags] => #SocialAnxiety #Hypnotherapy #MentalHealth #AnxietyRelief #Mindfulness #SelfHelp #WellnessJourney #OvercomingFear #EmotionalWellbeing #AnxietyAwareness
+    [keywords] => social anxiety, hypnotherapy, mental health, anxiety relief, overcoming fear, emotional wellbeing, mindfulness, self-help
+)
+
+[23-Apr-2026 20:57:42 UTC] === DASHBOARD LOADED at 2026-04-23 20:57:42 ===
+[23-Apr-2026 20:57:42 UTC] GET params: Array
+(
+)
+
+[23-Apr-2026 20:57:42 UTC] POST params: Array
+(
+    [ajax_action] => get_rows
+    [filter] => recorded
+)
+
+[23-Apr-2026 20:57:42 UTC] === GET_ROWS CALLED ===
+[23-Apr-2026 20:57:42 UTC] Filter: recorded
+[23-Apr-2026 20:57:42 UTC] Company ID: 0
+[23-Apr-2026 20:57:42 UTC] Final query: SELECT p.*, u.user_name as admin_name 
+                      FROM hdb_podcasts p 
+                      LEFT JOIN hdb_users u ON p.admin_id = u.id 
+                      WHERE p.client_id = '0' AND p.video_status = 'RECORDED' 
+                      ORDER BY p.id DESC 
+                      LIMIT 200
+[23-Apr-2026 20:57:42 UTC] === DASHBOARD LOADED at 2026-04-23 20:57:42 ===
+[23-Apr-2026 20:57:42 UTC] GET params: Array
+(
+)
+
+[23-Apr-2026 20:57:42 UTC] POST params: Array
+(
+    [ajax_action] => get_stats
+)
+

@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WAN Video Generator</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d0f;
+    --surface: #161618;
+    --surface2: #1e1e21;
+    --border: #2a2a2e;
+    --border2: #3a3a3f;
+    --orange: #ff6b2c;
+    --orange-dim: #ff6b2c22;
+    --orange-glow: #ff6b2c40;
+    --green: #22c55e;
+    --green-dim: #22c55e18;
+    --red: #ef4444;
+    --red-dim: #ef444418;
+    --yellow: #f59e0b;
+    --yellow-dim: #f59e0b18;
+    --text: #f0f0f2;
+    --text2: #9090a0;
+    --text3: #55555f;
+    --radius: 10px;
+    --radius-sm: 6px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    min-height: 100vh;
+  }
+
+  /* ── Layout ── */
+  .page { max-width: 960px; margin: 0 auto; padding: 32px 20px 60px; }
+
+  /* ── Header ── */
+  .header {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .header-icon {
+    width: 46px; height: 46px; border-radius: 12px;
+    background: var(--orange); display: flex; align-items: center; justify-content: center;
+    font-size: 22px; flex-shrink: 0;
+  }
+  .header h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
+  .header p { font-size: 13px; color: var(--text2); margin-top: 2px; }
+  .header-badge {
+    margin-left: auto; padding: 5px 12px; border-radius: 99px;
+    border: 1px solid var(--border2); font-size: 11px; color: var(--text2);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ── Grid ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+
+  /* ── Cards ── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .card-title {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--text2);
+    margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+  }
+  .card-title::before {
+    content: ''; width: 3px; height: 12px;
+    background: var(--orange); border-radius: 2px; flex-shrink: 0;
+  }
+
+  /* ── Stat cards ── */
+  .stat {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+  }
+  .stat-label { font-size: 11px; color: var(--text3); margin-bottom: 6px; }
+  .stat-value { font-size: 28px; font-weight: 700; letter-spacing: -1px; }
+  .stat-sub { font-size: 11px; color: var(--text3); margin-top: 3px; }
+  .stat-orange .stat-value { color: var(--orange); }
+  .stat-green .stat-value { color: var(--green); }
+  .stat-yellow .stat-value { color: var(--yellow); }
+
+  /* ── Form elements ── */
+  label { display: block; font-size: 11px; color: var(--text2); margin-bottom: 6px; font-weight: 500; }
+  input[type=number], input[type=text] {
+    width: 100%;
+    height: 40px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    padding: 0 12px;
+    transition: border-color 0.15s;
+  }
+  input:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 0 3px var(--orange-glow); }
+
+  /* ── Buttons ── */
+  .btn-start {
+    height: 48px; padding: 0 28px;
+    background: var(--orange); color: #fff;
+    border: none; border-radius: var(--radius-sm);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px; font-weight: 600;
+    cursor: pointer; display: inline-flex; align-items: center; gap: 10px;
+    transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+    letter-spacing: -0.2px;
+  }
+  .btn-start:hover { background: #e85718; box-shadow: 0 4px 20px var(--orange-glow); }
+  .btn-start:active { transform: scale(0.97); }
+  .btn-start:disabled { background: #333; color: var(--text3); cursor: not-allowed; box-shadow: none; transform: none; }
+
+  .btn-ghost {
+    height: 36px; padding: 0 16px;
+    background: transparent; color: var(--text2);
+    border: 1px solid var(--border2); border-radius: var(--radius-sm);
+    font-family: 'Space Grotesk', sans-serif; font-size: 13px;
+    cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+    transition: background 0.12s, color 0.12s, border-color 0.12s;
+  }
+  .btn-ghost:hover { background: var(--surface2); color: var(--text); border-color: var(--border2); }
+
+  .btn-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+
+  /* ── Status pill ── */
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 12px; border-radius: 99px;
+    font-size: 12px; font-weight: 500;
+    border: 1px solid transparent;
+  }
+  .pill-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+  .pill-idle { background: var(--surface2); color: var(--text3); border-color: var(--border); }
+  .pill-processing { background: var(--orange-dim); color: var(--orange); border-color: var(--orange-glow); }
+  .pill-done { background: var(--green-dim); color: var(--green); border-color: #22c55e30; }
+  .pill-error { background: var(--red-dim); color: var(--red); border-color: #ef444430; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+  .blink { animation: blink 1.2s infinite; }
+
+  /* ── Progress bar ── */
+  .progress-wrap {
+    background: var(--surface2); border-radius: 99px; height: 6px;
+    overflow: hidden; margin: 12px 0 8px;
+  }
+  .progress-fill {
+    height: 100%; border-radius: 99px;
+    background: linear-gradient(90deg, var(--orange), #ffaa44);
+    transition: width 0.5s ease;
+    width: 0%;
+  }
+  .progress-labels { display: flex; justify-content: space-between; font-size: 11px; color: var(--text3); }
+
+  /* ── Scene table ── */
+  .scene-table { width: 100%; border-collapse: collapse; }
+  .scene-table th {
+    text-align: left; font-size: 10px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--text3); padding: 0 12px 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .scene-table td {
+    padding: 11px 12px;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px; vertical-align: middle;
+  }
+  .scene-table tr:last-child td { border-bottom: none; }
+  .scene-table tr.row-active td { background: var(--orange-dim); }
+  .scene-table tr.row-done td { background: var(--green-dim); }
+  .scene-table tr.row-error td { background: var(--red-dim); }
+
+  .scene-num {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--surface2); border: 1px solid var(--border2);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 600; color: var(--text2);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .row-active .scene-num { background: var(--orange); border-color: var(--orange); color: #fff; }
+  .row-done .scene-num { background: var(--green); border-color: var(--green); color: #fff; }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 3px 9px; border-radius: 99px; font-size: 11px; font-weight: 500;
+  }
+  .badge-pending { background: var(--surface2); color: var(--text3); }
+  .badge-processing { background: var(--orange-dim); color: var(--orange); }
+  .badge-done { background: var(--green-dim); color: var(--green); }
+  .badge-error { background: var(--red-dim); color: var(--red); }
+  .badge-skipped { background: var(--yellow-dim); color: var(--yellow); }
+
+  .file-mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--text2);
+    word-break: break-all;
+  }
+
+  /* ── Spinner ── */
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .spin { display: inline-block; width: 14px; height: 14px; border: 2px solid #fff4; border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite; }
+
+  /* ── Video preview ── */
+  .video-wrap {
+    background: #000; border-radius: var(--radius-sm);
+    overflow: hidden; position: relative;
+    border: 1px solid var(--border);
+  }
+  .video-wrap video { width: 100%; max-height: 420px; display: block; }
+  .video-info {
+    padding: 12px 16px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid var(--border);
+  }
+  .video-filename { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text2); }
+  .video-dl {
+    font-size: 12px; color: var(--orange); text-decoration: none;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .video-dl:hover { text-decoration: underline; }
+  .no-video {
+    padding: 40px 20px; text-align: center;
+    color: var(--text3); font-size: 13px;
+  }
+  .no-video .icon { font-size: 36px; margin-bottom: 10px; display: block; }
+
+  /* ── Log ── */
+  .log {
+    background: var(--surface2); border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    max-height: 140px; overflow-y: auto; line-height: 1.9;
+    border: 1px solid var(--border);
+  }
+  .log-line { display: block; }
+  .log-ok { color: var(--green); }
+  .log-err { color: var(--red); }
+  .log-warn { color: var(--yellow); }
+  .log-info { color: #6ab4ff; }
+  .log-dim { color: var(--text3); }
+
+  /* ── Empty state ── */
+  .empty {
+    text-align: center; padding: 36px 20px;
+    color: var(--text3); font-size: 13px;
+  }
+  .empty-icon { font-size: 32px; display: block; margin-bottom: 10px; }
+
+  /* ── Scrollbar ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-icon">🎬</div>
+    <div>
+      <h1>WAN Video Generator</h1>
+      <p>Send scenes to Modal.com · Download &amp; save to user_videos/</p>
+    </div>
+    <div class="header-badge">wan_text2_video_api.php</div>
+  </div>
+
+  <!-- Stats -->
+  <div class="grid-3">
+    <div class="stat stat-orange">
+      <div class="stat-label">Total scenes</div>
+      <div class="stat-value" id="m-total">—</div>
+      <div class="stat-sub">in hdb_podcast_stories</div>
+    </div>
+    <div class="stat stat-green">
+      <div class="stat-label">Completed</div>
+      <div class="stat-value" id="m-done">—</div>
+      <div class="stat-sub">saved to user_videos/</div>
+    </div>
+    <div class="stat stat-yellow">
+      <div class="stat-label">Pending</div>
+      <div class="stat-value" id="m-pending">—</div>
+      <div class="stat-sub">awaiting generation</div>
+    </div>
+  </div>
+
+  <!-- Config -->
+  <div class="card">
+    <div class="card-title">Configuration</div>
+    <div class="grid-2" style="margin-bottom:0">
+      <div>
+        <label>Podcast ID</label>
+        <input type="number" id="inp-podcast" placeholder="e.g. 123" min="1">
+      </div>
+      <div>
+        <label>Resolution</label>
+        <input type="text" id="inp-res" value="720*1280">
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn-start" id="btn-start" onclick="startGeneration()">
+        ▶&nbsp; Start generation
+      </button>
+      <button class="btn-ghost" onclick="pollStatus()">↻ Refresh status</button>
+      <button class="btn-ghost" onclick="resetPodcast()">⟳ Reset podcast</button>
+      <span id="status-pill" class="pill pill-idle">
+        <span class="pill-dot"></span>Idle
+      </span>
+    </div>
+  </div>
+
+  <!-- Progress -->
+  <div class="card">
+    <div class="card-title">Generation progress</div>
+    <div class="progress-wrap"><div class="progress-fill" id="prog-bar"></div></div>
+    <div class="progress-labels">
+      <span id="prog-label">No podcast loaded</span>
+      <span id="prog-pct">0%</span>
+    </div>
+  </div>
+
+  <!-- Scene rows -->
+  <div class="card">
+    <div class="card-title">Scene rows — hdb_podcast_stories</div>
+    <div id="scene-container">
+      <div class="empty">
+        <span class="empty-icon">🗄️</span>
+        Enter a podcast ID above and click Start or Refresh
+      </div>
+    </div>
+  </div>
+
+  <!-- Video preview -->
+  <div class="card">
+    <div class="card-title">Generated video</div>
+    <div class="video-wrap" id="video-wrap">
+      <div class="no-video">
+        <span class="icon">🎥</span>
+        Video will appear here after generation completes
+      </div>
+    </div>
+  </div>
+
+  <!-- Log -->
+  <div class="card">
+    <div class="card-title">Activity log</div>
+    <div class="log" id="log"></div>
+    <div style="display:flex;justify-content:flex-end;margin-top:10px">
+      <button class="btn-ghost" onclick="clearLog()">Clear log</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const API = 'wan_text2_video_api.php';
+let pollTimer = null;
+
+/* ── Logging ── */
+function log(msg, type='dim') {
+  const box = document.getElementById('log');
+  const ts = new Date().toLocaleTimeString();
+  const el = document.createElement('span');
+  el.className = 'log-line log-' + type;
+  el.textContent = '[' + ts + '] ' + msg;
+  box.appendChild(el);
+  box.scrollTop = box.scrollHeight;
+}
+function clearLog() { document.getElementById('log').innerHTML = ''; }
+
+/* ── Status pill ── */
+function setPill(state) {
+  const p = document.getElementById('status-pill');
+  const map = {
+    idle:       ['pill-idle',       'Idle'],
+    processing: ['pill-processing', 'Processing…'],
+    all_done:   ['pill-done',       'All done ✓'],
+    error:      ['pill-error',      'Error']
+  };
+  const [cls, label] = map[state] || ['pill-idle','Idle'];
+  p.className = 'pill ' + cls;
+  const dot = document.createElement('span');
+  dot.className = 'pill-dot' + (state === 'processing' ? ' blink' : '');
+  p.innerHTML = '';
+  p.appendChild(dot);
+  p.appendChild(document.createTextNode(label));
+}
+
+/* ── Metrics ── */
+function setMetrics(total, done, pending) {
+  document.getElementById('m-total').textContent   = total   ?? '—';
+  document.getElementById('m-done').textContent    = done    ?? '—';
+  document.getElementById('m-pending').textContent = pending ?? '—';
+}
+
+/* ── Progress ── */
+function setProgress(done, total) {
+  const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+  document.getElementById('prog-bar').style.width = pct + '%';
+  document.getElementById('prog-pct').textContent = pct + '%';
+  document.getElementById('prog-label').textContent =
+    total > 0 ? done + ' of ' + total + ' scenes complete' : 'No scenes found';
+}
+
+/* ── Scene table ── */
+function renderScenes(stories) {
+  const container = document.getElementById('scene-container');
+  if (!stories || stories.length === 0) {
+    container.innerHTML = '<div class="empty"><span class="empty-icon">📭</span>No scenes found for this podcast</div>';
+    return;
+  }
+
+  let html = '<table class="scene-table"><thead><tr>'
+    + '<th>#</th><th>Story ID</th><th>Status</th><th>Saved file</th>'
+    + '</tr></thead><tbody>';
+
+  stories.forEach((s, i) => {
+    let rowClass = '';
+    let badgeHtml = '';
+    let fileHtml = '<span class="file-mono" style="color:var(--text3)">—</span>';
+
+    if (s.state === 'done') {
+      rowClass = 'row-done';
+      badgeHtml = '<span class="badge badge-done">✓ Done</span>';
+      if (s.video_file) {
+        fileHtml = '<span class="file-mono">' + escHtml(s.video_file) + '</span>';
+      }
+    } else if (s.state === 'processing') {
+      rowClass = 'row-active';
+      badgeHtml = '<span class="badge badge-processing"><span class="spin"></span> Generating…</span>';
+    } else if (s.state === 'skipped') {
+      badgeHtml = '<span class="badge badge-skipped">Skipped</span>';
+    } else if (s.state === 'error') {
+      rowClass = 'row-error';
+      badgeHtml = '<span class="badge badge-error">Error</span>';
+    } else {
+      badgeHtml = '<span class="badge badge-pending">Pending</span>';
+    }
+
+    html += '<tr class="' + rowClass + '">'
+      + '<td><span class="scene-num">' + (i + 1) + '</span></td>'
+      + '<td style="font-family:\'JetBrains Mono\',monospace;font-size:12px">#' + s.story_id + '</td>'
+      + '<td>' + badgeHtml + '</td>'
+      + '<td>' + fileHtml + '</td>'
+      + '</tr>';
+  });
+
+  html += '</tbody></table>';
+  container.innerHTML = html;
+}
+
+/* ── Video preview ── */
+function showVideo(videoFile, storyId) {
+  if (!videoFile) return;
+  const wrap = document.getElementById('video-wrap');
+  wrap.innerHTML =
+    '<video controls autoplay muted src="' + escAttr(videoFile) + '"></video>'
+    + '<div class="video-info">'
+    + '<span class="video-filename">user_videos/' + escHtml(videoFile.split('/').pop()) + ' &nbsp;·&nbsp; Story #' + storyId + '</span>'
+    + '<a class="video-dl" href="' + escAttr(videoFile) + '" download>⬇ Download</a>'
+    + '</div>';
+}
+
+/* ── API call ── */
+async function api(params) {
+  try {
+    const r = await fetch(API + '?' + new URLSearchParams(params));
+    return await r.json();
+  } catch(e) {
+    log('Fetch error: ' + e.message, 'err');
+    return null;
+  }
+}
+
+/* ── Poll status ── */
+async function pollStatus() {
+  const pid = getPodcastId();
+  if (!pid) { log('No podcast ID entered', 'warn'); return; }
+
+  const data = await api({ action: 'status', podcast_id: pid });
+  if (!data) return;
+
+  setMetrics(data.total_stories, data.done_stories, data.pending_stories);
+  setProgress(data.done_stories || 0, data.total_stories || 0);
+  setPill(data.status || 'idle');
+
+  if (data.stories) renderScenes(data.stories);
+
+  // Show video if any done
+  if (data.stories) {
+    const doneScenes = data.stories.filter(s => s.state === 'done' && s.video_file);
+    if (doneScenes.length > 0) {
+      const last = doneScenes[doneScenes.length - 1];
+      showVideo(last.video_file, last.story_id);
+    }
+  }
+
+  if (data.status === 'processing') {
+    log(data.done_stories + '/' + data.total_stories + ' done — ' + (data.message || ''), 'info');
+    if (!pollTimer) pollTimer = setInterval(pollStatus, 3000);
+  } else {
+    clearInterval(pollTimer); pollTimer = null;
+    if (data.status === 'all_done') {
+      log('All done! ' + data.message, 'ok');
+      enableStart();
+    } else if (data.status === 'idle') {
+      log('Status: idle. ' + (data.message || ''), 'dim');
+      enableStart();
+    }
+  }
+}
+
+/* ── Start ── */
+async function startGeneration() {
+  const pid = getPodcastId();
+  if (!pid) { log('Enter a valid podcast ID first', 'err'); return; }
+
+  disableStart();
+  log('Starting generation for podcast #' + pid + '…', 'info');
+  setPill('processing');
+
+  const data = await api({ action: 'start', podcast_id: pid });
+  if (!data) { enableStart(); setPill('error'); return; }
+
+  log(data.message || JSON.stringify(data), data.success ? 'info' : 'err');
+
+  if (data.status === 'started' || data.status === 'processing') {
+    // Immediately poll to get scene list
+    await pollStatus();
+    if (!pollTimer) pollTimer = setInterval(pollStatus, 3000);
+  } else if (data.status === 'all_done') {
+    setPill('all_done');
+    enableStart();
+    await pollStatus();
+  } else {
+    setPill('error');
+    enableStart();
+  }
+}
+
+/* ── Reset ── */
+async function resetPodcast() {
+  const pid = getPodcastId();
+  if (!pid) { log('Enter podcast ID to reset', 'err'); return; }
+  if (!confirm('Reset podcast #' + pid + '? This clears progress and DB entries.')) return;
+  clearInterval(pollTimer); pollTimer = null;
+
+  const data = await api({ action: 'reset', podcast_id: pid });
+  if (data) {
+    log(data.message || 'Reset done', 'ok');
+    setPill('idle');
+    setMetrics(null, null, null);
+    setProgress(0, 0);
+    document.getElementById('scene-container').innerHTML =
+      '<div class="empty"><span class="empty-icon">🔄</span>Reset complete — ready for fresh generation</div>';
+    document.getElementById('video-wrap').innerHTML =
+      '<div class="no-video"><span class="icon">🎥</span>Video will appear here after generation completes</div>';
+    enableStart();
+  }
+}
+
+/* ── Helpers ── */
+function getPodcastId() { return parseInt(document.getElementById('inp-podcast').value) || 0; }
+
+function disableStart() {
+  const b = document.getElementById('btn-start');
+  b.disabled = true;
+  b.innerHTML = '<span class="spin"></span>&nbsp; Generating…';
+}
+function enableStart() {
+  const b = document.getElementById('btn-start');
+  b.disabled = false;
+  b.innerHTML = '▶&nbsp; Start generation';
+}
+
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function escAttr(s) { return escHtml(s); }
+
+// Boot
+log('Ready. Enter podcast ID and press Start.', 'dim');
+</script>
+</body>
+</html>

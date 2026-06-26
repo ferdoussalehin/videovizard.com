@@ -1,0 +1,995 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --dark-blue: #0f2a44;
+    --mid-blue: #143b63;
+    --accent: #5fd1ff;
+    --green: #10b981;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --bg: #f8fafc;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 12px rgba(0,0,0,0.08);
+    --shadow-hover: 0 8px 24px rgba(0,0,0,0.12);
+    --error: #ef4444;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --info: #3b82f6;
+    --purple: #8b5cf6;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+}
+
+/* Header */
+.vidora-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: linear-gradient(90deg, #0f2a44, #143b63);
+    color: #fff;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.brand-container a { 
+    text-decoration: none; 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+}
+
+.main-icon { font-size: 24px; }
+.brand-text { display: flex; flex-direction: column; }
+.logo { font-size: 18px; font-weight: 700; }
+.brand-video { color: white; }
+.brand-vizard { color: var(--accent); }
+
+/* Main Container */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 16px;
+    width: 100%;
+}
+
+/* Info Card */
+.info-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    padding: 16px;
+}
+
+.info-card h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--dark-blue);
+    margin-bottom: 4px;
+}
+
+/* ===== MAIN CANVAS CARD - THIS CONTROLS THE BLACK BOX SIZE ===== */
+.canvas-card {
+    background: var(--card-bg);
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-hover);
+    overflow: hidden;
+    margin-bottom: 20px;
+    width: 100%;
+	max-width: 450px;  /* ← CHANGE THIS NUMBER to control max width */
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+/* Desktop size control - THIS IS WHAT YOU WANT TO ADJUST */
+@media (min-width: 769px) {
+    #canvasContainer {
+        max-width: 320px;  /* ← CHANGE THIS NUMBER to make canvas bigger/smaller */
+        /* Options:
+           300px - Very compact
+           320px - Small (good for most laptops)
+           350px - Medium
+           400px - Large
+           450px - Very large
+        */
+    }
+}
+
+/* Tablet size */
+@media (min-width: 1024px) {
+    #canvasContainer {
+        max-width: 350px;  /* Slightly larger on bigger screens */
+    }
+}
+
+
+
+
+.overlay-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    border: 2px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+    pointer-events: auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.overlay-icon:hover {
+    transform: scale(1.1);
+    background: var(--accent);
+    border-color: white;
+}
+
+.overlay-icon.active {
+    background: var(--info) !important;
+    border-color: white !important;
+}
+
+/* Navigation Arrows */
+.nav-arrows {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 16px;
+    background: #fff;
+    border-top: 1px solid var(--border);
+}
+
+.nav-arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--info);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 20px;
+    color: white;
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+}
+
+.nav-arrow:hover {
+    background: #2563eb;
+    transform: scale(1.05);
+}
+
+.scene-indicator {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark-blue);
+    background: #f1f5f9;
+    padding: 8px 20px;
+    border-radius: 30px;
+    border: 1px solid var(--border);
+}
+
+/* Settings Panel */
+.settings-panel {
+    background: #fff;
+    padding: 16px;
+    border-top: 1px solid var(--border);
+    display: none;
+}
+
+.settings-panel.active {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Three-dot Menu */
+.three-dot-menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(4px);
+    border: 2px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    z-index: 50;
+    transition: all 0.2s;
+}
+
+.three-dot-menu:hover {
+    background: var(--accent);
+    border-color: white;
+}
+
+/* Action Menu */
+.action-menu {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    z-index: 100;
+    min-width: 160px;
+    display: none;
+    border: 1px solid var(--border);
+}
+
+.action-menu.active {
+    display: block;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.action-menu-item {
+    padding: 14px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--border);
+}
+
+.action-menu-item:hover {
+    background: var(--info);
+    color: white;
+}
+
+/* Video Play Button */
+.video-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: rgba(0,0,0,0.7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 30;
+    border: 3px solid rgba(255,255,255,0.3);
+    transition: all 0.3s ease;
+}
+
+.video-play-button:hover {
+    background: var(--info);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.play-icon {
+    color: white;
+    font-size: 40px;
+    margin-left: 5px;
+}
+
+/* Log Box */
+.log-box {
+    width: 100%;
+    height: 100px;
+    background: #0f172a;
+    color: #a5f3fc;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    padding: 12px;
+    border-radius: 12px;
+    border: 2px solid #334155;
+    resize: vertical;
+    margin-top: 20px;
+}
+
+/* Footer */
+.site-footer {
+    background: linear-gradient(90deg, #0f2a44, #143b63);
+    color: rgba(255,255,255,0.55);
+    padding: 16px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.footer-brand { font-weight: 700; color: var(--accent); }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { color: rgba(255,255,255,0.55); text-decoration: none; }
+.footer-links a:hover { color: var(--accent); }
+
+/* Utility Classes */
+.hidden { display: none !important; }
+
+/* Development badge */
+.development-badge {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(255, 193, 7, 0.9);
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    z-index: 9999;
+}
+
+/* Dropdown styling */
+.emoji-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 180px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    z-index: 100;
+    padding: 6px;
+    margin-top: 4px;
+    display: none;
+}
+
+.dropdown-item {
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+    background: #f1f5f9;
+}
+
+/* Pan Controls */
+.canvas-pan-controls {
+    position: absolute;
+    top: 100%;
+    right: 10px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 30;
+}
+
+.pan-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.8);
+    border: 3px solid rgba(255,255,255,0.3);
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Video thumbnail indicator */
+.video-thumb-indicator {
+    display: none;
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    background: var(--info);
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+.image-thumb div:first-child {
+    position: relative;
+}
+/* Better mobile video handling */
+#hiddenBackgroundVideo {
+    object-fit: cover !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: #000;
+}
+
+/* Ensure video plays inline on mobile */
+video {
+    -webkit-video-playable-inline: true;
+}
+
+/* ===== FIX LAYERING ISSUES ===== */
+.canvas-container {
+    position: relative;
+    width: 100%;
+    background: #FEEBE7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+
+/* Background video/image - should be at the bottom */
+#hiddenBackgroundVideo,
+.current-background-image,
+.fabric-canvas-background {
+    z-index: 1 !important;
+    pointer-events: none !important;
+}
+
+/* Fabric canvas - should be above background */
+#fabricCanvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+.canvas-top-bar {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    pointer-events: none; /* Allow clicks to pass through to children */
+}
+
+/* All interactive elements inside top bar need pointer-events: auto */
+.canvas-top-bar > * {
+    pointer-events: auto;
+}
+
+
+/* All captions/text/images added to fabric should be above background */
+.fabric-canvas-object {
+    z-index: 10 !important;
+}
+
+/* Video play button - above everything */
+.video-play-button {
+    z-index: 50 !important;
+}
+
+
+
+/* Three-dot menu - highest */
+.three-dot-menu {
+    z-index: 200 !important;
+}
+
+fabricCanvas = new fabric.Canvas('fabricCanvas', {
+    width: canvasWidth,
+    height: canvasHeight,
+    backgroundColor: '#1e293b',  // <-- CHANGE THIS
+    preserveObjectStacking: true,
+    allowTouchScrolling: false,
+    selection: true
+});
+
+.overlay-icons {
+    display: flex;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    padding: 6px;
+    border-radius: 40px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.overlay-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    font-size: 22px;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.overlay-icon:hover { 
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+}
+
+.overlay-icon.active {
+    background: #2563eb;
+    border-color: white;
+}
+
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Back icon special styling */
+.back-icon {
+    background: rgba(255, 255, 255, 0.25) !important;
+    font-size: 22px !important;
+}
+
+.back-icon:hover {
+    background: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Make sure overlay icons have consistent size */
+.overlay-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.overlay-icon:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.overlay-icon.active {
+    background: #2563eb;
+    border-color: white;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .overlay-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+    }
+    
+    .secondary-icons {
+        flex-wrap: wrap;
+        max-width: 300px;
+        padding: 6px;
+    }
+}
+
+
+/* Both primary and secondary icons share the same styling */
+.primary-icons, .secondary-icons {
+    display: flex;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 8px;
+    border-radius: 60px;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    pointer-events: auto; /* Icons themselves are clickable */
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Individual icon styling */
+.overlay-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.overlay-icon:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.overlay-icon.active {
+    background: #2563eb;
+    border-color: white;
+}
+
+/* Back icon special styling */
+.back-icon {
+    background: rgba(255, 255, 255, 0.25) !important;
+    font-size: 22px !important;
+}
+
+.back-icon:hover {
+    background: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .icon-container {
+        top: 10px;
+        left: 10px;
+    }
+    
+    .overlay-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+    }
+    
+    .primary-icons, .secondary-icons {
+        flex-wrap: wrap;
+        max-width: 300px;
+    }
+}
+/* Icon Container - Fixed position on canvas */
+.icon-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    pointer-events: none;
+}
+/* Secondary Icons (10 text icons) - VERTICAL on ALL devices */
+.secondary-icons {
+    display: flex;
+    flex-direction: column; /* VERTICAL - this is the key change */
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 10px;
+    border-radius: 40px; /* More rounded for vertical stack */
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    pointer-events: auto;
+    animation: fadeIn 0.2s ease;
+    max-height: 80vh; /* Limit height */
+    overflow-y: auto; /* Allow scrolling if needed */
+}
+/* Hide scrollbar but keep functionality */
+.secondary-icons::-webkit-scrollbar {
+    width: 3px;
+}
+.secondary-icons::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.3);
+    border-radius: 10px;
+}
+/* ===== FONT SELECTOR COMPONENT ===== */
+/* Add these classes to your existing CSS file */
+
+/* Preview Card */
+.font-preview-card {
+    background: #1a1a1a;
+    border-radius: 16px;
+    padding: 28px 24px;
+    border: 1px solid rgba(255,255,255,.07);
+    text-align: center;
+}
+
+.font-preview-label {
+    font-size: 10px;
+    color: rgba(255,255,255,.25);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.font-preview-text {
+    font-size: 36px;
+    color: #fff;
+    line-height: 1.2;
+    transition: font-family .2s ease;
+}
+
+.font-preview-chars {
+    font-size: 13px;
+    color: rgba(255,255,255,.35);
+    margin-top: 8px;
+    transition: font-family .2s ease;
+}
+
+.font-preview-badge {
+    display: inline-block;
+    margin-top: 10px;
+    background: rgba(255,255,255,.07);
+    border-radius: 8px;
+    padding: 4px 12px;
+    font-size: 12px;
+    color: rgba(255,255,255,.45);
+    transition: font-family .2s ease;
+}
+
+/* Picker Card */
+.font-picker-card {
+    background: #1a1a1a;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,.07);
+    overflow: hidden;
+}
+
+/* Search */
+.font-search-wrap {
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.font-search-inner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,.06);
+    border-radius: 10px;
+    padding: 8px 12px;
+    border: 1px solid rgba(255,255,255,.08);
+    transition: border-color .15s;
+}
+
+.font-search-inner:focus-within {
+    border-color: rgba(255,255,255,.3);
+}
+
+.font-search-input {
+    background: none;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 13px;
+    width: 100%;
+}
+
+.font-search-input::placeholder {
+    color: rgba(255,255,255,.2);
+}
+
+.font-search-clear {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,.3);
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+    padding: 0;
+    display: none;
+}
+
+.font-list-container {
+    max-height: 300px;  /* Fixed height - adjust as needed */
+    overflow-y: auto;    /* Enable vertical scrolling */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.3) transparent;
+}
+
+.font-list-container::-webkit-scrollbar {
+    width: 4px;
+}
+
+.font-list-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.font-list-container::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,.12);
+    border-radius: 4px;
+}
+/* Style the scrollbar for webkit browsers */
+.font-list-container::-webkit-scrollbar {
+    width: 4px;
+}
+
+.font-list-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.font-list-container::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.3);
+    border-radius: 4px;
+}
+
+.font-list-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.5);
+}
+.font-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 16px;
+    border: none;
+    border-left: 3px solid transparent;
+    border-bottom: 1px solid rgba(255,255,255,.04);
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+    transition: background .12s, border-color .12s;
+}
+
+.font-row:last-child {
+    border-bottom: none;
+}
+
+.font-row:hover {
+    background: rgba(255,255,255,.06);
+}
+
+.font-row.active {
+    background: rgba(255,255,255,.09);
+    border-left-color: #fff;
+}
+
+.font-name {
+    flex: 1;
+    font-size: 22px;
+    color: rgba(255,255,255,.6);
+    line-height: 1;
+    transition: color .12s;
+}
+
+.font-row.active .font-name {
+    color: #fff;
+}
+
+.font-aa {
+    font-size: 12px;
+    color: rgba(255,255,255,.2);
+    flex-shrink: 0;
+}
+
+.font-check {
+    flex-shrink: 0;
+    opacity: 0;
+    transition: opacity .12s;
+}
+
+.font-row.active .font-check {
+    opacity: 1;
+}
+
+.font-no-results {
+    padding: 32px;
+    text-align: center;
+    color: rgba(255,255,255,.2);
+    font-size: 13px;
+    display: none;
+}
+
+/* Footer */
+.font-picker-footer {
+    padding: 10px 16px;
+    border-top: 1px solid rgba(255,255,255,.07);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.font-footer-count {
+    font-size: 11px;
+    color: rgba(255,255,255,.2);
+}
+
+.font-footer-selected {
+    font-size: 11px;
+    color: rgba(255,255,255,.4);
+    transition: font-family .2s;
+}
+
+/* Overlay positioning */
+.font-selector-overlay {
+    position: absolute;
+    top: 70px; /* Adjust based on your icon position */
+    left: 80px;
+    width: 320px;
+    z-index: 1000;
+    display: none;
+}
+
+.font-selector-overlay.active {
+    display: block;
+    animation: fontSlideDown 0.2s ease;
+}
+
+@keyframes fontSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+    .font-selector-overlay {
+        width: 280px;
+        left: 80px;
+        top: 60px;
+    }
+    
+    .font-preview-text {
+        font-size: 28px;
+    }
+    
+    .font-name {
+        font-size: 28px;
+    }
+}
+
+//videovizard.com/podcast_images/1029241379.png

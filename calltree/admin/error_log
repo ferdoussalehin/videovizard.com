@@ -1,0 +1,7 @@
+[15-Apr-2026 03:36:36 UTC] PHP Notice:  Undefined index: cts_user_id in /home/syjy0p3q5yjb/public_html/videovizard.com/calltree/admin/dashboard.php on line 14
+[15-Apr-2026 03:36:36 UTC] PHP Notice:  Undefined index: cts_firstname in /home/syjy0p3q5yjb/public_html/videovizard.com/calltree/admin/dashboard.php on line 15
+[15-Apr-2026 03:36:36 UTC] PHP Notice:  Undefined index: cts_lastname in /home/syjy0p3q5yjb/public_html/videovizard.com/calltree/admin/dashboard.php on line 15
+[15-Apr-2026 03:36:36 UTC] PHP Notice:  Undefined index: cts_firstname in /home/syjy0p3q5yjb/public_html/videovizard.com/calltree/admin/dashboard.php on line 16
+[15-Apr-2026 04:01:35 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/syjy0p3q5yjb/public_html/videovizard.com/calltree/admin/dashboard.php on line 120
+[15-Apr-2026 04:03:27 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/syjy0p3q5yjb/public_html/videovizard.com/calltree/admin/dashboard.php on line 120
+[15-Apr-2026 04:03:54 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/syjy0p3q5yjb/public_html/videovizard.com/calltree/admin/dashboard.php on line 120

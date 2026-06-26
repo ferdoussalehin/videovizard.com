@@ -1,0 +1,39 @@
+[2026-04-27 15:19:48] [INFO] ========== VIDEO RESIZE CHECKER STARTED ==========
+[2026-04-27 15:19:48] [INFO] Threshold: 5 MB
+[2026-04-27 15:19:48] [INFO] Batch size: 20
+[2026-04-27 15:19:48] [INFO] 
+--- BATCH #1 ---
+[2026-04-27 15:19:48] [ERROR] Query failed: Unknown column 'file_size' in 'SELECT'
+[2026-04-27 15:19:48] [INFO] 
+========== SUMMARY ==========
+[2026-04-27 15:19:48] [INFO] Total batches: 1
+[2026-04-27 15:19:48] [INFO] Total videos processed: 0
+[2026-04-27 15:19:48] [INFO] Videos marked for resize: 0
+[2026-04-27 15:19:48] [INFO] ============================
+
+[2026-04-27 15:21:27] [INFO] ========== VIDEO RESIZE CHECKER STARTED ==========
+[2026-04-27 15:21:27] [INFO] Threshold: 5 MB
+[2026-04-27 15:21:27] [INFO] Batch size: 20
+[2026-04-27 15:21:27] [INFO] 
+--- BATCH #1 ---
+[2026-04-27 15:21:27] [ERROR] Query failed: Unknown column 'file_size' in 'SELECT'
+[2026-04-27 15:21:27] [INFO] 
+========== SUMMARY ==========
+[2026-04-27 15:21:27] [INFO] Total batches: 1
+[2026-04-27 15:21:27] [INFO] Total videos processed: 0
+[2026-04-27 15:21:27] [INFO] Videos marked for resize: 0
+[2026-04-27 15:21:27] [INFO] ============================
+
+[2026-04-27 15:21:32] [INFO] ========== VIDEO RESIZE CHECKER STARTED ==========
+[2026-04-27 15:21:32] [INFO] Threshold: 5 MB
+[2026-04-27 15:21:32] [INFO] Batch size: 20
+[2026-04-27 15:21:32] [INFO] 
+--- BATCH #1 ---
+[2026-04-27 15:21:32] [ERROR] Query failed: Unknown column 'file_size' in 'SELECT'
+[2026-04-27 15:21:32] [INFO] 
+========== SUMMARY ==========
+[2026-04-27 15:21:32] [INFO] Total batches: 1
+[2026-04-27 15:21:32] [INFO] Total videos processed: 0
+[2026-04-27 15:21:32] [INFO] Videos marked for resize: 0
+[2026-04-27 15:21:32] [INFO] ============================
+

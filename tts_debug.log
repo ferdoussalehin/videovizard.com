@@ -1,0 +1,1224 @@
+[2026-03-16 05:55:17] generate_scene_audio | scene=261 podcast=33 voice=openai:onyx text_len=36
+[2026-03-16 05:55:17] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_33_261_en.mp3
+[2026-03-16 05:55:17] generateVoiceOpenAI called | voice=onyx | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_33_261_en.mp3 | text_len=36
+[2026-03-16 05:55:17] ERROR: openai_config.php not found at /home/syjy0p3q5yjb/public_html/videovizard.com/openai_config.php
+[2026-03-16 05:55:17] ERROR: OpenAI API key not configured — create openai_config.php with define('OPENAI_API_KEY','sk-...')
+[2026-03-16 05:55:17] api_result={"success":false,"error":"OpenAI API key not configured \u2014 create openai_config.php with define('OPENAI_API_KEY','sk-...')"}
+[2026-03-16 05:55:18] generate_scene_audio | scene=262 podcast=33 voice=openai:onyx text_len=36
+[2026-03-16 05:55:18] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_33_262_en.mp3
+[2026-03-16 05:55:18] generateVoiceOpenAI called | voice=onyx | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_33_262_en.mp3 | text_len=36
+[2026-03-16 05:55:18] ERROR: openai_config.php not found at /home/syjy0p3q5yjb/public_html/videovizard.com/openai_config.php
+[2026-03-16 05:55:18] ERROR: OpenAI API key not configured — create openai_config.php with define('OPENAI_API_KEY','sk-...')
+[2026-03-16 05:55:18] api_result={"success":false,"error":"OpenAI API key not configured \u2014 create openai_config.php with define('OPENAI_API_KEY','sk-...')"}
+[2026-03-16 05:55:18] generate_scene_audio | scene=263 podcast=33 voice=openai:onyx text_len=40
+[2026-03-16 05:55:18] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_33_263_en.mp3
+[2026-03-16 05:55:18] generateVoiceOpenAI called | voice=onyx | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_33_263_en.mp3 | text_len=40
+[2026-03-16 05:55:18] ERROR: openai_config.php not found at /home/syjy0p3q5yjb/public_html/videovizard.com/openai_config.php
+[2026-03-16 05:55:18] ERROR: OpenAI API key not configured — create openai_config.php with define('OPENAI_API_KEY','sk-...')
+[2026-03-16 05:55:18] api_result={"success":false,"error":"OpenAI API key not configured \u2014 create openai_config.php with define('OPENAI_API_KEY','sk-...')"}
+[2026-03-16 05:55:20] generate_scene_audio | scene=264 podcast=33 voice=openai:onyx text_len=35
+[2026-03-16 05:55:20] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_33_264_en.mp3
+[2026-03-16 05:55:20] generateVoiceOpenAI called | voice=onyx | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_33_264_en.mp3 | text_len=35
+[2026-03-16 05:55:20] ERROR: openai_config.php not found at /home/syjy0p3q5yjb/public_html/videovizard.com/openai_config.php
+[2026-03-16 05:55:20] ERROR: OpenAI API key not configured — create openai_config.php with define('OPENAI_API_KEY','sk-...')
+[2026-03-16 05:55:20] api_result={"success":false,"error":"OpenAI API key not configured \u2014 create openai_config.php with define('OPENAI_API_KEY','sk-...')"}
+[2026-03-16 05:55:21] generate_scene_audio | scene=265 podcast=33 voice=openai:onyx text_len=35
+[2026-03-16 05:55:21] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_33_265_en.mp3
+[2026-03-16 05:55:21] generateVoiceOpenAI called | voice=onyx | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_33_265_en.mp3 | text_len=35
+[2026-03-16 05:55:21] ERROR: openai_config.php not found at /home/syjy0p3q5yjb/public_html/videovizard.com/openai_config.php
+[2026-03-16 05:55:21] ERROR: OpenAI API key not configured — create openai_config.php with define('OPENAI_API_KEY','sk-...')
+[2026-03-16 05:55:21] api_result={"success":false,"error":"OpenAI API key not configured \u2014 create openai_config.php with define('OPENAI_API_KEY','sk-...')"}
+[2026-03-16 05:55:22] generate_scene_audio | scene=266 podcast=33 voice=openai:onyx text_len=37
+[2026-03-16 05:55:22] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_33_266_en.mp3
+[2026-03-16 05:55:22] generateVoiceOpenAI called | voice=onyx | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_33_266_en.mp3 | text_len=37
+[2026-03-16 05:55:22] ERROR: openai_config.php not found at /home/syjy0p3q5yjb/public_html/videovizard.com/openai_config.php
+[2026-03-16 05:55:22] ERROR: OpenAI API key not configured — create openai_config.php with define('OPENAI_API_KEY','sk-...')
+[2026-03-16 05:55:22] api_result={"success":false,"error":"OpenAI API key not configured \u2014 create openai_config.php with define('OPENAI_API_KEY','sk-...')"}
+[2026-03-16 05:55:23] generate_scene_audio | scene=267 podcast=33 voice=openai:onyx text_len=34
+[2026-03-16 05:55:23] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_33_267_en.mp3
+[2026-03-16 05:55:23] generateVoiceOpenAI called | voice=onyx | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_33_267_en.mp3 | text_len=34
+[2026-03-16 05:55:23] ERROR: openai_config.php not found at /home/syjy0p3q5yjb/public_html/videovizard.com/openai_config.php
+[2026-03-16 05:55:23] ERROR: OpenAI API key not configured — create openai_config.php with define('OPENAI_API_KEY','sk-...')
+[2026-03-16 05:55:23] api_result={"success":false,"error":"OpenAI API key not configured \u2014 create openai_config.php with define('OPENAI_API_KEY','sk-...')"}
+[2026-03-16 05:55:24] generate_scene_audio | scene=268 podcast=33 voice=openai:onyx text_len=35
+[2026-03-16 05:55:24] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_33_268_en.mp3
+[2026-03-16 05:55:24] generateVoiceOpenAI called | voice=onyx | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_33_268_en.mp3 | text_len=35
+[2026-03-16 05:55:24] ERROR: openai_config.php not found at /home/syjy0p3q5yjb/public_html/videovizard.com/openai_config.php
+[2026-03-16 05:55:24] ERROR: OpenAI API key not configured — create openai_config.php with define('OPENAI_API_KEY','sk-...')
+[2026-03-16 05:55:24] api_result={"success":false,"error":"OpenAI API key not configured \u2014 create openai_config.php with define('OPENAI_API_KEY','sk-...')"}
+[2026-03-16 05:58:01] generate_scene_audio | scene=269 podcast=34 voice=openai:onyx text_len=49
+[2026-03-16 05:58:01] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_34_269_en.mp3
+[2026-03-16 05:58:01] generateVoiceOpenAI called | voice=onyx | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_34_269_en.mp3 | text_len=49
+[2026-03-16 05:58:01] ERROR: openai_config.php not found at /home/syjy0p3q5yjb/public_html/videovizard.com/openai_config.php
+[2026-03-16 05:58:01] ERROR: OpenAI API key not configured — create openai_config.php with define('OPENAI_API_KEY','sk-...')
+[2026-03-16 05:58:01] api_result={"success":false,"error":"OpenAI API key not configured \u2014 create openai_config.php with define('OPENAI_API_KEY','sk-...')"}
+[2026-03-16 05:58:02] generate_scene_audio | scene=270 podcast=34 voice=openai:onyx text_len=42
+[2026-03-16 05:58:02] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_34_270_en.mp3
+[2026-03-16 05:58:02] generateVoiceOpenAI called | voice=onyx | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_34_270_en.mp3 | text_len=42
+[2026-03-16 05:58:02] ERROR: openai_config.php not found at /home/syjy0p3q5yjb/public_html/videovizard.com/openai_config.php
+[2026-03-16 05:58:02] ERROR: OpenAI API key not configured — create openai_config.php with define('OPENAI_API_KEY','sk-...')
+[2026-03-16 05:58:02] api_result={"success":false,"error":"OpenAI API key not configured \u2014 create openai_config.php with define('OPENAI_API_KEY','sk-...')"}
+[2026-03-16 05:58:03] generate_scene_audio | scene=271 podcast=34 voice=openai:onyx text_len=36
+[2026-03-16 05:58:03] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_34_271_en.mp3
+[2026-03-16 05:58:03] generateVoiceOpenAI called | voice=onyx | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_34_271_en.mp3 | text_len=36
+[2026-03-16 05:58:03] ERROR: openai_config.php not found at /home/syjy0p3q5yjb/public_html/videovizard.com/openai_config.php
+[2026-03-16 05:58:03] ERROR: OpenAI API key not configured — create openai_config.php with define('OPENAI_API_KEY','sk-...')
+[2026-03-16 05:58:03] api_result={"success":false,"error":"OpenAI API key not configured \u2014 create openai_config.php with define('OPENAI_API_KEY','sk-...')"}
+[2026-03-16 05:58:03] generate_scene_audio | scene=272 podcast=34 voice=openai:onyx text_len=38
+[2026-03-16 05:58:03] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_34_272_en.mp3
+[2026-03-16 05:58:03] generateVoiceOpenAI called | voice=onyx | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_34_272_en.mp3 | text_len=38
+[2026-03-16 05:58:03] ERROR: openai_config.php not found at /home/syjy0p3q5yjb/public_html/videovizard.com/openai_config.php
+[2026-03-16 05:58:03] ERROR: OpenAI API key not configured — create openai_config.php with define('OPENAI_API_KEY','sk-...')
+[2026-03-16 05:58:03] api_result={"success":false,"error":"OpenAI API key not configured \u2014 create openai_config.php with define('OPENAI_API_KEY','sk-...')"}
+[2026-03-16 06:00:34] generate_scene_audio | scene=273 podcast=35 voice=openai:onyx text_len=35
+[2026-03-16 06:00:34] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_35_273_en.mp3
+[2026-03-16 06:00:34] generateVoiceOpenAI called | voice=onyx | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_35_273_en.mp3 | text_len=35
+[2026-03-16 06:00:34] Loaded openai_config.php | key_found=YES
+[2026-03-16 06:00:34] API key found (first 8 chars): sk-proj-...
+[2026-03-16 06:00:34] HTTP status=200 | curl_err=none | response_len=57600
+[2026-03-16 06:00:34] SUCCESS — wrote 57600 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_35_273_en.mp3
+[2026-03-16 06:00:34] api_result={"success":true}
+[2026-03-16 06:00:34] DB updated OK for scene 273
+[2026-03-16 06:00:36] generate_scene_audio | scene=274 podcast=35 voice=openai:onyx text_len=30
+[2026-03-16 06:00:36] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_35_274_en.mp3
+[2026-03-16 06:00:36] generateVoiceOpenAI called | voice=onyx | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_35_274_en.mp3 | text_len=30
+[2026-03-16 06:00:36] Loaded openai_config.php | key_found=YES
+[2026-03-16 06:00:36] API key found (first 8 chars): sk-proj-...
+[2026-03-16 06:00:36] HTTP status=200 | curl_err=none | response_len=39168
+[2026-03-16 06:00:36] SUCCESS — wrote 39168 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_35_274_en.mp3
+[2026-03-16 06:00:36] api_result={"success":true}
+[2026-03-16 06:00:36] DB updated OK for scene 274
+[2026-03-16 06:00:37] generate_scene_audio | scene=275 podcast=35 voice=openai:onyx text_len=41
+[2026-03-16 06:00:37] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_35_275_en.mp3
+[2026-03-16 06:00:37] generateVoiceOpenAI called | voice=onyx | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_35_275_en.mp3 | text_len=41
+[2026-03-16 06:00:37] Loaded openai_config.php | key_found=YES
+[2026-03-16 06:00:37] API key found (first 8 chars): sk-proj-...
+[2026-03-16 06:00:37] HTTP status=200 | curl_err=none | response_len=60288
+[2026-03-16 06:00:37] SUCCESS — wrote 60288 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_35_275_en.mp3
+[2026-03-16 06:00:37] api_result={"success":true}
+[2026-03-16 06:00:37] DB updated OK for scene 275
+[2026-03-16 06:00:39] generate_scene_audio | scene=276 podcast=35 voice=openai:onyx text_len=33
+[2026-03-16 06:00:39] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_35_276_en.mp3
+[2026-03-16 06:00:39] generateVoiceOpenAI called | voice=onyx | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_35_276_en.mp3 | text_len=33
+[2026-03-16 06:00:39] Loaded openai_config.php | key_found=YES
+[2026-03-16 06:00:39] API key found (first 8 chars): sk-proj-...
+[2026-03-16 06:00:39] HTTP status=200 | curl_err=none | response_len=44928
+[2026-03-16 06:00:39] SUCCESS — wrote 44928 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_35_276_en.mp3
+[2026-03-16 06:00:39] api_result={"success":true}
+[2026-03-16 06:00:39] DB updated OK for scene 276
+[2026-03-16 06:00:41] generate_scene_audio | scene=277 podcast=35 voice=openai:onyx text_len=28
+[2026-03-16 06:00:41] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_35_277_en.mp3
+[2026-03-16 06:00:41] generateVoiceOpenAI called | voice=onyx | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_35_277_en.mp3 | text_len=28
+[2026-03-16 06:00:41] Loaded openai_config.php | key_found=YES
+[2026-03-16 06:00:41] API key found (first 8 chars): sk-proj-...
+[2026-03-16 06:00:41] HTTP status=200 | curl_err=none | response_len=36096
+[2026-03-16 06:00:41] SUCCESS — wrote 36096 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_35_277_en.mp3
+[2026-03-16 06:00:41] api_result={"success":true}
+[2026-03-16 06:00:41] DB updated OK for scene 277
+[2026-03-16 06:00:43] generate_scene_audio | scene=278 podcast=35 voice=openai:onyx text_len=33
+[2026-03-16 06:00:43] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_35_278_en.mp3
+[2026-03-16 06:00:43] generateVoiceOpenAI called | voice=onyx | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_35_278_en.mp3 | text_len=33
+[2026-03-16 06:00:43] Loaded openai_config.php | key_found=YES
+[2026-03-16 06:00:43] API key found (first 8 chars): sk-proj-...
+[2026-03-16 06:00:43] HTTP status=200 | curl_err=none | response_len=39168
+[2026-03-16 06:00:43] SUCCESS — wrote 39168 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_35_278_en.mp3
+[2026-03-16 06:00:43] api_result={"success":true}
+[2026-03-16 06:00:43] DB updated OK for scene 278
+[2026-03-16 06:04:37] generate_scene_audio | scene=279 podcast=36 voice=openai:onyx text_len=50
+[2026-03-16 06:04:37] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_36_279_en.mp3
+[2026-03-16 06:04:37] generateVoiceOpenAI called | voice=onyx | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_36_279_en.mp3 | text_len=50
+[2026-03-16 06:04:37] Loaded openai_config.php | key_found=YES
+[2026-03-16 06:04:37] API key found (first 8 chars): sk-proj-...
+[2026-03-16 06:04:37] HTTP status=200 | curl_err=none | response_len=61056
+[2026-03-16 06:04:37] SUCCESS — wrote 61056 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_36_279_en.mp3
+[2026-03-16 06:04:37] api_result={"success":true}
+[2026-03-16 06:04:37] DB updated OK for scene 279
+[2026-03-16 06:04:38] generate_scene_audio | scene=280 podcast=36 voice=openai:onyx text_len=43
+[2026-03-16 06:04:38] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_36_280_en.mp3
+[2026-03-16 06:04:38] generateVoiceOpenAI called | voice=onyx | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_36_280_en.mp3 | text_len=43
+[2026-03-16 06:04:38] Loaded openai_config.php | key_found=YES
+[2026-03-16 06:04:38] API key found (first 8 chars): sk-proj-...
+[2026-03-16 06:04:38] HTTP status=200 | curl_err=none | response_len=54528
+[2026-03-16 06:04:38] SUCCESS — wrote 54528 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_36_280_en.mp3
+[2026-03-16 06:04:38] api_result={"success":true}
+[2026-03-16 06:04:38] DB updated OK for scene 280
+[2026-03-16 06:04:40] generate_scene_audio | scene=281 podcast=36 voice=openai:onyx text_len=34
+[2026-03-16 06:04:40] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_36_281_en.mp3
+[2026-03-16 06:04:40] generateVoiceOpenAI called | voice=onyx | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_36_281_en.mp3 | text_len=34
+[2026-03-16 06:04:40] Loaded openai_config.php | key_found=YES
+[2026-03-16 06:04:40] API key found (first 8 chars): sk-proj-...
+[2026-03-16 06:04:40] HTTP status=200 | curl_err=none | response_len=38400
+[2026-03-16 06:04:40] SUCCESS — wrote 38400 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_36_281_en.mp3
+[2026-03-16 06:04:40] api_result={"success":true}
+[2026-03-16 06:04:40] DB updated OK for scene 281
+[2026-03-16 06:04:42] generate_scene_audio | scene=282 podcast=36 voice=openai:onyx text_len=48
+[2026-03-16 06:04:42] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_36_282_en.mp3
+[2026-03-16 06:04:42] generateVoiceOpenAI called | voice=onyx | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_36_282_en.mp3 | text_len=48
+[2026-03-16 06:04:42] Loaded openai_config.php | key_found=YES
+[2026-03-16 06:04:42] API key found (first 8 chars): sk-proj-...
+[2026-03-16 06:04:42] HTTP status=200 | curl_err=none | response_len=55296
+[2026-03-16 06:04:42] SUCCESS — wrote 55296 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_36_282_en.mp3
+[2026-03-16 06:04:42] api_result={"success":true}
+[2026-03-16 06:04:42] DB updated OK for scene 282
+[2026-03-16 06:04:44] generate_scene_audio | scene=283 podcast=36 voice=openai:onyx text_len=43
+[2026-03-16 06:04:44] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_36_283_en.mp3
+[2026-03-16 06:04:44] generateVoiceOpenAI called | voice=onyx | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_36_283_en.mp3 | text_len=43
+[2026-03-16 06:04:44] Loaded openai_config.php | key_found=YES
+[2026-03-16 06:04:44] API key found (first 8 chars): sk-proj-...
+[2026-03-16 06:04:44] HTTP status=200 | curl_err=none | response_len=48000
+[2026-03-16 06:04:44] SUCCESS — wrote 48000 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_36_283_en.mp3
+[2026-03-16 06:04:44] api_result={"success":true}
+[2026-03-16 06:04:44] DB updated OK for scene 283
+[2026-03-16 06:04:46] generate_scene_audio | scene=284 podcast=36 voice=openai:onyx text_len=49
+[2026-03-16 06:04:46] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_36_284_en.mp3
+[2026-03-16 06:04:46] generateVoiceOpenAI called | voice=onyx | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_36_284_en.mp3 | text_len=49
+[2026-03-16 06:04:46] Loaded openai_config.php | key_found=YES
+[2026-03-16 06:04:46] API key found (first 8 chars): sk-proj-...
+[2026-03-16 06:04:46] HTTP status=200 | curl_err=none | response_len=54528
+[2026-03-16 06:04:46] SUCCESS — wrote 54528 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_36_284_en.mp3
+[2026-03-16 06:04:46] api_result={"success":true}
+[2026-03-16 06:04:46] DB updated OK for scene 284
+[2026-03-16 06:04:47] generate_scene_audio | scene=285 podcast=36 voice=openai:onyx text_len=41
+[2026-03-16 06:04:47] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_36_285_en.mp3
+[2026-03-16 06:04:47] generateVoiceOpenAI called | voice=onyx | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_36_285_en.mp3 | text_len=41
+[2026-03-16 06:04:47] Loaded openai_config.php | key_found=YES
+[2026-03-16 06:04:47] API key found (first 8 chars): sk-proj-...
+[2026-03-16 06:04:47] HTTP status=200 | curl_err=none | response_len=71424
+[2026-03-16 06:04:47] SUCCESS — wrote 71424 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_36_285_en.mp3
+[2026-03-16 06:04:47] api_result={"success":true}
+[2026-03-16 06:04:47] DB updated OK for scene 285
+[2026-03-16 06:25:45] generate_scene_audio | scene=286 podcast=37 voice=openai:echo text_len=35
+[2026-03-16 06:25:45] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_37_286_en.mp3
+[2026-03-16 06:25:45] generateVoiceOpenAI called | voice=echo | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_37_286_en.mp3 | text_len=35
+[2026-03-16 06:25:45] Loaded openai_config.php | key_found=YES
+[2026-03-16 06:25:45] API key found (first 8 chars): sk-proj-...
+[2026-03-16 06:25:45] HTTP status=200 | curl_err=none | response_len=46464
+[2026-03-16 06:25:45] SUCCESS — wrote 46464 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_37_286_en.mp3
+[2026-03-16 06:25:45] api_result={"success":true}
+[2026-03-16 06:25:45] DB updated OK for scene 286
+[2026-03-16 06:25:47] generate_scene_audio | scene=287 podcast=37 voice=openai:echo text_len=35
+[2026-03-16 06:25:47] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_37_287_en.mp3
+[2026-03-16 06:25:47] generateVoiceOpenAI called | voice=echo | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_37_287_en.mp3 | text_len=35
+[2026-03-16 06:25:47] Loaded openai_config.php | key_found=YES
+[2026-03-16 06:25:47] API key found (first 8 chars): sk-proj-...
+[2026-03-16 06:25:47] HTTP status=200 | curl_err=none | response_len=57600
+[2026-03-16 06:25:47] SUCCESS — wrote 57600 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_37_287_en.mp3
+[2026-03-16 06:25:47] api_result={"success":true}
+[2026-03-16 06:25:47] DB updated OK for scene 287
+[2026-03-16 06:25:49] generate_scene_audio | scene=288 podcast=37 voice=openai:echo text_len=32
+[2026-03-16 06:25:49] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_37_288_en.mp3
+[2026-03-16 06:25:49] generateVoiceOpenAI called | voice=echo | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_37_288_en.mp3 | text_len=32
+[2026-03-16 06:25:49] Loaded openai_config.php | key_found=YES
+[2026-03-16 06:25:49] API key found (first 8 chars): sk-proj-...
+[2026-03-16 06:25:49] HTTP status=200 | curl_err=none | response_len=45696
+[2026-03-16 06:25:49] SUCCESS — wrote 45696 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_37_288_en.mp3
+[2026-03-16 06:25:49] api_result={"success":true}
+[2026-03-16 06:25:49] DB updated OK for scene 288
+[2026-03-16 06:25:51] generate_scene_audio | scene=289 podcast=37 voice=openai:echo text_len=36
+[2026-03-16 06:25:51] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_37_289_en.mp3
+[2026-03-16 06:25:51] generateVoiceOpenAI called | voice=echo | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_37_289_en.mp3 | text_len=36
+[2026-03-16 06:25:51] Loaded openai_config.php | key_found=YES
+[2026-03-16 06:25:51] API key found (first 8 chars): sk-proj-...
+[2026-03-16 06:25:51] HTTP status=200 | curl_err=none | response_len=41856
+[2026-03-16 06:25:51] SUCCESS — wrote 41856 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_37_289_en.mp3
+[2026-03-16 06:25:51] api_result={"success":true}
+[2026-03-16 06:25:51] DB updated OK for scene 289
+[2026-03-16 06:25:52] generate_scene_audio | scene=290 podcast=37 voice=openai:echo text_len=37
+[2026-03-16 06:25:52] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_37_290_en.mp3
+[2026-03-16 06:25:52] generateVoiceOpenAI called | voice=echo | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_37_290_en.mp3 | text_len=37
+[2026-03-16 06:25:52] Loaded openai_config.php | key_found=YES
+[2026-03-16 06:25:52] API key found (first 8 chars): sk-proj-...
+[2026-03-16 06:25:52] HTTP status=200 | curl_err=none | response_len=52992
+[2026-03-16 06:25:52] SUCCESS — wrote 52992 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_37_290_en.mp3
+[2026-03-16 06:25:52] api_result={"success":true}
+[2026-03-16 06:25:52] DB updated OK for scene 290
+[2026-03-16 06:25:54] generate_scene_audio | scene=291 podcast=37 voice=openai:echo text_len=36
+[2026-03-16 06:25:54] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_37_291_en.mp3
+[2026-03-16 06:25:54] generateVoiceOpenAI called | voice=echo | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_37_291_en.mp3 | text_len=36
+[2026-03-16 06:25:54] Loaded openai_config.php | key_found=YES
+[2026-03-16 06:25:54] API key found (first 8 chars): sk-proj-...
+[2026-03-16 06:25:54] HTTP status=200 | curl_err=none | response_len=40320
+[2026-03-16 06:25:54] SUCCESS — wrote 40320 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_37_291_en.mp3
+[2026-03-16 06:25:54] api_result={"success":true}
+[2026-03-16 06:25:54] DB updated OK for scene 291
+[2026-03-16 06:25:55] generate_scene_audio | scene=292 podcast=37 voice=openai:echo text_len=35
+[2026-03-16 06:25:55] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_37_292_en.mp3
+[2026-03-16 06:25:55] generateVoiceOpenAI called | voice=echo | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_37_292_en.mp3 | text_len=35
+[2026-03-16 06:25:55] Loaded openai_config.php | key_found=YES
+[2026-03-16 06:25:55] API key found (first 8 chars): sk-proj-...
+[2026-03-16 06:25:55] HTTP status=200 | curl_err=none | response_len=47232
+[2026-03-16 06:25:55] SUCCESS — wrote 47232 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_37_292_en.mp3
+[2026-03-16 06:25:55] api_result={"success":true}
+[2026-03-16 06:25:55] DB updated OK for scene 292
+[2026-03-16 07:09:34] generate_scene_audio | scene=293 podcast=38 voice=openai:echo text_len=49
+[2026-03-16 07:09:34] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_38_293_en.mp3
+[2026-03-16 07:09:34] generateVoiceOpenAI called | voice=echo | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_38_293_en.mp3 | text_len=49
+[2026-03-16 07:09:34] Loaded openai_config.php | key_found=YES
+[2026-03-16 07:09:34] API key found (first 8 chars): sk-proj-...
+[2026-03-16 07:09:34] HTTP status=200 | curl_err=none | response_len=58368
+[2026-03-16 07:09:34] SUCCESS — wrote 58368 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_38_293_en.mp3
+[2026-03-16 07:09:34] api_result={"success":true}
+[2026-03-16 07:09:34] DB updated OK for scene 293
+[2026-03-16 07:09:37] generate_scene_audio | scene=294 podcast=38 voice=openai:echo text_len=46
+[2026-03-16 07:09:37] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_38_294_en.mp3
+[2026-03-16 07:09:37] generateVoiceOpenAI called | voice=echo | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_38_294_en.mp3 | text_len=46
+[2026-03-16 07:09:37] Loaded openai_config.php | key_found=YES
+[2026-03-16 07:09:37] API key found (first 8 chars): sk-proj-...
+[2026-03-16 07:09:37] HTTP status=200 | curl_err=none | response_len=55296
+[2026-03-16 07:09:37] SUCCESS — wrote 55296 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_38_294_en.mp3
+[2026-03-16 07:09:37] api_result={"success":true}
+[2026-03-16 07:09:37] DB updated OK for scene 294
+[2026-03-16 07:09:38] generate_scene_audio | scene=295 podcast=38 voice=openai:echo text_len=47
+[2026-03-16 07:09:38] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_38_295_en.mp3
+[2026-03-16 07:09:38] generateVoiceOpenAI called | voice=echo | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_38_295_en.mp3 | text_len=47
+[2026-03-16 07:09:38] Loaded openai_config.php | key_found=YES
+[2026-03-16 07:09:38] API key found (first 8 chars): sk-proj-...
+[2026-03-16 07:09:38] HTTP status=200 | curl_err=none | response_len=51456
+[2026-03-16 07:09:38] SUCCESS — wrote 51456 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_38_295_en.mp3
+[2026-03-16 07:09:38] api_result={"success":true}
+[2026-03-16 07:09:38] DB updated OK for scene 295
+[2026-03-16 07:09:39] generate_scene_audio | scene=296 podcast=38 voice=openai:echo text_len=50
+[2026-03-16 07:09:39] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_38_296_en.mp3
+[2026-03-16 07:09:39] generateVoiceOpenAI called | voice=echo | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_38_296_en.mp3 | text_len=50
+[2026-03-16 07:09:39] Loaded openai_config.php | key_found=YES
+[2026-03-16 07:09:39] API key found (first 8 chars): sk-proj-...
+[2026-03-16 07:09:39] HTTP status=200 | curl_err=none | response_len=63360
+[2026-03-16 07:09:39] SUCCESS — wrote 63360 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_38_296_en.mp3
+[2026-03-16 07:09:39] api_result={"success":true}
+[2026-03-16 07:09:39] DB updated OK for scene 296
+[2026-03-16 07:09:40] generate_scene_audio | scene=297 podcast=38 voice=openai:echo text_len=49
+[2026-03-16 07:09:40] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_38_297_en.mp3
+[2026-03-16 07:09:40] generateVoiceOpenAI called | voice=echo | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_38_297_en.mp3 | text_len=49
+[2026-03-16 07:09:40] Loaded openai_config.php | key_found=YES
+[2026-03-16 07:09:40] API key found (first 8 chars): sk-proj-...
+[2026-03-16 07:09:40] HTTP status=200 | curl_err=none | response_len=84096
+[2026-03-16 07:09:40] SUCCESS — wrote 84096 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_38_297_en.mp3
+[2026-03-16 07:09:40] api_result={"success":true}
+[2026-03-16 07:09:40] DB updated OK for scene 297
+[2026-03-16 07:09:42] generate_scene_audio | scene=298 podcast=38 voice=openai:echo text_len=47
+[2026-03-16 07:09:42] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_38_298_en.mp3
+[2026-03-16 07:09:42] generateVoiceOpenAI called | voice=echo | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_38_298_en.mp3 | text_len=47
+[2026-03-16 07:09:42] Loaded openai_config.php | key_found=YES
+[2026-03-16 07:09:42] API key found (first 8 chars): sk-proj-...
+[2026-03-16 07:09:42] HTTP status=200 | curl_err=none | response_len=50688
+[2026-03-16 07:09:42] SUCCESS — wrote 50688 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_38_298_en.mp3
+[2026-03-16 07:09:42] api_result={"success":true}
+[2026-03-16 07:09:42] DB updated OK for scene 298
+[2026-03-16 07:09:43] generate_scene_audio | scene=299 podcast=38 voice=openai:echo text_len=42
+[2026-03-16 07:09:43] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_38_299_en.mp3
+[2026-03-16 07:09:43] generateVoiceOpenAI called | voice=echo | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_38_299_en.mp3 | text_len=42
+[2026-03-16 07:09:43] Loaded openai_config.php | key_found=YES
+[2026-03-16 07:09:43] API key found (first 8 chars): sk-proj-...
+[2026-03-16 07:09:43] HTTP status=200 | curl_err=none | response_len=51456
+[2026-03-16 07:09:43] SUCCESS — wrote 51456 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_38_299_en.mp3
+[2026-03-16 07:09:43] api_result={"success":true}
+[2026-03-16 07:09:43] DB updated OK for scene 299
+[2026-03-16 07:09:45] generate_scene_audio | scene=300 podcast=38 voice=openai:echo text_len=43
+[2026-03-16 07:09:45] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_38_300_en.mp3
+[2026-03-16 07:09:45] generateVoiceOpenAI called | voice=echo | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_38_300_en.mp3 | text_len=43
+[2026-03-16 07:09:45] Loaded openai_config.php | key_found=YES
+[2026-03-16 07:09:45] API key found (first 8 chars): sk-proj-...
+[2026-03-16 07:09:45] HTTP status=200 | curl_err=none | response_len=67968
+[2026-03-16 07:09:45] SUCCESS — wrote 67968 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_38_300_en.mp3
+[2026-03-16 07:09:45] api_result={"success":true}
+[2026-03-16 07:09:45] DB updated OK for scene 300
+[2026-03-16 07:13:17] generate_scene_audio | scene=301 podcast=39 voice=openai:echo text_len=35
+[2026-03-16 07:13:17] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_39_301_en.mp3
+[2026-03-16 07:13:17] generateVoiceOpenAI called | voice=echo | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_39_301_en.mp3 | text_len=35
+[2026-03-16 07:13:17] Loaded openai_config.php | key_found=YES
+[2026-03-16 07:13:17] API key found (first 8 chars): sk-proj-...
+[2026-03-16 07:13:17] HTTP status=200 | curl_err=none | response_len=43392
+[2026-03-16 07:13:17] SUCCESS — wrote 43392 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_39_301_en.mp3
+[2026-03-16 07:13:17] api_result={"success":true}
+[2026-03-16 07:13:17] DB updated OK for scene 301
+[2026-03-16 07:13:18] generate_scene_audio | scene=302 podcast=39 voice=openai:echo text_len=36
+[2026-03-16 07:13:18] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_39_302_en.mp3
+[2026-03-16 07:13:18] generateVoiceOpenAI called | voice=echo | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_39_302_en.mp3 | text_len=36
+[2026-03-16 07:13:18] Loaded openai_config.php | key_found=YES
+[2026-03-16 07:13:18] API key found (first 8 chars): sk-proj-...
+[2026-03-16 07:13:18] HTTP status=200 | curl_err=none | response_len=42624
+[2026-03-16 07:13:18] SUCCESS — wrote 42624 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_39_302_en.mp3
+[2026-03-16 07:13:18] api_result={"success":true}
+[2026-03-16 07:13:18] DB updated OK for scene 302
+[2026-03-16 07:13:19] generate_scene_audio | scene=303 podcast=39 voice=openai:echo text_len=32
+[2026-03-16 07:13:19] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_39_303_en.mp3
+[2026-03-16 07:13:19] generateVoiceOpenAI called | voice=echo | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_39_303_en.mp3 | text_len=32
+[2026-03-16 07:13:19] Loaded openai_config.php | key_found=YES
+[2026-03-16 07:13:19] API key found (first 8 chars): sk-proj-...
+[2026-03-16 07:13:19] HTTP status=200 | curl_err=none | response_len=52992
+[2026-03-16 07:13:19] SUCCESS — wrote 52992 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_39_303_en.mp3
+[2026-03-16 07:13:19] api_result={"success":true}
+[2026-03-16 07:13:19] DB updated OK for scene 303
+[2026-03-16 07:13:20] generate_scene_audio | scene=304 podcast=39 voice=openai:echo text_len=36
+[2026-03-16 07:13:20] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_39_304_en.mp3
+[2026-03-16 07:13:20] generateVoiceOpenAI called | voice=echo | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_39_304_en.mp3 | text_len=36
+[2026-03-16 07:13:20] Loaded openai_config.php | key_found=YES
+[2026-03-16 07:13:20] API key found (first 8 chars): sk-proj-...
+[2026-03-16 07:13:20] HTTP status=200 | curl_err=none | response_len=49920
+[2026-03-16 07:13:20] SUCCESS — wrote 49920 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_39_304_en.mp3
+[2026-03-16 07:13:20] api_result={"success":true}
+[2026-03-16 07:13:20] DB updated OK for scene 304
+[2026-03-16 07:13:21] generate_scene_audio | scene=305 podcast=39 voice=openai:echo text_len=38
+[2026-03-16 07:13:21] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_39_305_en.mp3
+[2026-03-16 07:13:21] generateVoiceOpenAI called | voice=echo | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_39_305_en.mp3 | text_len=38
+[2026-03-16 07:13:21] Loaded openai_config.php | key_found=YES
+[2026-03-16 07:13:21] API key found (first 8 chars): sk-proj-...
+[2026-03-16 07:13:21] HTTP status=200 | curl_err=none | response_len=48768
+[2026-03-16 07:13:21] SUCCESS — wrote 48768 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_39_305_en.mp3
+[2026-03-16 07:13:21] api_result={"success":true}
+[2026-03-16 07:13:21] DB updated OK for scene 305
+[2026-03-16 07:13:22] generate_scene_audio | scene=306 podcast=39 voice=openai:echo text_len=31
+[2026-03-16 07:13:22] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_39_306_en.mp3
+[2026-03-16 07:13:22] generateVoiceOpenAI called | voice=echo | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_39_306_en.mp3 | text_len=31
+[2026-03-16 07:13:22] Loaded openai_config.php | key_found=YES
+[2026-03-16 07:13:22] API key found (first 8 chars): sk-proj-...
+[2026-03-16 07:13:22] HTTP status=200 | curl_err=none | response_len=38400
+[2026-03-16 07:13:22] SUCCESS — wrote 38400 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_39_306_en.mp3
+[2026-03-16 07:13:22] api_result={"success":true}
+[2026-03-16 07:13:22] DB updated OK for scene 306
+[2026-03-16 07:13:23] generate_scene_audio | scene=307 podcast=39 voice=openai:echo text_len=32
+[2026-03-16 07:13:23] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_39_307_en.mp3
+[2026-03-16 07:13:23] generateVoiceOpenAI called | voice=echo | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_39_307_en.mp3 | text_len=32
+[2026-03-16 07:13:23] Loaded openai_config.php | key_found=YES
+[2026-03-16 07:13:23] API key found (first 8 chars): sk-proj-...
+[2026-03-16 07:13:23] HTTP status=200 | curl_err=none | response_len=33024
+[2026-03-16 07:13:23] SUCCESS — wrote 33024 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_39_307_en.mp3
+[2026-03-16 07:13:23] api_result={"success":true}
+[2026-03-16 07:13:23] DB updated OK for scene 307
+[2026-03-16 07:25:56] generate_scene_audio | scene=308 podcast=40 voice=openai:alloy text_len=34
+[2026-03-16 07:25:56] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_40_308_en.mp3
+[2026-03-16 07:25:56] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_40_308_en.mp3 | text_len=34
+[2026-03-16 07:25:56] Loaded openai_config.php | key_found=YES
+[2026-03-16 07:25:56] API key found (first 8 chars): sk-proj-...
+[2026-03-16 07:25:56] HTTP status=200 | curl_err=none | response_len=55296
+[2026-03-16 07:25:56] SUCCESS — wrote 55296 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_40_308_en.mp3
+[2026-03-16 07:25:56] api_result={"success":true}
+[2026-03-16 07:25:56] DB updated OK for scene 308
+[2026-03-16 07:25:57] generate_scene_audio | scene=309 podcast=40 voice=openai:alloy text_len=24
+[2026-03-16 07:25:57] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_40_309_en.mp3
+[2026-03-16 07:25:57] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_40_309_en.mp3 | text_len=24
+[2026-03-16 07:25:57] Loaded openai_config.php | key_found=YES
+[2026-03-16 07:25:57] API key found (first 8 chars): sk-proj-...
+[2026-03-16 07:25:57] HTTP status=200 | curl_err=none | response_len=39168
+[2026-03-16 07:25:57] SUCCESS — wrote 39168 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_40_309_en.mp3
+[2026-03-16 07:25:57] api_result={"success":true}
+[2026-03-16 07:25:57] DB updated OK for scene 309
+[2026-03-16 07:25:59] generate_scene_audio | scene=310 podcast=40 voice=openai:alloy text_len=34
+[2026-03-16 07:25:59] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_40_310_en.mp3
+[2026-03-16 07:25:59] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_40_310_en.mp3 | text_len=34
+[2026-03-16 07:25:59] Loaded openai_config.php | key_found=YES
+[2026-03-16 07:25:59] API key found (first 8 chars): sk-proj-...
+[2026-03-16 07:25:59] HTTP status=200 | curl_err=none | response_len=49920
+[2026-03-16 07:25:59] SUCCESS — wrote 49920 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_40_310_en.mp3
+[2026-03-16 07:25:59] api_result={"success":true}
+[2026-03-16 07:25:59] DB updated OK for scene 310
+[2026-03-16 07:26:00] generate_scene_audio | scene=311 podcast=40 voice=openai:alloy text_len=36
+[2026-03-16 07:26:00] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_40_311_en.mp3
+[2026-03-16 07:26:00] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_40_311_en.mp3 | text_len=36
+[2026-03-16 07:26:00] Loaded openai_config.php | key_found=YES
+[2026-03-16 07:26:00] API key found (first 8 chars): sk-proj-...
+[2026-03-16 07:26:00] HTTP status=200 | curl_err=none | response_len=48768
+[2026-03-16 07:26:00] SUCCESS — wrote 48768 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_40_311_en.mp3
+[2026-03-16 07:26:00] api_result={"success":true}
+[2026-03-16 07:26:00] DB updated OK for scene 311
+[2026-03-16 07:26:02] generate_scene_audio | scene=312 podcast=40 voice=openai:alloy text_len=37
+[2026-03-16 07:26:02] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_40_312_en.mp3
+[2026-03-16 07:26:02] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_40_312_en.mp3 | text_len=37
+[2026-03-16 07:26:02] Loaded openai_config.php | key_found=YES
+[2026-03-16 07:26:02] API key found (first 8 chars): sk-proj-...
+[2026-03-16 07:26:02] HTTP status=200 | curl_err=none | response_len=48000
+[2026-03-16 07:26:02] SUCCESS — wrote 48000 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_40_312_en.mp3
+[2026-03-16 07:26:02] api_result={"success":true}
+[2026-03-16 07:26:02] DB updated OK for scene 312
+[2026-03-16 07:26:03] generate_scene_audio | scene=313 podcast=40 voice=openai:alloy text_len=27
+[2026-03-16 07:26:03] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_40_313_en.mp3
+[2026-03-16 07:26:03] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_40_313_en.mp3 | text_len=27
+[2026-03-16 07:26:03] Loaded openai_config.php | key_found=YES
+[2026-03-16 07:26:03] API key found (first 8 chars): sk-proj-...
+[2026-03-16 07:26:03] HTTP status=200 | curl_err=none | response_len=35328
+[2026-03-16 07:26:03] SUCCESS — wrote 35328 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_40_313_en.mp3
+[2026-03-16 07:26:03] api_result={"success":true}
+[2026-03-16 07:26:03] DB updated OK for scene 313
+[2026-03-16 07:26:05] generate_scene_audio | scene=314 podcast=40 voice=openai:alloy text_len=34
+[2026-03-16 07:26:05] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_40_314_en.mp3
+[2026-03-16 07:26:05] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_40_314_en.mp3 | text_len=34
+[2026-03-16 07:26:05] Loaded openai_config.php | key_found=YES
+[2026-03-16 07:26:05] API key found (first 8 chars): sk-proj-...
+[2026-03-16 07:26:05] HTTP status=200 | curl_err=none | response_len=48000
+[2026-03-16 07:26:05] SUCCESS — wrote 48000 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_40_314_en.mp3
+[2026-03-16 07:26:05] api_result={"success":true}
+[2026-03-16 07:26:05] DB updated OK for scene 314
+[2026-03-16 07:26:06] generate_scene_audio | scene=315 podcast=40 voice=openai:alloy text_len=35
+[2026-03-16 07:26:06] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_40_315_en.mp3
+[2026-03-16 07:26:06] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_40_315_en.mp3 | text_len=35
+[2026-03-16 07:26:06] Loaded openai_config.php | key_found=YES
+[2026-03-16 07:26:06] API key found (first 8 chars): sk-proj-...
+[2026-03-16 07:26:06] HTTP status=200 | curl_err=none | response_len=45696
+[2026-03-16 07:26:06] SUCCESS — wrote 45696 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_40_315_en.mp3
+[2026-03-16 07:26:06] api_result={"success":true}
+[2026-03-16 07:26:06] DB updated OK for scene 315
+[2026-03-17 03:55:57] generate_scene_audio | scene=1 podcast=1 voice=openai:alloy text_len=49
+[2026-03-17 03:55:57] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_1_1_en.mp3
+[2026-03-17 03:55:57] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_1_1_en.mp3 | text_len=49
+[2026-03-17 03:55:57] Loaded openai_config.php | key_found=YES
+[2026-03-17 03:55:57] API key found (first 8 chars): sk-proj-...
+[2026-03-17 03:55:57] HTTP status=200 | curl_err=none | response_len=61056
+[2026-03-17 03:55:57] SUCCESS — wrote 61056 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_1_1_en.mp3
+[2026-03-17 03:55:57] api_result={"success":true}
+[2026-03-17 03:55:57] DB updated OK for scene 1
+[2026-03-17 03:55:59] generate_scene_audio | scene=2 podcast=1 voice=openai:alloy text_len=36
+[2026-03-17 03:55:59] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_1_2_en.mp3
+[2026-03-17 03:55:59] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_1_2_en.mp3 | text_len=36
+[2026-03-17 03:55:59] Loaded openai_config.php | key_found=YES
+[2026-03-17 03:55:59] API key found (first 8 chars): sk-proj-...
+[2026-03-17 03:55:59] HTTP status=200 | curl_err=none | response_len=40320
+[2026-03-17 03:55:59] SUCCESS — wrote 40320 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_1_2_en.mp3
+[2026-03-17 03:55:59] api_result={"success":true}
+[2026-03-17 03:55:59] DB updated OK for scene 2
+[2026-03-17 03:56:01] generate_scene_audio | scene=3 podcast=1 voice=openai:alloy text_len=42
+[2026-03-17 03:56:01] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_1_3_en.mp3
+[2026-03-17 03:56:01] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_1_3_en.mp3 | text_len=42
+[2026-03-17 03:56:01] Loaded openai_config.php | key_found=YES
+[2026-03-17 03:56:01] API key found (first 8 chars): sk-proj-...
+[2026-03-17 03:56:01] HTTP status=200 | curl_err=none | response_len=65664
+[2026-03-17 03:56:01] SUCCESS — wrote 65664 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_1_3_en.mp3
+[2026-03-17 03:56:01] api_result={"success":true}
+[2026-03-17 03:56:01] DB updated OK for scene 3
+[2026-03-17 03:56:03] generate_scene_audio | scene=4 podcast=1 voice=openai:alloy text_len=49
+[2026-03-17 03:56:03] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_1_4_en.mp3
+[2026-03-17 03:56:03] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_1_4_en.mp3 | text_len=49
+[2026-03-17 03:56:03] Loaded openai_config.php | key_found=YES
+[2026-03-17 03:56:03] API key found (first 8 chars): sk-proj-...
+[2026-03-17 03:56:03] HTTP status=200 | curl_err=none | response_len=61824
+[2026-03-17 03:56:03] SUCCESS — wrote 61824 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_1_4_en.mp3
+[2026-03-17 03:56:03] api_result={"success":true}
+[2026-03-17 03:56:03] DB updated OK for scene 4
+[2026-03-17 03:56:07] generate_scene_audio | scene=5 podcast=1 voice=openai:alloy text_len=35
+[2026-03-17 03:56:07] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_1_5_en.mp3
+[2026-03-17 03:56:07] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_1_5_en.mp3 | text_len=35
+[2026-03-17 03:56:07] Loaded openai_config.php | key_found=YES
+[2026-03-17 03:56:07] API key found (first 8 chars): sk-proj-...
+[2026-03-17 03:56:07] HTTP status=200 | curl_err=none | response_len=39168
+[2026-03-17 03:56:07] SUCCESS — wrote 39168 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_1_5_en.mp3
+[2026-03-17 03:56:07] api_result={"success":true}
+[2026-03-17 03:56:07] DB updated OK for scene 5
+[2026-03-17 03:56:08] generate_scene_audio | scene=6 podcast=1 voice=openai:alloy text_len=39
+[2026-03-17 03:56:08] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_1_6_en.mp3
+[2026-03-17 03:56:08] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_1_6_en.mp3 | text_len=39
+[2026-03-17 03:56:08] Loaded openai_config.php | key_found=YES
+[2026-03-17 03:56:08] API key found (first 8 chars): sk-proj-...
+[2026-03-17 03:56:08] HTTP status=200 | curl_err=none | response_len=44160
+[2026-03-17 03:56:08] SUCCESS — wrote 44160 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_1_6_en.mp3
+[2026-03-17 03:56:08] api_result={"success":true}
+[2026-03-17 03:56:08] DB updated OK for scene 6
+[2026-03-17 04:20:46] generate_scene_audio | scene=7 podcast=2 voice=openai:fable text_len=32
+[2026-03-17 04:20:46] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_7_en.mp3
+[2026-03-17 04:20:46] generateVoiceOpenAI called | voice=fable | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_7_en.mp3 | text_len=32
+[2026-03-17 04:20:46] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:20:46] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:20:46] HTTP status=200 | curl_err=none | response_len=58368
+[2026-03-17 04:20:46] SUCCESS — wrote 58368 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_7_en.mp3
+[2026-03-17 04:20:46] api_result={"success":true}
+[2026-03-17 04:20:46] DB updated OK for scene 7
+[2026-03-17 04:20:47] generate_scene_audio | scene=8 podcast=2 voice=openai:fable text_len=22
+[2026-03-17 04:20:47] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_8_en.mp3
+[2026-03-17 04:20:47] generateVoiceOpenAI called | voice=fable | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_8_en.mp3 | text_len=22
+[2026-03-17 04:20:47] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:20:47] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:20:47] HTTP status=200 | curl_err=none | response_len=52992
+[2026-03-17 04:20:47] SUCCESS — wrote 52992 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_8_en.mp3
+[2026-03-17 04:20:47] api_result={"success":true}
+[2026-03-17 04:20:47] DB updated OK for scene 8
+[2026-03-17 04:20:49] generate_scene_audio | scene=9 podcast=2 voice=openai:fable text_len=29
+[2026-03-17 04:20:49] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_9_en.mp3
+[2026-03-17 04:20:49] generateVoiceOpenAI called | voice=fable | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_9_en.mp3 | text_len=29
+[2026-03-17 04:20:49] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:20:49] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:20:49] HTTP status=200 | curl_err=none | response_len=55296
+[2026-03-17 04:20:49] SUCCESS — wrote 55296 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_9_en.mp3
+[2026-03-17 04:20:49] api_result={"success":true}
+[2026-03-17 04:20:49] DB updated OK for scene 9
+[2026-03-17 04:20:50] generate_scene_audio | scene=10 podcast=2 voice=openai:fable text_len=38
+[2026-03-17 04:20:50] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_10_en.mp3
+[2026-03-17 04:20:50] generateVoiceOpenAI called | voice=fable | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_10_en.mp3 | text_len=38
+[2026-03-17 04:20:50] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:20:50] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:20:50] HTTP status=200 | curl_err=none | response_len=58368
+[2026-03-17 04:20:50] SUCCESS — wrote 58368 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_10_en.mp3
+[2026-03-17 04:20:50] api_result={"success":true}
+[2026-03-17 04:20:50] DB updated OK for scene 10
+[2026-03-17 04:20:52] generate_scene_audio | scene=11 podcast=2 voice=openai:fable text_len=33
+[2026-03-17 04:20:52] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_11_en.mp3
+[2026-03-17 04:20:52] generateVoiceOpenAI called | voice=fable | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_11_en.mp3 | text_len=33
+[2026-03-17 04:20:52] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:20:52] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:20:52] HTTP status=200 | curl_err=none | response_len=63360
+[2026-03-17 04:20:52] SUCCESS — wrote 63360 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_11_en.mp3
+[2026-03-17 04:20:52] api_result={"success":true}
+[2026-03-17 04:20:52] DB updated OK for scene 11
+[2026-03-17 04:20:53] generate_scene_audio | scene=12 podcast=2 voice=openai:fable text_len=26
+[2026-03-17 04:20:53] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_12_en.mp3
+[2026-03-17 04:20:53] generateVoiceOpenAI called | voice=fable | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_12_en.mp3 | text_len=26
+[2026-03-17 04:20:53] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:20:53] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:20:53] HTTP status=200 | curl_err=none | response_len=55296
+[2026-03-17 04:20:53] SUCCESS — wrote 55296 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_12_en.mp3
+[2026-03-17 04:20:53] api_result={"success":true}
+[2026-03-17 04:20:53] DB updated OK for scene 12
+[2026-03-17 04:20:54] generate_scene_audio | scene=13 podcast=2 voice=openai:fable text_len=31
+[2026-03-17 04:20:54] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_13_en.mp3
+[2026-03-17 04:20:54] generateVoiceOpenAI called | voice=fable | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_13_en.mp3 | text_len=31
+[2026-03-17 04:20:54] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:20:54] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:20:54] HTTP status=200 | curl_err=none | response_len=45696
+[2026-03-17 04:20:54] SUCCESS — wrote 45696 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_13_en.mp3
+[2026-03-17 04:20:54] api_result={"success":true}
+[2026-03-17 04:20:54] DB updated OK for scene 13
+[2026-03-17 04:20:55] generate_scene_audio | scene=14 podcast=2 voice=openai:fable text_len=41
+[2026-03-17 04:20:55] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_14_en.mp3
+[2026-03-17 04:20:55] generateVoiceOpenAI called | voice=fable | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_14_en.mp3 | text_len=41
+[2026-03-17 04:20:55] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:20:55] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:20:55] HTTP status=200 | curl_err=none | response_len=47232
+[2026-03-17 04:20:55] SUCCESS — wrote 47232 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_14_en.mp3
+[2026-03-17 04:20:55] api_result={"success":true}
+[2026-03-17 04:20:55] DB updated OK for scene 14
+[2026-03-17 04:20:57] generate_scene_audio | scene=15 podcast=2 voice=openai:fable text_len=29
+[2026-03-17 04:20:57] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_15_en.mp3
+[2026-03-17 04:20:57] generateVoiceOpenAI called | voice=fable | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_15_en.mp3 | text_len=29
+[2026-03-17 04:20:57] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:20:57] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:20:57] HTTP status=200 | curl_err=none | response_len=37632
+[2026-03-17 04:20:57] SUCCESS — wrote 37632 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_15_en.mp3
+[2026-03-17 04:20:57] api_result={"success":true}
+[2026-03-17 04:20:57] DB updated OK for scene 15
+[2026-03-17 04:20:58] generate_scene_audio | scene=16 podcast=2 voice=openai:fable text_len=27
+[2026-03-17 04:20:58] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_16_en.mp3
+[2026-03-17 04:20:58] generateVoiceOpenAI called | voice=fable | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_16_en.mp3 | text_len=27
+[2026-03-17 04:20:58] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:20:58] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:20:58] HTTP status=200 | curl_err=none | response_len=41856
+[2026-03-17 04:20:58] SUCCESS — wrote 41856 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_16_en.mp3
+[2026-03-17 04:20:58] api_result={"success":true}
+[2026-03-17 04:20:58] DB updated OK for scene 16
+[2026-03-17 04:21:00] generate_scene_audio | scene=17 podcast=2 voice=openai:fable text_len=37
+[2026-03-17 04:21:00] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_17_en.mp3
+[2026-03-17 04:21:00] generateVoiceOpenAI called | voice=fable | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_17_en.mp3 | text_len=37
+[2026-03-17 04:21:00] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:21:00] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:21:00] HTTP status=200 | curl_err=none | response_len=64128
+[2026-03-17 04:21:00] SUCCESS — wrote 64128 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_17_en.mp3
+[2026-03-17 04:21:00] api_result={"success":true}
+[2026-03-17 04:21:00] DB updated OK for scene 17
+[2026-03-17 04:21:01] generate_scene_audio | scene=18 podcast=2 voice=openai:fable text_len=22
+[2026-03-17 04:21:01] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_18_en.mp3
+[2026-03-17 04:21:01] generateVoiceOpenAI called | voice=fable | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_18_en.mp3 | text_len=22
+[2026-03-17 04:21:01] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:21:01] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:21:01] HTTP status=200 | curl_err=none | response_len=35328
+[2026-03-17 04:21:01] SUCCESS — wrote 35328 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_18_en.mp3
+[2026-03-17 04:21:01] api_result={"success":true}
+[2026-03-17 04:21:01] DB updated OK for scene 18
+[2026-03-17 04:21:02] generate_scene_audio | scene=19 podcast=2 voice=openai:fable text_len=36
+[2026-03-17 04:21:02] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_19_en.mp3
+[2026-03-17 04:21:02] generateVoiceOpenAI called | voice=fable | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_19_en.mp3 | text_len=36
+[2026-03-17 04:21:02] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:21:02] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:21:02] HTTP status=200 | curl_err=none | response_len=44160
+[2026-03-17 04:21:02] SUCCESS — wrote 44160 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_2_19_en.mp3
+[2026-03-17 04:21:02] api_result={"success":true}
+[2026-03-17 04:21:02] DB updated OK for scene 19
+[2026-03-17 04:31:52] generate_scene_audio | scene=20 podcast=3 voice=openai:alloy text_len=67
+[2026-03-17 04:31:52] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_3_20_en.mp3
+[2026-03-17 04:31:52] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_3_20_en.mp3 | text_len=67
+[2026-03-17 04:31:52] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:31:52] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:31:52] HTTP status=200 | curl_err=none | response_len=82560
+[2026-03-17 04:31:52] SUCCESS — wrote 82560 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_3_20_en.mp3
+[2026-03-17 04:31:52] api_result={"success":true}
+[2026-03-17 04:31:52] DB updated OK for scene 20
+[2026-03-17 04:31:53] generate_scene_audio | scene=21 podcast=3 voice=openai:alloy text_len=64
+[2026-03-17 04:31:53] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_3_21_en.mp3
+[2026-03-17 04:31:53] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_3_21_en.mp3 | text_len=64
+[2026-03-17 04:31:53] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:31:53] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:31:53] HTTP status=200 | curl_err=none | response_len=67968
+[2026-03-17 04:31:53] SUCCESS — wrote 67968 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_3_21_en.mp3
+[2026-03-17 04:31:53] api_result={"success":true}
+[2026-03-17 04:31:53] DB updated OK for scene 21
+[2026-03-17 04:31:56] generate_scene_audio | scene=22 podcast=3 voice=openai:alloy text_len=26
+[2026-03-17 04:31:56] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_3_22_en.mp3
+[2026-03-17 04:31:56] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_3_22_en.mp3 | text_len=26
+[2026-03-17 04:31:56] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:31:56] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:31:56] HTTP status=200 | curl_err=none | response_len=40320
+[2026-03-17 04:31:56] SUCCESS — wrote 40320 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_3_22_en.mp3
+[2026-03-17 04:31:56] api_result={"success":true}
+[2026-03-17 04:31:56] DB updated OK for scene 22
+[2026-03-17 04:31:57] generate_scene_audio | scene=23 podcast=3 voice=openai:alloy text_len=28
+[2026-03-17 04:31:57] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_3_23_en.mp3
+[2026-03-17 04:31:57] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_3_23_en.mp3 | text_len=28
+[2026-03-17 04:31:57] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:31:57] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:31:57] HTTP status=200 | curl_err=none | response_len=41088
+[2026-03-17 04:31:57] SUCCESS — wrote 41088 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_3_23_en.mp3
+[2026-03-17 04:31:57] api_result={"success":true}
+[2026-03-17 04:31:57] DB updated OK for scene 23
+[2026-03-17 04:31:58] generate_scene_audio | scene=24 podcast=3 voice=openai:alloy text_len=29
+[2026-03-17 04:31:58] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_3_24_en.mp3
+[2026-03-17 04:31:58] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_3_24_en.mp3 | text_len=29
+[2026-03-17 04:31:58] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:31:58] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:31:58] HTTP status=200 | curl_err=none | response_len=41856
+[2026-03-17 04:31:58] SUCCESS — wrote 41856 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_3_24_en.mp3
+[2026-03-17 04:31:58] api_result={"success":true}
+[2026-03-17 04:31:58] DB updated OK for scene 24
+[2026-03-17 04:31:59] generate_scene_audio | scene=25 podcast=3 voice=openai:alloy text_len=35
+[2026-03-17 04:31:59] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_3_25_en.mp3
+[2026-03-17 04:31:59] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_3_25_en.mp3 | text_len=35
+[2026-03-17 04:31:59] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:31:59] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:31:59] HTTP status=200 | curl_err=none | response_len=46464
+[2026-03-17 04:31:59] SUCCESS — wrote 46464 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_3_25_en.mp3
+[2026-03-17 04:31:59] api_result={"success":true}
+[2026-03-17 04:31:59] DB updated OK for scene 25
+[2026-03-17 04:32:01] generate_scene_audio | scene=26 podcast=3 voice=openai:alloy text_len=46
+[2026-03-17 04:32:01] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_3_26_en.mp3
+[2026-03-17 04:32:01] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_3_26_en.mp3 | text_len=46
+[2026-03-17 04:32:01] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:32:01] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:32:01] HTTP status=200 | curl_err=none | response_len=44160
+[2026-03-17 04:32:01] SUCCESS — wrote 44160 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_3_26_en.mp3
+[2026-03-17 04:32:01] api_result={"success":true}
+[2026-03-17 04:32:01] DB updated OK for scene 26
+[2026-03-17 04:32:02] generate_scene_audio | scene=27 podcast=3 voice=openai:alloy text_len=35
+[2026-03-17 04:32:02] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_3_27_en.mp3
+[2026-03-17 04:32:02] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_3_27_en.mp3 | text_len=35
+[2026-03-17 04:32:02] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:32:02] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:32:02] HTTP status=200 | curl_err=none | response_len=42624
+[2026-03-17 04:32:02] SUCCESS — wrote 42624 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_3_27_en.mp3
+[2026-03-17 04:32:02] api_result={"success":true}
+[2026-03-17 04:32:02] DB updated OK for scene 27
+[2026-03-17 04:41:38] generate_scene_audio | scene=28 podcast=4 voice=openai:alloy text_len=36
+[2026-03-17 04:41:38] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_4_28_en.mp3
+[2026-03-17 04:41:38] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_4_28_en.mp3 | text_len=36
+[2026-03-17 04:41:38] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:41:38] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:41:38] HTTP status=200 | curl_err=none | response_len=56064
+[2026-03-17 04:41:38] SUCCESS — wrote 56064 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_4_28_en.mp3
+[2026-03-17 04:41:38] api_result={"success":true}
+[2026-03-17 04:41:38] DB updated OK for scene 28
+[2026-03-17 04:41:39] generate_scene_audio | scene=29 podcast=4 voice=openai:alloy text_len=30
+[2026-03-17 04:41:39] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_4_29_en.mp3
+[2026-03-17 04:41:39] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_4_29_en.mp3 | text_len=30
+[2026-03-17 04:41:39] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:41:39] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:41:39] HTTP status=200 | curl_err=none | response_len=52992
+[2026-03-17 04:41:39] SUCCESS — wrote 52992 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_4_29_en.mp3
+[2026-03-17 04:41:39] api_result={"success":true}
+[2026-03-17 04:41:39] DB updated OK for scene 29
+[2026-03-17 04:41:41] generate_scene_audio | scene=30 podcast=4 voice=openai:alloy text_len=38
+[2026-03-17 04:41:41] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_4_30_en.mp3
+[2026-03-17 04:41:41] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_4_30_en.mp3 | text_len=38
+[2026-03-17 04:41:41] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:41:41] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:41:41] HTTP status=200 | curl_err=none | response_len=48768
+[2026-03-17 04:41:41] SUCCESS — wrote 48768 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_4_30_en.mp3
+[2026-03-17 04:41:41] api_result={"success":true}
+[2026-03-17 04:41:41] DB updated OK for scene 30
+[2026-03-17 04:41:42] generate_scene_audio | scene=31 podcast=4 voice=openai:alloy text_len=37
+[2026-03-17 04:41:42] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_4_31_en.mp3
+[2026-03-17 04:41:42] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_4_31_en.mp3 | text_len=37
+[2026-03-17 04:41:42] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:41:42] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:41:42] HTTP status=200 | curl_err=none | response_len=36864
+[2026-03-17 04:41:42] SUCCESS — wrote 36864 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_4_31_en.mp3
+[2026-03-17 04:41:42] api_result={"success":true}
+[2026-03-17 04:41:42] DB updated OK for scene 31
+[2026-03-17 04:41:43] generate_scene_audio | scene=32 podcast=4 voice=openai:alloy text_len=32
+[2026-03-17 04:41:43] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_4_32_en.mp3
+[2026-03-17 04:41:43] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_4_32_en.mp3 | text_len=32
+[2026-03-17 04:41:43] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:41:43] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:41:43] HTTP status=200 | curl_err=none | response_len=39168
+[2026-03-17 04:41:43] SUCCESS — wrote 39168 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_4_32_en.mp3
+[2026-03-17 04:41:43] api_result={"success":true}
+[2026-03-17 04:41:43] DB updated OK for scene 32
+[2026-03-17 04:41:44] generate_scene_audio | scene=33 podcast=4 voice=openai:alloy text_len=29
+[2026-03-17 04:41:44] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_4_33_en.mp3
+[2026-03-17 04:41:44] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_4_33_en.mp3 | text_len=29
+[2026-03-17 04:41:44] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:41:44] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:41:44] HTTP status=200 | curl_err=none | response_len=33024
+[2026-03-17 04:41:44] SUCCESS — wrote 33024 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_4_33_en.mp3
+[2026-03-17 04:41:44] api_result={"success":true}
+[2026-03-17 04:41:44] DB updated OK for scene 33
+[2026-03-17 04:41:45] generate_scene_audio | scene=34 podcast=4 voice=openai:alloy text_len=40
+[2026-03-17 04:41:45] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_4_34_en.mp3
+[2026-03-17 04:41:45] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_4_34_en.mp3 | text_len=40
+[2026-03-17 04:41:45] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:41:45] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:41:45] HTTP status=200 | curl_err=none | response_len=54528
+[2026-03-17 04:41:45] SUCCESS — wrote 54528 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_4_34_en.mp3
+[2026-03-17 04:41:45] api_result={"success":true}
+[2026-03-17 04:41:45] DB updated OK for scene 34
+[2026-03-17 04:41:46] generate_scene_audio | scene=35 podcast=4 voice=openai:alloy text_len=37
+[2026-03-17 04:41:46] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_4_35_en.mp3
+[2026-03-17 04:41:46] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_4_35_en.mp3 | text_len=37
+[2026-03-17 04:41:46] Loaded openai_config.php | key_found=YES
+[2026-03-17 04:41:46] API key found (first 8 chars): sk-proj-...
+[2026-03-17 04:41:46] HTTP status=200 | curl_err=none | response_len=48768
+[2026-03-17 04:41:46] SUCCESS — wrote 48768 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_4_35_en.mp3
+[2026-03-17 04:41:46] api_result={"success":true}
+[2026-03-17 04:41:46] DB updated OK for scene 35
+[2026-03-17 08:49:00] generate_scene_audio | scene=36 podcast=5 voice=openai:alloy text_len=54
+[2026-03-17 08:49:00] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_5_36_en.mp3
+[2026-03-17 08:49:00] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_5_36_en.mp3 | text_len=54
+[2026-03-17 08:49:00] Loaded openai_config.php | key_found=YES
+[2026-03-17 08:49:00] API key found (first 8 chars): sk-proj-...
+[2026-03-17 08:49:00] HTTP status=200 | curl_err=none | response_len=58368
+[2026-03-17 08:49:00] SUCCESS — wrote 58368 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_5_36_en.mp3
+[2026-03-17 08:49:00] api_result={"success":true}
+[2026-03-17 08:49:00] DB updated OK for scene 36
+[2026-03-17 08:49:02] generate_scene_audio | scene=37 podcast=5 voice=openai:alloy text_len=47
+[2026-03-17 08:49:02] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_5_37_en.mp3
+[2026-03-17 08:49:02] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_5_37_en.mp3 | text_len=47
+[2026-03-17 08:49:02] Loaded openai_config.php | key_found=YES
+[2026-03-17 08:49:02] API key found (first 8 chars): sk-proj-...
+[2026-03-17 08:49:02] HTTP status=200 | curl_err=none | response_len=52224
+[2026-03-17 08:49:02] SUCCESS — wrote 52224 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_5_37_en.mp3
+[2026-03-17 08:49:02] api_result={"success":true}
+[2026-03-17 08:49:02] DB updated OK for scene 37
+[2026-03-17 08:49:04] generate_scene_audio | scene=38 podcast=5 voice=openai:alloy text_len=38
+[2026-03-17 08:49:04] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_5_38_en.mp3
+[2026-03-17 08:49:04] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_5_38_en.mp3 | text_len=38
+[2026-03-17 08:49:04] Loaded openai_config.php | key_found=YES
+[2026-03-17 08:49:04] API key found (first 8 chars): sk-proj-...
+[2026-03-17 08:49:04] HTTP status=200 | curl_err=none | response_len=59520
+[2026-03-17 08:49:04] SUCCESS — wrote 59520 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_5_38_en.mp3
+[2026-03-17 08:49:04] api_result={"success":true}
+[2026-03-17 08:49:04] DB updated OK for scene 38
+[2026-03-17 08:49:06] generate_scene_audio | scene=39 podcast=5 voice=openai:alloy text_len=48
+[2026-03-17 08:49:06] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_5_39_en.mp3
+[2026-03-17 08:49:06] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_5_39_en.mp3 | text_len=48
+[2026-03-17 08:49:06] Loaded openai_config.php | key_found=YES
+[2026-03-17 08:49:06] API key found (first 8 chars): sk-proj-...
+[2026-03-17 08:49:06] HTTP status=200 | curl_err=none | response_len=66432
+[2026-03-17 08:49:06] SUCCESS — wrote 66432 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_5_39_en.mp3
+[2026-03-17 08:49:06] api_result={"success":true}
+[2026-03-17 08:49:06] DB updated OK for scene 39
+[2026-03-17 08:49:07] generate_scene_audio | scene=40 podcast=5 voice=openai:alloy text_len=35
+[2026-03-17 08:49:07] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_5_40_en.mp3
+[2026-03-17 08:49:07] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_5_40_en.mp3 | text_len=35
+[2026-03-17 08:49:07] Loaded openai_config.php | key_found=YES
+[2026-03-17 08:49:07] API key found (first 8 chars): sk-proj-...
+[2026-03-17 08:49:07] HTTP status=200 | curl_err=none | response_len=37632
+[2026-03-17 08:49:07] SUCCESS — wrote 37632 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_5_40_en.mp3
+[2026-03-17 08:49:07] api_result={"success":true}
+[2026-03-17 08:49:07] DB updated OK for scene 40
+[2026-03-17 08:49:09] generate_scene_audio | scene=41 podcast=5 voice=openai:alloy text_len=38
+[2026-03-17 08:49:09] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_5_41_en.mp3
+[2026-03-17 08:49:09] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_5_41_en.mp3 | text_len=38
+[2026-03-17 08:49:09] Loaded openai_config.php | key_found=YES
+[2026-03-17 08:49:09] API key found (first 8 chars): sk-proj-...
+[2026-03-17 08:49:09] HTTP status=200 | curl_err=none | response_len=40320
+[2026-03-17 08:49:09] SUCCESS — wrote 40320 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_5_41_en.mp3
+[2026-03-17 08:49:09] api_result={"success":true}
+[2026-03-17 08:49:09] DB updated OK for scene 41
+[2026-03-17 09:07:54] generate_scene_audio | scene=42 podcast=7 voice=openai:alloy text_len=35
+[2026-03-17 09:07:54] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_7_42_en.mp3
+[2026-03-17 09:07:54] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_7_42_en.mp3 | text_len=35
+[2026-03-17 09:07:54] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:07:54] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:07:54] HTTP status=200 | curl_err=none | response_len=44160
+[2026-03-17 09:07:54] SUCCESS — wrote 44160 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_7_42_en.mp3
+[2026-03-17 09:07:54] api_result={"success":true}
+[2026-03-17 09:07:54] DB updated OK for scene 42
+[2026-03-17 09:07:55] generate_scene_audio | scene=43 podcast=7 voice=openai:alloy text_len=30
+[2026-03-17 09:07:55] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_7_43_en.mp3
+[2026-03-17 09:07:55] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_7_43_en.mp3 | text_len=30
+[2026-03-17 09:07:55] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:07:55] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:07:55] HTTP status=200 | curl_err=none | response_len=45696
+[2026-03-17 09:07:55] SUCCESS — wrote 45696 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_7_43_en.mp3
+[2026-03-17 09:07:55] api_result={"success":true}
+[2026-03-17 09:07:55] DB updated OK for scene 43
+[2026-03-17 09:07:57] generate_scene_audio | scene=44 podcast=7 voice=openai:alloy text_len=32
+[2026-03-17 09:07:57] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_7_44_en.mp3
+[2026-03-17 09:07:57] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_7_44_en.mp3 | text_len=32
+[2026-03-17 09:07:57] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:07:57] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:07:57] HTTP status=200 | curl_err=none | response_len=40320
+[2026-03-17 09:07:57] SUCCESS — wrote 40320 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_7_44_en.mp3
+[2026-03-17 09:07:57] api_result={"success":true}
+[2026-03-17 09:07:57] DB updated OK for scene 44
+[2026-03-17 09:07:58] generate_scene_audio | scene=45 podcast=7 voice=openai:alloy text_len=35
+[2026-03-17 09:07:58] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_7_45_en.mp3
+[2026-03-17 09:07:58] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_7_45_en.mp3 | text_len=35
+[2026-03-17 09:07:58] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:07:58] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:07:58] HTTP status=200 | curl_err=none | response_len=51456
+[2026-03-17 09:07:58] SUCCESS — wrote 51456 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_7_45_en.mp3
+[2026-03-17 09:07:58] api_result={"success":true}
+[2026-03-17 09:07:58] DB updated OK for scene 45
+[2026-03-17 09:08:00] generate_scene_audio | scene=46 podcast=7 voice=openai:alloy text_len=28
+[2026-03-17 09:08:00] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_7_46_en.mp3
+[2026-03-17 09:08:00] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_7_46_en.mp3 | text_len=28
+[2026-03-17 09:08:00] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:08:00] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:08:00] HTTP status=200 | curl_err=none | response_len=38400
+[2026-03-17 09:08:00] SUCCESS — wrote 38400 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_7_46_en.mp3
+[2026-03-17 09:08:00] api_result={"success":true}
+[2026-03-17 09:08:00] DB updated OK for scene 46
+[2026-03-17 09:08:03] generate_scene_audio | scene=47 podcast=7 voice=openai:alloy text_len=29
+[2026-03-17 09:08:03] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_7_47_en.mp3
+[2026-03-17 09:08:03] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_7_47_en.mp3 | text_len=29
+[2026-03-17 09:08:03] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:08:03] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:08:03] HTTP status=200 | curl_err=none | response_len=41088
+[2026-03-17 09:08:03] SUCCESS — wrote 41088 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_7_47_en.mp3
+[2026-03-17 09:08:03] api_result={"success":true}
+[2026-03-17 09:08:03] DB updated OK for scene 47
+[2026-03-17 09:08:04] generate_scene_audio | scene=48 podcast=7 voice=openai:alloy text_len=37
+[2026-03-17 09:08:04] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_7_48_en.mp3
+[2026-03-17 09:08:04] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_7_48_en.mp3 | text_len=37
+[2026-03-17 09:08:04] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:08:04] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:08:04] HTTP status=200 | curl_err=none | response_len=51456
+[2026-03-17 09:08:04] SUCCESS — wrote 51456 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_7_48_en.mp3
+[2026-03-17 09:08:04] api_result={"success":true}
+[2026-03-17 09:08:04] DB updated OK for scene 48
+[2026-03-17 09:08:07] generate_scene_audio | scene=49 podcast=7 voice=openai:alloy text_len=32
+[2026-03-17 09:08:07] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_7_49_en.mp3
+[2026-03-17 09:08:07] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_7_49_en.mp3 | text_len=32
+[2026-03-17 09:08:07] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:08:07] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:08:07] HTTP status=200 | curl_err=none | response_len=42624
+[2026-03-17 09:08:07] SUCCESS — wrote 42624 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_7_49_en.mp3
+[2026-03-17 09:08:07] api_result={"success":true}
+[2026-03-17 09:08:07] DB updated OK for scene 49
+[2026-03-17 09:19:28] generate_scene_audio | scene=50 podcast=8 voice=openai:alloy text_len=44
+[2026-03-17 09:19:28] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_8_50_en.mp3
+[2026-03-17 09:19:28] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_8_50_en.mp3 | text_len=44
+[2026-03-17 09:19:28] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:19:28] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:19:28] HTTP status=200 | curl_err=none | response_len=45696
+[2026-03-17 09:19:28] SUCCESS — wrote 45696 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_8_50_en.mp3
+[2026-03-17 09:19:28] api_result={"success":true}
+[2026-03-17 09:19:28] DB updated OK for scene 50
+[2026-03-17 09:19:29] generate_scene_audio | scene=51 podcast=8 voice=openai:alloy text_len=38
+[2026-03-17 09:19:29] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_8_51_en.mp3
+[2026-03-17 09:19:29] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_8_51_en.mp3 | text_len=38
+[2026-03-17 09:19:29] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:19:29] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:19:29] HTTP status=200 | curl_err=none | response_len=46464
+[2026-03-17 09:19:29] SUCCESS — wrote 46464 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_8_51_en.mp3
+[2026-03-17 09:19:29] api_result={"success":true}
+[2026-03-17 09:19:29] DB updated OK for scene 51
+[2026-03-17 09:19:31] generate_scene_audio | scene=52 podcast=8 voice=openai:alloy text_len=39
+[2026-03-17 09:19:31] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_8_52_en.mp3
+[2026-03-17 09:19:31] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_8_52_en.mp3 | text_len=39
+[2026-03-17 09:19:31] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:19:31] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:19:31] HTTP status=200 | curl_err=none | response_len=48768
+[2026-03-17 09:19:31] SUCCESS — wrote 48768 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_8_52_en.mp3
+[2026-03-17 09:19:31] api_result={"success":true}
+[2026-03-17 09:19:31] DB updated OK for scene 52
+[2026-03-17 09:19:32] generate_scene_audio | scene=53 podcast=8 voice=openai:alloy text_len=32
+[2026-03-17 09:19:32] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_8_53_en.mp3
+[2026-03-17 09:19:32] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_8_53_en.mp3 | text_len=32
+[2026-03-17 09:19:32] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:19:32] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:19:32] HTTP status=200 | curl_err=none | response_len=47232
+[2026-03-17 09:19:32] SUCCESS — wrote 47232 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_8_53_en.mp3
+[2026-03-17 09:19:32] api_result={"success":true}
+[2026-03-17 09:19:32] DB updated OK for scene 53
+[2026-03-17 09:19:33] generate_scene_audio | scene=54 podcast=8 voice=openai:alloy text_len=33
+[2026-03-17 09:19:33] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_8_54_en.mp3
+[2026-03-17 09:19:33] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_8_54_en.mp3 | text_len=33
+[2026-03-17 09:19:33] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:19:33] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:19:33] HTTP status=200 | curl_err=none | response_len=44160
+[2026-03-17 09:19:33] SUCCESS — wrote 44160 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_8_54_en.mp3
+[2026-03-17 09:19:33] api_result={"success":true}
+[2026-03-17 09:19:33] DB updated OK for scene 54
+[2026-03-17 09:19:34] generate_scene_audio | scene=55 podcast=8 voice=openai:alloy text_len=37
+[2026-03-17 09:19:34] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_8_55_en.mp3
+[2026-03-17 09:19:34] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_8_55_en.mp3 | text_len=37
+[2026-03-17 09:19:34] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:19:34] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:19:34] HTTP status=200 | curl_err=none | response_len=44928
+[2026-03-17 09:19:34] SUCCESS — wrote 44928 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_8_55_en.mp3
+[2026-03-17 09:19:34] api_result={"success":true}
+[2026-03-17 09:19:34] DB updated OK for scene 55
+[2026-03-17 09:19:35] generate_scene_audio | scene=56 podcast=8 voice=openai:alloy text_len=38
+[2026-03-17 09:19:35] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_8_56_en.mp3
+[2026-03-17 09:19:35] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_8_56_en.mp3 | text_len=38
+[2026-03-17 09:19:35] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:19:35] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:19:35] HTTP status=200 | curl_err=none | response_len=52992
+[2026-03-17 09:19:35] SUCCESS — wrote 52992 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_8_56_en.mp3
+[2026-03-17 09:19:35] api_result={"success":true}
+[2026-03-17 09:19:35] DB updated OK for scene 56
+[2026-03-17 09:22:02] generate_scene_audio | scene=57 podcast=9 voice=openai:alloy text_len=36
+[2026-03-17 09:22:02] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_9_57_en.mp3
+[2026-03-17 09:22:02] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_9_57_en.mp3 | text_len=36
+[2026-03-17 09:22:02] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:22:02] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:22:02] HTTP status=200 | curl_err=none | response_len=40320
+[2026-03-17 09:22:02] SUCCESS — wrote 40320 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_9_57_en.mp3
+[2026-03-17 09:22:02] api_result={"success":true}
+[2026-03-17 09:22:02] DB updated OK for scene 57
+[2026-03-17 09:22:03] generate_scene_audio | scene=58 podcast=9 voice=openai:alloy text_len=36
+[2026-03-17 09:22:03] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_9_58_en.mp3
+[2026-03-17 09:22:03] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_9_58_en.mp3 | text_len=36
+[2026-03-17 09:22:03] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:22:03] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:22:03] HTTP status=200 | curl_err=none | response_len=51456
+[2026-03-17 09:22:03] SUCCESS — wrote 51456 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_9_58_en.mp3
+[2026-03-17 09:22:03] api_result={"success":true}
+[2026-03-17 09:22:03] DB updated OK for scene 58
+[2026-03-17 09:22:04] generate_scene_audio | scene=59 podcast=9 voice=openai:alloy text_len=37
+[2026-03-17 09:22:04] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_9_59_en.mp3
+[2026-03-17 09:22:04] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_9_59_en.mp3 | text_len=37
+[2026-03-17 09:22:04] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:22:04] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:22:04] HTTP status=200 | curl_err=none | response_len=63360
+[2026-03-17 09:22:04] SUCCESS — wrote 63360 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_9_59_en.mp3
+[2026-03-17 09:22:04] api_result={"success":true}
+[2026-03-17 09:22:04] DB updated OK for scene 59
+[2026-03-17 09:22:06] generate_scene_audio | scene=60 podcast=9 voice=openai:alloy text_len=41
+[2026-03-17 09:22:06] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_9_60_en.mp3
+[2026-03-17 09:22:06] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_9_60_en.mp3 | text_len=41
+[2026-03-17 09:22:06] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:22:06] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:22:06] HTTP status=200 | curl_err=none | response_len=42624
+[2026-03-17 09:22:06] SUCCESS — wrote 42624 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_9_60_en.mp3
+[2026-03-17 09:22:06] api_result={"success":true}
+[2026-03-17 09:22:06] DB updated OK for scene 60
+[2026-03-17 09:22:07] generate_scene_audio | scene=61 podcast=9 voice=openai:alloy text_len=42
+[2026-03-17 09:22:07] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_9_61_en.mp3
+[2026-03-17 09:22:07] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_9_61_en.mp3 | text_len=42
+[2026-03-17 09:22:07] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:22:07] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:22:07] HTTP status=200 | curl_err=none | response_len=44160
+[2026-03-17 09:22:07] SUCCESS — wrote 44160 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_9_61_en.mp3
+[2026-03-17 09:22:07] api_result={"success":true}
+[2026-03-17 09:22:07] DB updated OK for scene 61
+[2026-03-17 09:22:08] generate_scene_audio | scene=62 podcast=9 voice=openai:alloy text_len=35
+[2026-03-17 09:22:08] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_9_62_en.mp3
+[2026-03-17 09:22:08] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_9_62_en.mp3 | text_len=35
+[2026-03-17 09:22:08] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:22:08] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:22:08] HTTP status=200 | curl_err=none | response_len=44928
+[2026-03-17 09:22:08] SUCCESS — wrote 44928 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_9_62_en.mp3
+[2026-03-17 09:22:08] api_result={"success":true}
+[2026-03-17 09:22:08] DB updated OK for scene 62
+[2026-03-17 09:22:09] generate_scene_audio | scene=63 podcast=9 voice=openai:alloy text_len=37
+[2026-03-17 09:22:09] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_9_63_en.mp3
+[2026-03-17 09:22:09] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_9_63_en.mp3 | text_len=37
+[2026-03-17 09:22:09] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:22:09] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:22:09] HTTP status=200 | curl_err=none | response_len=57600
+[2026-03-17 09:22:09] SUCCESS — wrote 57600 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_9_63_en.mp3
+[2026-03-17 09:22:09] api_result={"success":true}
+[2026-03-17 09:22:09] DB updated OK for scene 63
+[2026-03-17 09:57:19] generate_scene_audio | scene=64 podcast=10 voice=openai:alloy text_len=50
+[2026-03-17 09:57:19] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_10_64_en.mp3
+[2026-03-17 09:57:19] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_10_64_en.mp3 | text_len=50
+[2026-03-17 09:57:19] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:57:19] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:57:19] HTTP status=200 | curl_err=none | response_len=52992
+[2026-03-17 09:57:19] SUCCESS — wrote 52992 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_10_64_en.mp3
+[2026-03-17 09:57:19] api_result={"success":true}
+[2026-03-17 09:57:19] DB updated OK for scene 64
+[2026-03-17 09:57:21] generate_scene_audio | scene=65 podcast=10 voice=openai:alloy text_len=50
+[2026-03-17 09:57:21] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_10_65_en.mp3
+[2026-03-17 09:57:21] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_10_65_en.mp3 | text_len=50
+[2026-03-17 09:57:21] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:57:21] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:57:21] HTTP status=200 | curl_err=none | response_len=54528
+[2026-03-17 09:57:21] SUCCESS — wrote 54528 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_10_65_en.mp3
+[2026-03-17 09:57:21] api_result={"success":true}
+[2026-03-17 09:57:21] DB updated OK for scene 65
+[2026-03-17 09:57:22] generate_scene_audio | scene=66 podcast=10 voice=openai:alloy text_len=43
+[2026-03-17 09:57:22] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_10_66_en.mp3
+[2026-03-17 09:57:22] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_10_66_en.mp3 | text_len=43
+[2026-03-17 09:57:22] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:57:22] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:57:22] HTTP status=200 | curl_err=none | response_len=52224
+[2026-03-17 09:57:22] SUCCESS — wrote 52224 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_10_66_en.mp3
+[2026-03-17 09:57:22] api_result={"success":true}
+[2026-03-17 09:57:22] DB updated OK for scene 66
+[2026-03-17 09:57:24] generate_scene_audio | scene=67 podcast=10 voice=openai:alloy text_len=44
+[2026-03-17 09:57:24] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_10_67_en.mp3
+[2026-03-17 09:57:24] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_10_67_en.mp3 | text_len=44
+[2026-03-17 09:57:24] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:57:24] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:57:24] HTTP status=200 | curl_err=none | response_len=48768
+[2026-03-17 09:57:24] SUCCESS — wrote 48768 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_10_67_en.mp3
+[2026-03-17 09:57:24] api_result={"success":true}
+[2026-03-17 09:57:24] DB updated OK for scene 67
+[2026-03-17 09:57:25] generate_scene_audio | scene=68 podcast=10 voice=openai:alloy text_len=44
+[2026-03-17 09:57:25] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_10_68_en.mp3
+[2026-03-17 09:57:25] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_10_68_en.mp3 | text_len=44
+[2026-03-17 09:57:25] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:57:25] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:57:25] HTTP status=200 | curl_err=none | response_len=49920
+[2026-03-17 09:57:25] SUCCESS — wrote 49920 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_10_68_en.mp3
+[2026-03-17 09:57:25] api_result={"success":true}
+[2026-03-17 09:57:25] DB updated OK for scene 68
+[2026-03-17 09:57:26] generate_scene_audio | scene=69 podcast=10 voice=openai:alloy text_len=38
+[2026-03-17 09:57:26] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_10_69_en.mp3
+[2026-03-17 09:57:26] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_10_69_en.mp3 | text_len=38
+[2026-03-17 09:57:26] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:57:26] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:57:26] HTTP status=200 | curl_err=none | response_len=43392
+[2026-03-17 09:57:26] SUCCESS — wrote 43392 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_10_69_en.mp3
+[2026-03-17 09:57:26] api_result={"success":true}
+[2026-03-17 09:57:26] DB updated OK for scene 69
+[2026-03-17 09:57:27] generate_scene_audio | scene=70 podcast=10 voice=openai:alloy text_len=43
+[2026-03-17 09:57:27] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_10_70_en.mp3
+[2026-03-17 09:57:27] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_10_70_en.mp3 | text_len=43
+[2026-03-17 09:57:27] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:57:27] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:57:27] HTTP status=200 | curl_err=none | response_len=64128
+[2026-03-17 09:57:27] SUCCESS — wrote 64128 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_10_70_en.mp3
+[2026-03-17 09:57:27] api_result={"success":true}
+[2026-03-17 09:57:27] DB updated OK for scene 70
+[2026-03-17 09:57:28] generate_scene_audio | scene=71 podcast=10 voice=openai:alloy text_len=42
+[2026-03-17 09:57:28] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_10_71_en.mp3
+[2026-03-17 09:57:28] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_10_71_en.mp3 | text_len=42
+[2026-03-17 09:57:28] Loaded openai_config.php | key_found=YES
+[2026-03-17 09:57:28] API key found (first 8 chars): sk-proj-...
+[2026-03-17 09:57:28] HTTP status=200 | curl_err=none | response_len=44928
+[2026-03-17 09:57:28] SUCCESS — wrote 44928 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_10_71_en.mp3
+[2026-03-17 09:57:28] api_result={"success":true}
+[2026-03-17 09:57:28] DB updated OK for scene 71
+[2026-03-17 10:00:41] generate_scene_audio | scene=72 podcast=11 voice=openai:alloy text_len=45
+[2026-03-17 10:00:41] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_11_72_en.mp3
+[2026-03-17 10:00:41] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_11_72_en.mp3 | text_len=45
+[2026-03-17 10:00:41] Loaded openai_config.php | key_found=YES
+[2026-03-17 10:00:41] API key found (first 8 chars): sk-proj-...
+[2026-03-17 10:00:41] HTTP status=200 | curl_err=none | response_len=61824
+[2026-03-17 10:00:41] SUCCESS — wrote 61824 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_11_72_en.mp3
+[2026-03-17 10:00:41] api_result={"success":true}
+[2026-03-17 10:00:41] DB updated OK for scene 72
+[2026-03-17 10:00:42] generate_scene_audio | scene=73 podcast=11 voice=openai:alloy text_len=45
+[2026-03-17 10:00:42] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_11_73_en.mp3
+[2026-03-17 10:00:42] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_11_73_en.mp3 | text_len=45
+[2026-03-17 10:00:42] Loaded openai_config.php | key_found=YES
+[2026-03-17 10:00:42] API key found (first 8 chars): sk-proj-...
+[2026-03-17 10:00:42] HTTP status=200 | curl_err=none | response_len=67968
+[2026-03-17 10:00:42] SUCCESS — wrote 67968 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_11_73_en.mp3
+[2026-03-17 10:00:42] api_result={"success":true}
+[2026-03-17 10:00:42] DB updated OK for scene 73
+[2026-03-17 10:00:44] generate_scene_audio | scene=74 podcast=11 voice=openai:alloy text_len=41
+[2026-03-17 10:00:44] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_11_74_en.mp3
+[2026-03-17 10:00:44] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_11_74_en.mp3 | text_len=41
+[2026-03-17 10:00:44] Loaded openai_config.php | key_found=YES
+[2026-03-17 10:00:44] API key found (first 8 chars): sk-proj-...
+[2026-03-17 10:00:44] HTTP status=200 | curl_err=none | response_len=48000
+[2026-03-17 10:00:44] SUCCESS — wrote 48000 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_11_74_en.mp3
+[2026-03-17 10:00:44] api_result={"success":true}
+[2026-03-17 10:00:44] DB updated OK for scene 74
+[2026-03-17 10:00:45] generate_scene_audio | scene=75 podcast=11 voice=openai:alloy text_len=36
+[2026-03-17 10:00:45] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_11_75_en.mp3
+[2026-03-17 10:00:45] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_11_75_en.mp3 | text_len=36
+[2026-03-17 10:00:45] Loaded openai_config.php | key_found=YES
+[2026-03-17 10:00:45] API key found (first 8 chars): sk-proj-...
+[2026-03-17 10:00:45] HTTP status=200 | curl_err=none | response_len=42624
+[2026-03-17 10:00:45] SUCCESS — wrote 42624 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_11_75_en.mp3
+[2026-03-17 10:00:45] api_result={"success":true}
+[2026-03-17 10:00:45] DB updated OK for scene 75
+[2026-03-17 10:00:46] generate_scene_audio | scene=76 podcast=11 voice=openai:alloy text_len=40
+[2026-03-17 10:00:46] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_11_76_en.mp3
+[2026-03-17 10:00:46] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_11_76_en.mp3 | text_len=40
+[2026-03-17 10:00:46] Loaded openai_config.php | key_found=YES
+[2026-03-17 10:00:46] API key found (first 8 chars): sk-proj-...
+[2026-03-17 10:00:46] HTTP status=200 | curl_err=none | response_len=46464
+[2026-03-17 10:00:46] SUCCESS — wrote 46464 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_11_76_en.mp3
+[2026-03-17 10:00:46] api_result={"success":true}
+[2026-03-17 10:00:46] DB updated OK for scene 76
+[2026-03-17 10:00:48] generate_scene_audio | scene=77 podcast=11 voice=openai:alloy text_len=39
+[2026-03-17 10:00:48] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_11_77_en.mp3
+[2026-03-17 10:00:48] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_11_77_en.mp3 | text_len=39
+[2026-03-17 10:00:48] Loaded openai_config.php | key_found=YES
+[2026-03-17 10:00:48] API key found (first 8 chars): sk-proj-...
+[2026-03-17 10:00:48] HTTP status=200 | curl_err=none | response_len=50688
+[2026-03-17 10:00:48] SUCCESS — wrote 50688 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_11_77_en.mp3
+[2026-03-17 10:00:48] api_result={"success":true}
+[2026-03-17 10:00:48] DB updated OK for scene 77
+[2026-03-17 10:04:51] generate_scene_audio | scene=78 podcast=12 voice=openai:alloy text_len=32
+[2026-03-17 10:04:51] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_12_78_en.mp3
+[2026-03-17 10:04:51] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_12_78_en.mp3 | text_len=32
+[2026-03-17 10:04:51] Loaded openai_config.php | key_found=YES
+[2026-03-17 10:04:51] API key found (first 8 chars): sk-proj-...
+[2026-03-17 10:04:51] HTTP status=200 | curl_err=none | response_len=44160
+[2026-03-17 10:04:51] SUCCESS — wrote 44160 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_12_78_en.mp3
+[2026-03-17 10:04:51] api_result={"success":true}
+[2026-03-17 10:04:51] DB updated OK for scene 78
+[2026-03-17 10:04:52] generate_scene_audio | scene=79 podcast=12 voice=openai:alloy text_len=32
+[2026-03-17 10:04:52] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_12_79_en.mp3
+[2026-03-17 10:04:52] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_12_79_en.mp3 | text_len=32
+[2026-03-17 10:04:52] Loaded openai_config.php | key_found=YES
+[2026-03-17 10:04:52] API key found (first 8 chars): sk-proj-...
+[2026-03-17 10:04:52] HTTP status=200 | curl_err=none | response_len=37632
+[2026-03-17 10:04:52] SUCCESS — wrote 37632 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_12_79_en.mp3
+[2026-03-17 10:04:52] api_result={"success":true}
+[2026-03-17 10:04:52] DB updated OK for scene 79
+[2026-03-17 10:04:54] generate_scene_audio | scene=80 podcast=12 voice=openai:alloy text_len=32
+[2026-03-17 10:04:54] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_12_80_en.mp3
+[2026-03-17 10:04:54] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_12_80_en.mp3 | text_len=32
+[2026-03-17 10:04:54] Loaded openai_config.php | key_found=YES
+[2026-03-17 10:04:54] API key found (first 8 chars): sk-proj-...
+[2026-03-17 10:04:54] HTTP status=200 | curl_err=none | response_len=44928
+[2026-03-17 10:04:54] SUCCESS — wrote 44928 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_12_80_en.mp3
+[2026-03-17 10:04:54] api_result={"success":true}
+[2026-03-17 10:04:54] DB updated OK for scene 80
+[2026-03-17 10:04:55] generate_scene_audio | scene=81 podcast=12 voice=openai:alloy text_len=30
+[2026-03-17 10:04:55] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_12_81_en.mp3
+[2026-03-17 10:04:55] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_12_81_en.mp3 | text_len=30
+[2026-03-17 10:04:55] Loaded openai_config.php | key_found=YES
+[2026-03-17 10:04:55] API key found (first 8 chars): sk-proj-...
+[2026-03-17 10:04:55] HTTP status=200 | curl_err=none | response_len=41088
+[2026-03-17 10:04:55] SUCCESS — wrote 41088 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_12_81_en.mp3
+[2026-03-17 10:04:55] api_result={"success":true}
+[2026-03-17 10:04:55] DB updated OK for scene 81
+[2026-03-17 10:04:56] generate_scene_audio | scene=82 podcast=12 voice=openai:alloy text_len=28
+[2026-03-17 10:04:56] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_12_82_en.mp3
+[2026-03-17 10:04:56] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_12_82_en.mp3 | text_len=28
+[2026-03-17 10:04:56] Loaded openai_config.php | key_found=YES
+[2026-03-17 10:04:56] API key found (first 8 chars): sk-proj-...
+[2026-03-17 10:04:56] HTTP status=200 | curl_err=none | response_len=42624
+[2026-03-17 10:04:56] SUCCESS — wrote 42624 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_12_82_en.mp3
+[2026-03-17 10:04:56] api_result={"success":true}
+[2026-03-17 10:04:56] DB updated OK for scene 82
+[2026-03-17 10:04:57] generate_scene_audio | scene=83 podcast=12 voice=openai:alloy text_len=27
+[2026-03-17 10:04:57] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_12_83_en.mp3
+[2026-03-17 10:04:57] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_12_83_en.mp3 | text_len=27
+[2026-03-17 10:04:57] Loaded openai_config.php | key_found=YES
+[2026-03-17 10:04:57] API key found (first 8 chars): sk-proj-...
+[2026-03-17 10:04:57] HTTP status=200 | curl_err=none | response_len=33792
+[2026-03-17 10:04:57] SUCCESS — wrote 33792 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_12_83_en.mp3
+[2026-03-17 10:04:57] api_result={"success":true}
+[2026-03-17 10:04:57] DB updated OK for scene 83
+[2026-03-17 10:04:58] generate_scene_audio | scene=84 podcast=12 voice=openai:alloy text_len=34
+[2026-03-17 10:04:58] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_12_84_en.mp3
+[2026-03-17 10:04:58] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_12_84_en.mp3 | text_len=34
+[2026-03-17 10:04:58] Loaded openai_config.php | key_found=YES
+[2026-03-17 10:04:58] API key found (first 8 chars): sk-proj-...
+[2026-03-17 10:04:58] HTTP status=200 | curl_err=none | response_len=65664
+[2026-03-17 10:04:58] SUCCESS — wrote 65664 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_12_84_en.mp3
+[2026-03-17 10:04:58] api_result={"success":true}
+[2026-03-17 10:04:58] DB updated OK for scene 84
+[2026-03-17 10:05:00] generate_scene_audio | scene=85 podcast=12 voice=openai:alloy text_len=45
+[2026-03-17 10:05:00] filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_12_85_en.mp3
+[2026-03-17 10:05:00] generateVoiceOpenAI called | voice=alloy | filepath=/home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_12_85_en.mp3 | text_len=45
+[2026-03-17 10:05:00] Loaded openai_config.php | key_found=YES
+[2026-03-17 10:05:00] API key found (first 8 chars): sk-proj-...
+[2026-03-17 10:05:00] HTTP status=200 | curl_err=none | response_len=52992
+[2026-03-17 10:05:00] SUCCESS — wrote 52992 bytes to /home/syjy0p3q5yjb/public_html/videovizard.com/podcast_audios/voice_12_85_en.mp3
+[2026-03-17 10:05:00] api_result={"success":true}
+[2026-03-17 10:05:00] DB updated OK for scene 85

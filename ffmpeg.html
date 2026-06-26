@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Local FFmpeg WASM</title>
+    <!-- 1. Point to your local copy of the main wrapper script -->
+    <script src="ffmpeg.min.js"></script>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        #status { margin: 10px 0; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <input type="file" id="video1" accept="video/mp4, video/webm" />
+    <input type="file" id="video2" accept="video/mp4, video/webm" />
+    <button id="process-btn" disabled>Loading Processor...</button>
+    <div id="status">Initializing internal core...</div>
+
+    <script>
+        // Use the globally loaded library object
+        const { FFmpeg } = FFmpegWASM;
+        const ffmpeg = new FFmpeg();
+
+        async function initLocalFFmpeg() {
+            try {
+                // 2. Tell the engine to pull the core engine wrapper straight from your domain
+                await ffmpeg.load({
+                    coreJSWithBlobURL: 'ffmpeg-core.js',
+                    wasmWithBlobURL: 'ffmpeg-core.wasm'
+                });
+                
+                document.getElementById('status').innerText = "Processor Ready! Drop matching formats.";
+                document.getElementById('process-btn').disabled = false;
+            } catch (err) {
+                console.error(err);
+                document.getElementById('status').innerText = "WASM initialization failed. Double-check your server headers.";
+            }
+        }
+        
+        // Include your routing / stitching button function handlers below here...
+        initLocalFFmpeg();
+    </script>
+</body>
+</html>

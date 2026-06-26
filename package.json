@@ -1,0 +1,16 @@
+{
+  "name": "veo",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "veo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@google/genai": "^1.51.0"
+  }
+}

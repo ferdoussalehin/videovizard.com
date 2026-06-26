@@ -1,0 +1,289 @@
+[2026-05-25 06:09:49] [REQUEST] === NEW PRODUCT SCENE: Scene 1 ===
+[2026-05-25 06:09:49] [ENHANCE] Using text-only prompt enhancement (no product image)
+[2026-05-25 06:09:55] [ENHANCE] Enhanced prompt length: 1344
+[2026-05-25 06:09:55] [MAIN] === Starting image generation (FLUX primary, OpenAI fallback) ===
+[2026-05-25 06:09:55] [FLUX] FLUX: Starting generation with prompt length: 1344
+[2026-05-25 06:09:55] [FLUX] FLUX: Attempt 1 of 2
+[2026-05-25 06:11:25] [FLUX] FLUX: Waiting 3s before retry...
+[2026-05-25 06:11:28] [FLUX] FLUX: Attempt 2 of 2
+[2026-05-25 06:12:58] [FLUX_ERROR] FLUX: All 2 attempts failed
+[2026-05-25 06:12:58] [MAIN_FALLBACK] FLUX failed. Falling back to OpenAI...
+[2026-05-25 06:12:58] [OPENAI] OpenAI: Starting fallback generation
+[2026-05-25 06:13:26] [OPENAI_SUCCESS] OpenAI: SUCCESS - Image generated
+[2026-05-25 06:13:26] [MAIN_SUCCESS] OpenAI fallback succeeded!
+[2026-05-25 06:13:26] [SAVE] Image saved: product_images/scenes/scene_1779689606_1.png (Source: OpenAI gpt-image-1)
+[2026-05-25 06:13:28] [REQUEST] === NEW PRODUCT SCENE: Scene 2 ===
+[2026-05-25 06:13:28] [ENHANCE] Using text-only prompt enhancement (no product image)
+[2026-05-25 06:13:33] [ENHANCE] Enhanced prompt length: 1245
+[2026-05-25 06:13:33] [MAIN] === Starting image generation (FLUX primary, OpenAI fallback) ===
+[2026-05-25 06:13:33] [FLUX] FLUX: Starting generation with prompt length: 1245
+[2026-05-25 06:13:33] [FLUX] FLUX: Attempt 1 of 2
+[2026-05-25 06:14:02] [FLUX_SUCCESS] FLUX: SUCCESS on attempt 1 (HTTP 200)
+[2026-05-25 06:14:02] [MAIN_SUCCESS] FLUX succeeded! Using FLUX image.
+[2026-05-25 06:14:02] [SAVE] Image saved: product_images/scenes/scene_1779689642_2.png (Source: FLUX/Modal)
+[2026-05-25 06:14:04] [REQUEST] === NEW PRODUCT SCENE: Scene 3 ===
+[2026-05-25 06:14:04] [ENHANCE] Using text-only prompt enhancement (no product image)
+[2026-05-25 06:14:10] [ENHANCE] Enhanced prompt length: 1456
+[2026-05-25 06:14:10] [MAIN] === Starting image generation (FLUX primary, OpenAI fallback) ===
+[2026-05-25 06:14:10] [FLUX] FLUX: Starting generation with prompt length: 1456
+[2026-05-25 06:14:10] [FLUX] FLUX: Attempt 1 of 2
+[2026-05-25 06:14:39] [FLUX_SUCCESS] FLUX: SUCCESS on attempt 1 (HTTP 200)
+[2026-05-25 06:14:39] [MAIN_SUCCESS] FLUX succeeded! Using FLUX image.
+[2026-05-25 06:14:39] [SAVE] Image saved: product_images/scenes/scene_1779689679_3.png (Source: FLUX/Modal)
+[2026-05-25 06:14:41] [REQUEST] === NEW PRODUCT SCENE: Scene 4 ===
+[2026-05-25 06:14:41] [ENHANCE] Using text-only prompt enhancement (no product image)
+[2026-05-25 06:14:45] [ENHANCE] Enhanced prompt length: 1206
+[2026-05-25 06:14:45] [MAIN] === Starting image generation (FLUX primary, OpenAI fallback) ===
+[2026-05-25 06:14:45] [FLUX] FLUX: Starting generation with prompt length: 1206
+[2026-05-25 06:14:45] [FLUX] FLUX: Attempt 1 of 2
+[2026-05-25 06:15:15] [FLUX_SUCCESS] FLUX: SUCCESS on attempt 1 (HTTP 200)
+[2026-05-25 06:15:15] [MAIN_SUCCESS] FLUX succeeded! Using FLUX image.
+[2026-05-25 06:15:15] [SAVE] Image saved: product_images/scenes/scene_1779689715_4.png (Source: FLUX/Modal)
+[2026-05-25 06:15:17] [REQUEST] === NEW PRODUCT SCENE: Scene 5 ===
+[2026-05-25 06:15:17] [ENHANCE] Using text-only prompt enhancement (no product image)
+[2026-05-25 06:15:22] [ENHANCE] Enhanced prompt length: 1218
+[2026-05-25 06:15:22] [MAIN] === Starting image generation (FLUX primary, OpenAI fallback) ===
+[2026-05-25 06:15:22] [FLUX] FLUX: Starting generation with prompt length: 1218
+[2026-05-25 06:15:22] [FLUX] FLUX: Attempt 1 of 2
+[2026-05-25 06:15:51] [FLUX_SUCCESS] FLUX: SUCCESS on attempt 1 (HTTP 200)
+[2026-05-25 06:15:51] [MAIN_SUCCESS] FLUX succeeded! Using FLUX image.
+[2026-05-25 06:15:51] [SAVE] Image saved: product_images/scenes/scene_1779689751_5.png (Source: FLUX/Modal)
+[2026-05-25 06:15:53] [REQUEST] === NEW PRODUCT SCENE: Scene 6 ===
+[2026-05-25 06:15:53] [ENHANCE] Using text-only prompt enhancement (no product image)
+[2026-05-25 06:15:59] [ENHANCE] Enhanced prompt length: 1286
+[2026-05-25 06:15:59] [MAIN] === Starting image generation (FLUX primary, OpenAI fallback) ===
+[2026-05-25 06:15:59] [FLUX] FLUX: Starting generation with prompt length: 1286
+[2026-05-25 06:15:59] [FLUX] FLUX: Attempt 1 of 2
+[2026-05-25 06:16:28] [FLUX_SUCCESS] FLUX: SUCCESS on attempt 1 (HTTP 200)
+[2026-05-25 06:16:28] [MAIN_SUCCESS] FLUX succeeded! Using FLUX image.
+[2026-05-25 06:16:28] [SAVE] Image saved: product_images/scenes/scene_1779689788_6.png (Source: FLUX/Modal)
+[2026-05-25 06:32:29] [REQUEST] === NEW PRODUCT SCENE: Scene 1 ===
+[2026-05-25 06:32:29] [ENHANCE] Using vision-enhanced prompt (product image available)
+[2026-05-25 06:32:35] [ENHANCE] Enhanced prompt length: 1061
+[2026-05-25 06:32:35] [MAIN] === Starting image generation (FLUX primary, OpenAI fallback) ===
+[2026-05-25 06:32:35] [FLUX] FLUX: Starting generation with prompt length: 1061
+[2026-05-25 06:32:35] [FLUX] FLUX: Attempt 1 of 2
+[2026-05-25 06:34:05] [FLUX] FLUX: Waiting 3s before retry...
+[2026-05-25 06:34:08] [FLUX] FLUX: Attempt 2 of 2
+[2026-05-25 06:35:38] [FLUX_ERROR] FLUX: All 2 attempts failed
+[2026-05-25 06:35:38] [MAIN_FALLBACK] FLUX failed. Falling back to OpenAI...
+[2026-05-25 06:35:38] [OPENAI] OpenAI: Starting fallback generation
+[2026-05-25 06:36:01] [OPENAI_SUCCESS] OpenAI: SUCCESS - Image generated
+[2026-05-25 06:36:01] [MAIN_SUCCESS] OpenAI fallback succeeded!
+[2026-05-25 06:36:01] [SAVE] Image saved: product_images/scenes/scene_1779690961_1.png (Source: OpenAI gpt-image-1)
+[2026-05-25 06:36:03] [REQUEST] === NEW PRODUCT SCENE: Scene 2 ===
+[2026-05-25 06:36:03] [ENHANCE] Using vision-enhanced prompt (product image available)
+[2026-05-25 06:36:10] [ENHANCE] Enhanced prompt length: 1125
+[2026-05-25 06:36:10] [MAIN] === Starting image generation (FLUX primary, OpenAI fallback) ===
+[2026-05-25 06:36:10] [FLUX] FLUX: Starting generation with prompt length: 1125
+[2026-05-25 06:36:10] [FLUX] FLUX: Attempt 1 of 2
+[2026-05-25 06:37:23] [FLUX_SUCCESS] FLUX: SUCCESS on attempt 1 (HTTP 200)
+[2026-05-25 06:37:23] [MAIN_SUCCESS] FLUX succeeded! Using FLUX image.
+[2026-05-25 06:37:23] [SAVE] Image saved: product_images/scenes/scene_1779691043_2.png (Source: FLUX/Modal)
+[2026-05-25 06:37:25] [REQUEST] === NEW PRODUCT SCENE: Scene 3 ===
+[2026-05-25 06:37:25] [ENHANCE] Using vision-enhanced prompt (product image available)
+[2026-05-25 06:37:31] [ENHANCE] Enhanced prompt length: 1122
+[2026-05-25 06:37:31] [MAIN] === Starting image generation (FLUX primary, OpenAI fallback) ===
+[2026-05-25 06:37:31] [FLUX] FLUX: Starting generation with prompt length: 1122
+[2026-05-25 06:37:31] [FLUX] FLUX: Attempt 1 of 2
+[2026-05-25 06:38:41] [FLUX_SUCCESS] FLUX: SUCCESS on attempt 1 (HTTP 200)
+[2026-05-25 06:38:41] [MAIN_SUCCESS] FLUX succeeded! Using FLUX image.
+[2026-05-25 06:38:41] [SAVE] Image saved: product_images/scenes/scene_1779691121_3.png (Source: FLUX/Modal)
+[2026-05-25 06:38:43] [REQUEST] === NEW PRODUCT SCENE: Scene 4 ===
+[2026-05-25 06:38:43] [ENHANCE] Using vision-enhanced prompt (product image available)
+[2026-05-25 06:38:49] [ENHANCE] Enhanced prompt length: 1156
+[2026-05-25 06:38:49] [MAIN] === Starting image generation (FLUX primary, OpenAI fallback) ===
+[2026-05-25 06:38:49] [FLUX] FLUX: Starting generation with prompt length: 1156
+[2026-05-25 06:38:49] [FLUX] FLUX: Attempt 1 of 2
+[2026-05-25 06:39:59] [FLUX_SUCCESS] FLUX: SUCCESS on attempt 1 (HTTP 200)
+[2026-05-25 06:39:59] [MAIN_SUCCESS] FLUX succeeded! Using FLUX image.
+[2026-05-25 06:39:59] [SAVE] Image saved: product_images/scenes/scene_1779691199_4.png (Source: FLUX/Modal)
+[2026-05-25 06:40:01] [REQUEST] === NEW PRODUCT SCENE: Scene 5 ===
+[2026-05-25 06:40:01] [ENHANCE] Using vision-enhanced prompt (product image available)
+[2026-05-25 06:40:01] [ENHANCE] Enhanced prompt length: 723
+[2026-05-25 06:40:01] [MAIN] === Starting image generation (FLUX primary, OpenAI fallback) ===
+[2026-05-25 06:40:01] [FLUX] FLUX: Starting generation with prompt length: 723
+[2026-05-25 06:40:01] [FLUX] FLUX: Attempt 1 of 2
+[2026-05-25 06:40:01] [FLUX] FLUX: Waiting 3s before retry...
+[2026-05-25 06:40:04] [FLUX] FLUX: Attempt 2 of 2
+[2026-05-25 06:40:04] [FLUX_ERROR] FLUX: All 2 attempts failed
+[2026-05-25 06:40:04] [MAIN_FALLBACK] FLUX failed. Falling back to OpenAI...
+[2026-05-25 06:40:04] [OPENAI] OpenAI: Starting fallback generation
+[2026-05-25 06:40:04] [OPENAI_ERROR] OpenAI: cURL error: getaddrinfo() thread failed to start
+[2026-05-25 06:40:04] [MAIN_ERROR] BOTH FLUX and OpenAI failed.
+[2026-05-25 06:40:06] [REQUEST] === NEW PRODUCT SCENE: Scene 6 ===
+[2026-05-25 06:40:06] [ENHANCE] Using vision-enhanced prompt (product image available)
+[2026-05-25 06:40:13] [ENHANCE] Enhanced prompt length: 1327
+[2026-05-25 06:40:13] [MAIN] === Starting image generation (FLUX primary, OpenAI fallback) ===
+[2026-05-25 06:40:13] [FLUX] FLUX: Starting generation with prompt length: 1327
+[2026-05-25 06:40:13] [FLUX] FLUX: Attempt 1 of 2
+[2026-05-25 06:41:22] [FLUX_SUCCESS] FLUX: SUCCESS on attempt 1 (HTTP 200)
+[2026-05-25 06:41:22] [MAIN_SUCCESS] FLUX succeeded! Using FLUX image.
+[2026-05-25 06:41:22] [SAVE] Image saved: product_images/scenes/scene_1779691282_6.png (Source: FLUX/Modal)
+[2026-05-28 02:54:29.208331] [REQUEST] === SCENE REQUEST scene=1 podcast=811 story=4026 | prompt_len=107 ===
+[2026-05-28 02:54:29.209513] [ENHANCE] SCENE 1: Using text-only prompt enhancement (no product image)
+[2026-05-28 02:54:33.407480] [ENHANCE] (+4.198s) SCENE 1: Prompt enhanced | len=1227
+[2026-05-28 02:54:33.409663] [MAIN] === generateImageWithFallback START ===
+[2026-05-28 02:54:33.411087] [FLUX] FLUX: Starting | prompt_len=1309
+[2026-05-28 02:54:33.411402] [FLUX] FLUX: Attempt 1/2 — firing request...
+[2026-05-28 02:57:03.626156] [FLUX] (+150.215s) FLUX: Attempt 1 done | HTTP=303 curlErr=0 curlTime=150.207989s resp_len=0
+[2026-05-28 02:57:03.627068] [FLUX_ERROR] FLUX: FAIL attempt=1 | HTTP=303 curlErr=0 ()
+[2026-05-28 02:57:03.627290] [FLUX] FLUX: Waiting 3s before retry 2...
+[2026-05-28 02:57:06.627747] [FLUX] FLUX: Attempt 2/2 — firing request...
+[2026-05-28 02:58:22.655021] [FLUX] (+76.027s) FLUX: Attempt 2 done | HTTP=200 curlErr=0 curlTime=76.021324s resp_len=1278725
+[2026-05-28 02:58:22.665656] [FLUX_SUCCESS] (+229.255s) FLUX: SUCCESS attempt=2
+[2026-05-28 02:58:22.666655] [MAIN_SUCCESS] (+229.257s) MAIN: FLUX succeeded
+[2026-05-28 02:58:22.666969] [REQUEST] (+229.257s) SCENE 1: Generation done | success=YES source=FLUX/Modal elapsed=229.26s
+[2026-05-28 02:58:22.675333] [SAVE] (+233.467s) SCENE 1: Saved to podcast_images/scene_811_1_1779937102.png (959021 bytes) source=FLUX/Modal
+[2026-05-28 02:58:22.676275] [DB_WARN] SCENE 1: DB update FAILED (full) story_id=4026 — Server has gone away
+[2026-05-28 02:58:22.676651] [DB_WARN] SCENE 1: DB update FAILED (fallback) story_id=4026 — Server has gone away
+[2026-05-28 02:58:22.685506] [REQUEST] === SCENE REQUEST scene=2 podcast=811 story=4027 | prompt_len=26 ===
+[2026-05-28 02:58:22.686373] [ENHANCE] SCENE 2: Using text-only prompt enhancement (no product image)
+[2026-05-28 02:58:25.657340] [ENHANCE] (+2.971s) SCENE 2: Prompt enhanced | len=1031
+[2026-05-28 02:58:25.659252] [MAIN] === generateImageWithFallback START ===
+[2026-05-28 02:58:25.659607] [FLUX] FLUX: Starting | prompt_len=1113
+[2026-05-28 02:58:25.659866] [FLUX] FLUX: Attempt 1/2 — firing request...
+[2026-05-28 02:59:30.666596] [REQUEST] === SCENE REQUEST scene=4 podcast=811 story=4029 | prompt_len=53 ===
+[2026-05-28 02:59:30.667289] [ENHANCE] SCENE 4: Using text-only prompt enhancement (no product image)
+[2026-05-28 02:59:34.203857] [ENHANCE] (+3.537s) SCENE 4: Prompt enhanced | len=1155
+[2026-05-28 02:59:34.204755] [MAIN] === generateImageWithFallback START ===
+[2026-05-28 02:59:34.205022] [FLUX] FLUX: Starting | prompt_len=1237
+[2026-05-28 02:59:34.205285] [FLUX] FLUX: Attempt 1/2 — firing request...
+[2026-05-28 03:00:48.950211] [FLUX] (+74.745s) FLUX: Attempt 1 done | HTTP=200 curlErr=0 curlTime=74.740601s resp_len=1318209
+[2026-05-28 03:00:48.958225] [FLUX_SUCCESS] (+74.753s) FLUX: SUCCESS attempt=1
+[2026-05-28 03:00:48.959439] [MAIN_SUCCESS] (+74.755s) MAIN: FLUX succeeded
+[2026-05-28 03:00:48.959727] [REQUEST] (+74.755s) SCENE 4: Generation done | success=YES source=FLUX/Modal elapsed=74.75s
+[2026-05-28 03:00:48.969825] [SAVE] (+78.303s) SCENE 4: Saved to podcast_images/scene_811_4_1779937248.png (988634 bytes) source=FLUX/Modal
+[2026-05-28 03:00:48.971568] [DB_WARN] SCENE 4: DB update FAILED (full) story_id=4029 — Server has gone away
+[2026-05-28 03:00:48.972011] [DB_WARN] SCENE 4: DB update FAILED (fallback) story_id=4029 — Server has gone away
+[2026-05-28 03:00:48.982264] [REQUEST] === SCENE REQUEST scene=3 podcast=811 story=4028 | prompt_len=800 ===
+[2026-05-28 03:00:48.983136] [ENHANCE] SCENE 3: Using text-only prompt enhancement (no product image)
+[2026-05-28 03:00:52.407789] [ENHANCE] (+3.425s) SCENE 3: Prompt enhanced | len=1052
+[2026-05-28 03:00:52.409615] [MAIN] === generateImageWithFallback START ===
+[2026-05-28 03:00:52.409848] [FLUX] FLUX: Starting | prompt_len=1134
+[2026-05-28 03:00:52.410095] [FLUX] FLUX: Attempt 1/2 — firing request...
+[2026-05-28 03:02:07.662756] [FLUX] (+75.253s) FLUX: Attempt 1 done | HTTP=200 curlErr=0 curlTime=75.248046s resp_len=1249809
+[2026-05-28 03:02:07.670696] [FLUX_SUCCESS] (+75.261s) FLUX: SUCCESS attempt=1
+[2026-05-28 03:02:07.671367] [MAIN_SUCCESS] (+75.262s) MAIN: FLUX succeeded
+[2026-05-28 03:02:07.671638] [REQUEST] (+75.262s) SCENE 3: Generation done | success=YES source=FLUX/Modal elapsed=75.26s
+[2026-05-28 03:02:07.680833] [SAVE] (+78.699s) SCENE 3: Saved to podcast_images/scene_811_3_1779937327.png (937333 bytes) source=FLUX/Modal
+[2026-05-28 03:02:07.681529] [DB_WARN] SCENE 3: DB update FAILED (full) story_id=4028 — Server has gone away
+[2026-05-28 03:02:07.681744] [DB_WARN] SCENE 3: DB update FAILED (fallback) story_id=4028 — Server has gone away
+[2026-05-28 03:02:07.977675] [REQUEST] === SCENE REQUEST scene=5 podcast=811 story=4030 | prompt_len=447 ===
+[2026-05-28 03:02:07.978166] [ENHANCE] SCENE 5: Using text-only prompt enhancement (no product image)
+[2026-05-28 03:02:12.923312] [ENHANCE] (+4.945s) SCENE 5: Prompt enhanced | len=1112
+[2026-05-28 03:02:12.926579] [MAIN] === generateImageWithFallback START ===
+[2026-05-28 03:02:12.927290] [FLUX] FLUX: Starting | prompt_len=1194
+[2026-05-28 03:02:12.927639] [FLUX] FLUX: Attempt 1/2 — firing request...
+[2026-05-28 03:03:24.812082] [FLUX] (+71.884s) FLUX: Attempt 1 done | HTTP=200 curlErr=0 curlTime=71.879613s resp_len=1316281
+[2026-05-28 03:03:24.821403] [FLUX_SUCCESS] (+71.894s) FLUX: SUCCESS attempt=1
+[2026-05-28 03:03:24.822056] [MAIN_SUCCESS] (+71.895s) MAIN: FLUX succeeded
+[2026-05-28 03:03:24.822349] [REQUEST] (+71.896s) SCENE 5: Generation done | success=YES source=FLUX/Modal elapsed=71.9s
+[2026-05-28 03:03:24.830602] [SAVE] (+76.853s) SCENE 5: Saved to podcast_images/scene_811_5_1779937404.png (987189 bytes) source=FLUX/Modal
+[2026-05-28 03:03:24.831149] [DB_WARN] SCENE 5: DB update FAILED (full) story_id=4030 — Server has gone away
+[2026-05-28 03:03:24.831423] [DB_WARN] SCENE 5: DB update FAILED (fallback) story_id=4030 — Server has gone away
+[2026-05-28 03:03:24.839432] [REQUEST] === SCENE REQUEST scene=6 podcast=811 story=4031 | prompt_len=424 ===
+[2026-05-28 03:03:24.840035] [ENHANCE] SCENE 6: Using text-only prompt enhancement (no product image)
+[2026-05-28 03:03:29.635849] [ENHANCE] (+4.796s) SCENE 6: Prompt enhanced | len=1150
+[2026-05-28 03:03:29.637635] [MAIN] === generateImageWithFallback START ===
+[2026-05-28 03:03:29.637917] [FLUX] FLUX: Starting | prompt_len=1232
+[2026-05-28 03:03:29.638195] [FLUX] FLUX: Attempt 1/2 — firing request...
+[2026-05-28 03:04:42.002964] [FLUX] (+72.365s) FLUX: Attempt 1 done | HTTP=200 curlErr=0 curlTime=72.360259s resp_len=1362181
+[2026-05-28 03:04:42.014100] [FLUX_SUCCESS] (+72.376s) FLUX: SUCCESS attempt=1
+[2026-05-28 03:04:42.015635] [MAIN_SUCCESS] (+72.378s) MAIN: FLUX succeeded
+[2026-05-28 03:04:42.015929] [REQUEST] (+72.378s) SCENE 6: Generation done | success=YES source=FLUX/Modal elapsed=72.38s
+[2026-05-28 03:04:42.026001] [SAVE] (+77.187s) SCENE 6: Saved to podcast_images/scene_811_6_1779937482.png (1021613 bytes) source=FLUX/Modal
+[2026-05-28 03:04:42.026738] [DB_WARN] SCENE 6: DB update FAILED (full) story_id=4031 — Server has gone away
+[2026-05-28 03:04:42.027060] [DB_WARN] SCENE 6: DB update FAILED (fallback) story_id=4031 — Server has gone away
+[2026-05-28 03:19:51.775208] [REQUEST] === SCENE REQUEST scene=1 podcast=812 story=4032 | prompt_len=802 ===
+[2026-05-28 03:19:51.775962] [ENHANCE] SCENE 1: Using text-only prompt enhancement (no product image)
+[2026-05-28 03:19:57.731214] [ENHANCE] (+5.955s) SCENE 1: Prompt enhanced | len=1287
+[2026-05-28 03:19:57.731954] [MAIN] === generateImageWithFallback START ===
+[2026-05-28 03:19:57.732764] [FLUX] FLUX: Starting | prompt_len=1369
+[2026-05-28 03:19:57.733031] [FLUX] FLUX: Attempt 1/2 — firing request...
+[2026-05-28 03:22:27.970032] [FLUX] (+150.237s) FLUX: Attempt 1 done | HTTP=303 curlErr=0 curlTime=150.230471s resp_len=0
+[2026-05-28 03:22:27.970675] [FLUX_ERROR] FLUX: FAIL attempt=1 | HTTP=303 curlErr=0 ()
+[2026-05-28 03:22:27.970952] [FLUX] FLUX: Waiting 3s before retry 2...
+[2026-05-28 03:22:30.971365] [FLUX] FLUX: Attempt 2/2 — firing request...
+[2026-05-28 03:24:52.159352] [REQUEST] === SCENE REQUEST scene=4 podcast=812 story=4035 | prompt_len=381 ===
+[2026-05-28 03:24:52.160032] [ENHANCE] SCENE 4: Using text-only prompt enhancement (no product image)
+[2026-05-28 03:24:56.674107] [ENHANCE] (+4.514s) SCENE 4: Prompt enhanced | len=1283
+[2026-05-28 03:24:56.674891] [MAIN] === generateImageWithFallback START ===
+[2026-05-28 03:24:56.675182] [FLUX] FLUX: Starting | prompt_len=1365
+[2026-05-28 03:24:56.675528] [FLUX] FLUX: Attempt 1/2 — firing request...
+[2026-05-28 03:26:42.381112] [FLUX] (+105.706s) FLUX: Attempt 1 done | HTTP=200 curlErr=0 curlTime=105.700384s resp_len=1703141
+[2026-05-28 03:26:42.391334] [FLUX_SUCCESS] (+105.716s) FLUX: SUCCESS attempt=1
+[2026-05-28 03:26:42.392266] [MAIN_SUCCESS] (+105.717s) MAIN: FLUX succeeded
+[2026-05-28 03:26:42.392554] [REQUEST] (+105.718s) SCENE 4: Generation done | success=YES source=FLUX/Modal elapsed=105.72s
+[2026-05-28 03:26:42.403443] [SAVE] (+110.244s) SCENE 4: Saved to podcast_images/scene_812_4_1779938802.png (1277332 bytes) source=FLUX/Modal
+[2026-05-28 03:26:42.404043] [DB_WARN] SCENE 4: DB update FAILED (full) story_id=4035 — Server has gone away
+[2026-05-28 03:26:42.404289] [DB_WARN] SCENE 4: DB update FAILED (fallback) story_id=4035 — Server has gone away
+[2026-05-28 03:26:42.412854] [REQUEST] === SCENE REQUEST scene=5 podcast=812 story=4036 | prompt_len=27 ===
+[2026-05-28 03:26:42.413800] [ENHANCE] SCENE 5: Using text-only prompt enhancement (no product image)
+[2026-05-28 03:26:47.079508] [ENHANCE] (+4.666s) SCENE 5: Prompt enhanced | len=1172
+[2026-05-28 03:26:47.080250] [MAIN] === generateImageWithFallback START ===
+[2026-05-28 03:26:47.080537] [FLUX] FLUX: Starting | prompt_len=1254
+[2026-05-28 03:26:47.080822] [FLUX] FLUX: Attempt 1/2 — firing request...
+[2026-05-28 03:28:00.522381] [FLUX] (+73.442s) FLUX: Attempt 1 done | HTTP=200 curlErr=0 curlTime=73.436833s resp_len=1752989
+[2026-05-28 03:28:00.533827] [FLUX_SUCCESS] (+73.453s) FLUX: SUCCESS attempt=1
+[2026-05-28 03:28:00.534749] [MAIN_SUCCESS] (+73.454s) MAIN: FLUX succeeded
+[2026-05-28 03:28:00.534979] [REQUEST] (+73.455s) SCENE 5: Generation done | success=YES source=FLUX/Modal elapsed=73.45s
+[2026-05-28 03:28:00.545835] [SAVE] (+78.133s) SCENE 5: Saved to podcast_images/scene_812_5_1779938880.png (1314718 bytes) source=FLUX/Modal
+[2026-05-28 03:28:00.546355] [DB_WARN] SCENE 5: DB update FAILED (full) story_id=4036 — Server has gone away
+[2026-05-28 03:28:00.546653] [DB_WARN] SCENE 5: DB update FAILED (fallback) story_id=4036 — Server has gone away
+[2026-05-28 03:28:00.552793] [REQUEST] === SCENE REQUEST scene=6 podcast=812 story=4037 | prompt_len=802 ===
+[2026-05-28 03:28:00.553306] [ENHANCE] SCENE 6: Using text-only prompt enhancement (no product image)
+[2026-05-28 03:28:05.537178] [ENHANCE] (+4.984s) SCENE 6: Prompt enhanced | len=1152
+[2026-05-28 03:28:05.537750] [MAIN] === generateImageWithFallback START ===
+[2026-05-28 03:28:05.537936] [FLUX] FLUX: Starting | prompt_len=1234
+[2026-05-28 03:28:05.538166] [FLUX] FLUX: Attempt 1/2 — firing request...
+[2026-05-28 03:29:22.324954] [FLUX] (+76.787s) FLUX: Attempt 1 done | HTTP=200 curlErr=0 curlTime=76.782256s resp_len=1625717
+[2026-05-28 03:29:22.336208] [FLUX_SUCCESS] (+76.798s) FLUX: SUCCESS attempt=1
+[2026-05-28 03:29:22.336877] [MAIN_SUCCESS] (+76.799s) MAIN: FLUX succeeded
+[2026-05-28 03:29:22.337141] [REQUEST] (+76.799s) SCENE 6: Generation done | success=YES source=FLUX/Modal elapsed=76.8s
+[2026-05-28 03:29:22.346558] [SAVE] (+81.794s) SCENE 6: Saved to podcast_images/scene_812_6_1779938962.png (1219265 bytes) source=FLUX/Modal
+[2026-05-28 03:29:22.348316] [DB_WARN] SCENE 6: DB update FAILED (full) story_id=4037 — Server has gone away
+[2026-05-28 03:29:22.348678] [DB_WARN] SCENE 6: DB update FAILED (fallback) story_id=4037 — Server has gone away
+[2026-05-28 03:33:55.717010] [REQUEST] === SCENE REQUEST scene=1 podcast=813 story=4038 | prompt_len=404 ===
+[2026-05-28 03:33:55.717751] [ENHANCE] SCENE 1: Using text-only prompt enhancement (no product image)
+[2026-05-28 03:34:00.511435] [ENHANCE] (+4.794s) SCENE 1: Prompt enhanced | len=1032
+[2026-05-28 03:34:00.512094] [MAIN] === generateImageWithFallback START ===
+[2026-05-28 03:34:00.512320] [FLUX] FLUX: Starting | prompt_len=1114
+[2026-05-28 03:34:00.512592] [FLUX] FLUX: Attempt 1 | time_left=329s — firing request...
+[2026-05-28 03:36:30.765558] [FLUX] (+150.253s) FLUX: Attempt 1 done | HTTP=303 curlErr=0 curlTime=150.246522s resp_len=0
+[2026-05-28 03:36:30.766294] [FLUX_ERROR] FLUX: FAIL attempt=1 | HTTP=303 curlErr=0 ()
+[2026-05-28 03:36:30.766599] [FLUX] FLUX: Waiting 5s before retry 2...
+[2026-05-28 03:36:35.767479] [FLUX] FLUX: Attempt 2 | time_left=174s — firing request...
+[2026-05-28 03:38:56.962364] [REQUEST] === SCENE REQUEST scene=4 podcast=813 story=4041 | prompt_len=375 ===
+[2026-05-28 03:38:56.963409] [ENHANCE] SCENE 4: Using text-only prompt enhancement (no product image)
+[2026-05-28 03:39:00.478470] [ENHANCE] (+3.515s) SCENE 4: Prompt enhanced | len=1212
+[2026-05-28 03:39:00.479068] [MAIN] === generateImageWithFallback START ===
+[2026-05-28 03:39:00.479311] [FLUX] FLUX: Starting | prompt_len=1294
+[2026-05-28 03:39:00.479568] [FLUX] FLUX: Attempt 1 | time_left=329s — firing request...
+[2026-05-28 03:41:30.728688] [FLUX] (+150.249s) FLUX: Attempt 1 done | HTTP=303 curlErr=0 curlTime=150.242188s resp_len=0
+[2026-05-28 03:41:30.729562] [FLUX_ERROR] FLUX: FAIL attempt=1 | HTTP=303 curlErr=0 ()
+[2026-05-28 03:41:30.729832] [FLUX] FLUX: Waiting 5s before retry 2...
+[2026-05-28 03:41:35.730313] [FLUX] FLUX: Attempt 2 | time_left=174s — firing request...
+[2026-05-28 03:42:38.253184] [FLUX] (+62.523s) FLUX: Attempt 2 done | HTTP=200 curlErr=0 curlTime=62.518068s resp_len=1705197
+[2026-05-28 03:42:38.265168] [FLUX_SUCCESS] (+217.786s) FLUX: SUCCESS attempt=2
+[2026-05-28 03:42:38.266505] [MAIN_SUCCESS] (+217.787s) MAIN: FLUX succeeded
+[2026-05-28 03:42:38.266731] [REQUEST] (+217.788s) SCENE 4: Generation done | success=YES source=FLUX/Modal elapsed=217.79s
+[2026-05-28 03:42:38.276880] [SAVE] (+221.315s) SCENE 4: Saved to podcast_images/scene_813_4_1779939758.png (1278874 bytes) source=FLUX/Modal
+[2026-05-28 03:42:38.277384] [DB_WARN] SCENE 4: DB update FAILED (full) story_id=4041 — Server has gone away
+[2026-05-28 03:42:38.277692] [DB_WARN] SCENE 4: DB update FAILED (fallback) story_id=4041 — Server has gone away
+[2026-05-28 03:43:16.428793] [REQUEST] === SCENE REQUEST scene=5 podcast=813 story=4042 | prompt_len=357 ===
+[2026-05-28 03:43:16.429446] [ENHANCE] SCENE 5: Using text-only prompt enhancement (no product image)
+[2026-05-28 03:43:19.981040] [ENHANCE] (+3.552s) SCENE 5: Prompt enhanced | len=1119
+[2026-05-28 03:43:19.981760] [MAIN] === generateImageWithFallback START ===
+[2026-05-28 03:43:19.982033] [FLUX] FLUX: Starting | prompt_len=1201
+[2026-05-28 03:43:19.982323] [FLUX] FLUX: Attempt 1 | time_left=329s — firing request...
+[2026-05-28 03:43:58.818948] [REQUEST] === SCENE REQUEST scene=6 podcast=813 story=4043 | prompt_len=325 ===
+[2026-05-28 03:43:58.819550] [ENHANCE] SCENE 6: Using text-only prompt enhancement (no product image)
+[2026-05-28 03:44:02.964317] [ENHANCE] (+4.145s) SCENE 6: Prompt enhanced | len=1194
+[2026-05-28 03:44:02.966218] [MAIN] === generateImageWithFallback START ===
+[2026-05-28 03:44:02.966592] [FLUX] FLUX: Starting | prompt_len=1276
+[2026-05-28 03:44:02.966860] [FLUX] FLUX: Attempt 1 | time_left=329s — firing request...
+[2026-05-28 03:46:33.187454] [FLUX] (+150.221s) FLUX: Attempt 1 done | HTTP=303 curlErr=0 curlTime=150.213728s resp_len=0
+[2026-05-28 03:46:33.188216] [FLUX_ERROR] FLUX: FAIL attempt=1 | HTTP=303 curlErr=0 ()
+[2026-05-28 03:46:33.188472] [FLUX] FLUX: Waiting 5s before retry 2...
+[2026-05-28 03:46:38.188930] [FLUX] FLUX: Attempt 2 | time_left=174s — firing request...

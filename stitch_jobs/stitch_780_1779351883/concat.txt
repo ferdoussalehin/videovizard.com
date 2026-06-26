@@ -1,0 +1,4 @@
+file '/var/www/html/videovizard.com/stitch_jobs/stitch_780_1779351883/scene_0.webm'
+file '/var/www/html/videovizard.com/stitch_jobs/stitch_780_1779351883/scene_1.webm'
+file '/var/www/html/videovizard.com/stitch_jobs/stitch_780_1779351883/scene_2.webm'
+file '/var/www/html/videovizard.com/stitch_jobs/stitch_780_1779351883/scene_3.webm'

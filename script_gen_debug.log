@@ -1,0 +1,450 @@
+[17-Mar-2026 10:04:51 UTC] === CREATE SCENES FROM CONTENT STARTED ===
+[17-Mar-2026 10:04:51 UTC] POST data: Array
+(
+    [action] => create_scenes_from_content
+    [title] => What if I told you Breathing Exercises?
+    [combined_title] => What if I told you Breathing Exercises?
+    [content] => [{"text":"Have you ever felt lost in life?<break time=\"250ms\"/>","prompt":"A young woman stands at a crossroads in a serene forest, surrounded by tall trees and dappled sunlight. Her expression is contemplative, as she gazes down both paths. The atmosphere is peaceful and introspective, captured in a wide shot to emphasize her solitude.","hashtags":"lonelywoman forest contemplation","hashtagsArray":["lonelywoman","forest","contemplation"],"nl_tags":"woman at a crossroads in forest|woman pondering life decisions outdoors|lost woman in nature|woman reflecting on choices in woods|solitary moment in peaceful forest","actor":"host"},{"text":"It’s okay to take a step back.<break time=\"250ms/>","prompt":"A close-up of a thoughtful man sitting on a park bench, looking out at the vibrant autumn trees. His expression is calm and reflective, bathed in soft, golden hour light. The mood is gentle and reassuring, with a warm color palette surrounding him.","hashtags":"calmman park reflection","hashtagsArray":["calmman","park","reflection"],"nl_tags":"man sitting quietly in park|man enjoying peaceful moment outdoors|thoughtful man in nature|man taking a break in autumn|contemplative man watching trees","actor":"host"},{"text":"Sometimes, you need to recharge.<break time=\"250ms/>","prompt":"A woman is meditating on a beach at sunrise, with soft waves lapping at her feet. Her face is serene, and the soft light casts a warm glow on her skin. The atmosphere is tranquil and soothing, captured in a wide shot to highlight the vast ocean.","hashtags":"peacefulwoman beach meditation","hashtagsArray":["peacefulwoman","beach","meditation"],"nl_tags":"woman meditating on beach at sunrise|serene woman practicing mindfulness|woman relaxing by ocean|meditative moment on sandy shore|calm woman enjoying sunrise","actor":"host"},{"text":"Embrace the beauty around you.<break time=\"250ms/>","prompt":"A couple walks hand-in-hand through a vibrant flower garden, surrounded by colorful blooms and greenery. They share joyful smiles, and the soft light enhances the romantic atmosphere. The scene is lively and bright, captured in a medium shot for intimacy.","hashtags":"happycouple garden love","hashtagsArray":["happycouple","garden","love"],"nl_tags":"couple enjoying time in flower garden|lovers walking through nature|happy couple surrounded by flowers|joyful moment in vibrant garden|couple appreciating beauty outdoors","actor":"host"},{"text":"Remember, you are not alone.<break time=\"250ms/>","prompt":"A group of friends sits together in a cozy café, laughing and chatting over steaming cups of coffee. The warm, inviting interior is filled with soft light and cheerful colors. The atmosphere is lively and supportive, captured in a medium shot that includes all their expressions.","hashtags":"peopletalking cafe friendship","hashtagsArray":["peopletalking","cafe","friendship"],"nl_tags":"friends chatting in cozy café|group of friends enjoying coffee|laughter and joy in café|friends sharing moments indoors|supportive friends at coffee shop","actor":"host"},{"text":"Seek help when you need it.<break time=\"250ms/>","prompt":"A woman is in a bright office, speaking with a therapist. The room is filled with calming colors and natural light. Her expression is open and vulnerable, while the therapist offers a supportive smile. The mood is safe and encouraging, captured in a medium shot.","hashtags":"calmwoman office therapy","hashtagsArray":["calmwoman","office","therapy"],"nl_tags":"woman seeking help in therapy|therapist and client in office|woman opening up in safe space|supportive conversation indoors|woman receiving guidance in bright room","actor":"host"},{"text":"Every step counts towards healing.<break time=\"250ms/>","prompt":"A man jogs through a sunlit park, surrounded by lush trees and vibrant flowers. His expression shows determination and focus, as sunlight filters through the leaves. The atmosphere is energetic and hopeful, captured in a dynamic wide shot.","hashtags":"stressedman park exercise","hashtagsArray":["stressedman","park","exercise"],"nl_tags":"man jogging in sunny park|man exercising outdoors|running man enjoying nature|energetic moment in park|man taking steps towards health","actor":"host"},{"text":"Celebrate your progress, no matter how small.<break time=\"250ms/>","prompt":"A woman stands in her cozy living room, smiling as she looks at a vision board filled with achievements. The room is warmly lit with soft colors, creating a joyful atmosphere. The scene is intimate and uplifting, captured in a medium close-up.","hashtags":"happywoman livingroom achievement","hashtagsArray":["happywoman","livingroom","achievement"],"nl_tags":"woman celebrating success at home|joyful woman with vision board|woman reflecting on progress indoors|smiling woman in cozy space|personal achievements in living room","actor":"host"}]
+    [target_lang] => en
+    [reel_type] => standard
+    [topic] => general
+    [cta] => Follow for more stress relief tips
+    [hook_id] => 1
+    [category] => free-format
+)
+
+[17-Mar-2026 10:04:51 UTC] User settings loaded: {"id":"1","admin_id":"1","fontfamily":"ariel","fontsize":"30","fontcolor":"white","fontweight":"700","fontcolor_bg":"black","fontbg_enable":"0","caption_style":"","caption_position":"bottom","caption_alignment":"center","caption_speed":"1","logo_name":"logo.png","logo_size":"medium","logo_position":"bottom","logo_enabled":"1","created_at":"","updated_at":"","position_x":"40","position_y":"400","width":"275","last_niche_id":"9"}
+[17-Mar-2026 10:04:51 UTC] Using font settings - Family: ariel, Size: 30, Color: white
+[17-Mar-2026 10:04:51 UTC] Topic key from input: general
+[17-Mar-2026 10:04:51 UTC] Category: free-format
+[17-Mar-2026 10:04:51 UTC] Host voice: openai:alloy
+[17-Mar-2026 10:04:51 UTC] Voice rate: 1
+[17-Mar-2026 10:04:51 UTC] Received 8 scenes from client
+[17-Mar-2026 10:04:51 UTC] Generated podcast hashtags: #videovizard, #general, #ever, #felt, #lost, #life, #break
+[17-Mar-2026 10:04:51 UTC] Generated podcast keywords: videovizard, general, ever, felt, lost, life, break, time
+[17-Mar-2026 10:04:51 UTC] Insert podcast SQL: INSERT INTO hdb_podcasts (
+            category, 
+            topic_key, 
+            title, 
+            client_id, 
+            lang_code, 
+            admin_id, 
+            hook_id, 
+            hashtags, 
+            keywords, 
+            caption_text, 
+            host_voice,
+            guest_voice,
+            voice_rate,
+            created_date
+        ) VALUES (
+            'free-format',
+            'general',
+            'What if I told you Breathing Exercises?',
+            '1',
+            'en',
+            '1',
+            1,
+            '#videovizard, #general, #ever, #felt, #lost, #life, #break',
+            'videovizard, general, ever, felt, lost, life, break, time',
+            'What if I told you Breathing Exercises? - general Follow for more stress relief tips',
+            'openai:alloy',
+            'openai:alloy',
+            1,
+            NOW()
+        )
+[17-Mar-2026 10:04:51 UTC] Podcast created with ID: 12
+[17-Mar-2026 10:04:51 UTC] Topic key saved: general
+[17-Mar-2026 10:04:51 UTC] Host voice saved: openai:alloy, Rate: 1
+[17-Mar-2026 10:04:51 UTC] Inserting scene 1: actor=host, voice=openai:alloy, nl_tags_len=164
+[17-Mar-2026 10:04:51 UTC] INSERT SQL preview: INSERT INTO hdb_podcast_stories 
+                (podcast_id, lang_code, category, topic_key, title, actor, 
+                 text_contents, text_display, duration, prompt, visual_type, 
+                 status, created_date, seq_no, logo_flag, hashtags, natural_language_tags, voice_id, voice_rate) 
+[17-Mar-2026 10:04:51 UTC] ✅ Caption inserted for scene 78 with user settings
+[17-Mar-2026 10:04:51 UTC] Scene 1 inserted successfully with caption
+[17-Mar-2026 10:04:51 UTC] Inserting scene 2: actor=host, voice=openai:alloy, nl_tags_len=152
+[17-Mar-2026 10:04:51 UTC] INSERT SQL preview: INSERT INTO hdb_podcast_stories 
+                (podcast_id, lang_code, category, topic_key, title, actor, 
+                 text_contents, text_display, duration, prompt, visual_type, 
+                 status, created_date, seq_no, logo_flag, hashtags, natural_language_tags, voice_id, voice_rate) 
+[17-Mar-2026 10:04:51 UTC] ✅ Caption inserted for scene 79 with user settings
+[17-Mar-2026 10:04:51 UTC] Scene 2 inserted successfully with caption
+[17-Mar-2026 10:04:51 UTC] Inserting scene 3: actor=host, voice=openai:alloy, nl_tags_len=157
+[17-Mar-2026 10:04:51 UTC] INSERT SQL preview: INSERT INTO hdb_podcast_stories 
+                (podcast_id, lang_code, category, topic_key, title, actor, 
+                 text_contents, text_display, duration, prompt, visual_type, 
+                 status, created_date, seq_no, logo_flag, hashtags, natural_language_tags, voice_id, voice_rate) 
+[17-Mar-2026 10:04:51 UTC] ✅ Caption inserted for scene 80 with user settings
+[17-Mar-2026 10:04:51 UTC] Scene 3 inserted successfully with caption
+[17-Mar-2026 10:04:51 UTC] Inserting scene 4: actor=host, voice=openai:alloy, nl_tags_len=170
+[17-Mar-2026 10:04:51 UTC] INSERT SQL preview: INSERT INTO hdb_podcast_stories 
+                (podcast_id, lang_code, category, topic_key, title, actor, 
+                 text_contents, text_display, duration, prompt, visual_type, 
+                 status, created_date, seq_no, logo_flag, hashtags, natural_language_tags, voice_id, voice_rate) 
+[17-Mar-2026 10:04:51 UTC] ✅ Caption inserted for scene 81 with user settings
+[17-Mar-2026 10:04:51 UTC] Scene 4 inserted successfully with caption
+[17-Mar-2026 10:04:51 UTC] Inserting scene 5: actor=host, voice=openai:alloy, nl_tags_len=155
+[17-Mar-2026 10:04:51 UTC] INSERT SQL preview: INSERT INTO hdb_podcast_stories 
+                (podcast_id, lang_code, category, topic_key, title, actor, 
+                 text_contents, text_display, duration, prompt, visual_type, 
+                 status, created_date, seq_no, logo_flag, hashtags, natural_language_tags, voice_id, voice_rate) 
+[17-Mar-2026 10:04:51 UTC] ✅ Caption inserted for scene 82 with user settings
+[17-Mar-2026 10:04:51 UTC] Scene 5 inserted successfully with caption
+[17-Mar-2026 10:04:51 UTC] Inserting scene 6: actor=host, voice=openai:alloy, nl_tags_len=163
+[17-Mar-2026 10:04:51 UTC] INSERT SQL preview: INSERT INTO hdb_podcast_stories 
+                (podcast_id, lang_code, category, topic_key, title, actor, 
+                 text_contents, text_display, duration, prompt, visual_type, 
+                 status, created_date, seq_no, logo_flag, hashtags, natural_language_tags, voice_id, voice_rate) 
+[17-Mar-2026 10:04:51 UTC] ✅ Caption inserted for scene 83 with user settings
+[17-Mar-2026 10:04:51 UTC] Scene 6 inserted successfully with caption
+[17-Mar-2026 10:04:51 UTC] Inserting scene 7: actor=host, voice=openai:alloy, nl_tags_len=134
+[17-Mar-2026 10:04:51 UTC] INSERT SQL preview: INSERT INTO hdb_podcast_stories 
+                (podcast_id, lang_code, category, topic_key, title, actor, 
+                 text_contents, text_display, duration, prompt, visual_type, 
+                 status, created_date, seq_no, logo_flag, hashtags, natural_language_tags, voice_id, voice_rate) 
+[17-Mar-2026 10:04:51 UTC] ✅ Caption inserted for scene 84 with user settings
+[17-Mar-2026 10:04:51 UTC] Scene 7 inserted successfully with caption
+[17-Mar-2026 10:04:51 UTC] Inserting scene 8: actor=host, voice=openai:alloy, nl_tags_len=166
+[17-Mar-2026 10:04:51 UTC] INSERT SQL preview: INSERT INTO hdb_podcast_stories 
+                (podcast_id, lang_code, category, topic_key, title, actor, 
+                 text_contents, text_display, duration, prompt, visual_type, 
+                 status, created_date, seq_no, logo_flag, hashtags, natural_language_tags, voice_id, voice_rate) 
+[17-Mar-2026 10:04:51 UTC] ✅ Caption inserted for scene 85 with user settings
+[17-Mar-2026 10:04:51 UTC] Scene 8 inserted successfully with caption
+[17-Mar-2026 10:04:51 UTC] Successfully inserted 8 of 8 scenes
+[17-Mar-2026 10:04:51 UTC] ✅ Updated scenes with additional user settings for podcast #12
+[17-Mar-2026 10:04:51 UTC] Sending success response: {"success":true,"podcast_id":12,"scene_count":8,"topic_key":"general","host_voice":"openai:alloy","guest_voice":"openai:alloy","voice_rate":1,"hashtags":"#videovizard, #general, #ever, #felt, #lost, #life, #break","keywords":"videovizard, general, ever, felt, lost, life, break, time"}
+[17-Mar-2026 10:04:51 UTC] get_scenes called for podcast_id: 12, client_id: 1
+[17-Mar-2026 10:04:51 UTC] get_scenes found 8 scenes
+[17-Mar-2026 10:04:51 UTC] get_scenes called for podcast_id: 12, client_id: 1
+[17-Mar-2026 10:04:51 UTC] get_scenes found 8 scenes
+[17-Mar-2026 10:05:01 UTC] get_scenes called for podcast_id: 12, client_id: 1
+[17-Mar-2026 10:05:01 UTC] get_scenes found 8 scenes
+[17-Mar-2026 10:05:01 UTC] get_scenes called for podcast_id: 12, client_id: 1
+[17-Mar-2026 10:05:01 UTC] get_scenes found 8 scenes
+[17-Mar-2026 10:05:01 UTC] get_image_suggestions called with hashtags: lonelywoman,forest,contemplation
+[17-Mar-2026 10:05:01 UTC] Video query: SELECT * FROM hdb_image_data 
+                    WHERE media_type = 'video' 
+                    AND (image_hashtags LIKE '%lonelywoman%' OR image_hashtags LIKE '%forest%' OR image_hashtags LIKE '%contemplation%')
+                    ORDER BY RAND()
+                    LIMIT 10
+[17-Mar-2026 10:05:01 UTC] Found 1 videos
+[17-Mar-2026 10:05:01 UTC] Image query: SELECT * FROM hdb_image_data 
+                    WHERE (media_type = 'image' OR media_type IS NULL OR media_type = '')
+                    AND (image_hashtags LIKE '%lonelywoman%' OR image_hashtags LIKE '%forest%' OR image_hashtags LIKE '%contemplation%')
+                    ORDER BY 
+                        CASE 
+                            WHEN image_hashtags LIKE '%lonelywoman%' AND image_hashtags LIKE '%forest%' AND image_hashtags LIKE '%contemplation%' THEN 3
+                            WHEN image_hashtags LIKE '%lonelywoman%' OR image_hashtags LIKE '%forest%' OR image_hashtags LIKE '%contemplation%' THEN 2
+                            ELSE 1
+                        END DESC,
+                        RAND()
+                    LIMIT 10
+[17-Mar-2026 10:05:01 UTC] Found 1 images
+[17-Mar-2026 10:05:01 UTC] Total results: 2
+[17-Mar-2026 10:05:02 UTC] get_image_suggestions called with hashtags: calmman,park,reflection
+[17-Mar-2026 10:05:02 UTC] Video query: SELECT * FROM hdb_image_data 
+                    WHERE media_type = 'video' 
+                    AND (image_hashtags LIKE '%calmman%' OR image_hashtags LIKE '%park%' OR image_hashtags LIKE '%reflection%')
+                    ORDER BY RAND()
+                    LIMIT 10
+[17-Mar-2026 10:05:02 UTC] Image query: SELECT * FROM hdb_image_data 
+                    WHERE (media_type = 'image' OR media_type IS NULL OR media_type = '')
+                    AND (image_hashtags LIKE '%calmman%' OR image_hashtags LIKE '%park%' OR image_hashtags LIKE '%reflection%')
+                    ORDER BY 
+                        CASE 
+                            WHEN image_hashtags LIKE '%calmman%' AND image_hashtags LIKE '%park%' AND image_hashtags LIKE '%reflection%' THEN 3
+                            WHEN image_hashtags LIKE '%calmman%' OR image_hashtags LIKE '%park%' OR image_hashtags LIKE '%reflection%' THEN 2
+                            ELSE 1
+                        END DESC,
+                        RAND()
+                    LIMIT 10
+[17-Mar-2026 10:05:02 UTC] Found 2 images
+[17-Mar-2026 10:05:02 UTC] Total results: 2
+[17-Mar-2026 10:05:02 UTC] get_image_suggestions called with hashtags: peacefulwoman,beach,meditation
+[17-Mar-2026 10:05:02 UTC] Video query: SELECT * FROM hdb_image_data 
+                    WHERE media_type = 'video' 
+                    AND (image_hashtags LIKE '%peacefulwoman%' OR image_hashtags LIKE '%beach%' OR image_hashtags LIKE '%meditation%')
+                    ORDER BY RAND()
+                    LIMIT 10
+[17-Mar-2026 10:05:02 UTC] Image query: SELECT * FROM hdb_image_data 
+                    WHERE (media_type = 'image' OR media_type IS NULL OR media_type = '')
+                    AND (image_hashtags LIKE '%peacefulwoman%' OR image_hashtags LIKE '%beach%' OR image_hashtags LIKE '%meditation%')
+                    ORDER BY 
+                        CASE 
+                            WHEN image_hashtags LIKE '%peacefulwoman%' AND image_hashtags LIKE '%beach%' AND image_hashtags LIKE '%meditation%' THEN 3
+                            WHEN image_hashtags LIKE '%peacefulwoman%' OR image_hashtags LIKE '%beach%' OR image_hashtags LIKE '%meditation%' THEN 2
+                            ELSE 1
+                        END DESC,
+                        RAND()
+                    LIMIT 10
+[17-Mar-2026 10:05:02 UTC] Found 10 images
+[17-Mar-2026 10:05:02 UTC] Total results: 10
+[17-Mar-2026 10:05:03 UTC] get_image_suggestions called with hashtags: happycouple,garden,love
+[17-Mar-2026 10:05:03 UTC] Video query: SELECT * FROM hdb_image_data 
+                    WHERE media_type = 'video' 
+                    AND (image_hashtags LIKE '%happycouple%' OR image_hashtags LIKE '%garden%' OR image_hashtags LIKE '%love%')
+                    ORDER BY RAND()
+                    LIMIT 10
+[17-Mar-2026 10:05:03 UTC] Found 10 videos
+[17-Mar-2026 10:05:03 UTC] Image query: SELECT * FROM hdb_image_data 
+                    WHERE (media_type = 'image' OR media_type IS NULL OR media_type = '')
+                    AND (image_hashtags LIKE '%happycouple%' OR image_hashtags LIKE '%garden%' OR image_hashtags LIKE '%love%')
+                    ORDER BY 
+                        CASE 
+                            WHEN image_hashtags LIKE '%happycouple%' AND image_hashtags LIKE '%garden%' AND image_hashtags LIKE '%love%' THEN 3
+                            WHEN image_hashtags LIKE '%happycouple%' OR image_hashtags LIKE '%garden%' OR image_hashtags LIKE '%love%' THEN 2
+                            ELSE 1
+                        END DESC,
+                        RAND()
+                    LIMIT 10
+[17-Mar-2026 10:05:03 UTC] Found 10 images
+[17-Mar-2026 10:05:03 UTC] Total results: 20
+[17-Mar-2026 10:05:03 UTC] get_image_suggestions called with hashtags: peopletalking,cafe,friendship
+[17-Mar-2026 10:05:03 UTC] Video query: SELECT * FROM hdb_image_data 
+                    WHERE media_type = 'video' 
+                    AND (image_hashtags LIKE '%peopletalking%' OR image_hashtags LIKE '%cafe%' OR image_hashtags LIKE '%friendship%')
+                    ORDER BY RAND()
+                    LIMIT 10
+[17-Mar-2026 10:05:04 UTC] Image query: SELECT * FROM hdb_image_data 
+                    WHERE (media_type = 'image' OR media_type IS NULL OR media_type = '')
+                    AND (image_hashtags LIKE '%peopletalking%' OR image_hashtags LIKE '%cafe%' OR image_hashtags LIKE '%friendship%')
+                    ORDER BY 
+                        CASE 
+                            WHEN image_hashtags LIKE '%peopletalking%' AND image_hashtags LIKE '%cafe%' AND image_hashtags LIKE '%friendship%' THEN 3
+                            WHEN image_hashtags LIKE '%peopletalking%' OR image_hashtags LIKE '%cafe%' OR image_hashtags LIKE '%friendship%' THEN 2
+                            ELSE 1
+                        END DESC,
+                        RAND()
+                    LIMIT 10
+[17-Mar-2026 10:05:04 UTC] Total results: 0
+[17-Mar-2026 10:05:04 UTC] get_image_suggestions called with hashtags: peopletalking,cafe,friendship
+[17-Mar-2026 10:05:04 UTC] Video query: SELECT * FROM hdb_image_data 
+                    WHERE media_type = 'video' 
+                    AND (image_hashtags LIKE '%peopletalking%' OR image_hashtags LIKE '%cafe%' OR image_hashtags LIKE '%friendship%')
+                    ORDER BY RAND()
+                    LIMIT 10
+[17-Mar-2026 10:05:04 UTC] Image query: SELECT * FROM hdb_image_data 
+                    WHERE (media_type = 'image' OR media_type IS NULL OR media_type = '')
+                    AND (image_hashtags LIKE '%peopletalking%' OR image_hashtags LIKE '%cafe%' OR image_hashtags LIKE '%friendship%')
+                    ORDER BY 
+                        CASE 
+                            WHEN image_hashtags LIKE '%peopletalking%' AND image_hashtags LIKE '%cafe%' AND image_hashtags LIKE '%friendship%' THEN 3
+                            WHEN image_hashtags LIKE '%peopletalking%' OR image_hashtags LIKE '%cafe%' OR image_hashtags LIKE '%friendship%' THEN 2
+                            ELSE 1
+                        END DESC,
+                        RAND()
+                    LIMIT 10
+[17-Mar-2026 10:05:04 UTC] Total results: 0
+[17-Mar-2026 10:05:04 UTC] enhance_prompt called for scene 82
+[17-Mar-2026 10:05:04 UTC] Calling callChatGPT_inam for scene 82
+[17-Mar-2026 10:05:35 UTC] get_image_suggestions called with hashtags: calmwoman,office,therapy
+[17-Mar-2026 10:05:35 UTC] Video query: SELECT * FROM hdb_image_data 
+                    WHERE media_type = 'video' 
+                    AND (image_hashtags LIKE '%calmwoman%' OR image_hashtags LIKE '%office%' OR image_hashtags LIKE '%therapy%')
+                    ORDER BY RAND()
+                    LIMIT 10
+[17-Mar-2026 10:05:35 UTC] Image query: SELECT * FROM hdb_image_data 
+                    WHERE (media_type = 'image' OR media_type IS NULL OR media_type = '')
+                    AND (image_hashtags LIKE '%calmwoman%' OR image_hashtags LIKE '%office%' OR image_hashtags LIKE '%therapy%')
+                    ORDER BY 
+                        CASE 
+                            WHEN image_hashtags LIKE '%calmwoman%' AND image_hashtags LIKE '%office%' AND image_hashtags LIKE '%therapy%' THEN 3
+                            WHEN image_hashtags LIKE '%calmwoman%' OR image_hashtags LIKE '%office%' OR image_hashtags LIKE '%therapy%' THEN 2
+                            ELSE 1
+                        END DESC,
+                        RAND()
+                    LIMIT 10
+[17-Mar-2026 10:05:35 UTC] Found 10 images
+[17-Mar-2026 10:05:35 UTC] Total results: 10
+[17-Mar-2026 10:05:36 UTC] get_image_suggestions called with hashtags: stressedman,park,exercise
+[17-Mar-2026 10:05:36 UTC] Video query: SELECT * FROM hdb_image_data 
+                    WHERE media_type = 'video' 
+                    AND (image_hashtags LIKE '%stressedman%' OR image_hashtags LIKE '%park%' OR image_hashtags LIKE '%exercise%')
+                    ORDER BY RAND()
+                    LIMIT 10
+[17-Mar-2026 10:05:36 UTC] Found 8 videos
+[17-Mar-2026 10:05:36 UTC] Image query: SELECT * FROM hdb_image_data 
+                    WHERE (media_type = 'image' OR media_type IS NULL OR media_type = '')
+                    AND (image_hashtags LIKE '%stressedman%' OR image_hashtags LIKE '%park%' OR image_hashtags LIKE '%exercise%')
+                    ORDER BY 
+                        CASE 
+                            WHEN image_hashtags LIKE '%stressedman%' AND image_hashtags LIKE '%park%' AND image_hashtags LIKE '%exercise%' THEN 3
+                            WHEN image_hashtags LIKE '%stressedman%' OR image_hashtags LIKE '%park%' OR image_hashtags LIKE '%exercise%' THEN 2
+                            ELSE 1
+                        END DESC,
+                        RAND()
+                    LIMIT 10
+[17-Mar-2026 10:05:36 UTC] Found 6 images
+[17-Mar-2026 10:05:36 UTC] Total results: 14
+[17-Mar-2026 10:05:37 UTC] get_image_suggestions called with hashtags: happywoman,livingroom,achievement
+[17-Mar-2026 10:05:37 UTC] Video query: SELECT * FROM hdb_image_data 
+                    WHERE media_type = 'video' 
+                    AND (image_hashtags LIKE '%happywoman%' OR image_hashtags LIKE '%livingroom%' OR image_hashtags LIKE '%achievement%')
+                    ORDER BY RAND()
+                    LIMIT 10
+[17-Mar-2026 10:05:37 UTC] Image query: SELECT * FROM hdb_image_data 
+                    WHERE (media_type = 'image' OR media_type IS NULL OR media_type = '')
+                    AND (image_hashtags LIKE '%happywoman%' OR image_hashtags LIKE '%livingroom%' OR image_hashtags LIKE '%achievement%')
+                    ORDER BY 
+                        CASE 
+                            WHEN image_hashtags LIKE '%happywoman%' AND image_hashtags LIKE '%livingroom%' AND image_hashtags LIKE '%achievement%' THEN 3
+                            WHEN image_hashtags LIKE '%happywoman%' OR image_hashtags LIKE '%livingroom%' OR image_hashtags LIKE '%achievement%' THEN 2
+                            ELSE 1
+                        END DESC,
+                        RAND()
+                    LIMIT 10
+[17-Mar-2026 10:05:37 UTC] Found 5 images
+[17-Mar-2026 10:05:37 UTC] Total results: 5
+[17-Mar-2026 10:05:38 UTC] ✅ Thumbnail set for podcast #12: 14767145_2160_3840_30fps.mp4
+[17-Mar-2026 11:36:53 UTC] === get_titles_for_topic_dropdown CALLED ===
+[17-Mar-2026 11:36:53 UTC] POST data: Array
+(
+    [ajax_action] => get_titles_for_topic_dropdown
+    [topic_name] => Breathing Exercises
+)
+
+[17-Mar-2026 11:36:53 UTC] admin_id: 1, topic_id: 0, topic_name: Breathing Exercises
+[17-Mar-2026 11:36:53 UTC] Found topic_id: 5 for name: Breathing Exercises
+[17-Mar-2026 11:36:53 UTC] Titles query: SELECT id, title, hook_type FROM hdb_topic_titles 
+                  WHERE admin_id = '1' AND topic_id = 5 
+                  AND (status IS NULL OR status = '')
+                  ORDER BY created_date DESC
+[17-Mar-2026 11:36:53 UTC] Found 1 titles for topic_id: 5
+[17-Mar-2026 11:36:53 UTC] Sending response: {"success":true,"titles":[{"id":"12","title":"What if I told you Breathing Exercises?","hook_type":"hook"}],"topic_id":"5","count":1}
+[17-Mar-2026 11:36:53 UTC] === get_titles_for_topic_dropdown CALLED ===
+[17-Mar-2026 11:36:53 UTC] POST data: Array
+(
+    [ajax_action] => get_titles_for_topic_dropdown
+    [topic_name] => Breathing Exercises
+)
+
+[17-Mar-2026 11:36:53 UTC] admin_id: 1, topic_id: 0, topic_name: Breathing Exercises
+[17-Mar-2026 11:36:53 UTC] Found topic_id: 5 for name: Breathing Exercises
+[17-Mar-2026 11:36:53 UTC] Titles query: SELECT id, title, hook_type FROM hdb_topic_titles 
+                  WHERE admin_id = '1' AND topic_id = 5 
+                  AND (status IS NULL OR status = '')
+                  ORDER BY created_date DESC
+[17-Mar-2026 11:36:53 UTC] Found 1 titles for topic_id: 5
+[17-Mar-2026 11:36:53 UTC] Sending response: {"success":true,"titles":[{"id":"12","title":"What if I told you Breathing Exercises?","hook_type":"hook"}],"topic_id":"5","count":1}
+[18-Mar-2026 04:12:24 UTC] === get_titles_for_topic_dropdown CALLED ===
+[18-Mar-2026 04:12:24 UTC] POST data: Array
+(
+    [ajax_action] => get_titles_for_topic_dropdown
+    [topic_name] => Breathing Exercises
+)
+
+[18-Mar-2026 04:12:24 UTC] admin_id: 1, topic_id: 0, topic_name: Breathing Exercises
+[18-Mar-2026 04:12:24 UTC] Found topic_id: 5 for name: Breathing Exercises
+[18-Mar-2026 04:12:24 UTC] Titles query: SELECT id, title, hook_type FROM hdb_topic_titles 
+                  WHERE admin_id = '1' AND topic_id = 5 
+                  AND (status IS NULL OR status = '')
+                  ORDER BY created_date DESC
+[18-Mar-2026 04:12:24 UTC] Found 1 titles for topic_id: 5
+[18-Mar-2026 04:12:24 UTC] Sending response: {"success":true,"titles":[{"id":"12","title":"What if I told you Breathing Exercises?","hook_type":"hook"}],"topic_id":"5","count":1}
+[18-Mar-2026 04:12:24 UTC] === get_titles_for_topic_dropdown CALLED ===
+[18-Mar-2026 04:12:24 UTC] POST data: Array
+(
+    [ajax_action] => get_titles_for_topic_dropdown
+    [topic_name] => Breathing Exercises
+)
+
+[18-Mar-2026 04:12:24 UTC] admin_id: 1, topic_id: 0, topic_name: Breathing Exercises
+[18-Mar-2026 04:12:24 UTC] Found topic_id: 5 for name: Breathing Exercises
+[18-Mar-2026 04:12:24 UTC] Titles query: SELECT id, title, hook_type FROM hdb_topic_titles 
+                  WHERE admin_id = '1' AND topic_id = 5 
+                  AND (status IS NULL OR status = '')
+                  ORDER BY created_date DESC
+[18-Mar-2026 04:12:24 UTC] Found 1 titles for topic_id: 5
+[18-Mar-2026 04:12:24 UTC] Sending response: {"success":true,"titles":[{"id":"12","title":"What if I told you Breathing Exercises?","hook_type":"hook"}],"topic_id":"5","count":1}
+[18-Mar-2026 05:15:28 UTC] === get_titles_for_topic_dropdown CALLED ===
+[18-Mar-2026 05:15:28 UTC] POST data: Array
+(
+    [ajax_action] => get_titles_for_topic_dropdown
+    [topic_name] => Breathing Exercises
+)
+
+[18-Mar-2026 05:15:28 UTC] admin_id: 1, topic_id: 0, topic_name: Breathing Exercises
+[18-Mar-2026 05:15:28 UTC] Found topic_id: 5 for name: Breathing Exercises
+[18-Mar-2026 05:15:28 UTC] Titles query: SELECT id, title, hook_type FROM hdb_topic_titles 
+                  WHERE admin_id = '1' AND topic_id = 5 
+                  AND (status IS NULL OR status = '')
+                  ORDER BY created_date DESC
+[18-Mar-2026 05:15:28 UTC] Found 1 titles for topic_id: 5
+[18-Mar-2026 05:15:28 UTC] Sending response: {"success":true,"titles":[{"id":"12","title":"What if I told you Breathing Exercises?","hook_type":"hook"}],"topic_id":"5","count":1}
+[18-Mar-2026 05:15:28 UTC] === get_titles_for_topic_dropdown CALLED ===
+[18-Mar-2026 05:15:28 UTC] POST data: Array
+(
+    [ajax_action] => get_titles_for_topic_dropdown
+    [topic_name] => Breathing Exercises
+)
+
+[18-Mar-2026 05:15:28 UTC] admin_id: 1, topic_id: 0, topic_name: Breathing Exercises
+[18-Mar-2026 05:15:28 UTC] Found topic_id: 5 for name: Breathing Exercises
+[18-Mar-2026 05:15:28 UTC] Titles query: SELECT id, title, hook_type FROM hdb_topic_titles 
+                  WHERE admin_id = '1' AND topic_id = 5 
+                  AND (status IS NULL OR status = '')
+                  ORDER BY created_date DESC
+[18-Mar-2026 05:15:28 UTC] Found 1 titles for topic_id: 5
+[18-Mar-2026 05:15:28 UTC] Sending response: {"success":true,"titles":[{"id":"12","title":"What if I told you Breathing Exercises?","hook_type":"hook"}],"topic_id":"5","count":1}
+[18-Mar-2026 05:15:39 UTC] === get_titles_for_topic_dropdown CALLED ===
+[18-Mar-2026 05:15:39 UTC] POST data: Array
+(
+    [ajax_action] => get_titles_for_topic_dropdown
+    [topic_name] => Breathing Exercises
+)
+
+[18-Mar-2026 05:15:39 UTC] admin_id: 1, topic_id: 0, topic_name: Breathing Exercises
+[18-Mar-2026 05:15:39 UTC] Found topic_id: 5 for name: Breathing Exercises
+[18-Mar-2026 05:15:39 UTC] Titles query: SELECT id, title, hook_type FROM hdb_topic_titles 
+                  WHERE admin_id = '1' AND topic_id = 5 
+                  AND (status IS NULL OR status = '')
+                  ORDER BY created_date DESC
+[18-Mar-2026 05:15:39 UTC] Found 1 titles for topic_id: 5
+[18-Mar-2026 05:15:39 UTC] Sending response: {"success":true,"titles":[{"id":"12","title":"What if I told you Breathing Exercises?","hook_type":"hook"}],"topic_id":"5","count":1}
+[18-Mar-2026 05:15:39 UTC] === get_titles_for_topic_dropdown CALLED ===
+[18-Mar-2026 05:15:39 UTC] POST data: Array
+(
+    [ajax_action] => get_titles_for_topic_dropdown
+    [topic_name] => Breathing Exercises
+)
+
+[18-Mar-2026 05:15:39 UTC] admin_id: 1, topic_id: 0, topic_name: Breathing Exercises
+[18-Mar-2026 05:15:39 UTC] Found topic_id: 5 for name: Breathing Exercises
+[18-Mar-2026 05:15:39 UTC] Titles query: SELECT id, title, hook_type FROM hdb_topic_titles 
+                  WHERE admin_id = '1' AND topic_id = 5 
+                  AND (status IS NULL OR status = '')
+                  ORDER BY created_date DESC
+[18-Mar-2026 05:15:39 UTC] Found 1 titles for topic_id: 5
+[18-Mar-2026 05:15:39 UTC] Sending response: {"success":true,"titles":[{"id":"12","title":"What if I told you Breathing Exercises?","hook_type":"hook"}],"topic_id":"5","count":1}
+[18-Mar-2026 05:16:46 UTC] === get_titles_for_topic_dropdown CALLED ===
+[18-Mar-2026 05:16:46 UTC] POST data: Array
+(
+    [ajax_action] => get_titles_for_topic_dropdown
+    [topic_name] => Breathing Exercises
+)
+
+[18-Mar-2026 05:16:46 UTC] admin_id: 1, topic_id: 0, topic_name: Breathing Exercises
+[18-Mar-2026 05:16:46 UTC] Found topic_id: 5 for name: Breathing Exercises
+[18-Mar-2026 05:16:46 UTC] Titles query: SELECT id, title, hook_type FROM hdb_topic_titles 
+                  WHERE admin_id = '1' AND topic_id = 5 
+                  AND (status IS NULL OR status = '')
+                  ORDER BY created_date DESC
+[18-Mar-2026 05:16:46 UTC] Found 1 titles for topic_id: 5
+[18-Mar-2026 05:16:46 UTC] Sending response: {"success":true,"titles":[{"id":"12","title":"What if I told you Breathing Exercises?","hook_type":"hook"}],"topic_id":"5","count":1}
+[18-Mar-2026 05:16:46 UTC] === get_titles_for_topic_dropdown CALLED ===
+[18-Mar-2026 05:16:46 UTC] POST data: Array
+(
+    [ajax_action] => get_titles_for_topic_dropdown
+    [topic_name] => Breathing Exercises
+)
+
+[18-Mar-2026 05:16:46 UTC] admin_id: 1, topic_id: 0, topic_name: Breathing Exercises
+[18-Mar-2026 05:16:46 UTC] Found topic_id: 5 for name: Breathing Exercises
+[18-Mar-2026 05:16:46 UTC] Titles query: SELECT id, title, hook_type FROM hdb_topic_titles 
+                  WHERE admin_id = '1' AND topic_id = 5 
+                  AND (status IS NULL OR status = '')
+                  ORDER BY created_date DESC
+[18-Mar-2026 05:16:46 UTC] Found 1 titles for topic_id: 5
+[18-Mar-2026 05:16:46 UTC] Sending response: {"success":true,"titles":[{"id":"12","title":"What if I told you Breathing Exercises?","hook_type":"hook"}],"topic_id":"5","count":1}

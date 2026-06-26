@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarah's Stress Assessment Report - Sample</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            padding: 20px;
+            line-height: 1.6;
+            color: #2c3e50;
+        }
+
+        .report-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* HEADER */
+        .report-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .report-header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .report-header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .report-date {
+            margin-top: 15px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* SECTIONS */
+        .report-section {
+            padding: 30px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .report-section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 24px;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* SUMMARY BOX */
+        .summary-box {
+            background: #e0f2fe;
+            border-left: 5px solid #0284c7;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .summary-box strong {
+            color: #0369a1;
+        }
+
+        .empathic-message {
+            background: #fef3c7;
+            border-left: 5px solid #f59e0b;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #92400e;
+        }
+
+        /* IMPACT SEVERITY LEVELS */
+        .impact-grid {
+            display: grid;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .impact-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 6px solid;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .impact-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+
+        /* CRITICAL - Red */
+        .impact-critical {
+            border-left-color: #dc2626;
+            background: linear-gradient(to right, #fef2f2 0%, white 100%);
+        }
+
+        .impact-critical .impact-header {
+            color: #dc2626;
+        }
+
+        .impact-critical .severity-badge {
+            background: #dc2626;
+        }
+
+        /* SEVERE - Orange */
+        .impact-severe {
+            border-left-color: #ea580c;
+            background: linear-gradient(to right, #fff7ed 0%, white 100%);
+        }
+
+        .impact-severe .impact-header {
+            color: #ea580c;
+        }
+
+        .impact-severe .severity-badge {
+            background: #ea580c;
+        }
+
+        /* MODERATE - Yellow */
+        .impact-moderate {
+            border-left-color: #f59e0b;
+            background: linear-gradient(to right, #fef3c7 0%, white 100%);
+        }
+
+        .impact-moderate .impact-header {
+            color: #d97706;
+        }
+
+        .impact-moderate .severity-badge {
+            background: #f59e0b;
+        }
+
+        /* MILD - Blue */
+        .impact-mild {
+            border-left-color: #3b82f6;
+            background: linear-gradient(to right, #dbeafe 0%, white 100%);
+        }
+
+        .impact-mild .impact-header {
+            color: #2563eb;
+        }
+
+        .impact-mild .severity-badge {
+            background: #3b82f6;
+        }
+
+        /* STABLE - Green */
+        .impact-stable {
+            border-left-color: #10b981;
+            background: linear-gradient(to right, #d1fae5 0%, white 100%);
+        }
+
+        .impact-stable .impact-header {
+            color: #059669;
+        }
+
+        .impact-stable .severity-badge {
+            background: #10b981;
+        }
+
+        .impact-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .impact-header h3 {
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .severity-badge {
+            padding: 6px 16px;
+            border-radius: 20px;
+            color: white;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .symptom-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .symptom-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #4b5563;
+        }
+
+        .symptom-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-size: 20px;
+            color: inherit;
+        }
+
+        /* SUMMARY STATS */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* SEVERITY LEGEND */
+        .severity-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f9fafb;
+            border-radius: 10px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        .legend-label {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* RECOMMENDATION BOX */
+        .recommendation-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid #f59e0b;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .recommendation-box h3 {
+            color: #92400e;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .recommendation-box ul {
+            margin-left: 20px;
+            color: #78350f;
+        }
+
+        .recommendation-box ul li {
+            margin: 10px 0;
+        }
+
+        /* CTA BUTTONS */
+        .cta-section {
+            text-align: center;
+            padding: 30px;
+            background: #f9fafb;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            margin: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        }
+
+        .cta-button-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .report-container {
+                border-radius: 0;
+            }
+
+            .report-section {
+                padding: 20px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .severity-legend {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="report-container">
+    
+    <!-- HEADER -->
+    <div class="report-header">
+        <h1>🧘 Your Personalized Stress Assessment</h1>
+        <p>Understanding How Stress is Impacting Your Life</p>
+        <div class="report-date">📅 Generated: January 2, 2026 at 3:45 PM</div>
+    </div>
+
+    <!-- SECTION 1: SUMMARY -->
+    <div class="report-section">
+        <h2 class="section-title">📋 Assessment Summary</h2>
+        
+        <div class="summary-box">
+            <p><strong>Primary Issue:</strong> Project Deadline Stress</p>
+            
+            <p style="margin-top: 15px;"><strong>What You Shared:</strong><br>
+            "I have a project which I have to deliver next week and I don't think I can complete it on time. I'm feeling really tensed and anxious about it."</p>
+            
+            <p style="margin-top: 15px;">
+                <strong>Duration:</strong> A few days (started 5 days ago)<br>
+                <strong>Intensity:</strong> 8/10 (Extremely stressed)<br>
+                <strong>Frequency:</strong> Every single day, multiple times per day
+            </p>
+            
+            <p style="margin-top: 15px;"><strong>Coping Methods Tried:</strong><br>
+            You've tried breathing exercises and talking to friends, but nothing seems to help right now. You feel like the stress keeps coming back.</p>
+        </div>
+        
+        <div class="empathic-message">
+            💙 <strong>I hear you, and I want you to know - what you're feeling is completely valid.</strong><br><br>
+            
+            The pressure of an approaching deadline, combined with the fear that you might not meet expectations, is creating a perfect storm of stress in your life. Your body and mind are responding to this perceived threat, which is why you're experiencing such intense physical and emotional symptoms.<br><br>
+            
+            The fact that you're here, seeking help and understanding, shows incredible self-awareness and strength. Let's look at the complete picture together so we can create a path forward.
+        </div>
+    </div>
+
+    <!-- SECTION 2: IMPACT STATISTICS -->
+    <div class="report-section">
+        <h2 class="section-title">📊 Impact Overview</h2>
+        
+        <div class="stats-grid">
+            <div class="stat-card" style="background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);">
+                <span class="stat-number">3</span>
+                <span class="stat-label">Critical Impact</span>
+            </div>
+            <div class="stat-card" style="background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);">
+                <span class="stat-number">1</span>
+                <span class="stat-label">Severe Impact</span>
+            </div>
+            <div class="stat-card" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                <span class="stat-number">4</span>
+                <span class="stat-label">Moderate Impact</span>
+            </div>
+            <div class="stat-card" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                <span class="stat-number">2</span>
+                <span class="stat-label">Stable Areas</span>
+            </div>
+        </div>
+
+        <!-- Severity Legend -->
+        <div class="severity-legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #dc2626;"></div>
+                <span class="legend-label">Critical - Requires immediate attention</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #ea580c;"></div>
+                <span class="legend-label">Severe - Significantly impaired</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #f59e0b;"></div>
+                <span class="legend-label">Moderate - Needs support</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #3b82f6;"></div>
+                <span class="legend-label">Mild - Minor impact</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #10b981;"></div>
+                <span class="legend-label">Stable - No significant impact</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 3: DETAILED IMPACT ANALYSIS -->
+    <div class="report-section">
+        <h2 class="section-title">🎯 Detailed Life Impact Analysis</h2>
+        <p style="margin-bottom: 25px; color: #6b7280;">This shows exactly how your stress is manifesting across different areas of your life:</p>
+        
+        <div class="impact-grid">
+            
+            <!-- CRITICAL IMPACT AREAS -->
+            <div class="impact-card impact-critical">
+                <div class="impact-header">
+                    <h3>💪 Physical Health</h3>
+                    <span class="severity-badge">Critical</span>
+                </div>
+                <ul class="symptom-list">
+                    <li><strong>Chest pain / tightness</strong> - Your body is in fight-or-flight mode</li>
+                    <li><strong>Shortness of breath</strong> - Anxiety is affecting your breathing pattern</li>
+                    <li><strong>Rapid heartbeat</strong> - Your stress response is constantly activated</li>
+                    <li><strong>Severe fatigue</strong> - Your body is exhausted from being on high alert</li>
+                </ul>
+                <p style="margin-top: 15px; padding: 15px; background: rgba(220, 38, 38, 0.1); border-radius: 8px; font-size: 14px;">
+                    ⚠️ <strong>Why this matters:</strong> Chronic physical stress symptoms can lead to long-term health issues if not addressed. Your body needs relief urgently.
+                </p>
+            </div>
+
+            <div class="impact-card impact-critical">
+                <div class="impact-header">
+                    <h3>❤️ Emotional Health</h3>
+                    <span class="severity-badge">Critical</span>
+                </div>
+                <ul class="symptom-list">
+                    <li><strong>Feeling extremely anxious</strong> - Constant worry about the deadline</li>
+                    <li><strong>Feeling overwhelmed</strong> - The task feels impossible to complete</li>
+                    <li><strong>Mood swings</strong> - Emotions are unpredictable and intense</li>
+                    <li><strong>Feeling heavy and stuck</strong> - Emotional burden is weighing you down</li>
+                </ul>
+                <p style="margin-top: 15px; padding: 15px; background: rgba(220, 38, 38, 0.1); border-radius: 8px; font-size: 14px;">
+                    ⚠️ <strong>Why this matters:</strong> Your emotional wellbeing is severely compromised, affecting your ability to think clearly and make decisions.
+                </p>
+            </div>
+
+            <div class="impact-card impact-critical">
+                <div class="impact-header">
+                    <h3>😴 Sleep Pattern</h3>
+                    <span class="severity-badge">Critical</span>
+                </div>
+                <ul class="symptom-list">
+                    <li><strong>Waking up too early</strong> - Stress hormones are disrupting your sleep cycle</li>
+                    <li><strong>Going to bed very late</strong> - Anxiety is keeping you up at night</li>
+                    <li><strong>Poor sleep quality</strong> - Not getting restorative rest</li>
+                    <li><strong>Mind racing at night</strong> - Can't shut off worrying thoughts</li>
+                </ul>
+                <p style="margin-top: 15px; padding: 15px; background: rgba(220, 38, 38, 0.1); border-radius: 8px; font-size: 14px;">
+                    ⚠️ <strong>Why this matters:</strong> Sleep deprivation amplifies stress, creates a vicious cycle, and impairs your ability to handle the project.
+                </p>
+            </div>
+
+            <!-- SEVERE IMPACT -->
+            <div class="impact-card impact-severe">
+                <div class="impact-header">
+                    <h3>💼 Work Performance</h3>
+                    <span class="severity-badge">Severe</span>
+                </div>
+                <ul class="symptom-list">
+                    <li><strong>Feel completely burnt out</strong> - Running on empty</li>
+                    <li><strong>Exhausted all the time</strong> - No energy to focus</li>
+                    <li><strong>Can't concentrate properly</strong> - Mind keeps wandering</li>
+                    <li><strong>Productivity has dropped</strong> - Taking longer to complete tasks</li>
+                </ul>
+                <p style="margin-top: 15px; padding: 15px; background: rgba(234, 88, 12, 0.1); border-radius: 8px; font-size: 14px;">
+                    ⚠️ <strong>Why this matters:</strong> Ironically, your stress about the deadline is making it harder to actually complete the work, creating a self-fulfilling prophecy.
+                </p>
+            </div>
+
+            <!-- MODERATE IMPACT -->
+            <div class="impact-card impact-moderate">
+                <div class="impact-header">
+                    <h3>🍽️ Appetite & Eating</h3>
+                    <span class="severity-badge">Moderate</span>
+                </div>
+                <ul class="symptom-list">
+                    <li><strong>Overeating to cope</strong> - Using food for emotional comfort</li>
+                    <li><strong>Craving comfort foods</strong> - Seeking quick stress relief through eating</li>
+                </ul>
+            </div>
+
+            <div class="impact-card impact-moderate">
+                <div class="impact-header">
+                    <h3>👥 Relationships</h3>
+                    <span class="severity-badge">Moderate</span>
+                </div>
+                <ul class="symptom-list">
+                    <li><strong>Withdrawing from others</strong> - Isolating yourself to focus on work</li>
+                    <li><strong>Feeling distant from loved ones</strong> - Can't be fully present</li>
+                    <li><strong>Don't want to socialize</strong> - All energy going to the project</li>
+                </ul>
+            </div>
+
+            <div class="impact-card impact-moderate">
+                <div class="impact-header">
+                    <h3>🧠 Decision Making</h3>
+                    <span class="severity-badge">Moderate</span>
+                </div>
+                <ul class="symptom-list">
+                    <li><strong>Feeling stuck</strong> - Can't see a clear path forward</li>
+                    <li><strong>Overthinking everything</strong> - Analysis paralysis</li>
+                    <li><strong>Second-guessing decisions</strong> - Lack of confidence in choices</li>
+                </ul>
+            </div>
+
+            <div class="impact-card impact-moderate">
+                <div class="impact-header">
+                    <h3>💪 Confidence Level</h3>
+                    <span class="severity-badge">Moderate</span>
+                </div>
+                <ul class="symptom-list">
+                    <li><strong>Feel not good enough</strong> - Doubting your abilities</li>
+                    <li><strong>Constantly doubting myself</strong> - Imposter syndrome is strong</li>
+                    <li><strong>Fear of failure</strong> - Worried about disappointing others</li>
+                </ul>
+            </div>
+
+            <!-- MILD IMPACT -->
+            <div class="impact-card impact-mild">
+                <div class="impact-header">
+                    <h3>🏠 Daily Habits</h3>
+                    <span class="severity-badge">Mild</span>
+                </div>
+                <ul class="symptom-list">
+                    <li><strong>Overeating</strong> - Stress eating has increased</li>
+                    <li><strong>Procrastinating on some tasks</strong> - Avoiding non-urgent things</li>
+                </ul>
+            </div>
+
+            <!-- STABLE AREAS -->
+            <div class="impact-card impact-stable">
+                <div class="impact-header">
+                    <h3>💰 Finances</h3>
+                    <span class="severity-badge">Stable ✓</span>
+                </div>
+                <ul class="symptom-list">
+                    <li>✅ Not currently affected by this stressor</li>
+                    <li>✅ Financial situation remains stable</li>
+                </ul>
+                <p style="margin-top: 15px; padding: 15px; background: rgba(16, 185, 129, 0.1); border-radius: 8px; font-size: 14px;">
+                    ✨ <strong>Good news:</strong> Your finances are stable, which means you have one less thing to worry about while we address the other areas.
+                </p>
+            </div>
+
+            <div class="impact-card impact-stable">
+                <div class="impact-header">
+                    <h3>🏥 General Health (Pre-existing)</h3>
+                    <span class="severity-badge">Stable ✓</span>
+                </div>
+                <ul class="symptom-list">
+                    <li>✅ No chronic health conditions</li>
+                    <li>✅ No medications affecting stress response</li>
+                </ul>
+                <p style="margin-top: 15px; padding: 15px; background: rgba(16, 185, 129, 0.1); border-radius: 8px; font-size: 14px;">
+                    ✨ <strong>Good news:</strong> Your body is fundamentally healthy, which means it has the resilience to recover once we reduce the stress load.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SECTION 4: RECOMMENDATION -->
+    <div class="report-section">
+        <h2 class="section-title">💡 My Professional Assessment & Recommendation</h2>
+        
+        <div class="recommendation-box">
+            <h3>🎯 What This Assessment Tells Me</h3>
+            <p style="margin-bottom: 15px; font-size: 16px; line-height: 1.7;">Based on your comprehensive assessment, here's the reality:</p>
+            <ul style="line-height: 1.9;">
+                <li><strong>3 critical areas</strong> - Physical health, emotional health, and sleep are in the danger zone</li>
+                <li><strong>1 severe area</strong> - Your work performance (ironically the thing causing stress) is significantly impaired</li>
+                <li><strong>4 moderate areas</strong> - Appetite, relationships, decision-making, and confidence all need support</li>
+                <li><strong>Stress intensity: 8/10</strong> - You're in the "extremely stressed" range</li>
+                <li><strong>Duration: Already 5 days</strong> - And it's not improving on its own</li>
+                <li><strong>Frequency: Every single day</strong> - This is chronic, not situational</li>
+            </ul>
+        </div>
+
+        <div class="empathic-message">
+            <p style="font-size: 18px; font-weight: 600; margin-bottom: 15px;">💙 Here's what I want you to understand:</p>
+            
+            <p style="margin-bottom: 15px; line-height: 1.8;">
+                This level of stress <strong>isn't sustainable</strong>. Your body and mind are sending you urgent signals that they need support right now. The chest pain, the sleep disruption, the inability to concentrate - these aren't character flaws or signs of weakness. They're your body's alarm system telling you: <em>"We need help."</em>
+            </p>
+            
+            <p style="margin-bottom: 15px; line-height: 1.8;">
+                Here's the hard truth: <strong>If you continue like this, you won't complete the project anyway.</strong> The stress is already impairing your work performance. You're working harder but accomplishing less. Your mind is too overwhelmed to think clearly.
+            </p>
+            
+            <p style="margin-bottom: 15px; line-height: 1.8;">
+                But here's the good news: <strong>This is exactly what I specialize in helping people overcome.</strong> And it's more fixable than you think.
+            </p>
+            
+            <p style="margin-top: 20px; margin-bottom: 10px; font-weight: 600; font-size: 17px;">🎯 My Recommendation:</p>
+            
+            <ul style="margin-top: 10px; margin-left: 20px; line-height: 1.9;">
+                <li><strong>Immediate relief session</strong> - Get your stress level down TODAY so you can actually work</li>
+                <li><strong>Quick wins protocol</strong> - Simple techniques to calm your nervous system in 5 minutes</li>
+                <li><strong>Sleep recovery plan</strong> - You need rest to function; we'll fix this tonight</li>
+                <li><strong>Work focus restoration</strong> - Strategies to get your concentration back</li>
+                <li><strong>Confidence rebuilding</strong> - You CAN do this; we just need to clear the mental fog</li>
+            </ul>
+            
+            <p style="margin-top: 20px; font-weight: 600; color: #b91c1c;">
+                ⚠️ <strong>Important:</strong> If left unaddressed, this stress pattern can lead to burnout, panic attacks, or complete shutdown. The time to act is NOW, not after the deadline.
+            </p>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h3 style="margin-bottom: 15px; color: #667eea; font-size: 26px;">You Don't Have to Do This Alone</h3>
+            <p style="margin-bottom: 25px; color: #6b7280; font-size: 17px; line-height: 1.7;">
+                I've helped hundreds of people in exactly your situation. The deadline pressure, the physical symptoms, the fear of failure - I know this territory well. Let me guide you through it.
+            </p>
+            
+            <a href="#" class="cta-button" style="font-size: 18px;">🚀 Start My Personalized Recovery Plan ($49)</a>
+            <br>
+            <a href="#" class="cta-button cta-button-secondary" style="font-size: 18px;">📞 Book Emergency Session with Inam ($119)</a>
+            
+            <div style="margin-top: 30px; padding: 20px; background: white; border-radius: 10px; border: 2px solid #e5e7eb;">
+                <p style="font-size: 15px; color: #6b7280; margin-bottom: 15px;">
+                    <strong style="color: #667eea;">What's included:</strong>
+                </p>
+                <ul style="text-align: left; display: inline-block; color: #4b5563; line-height: 1.9;">
+                    <li>Immediate stress relief audio (use within 10 minutes)</li>
+                    <li>Emergency calming techniques for right now</li>
+                    <li>Sleep restoration protocol for tonight</li>
+                    <li>Focus and concentration recovery exercises</li>
+                    <li>Daily support until your deadline passes</li>
+                    <li>Follow-up session to prevent future overwhelm</li>
+                </ul>
+            </div>
+            
+            <p style="margin-top: 25px; font-size: 14px; color: #9ca3af;">
+                💙 <strong>100% Money-Back Guarantee:</strong> If you don't feel significantly better after the first session, full refund - no questions asked.
+            </p>
+        </div>
+    </div>
+ 
+    <!-- FOOTER -->
+    <div class="report-section" style="background: #f9fafb; text-align: center; border: none;">
+        <p style="color: #6b7280; font-size: 14px; line-height: 1.8;">
+            🧘 <strong>StressReleasor.com</strong><br>
+            Professional Hypnotherapy & Stress Management<br>
+            Created by Inam Alvi, Certified Clinical Hypnotherapist
+        </p>
+        <p style="margin-top: 15px; color: #9ca3af; font-size: 12px;">
+            This report is confidential and generated specifically for you based on your personalized assessment.<br>
+            Report ID: SR-20260102-1545 | Generated: Jan 2, 2026 at 3:45 PM
+        </p>
+        <p style="margin-top: 15px; font-size: 13px; color: #6b7280;">
+            Questions? Email: support@stressreleasor.com | Emergency: 1-800-STRESS-HELP
+        </p>
+    </div>
+
+</div>
+
+</body>
+</html>

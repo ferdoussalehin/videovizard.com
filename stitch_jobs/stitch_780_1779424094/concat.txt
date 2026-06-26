@@ -1,0 +1,8 @@
+file '/var/www/html/videovizard.com/stitch_jobs/stitch_780_1779424094/scene_0.webm'
+file '/var/www/html/videovizard.com/stitch_jobs/stitch_780_1779424094/scene_1.webm'
+file '/var/www/html/videovizard.com/stitch_jobs/stitch_780_1779424094/scene_2.webm'
+file '/var/www/html/videovizard.com/stitch_jobs/stitch_780_1779424094/scene_3.webm'
+file '/var/www/html/videovizard.com/stitch_jobs/stitch_780_1779424094/scene_4.webm'
+file '/var/www/html/videovizard.com/stitch_jobs/stitch_780_1779424094/scene_5.webm'
+file '/var/www/html/videovizard.com/stitch_jobs/stitch_780_1779424094/scene_6.webm'
+file '/var/www/html/videovizard.com/stitch_jobs/stitch_780_1779424094/scene_7.webm'

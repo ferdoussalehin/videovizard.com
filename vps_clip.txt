@@ -1,0 +1,152 @@
+<?php
+// vps_clip.php v2.0 — async clip worker
+// Upload to VPS: /var/www/html/videovizard.com/vps_clip.php
+
+ini_set('display_errors', 0);
+error_reporting(0);
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__ . '/vps_clip_errors.log');
+
+define('SECRET_KEY',  'VS_FFmpeg_2026_Secret!');
+define('TMP_DIR',     sys_get_temp_dir() . '/vps_clip/');
+define('TMP_WEB_DIR', __DIR__ . '/vps_tmp/');
+define('MY_BASE_URL', 'http://187.124.249.46/videovizard.com/vps_tmp/');
+define('FFMPEG',      '/usr/bin/ffmpeg');
+define('FFPROBE',     '/usr/bin/ffprobe');
+
+header('Content-Type: application/json; charset=utf-8');
+
+function jout(array $d): void { echo json_encode($d); exit; }
+function vlog(string $m): void { file_put_contents(__DIR__ . '/vps_clip_errors.log', date('[Y-m-d H:i:s] ') . $m . "\n", FILE_APPEND); }
+
+// Auth
+if (($_POST['secret_key'] ?? '') !== SECRET_KEY) {
+    http_response_code(403);
+    jout(['success' => false, 'message' => 'Unauthorized']);
+}
+
+// Make sure temp dirs exist
+foreach ([TMP_DIR, TMP_WEB_DIR] as $d) {
+    if (!is_dir($d)) mkdir($d, 0755, true);
+}
+
+$action = trim($_POST['action'] ?? '');
+vlog("action=$action");
+
+// ============================================================
+// start_clip
+// VPS downloads the video from GoDaddy URL and clips it in
+// the background. Returns job_id immediately.
+// ============================================================
+if ($action === 'start_clip') {
+
+    $video_url    = trim($_POST['video_url']    ?? '');
+    $clip_seconds = max(1, min(300, (int)($_POST['clip_seconds'] ?? 10)));
+    $output_name  = basename(trim($_POST['output_name'] ?? 'clip.mp4'));
+    $ext          = strtolower(pathinfo($output_name, PATHINFO_EXTENSION)) ?: 'mp4';
+
+    if (!$video_url) jout(['success' => false, 'message' => 'Missing video_url']);
+
+    $job_id   = uniqid('job_', true);
+    $in_file  = TMP_DIR . $job_id . '_input.' . $ext;
+    $out_file = TMP_DIR . $job_id . '_clip.mp4';
+    $web_out  = TMP_WEB_DIR . $job_id . '_clip.mp4';
+    $stat_f   = TMP_DIR . $job_id . '_status.txt';
+    $sh_file  = TMP_DIR . $job_id . '_run.sh';
+    $log_file = TMP_DIR . $job_id . '_run.log';
+
+    // Mark as processing immediately
+    file_put_contents($stat_f, 'processing');
+
+    // Build shell script — runs in background
+    $sh  = "#!/bin/bash\n";
+    $sh .= "IN=" . escapeshellarg($in_file) . "\n";
+    $sh .= "OUT=" . escapeshellarg($out_file) . "\n";
+    $sh .= "WOUT=" . escapeshellarg($web_out) . "\n";
+    $sh .= "STAT=" . escapeshellarg($stat_f) . "\n";
+    $sh .= "URL=" . escapeshellarg($video_url) . "\n";
+    $sh .= "\n";
+    $sh .= "# Download\n";
+    $sh .= "wget -q --timeout=120 -O \"\$IN\" \"\$URL\"\n";
+    $sh .= "if [ ! -s \"\$IN\" ]; then\n";
+    $sh .= "  echo 'error:Download failed or empty' > \"\$STAT\"; exit 1\n";
+    $sh .= "fi\n";
+    $sh .= "\n";
+    $sh .= "# Get duration\n";
+    $sh .= "DUR=$(" . FFPROBE . " -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 \"\$IN\" 2>/dev/null)\n";
+    $sh .= "DUR_INT=\${DUR%.*}\n";
+    $sh .= "\n";
+    $sh .= "# Clip or copy\n";
+    $sh .= "if [ -z \"\$DUR_INT\" ] || [ \"\$DUR_INT\" -le " . $clip_seconds . " ]; then\n";
+    $sh .= "  cp \"\$IN\" \"\$WOUT\"\n";
+    $sh .= "else\n";
+    $sh .= "  " . FFMPEG . " -y -i \"\$IN\" -t " . $clip_seconds . " -c:v libx264 -preset fast -crf 23 -c:a aac -b:a 128k -movflags +faststart \"\$OUT\" 2>/dev/null\n";
+    $sh .= "  mv \"\$OUT\" \"\$WOUT\"\n";
+    $sh .= "fi\n";
+    $sh .= "\n";
+    $sh .= "rm -f \"\$IN\"\n";
+    $sh .= "echo 'done' > \"\$STAT\"\n";
+
+    file_put_contents($sh_file, $sh);
+    chmod($sh_file, 0755);
+
+    // Run in background — returns immediately
+    exec('bash ' . escapeshellarg($sh_file) . ' > ' . escapeshellarg($log_file) . ' 2>&1 &');
+
+    vlog("start_clip job=$job_id url=$video_url secs=$clip_seconds");
+    jout(['success' => true, 'job_id' => $job_id, 'message' => 'Job started']);
+}
+
+// ============================================================
+// status_clip
+// Check if background job is done.
+// ============================================================
+if ($action === 'status_clip') {
+
+    $job_id = preg_replace('/[^a-zA-Z0-9._-]/', '', $_POST['job_id'] ?? '');
+    if (!$job_id) jout(['success' => false, 'message' => 'Missing job_id']);
+
+    $stat_f  = TMP_DIR . $job_id . '_status.txt';
+    $web_out = TMP_WEB_DIR . $job_id . '_clip.mp4';
+
+    if (!file_exists($stat_f)) {
+        jout(['success' => false, 'status' => 'error', 'message' => 'Job not found']);
+    }
+
+    $raw = trim(file_get_contents($stat_f));
+    vlog("status_clip job=$job_id raw=$raw");
+
+    if ($raw === 'done' && file_exists($web_out)) {
+        jout([
+            'success'  => true,
+            'status'   => 'done',
+            'clip_url' => MY_BASE_URL . $job_id . '_clip.mp4',
+            'size'     => filesize($web_out),
+        ]);
+    }
+
+    if (strpos($raw, 'error:') === 0) {
+        jout(['success' => false, 'status' => 'error', 'message' => substr($raw, 6)]);
+    }
+
+    // Still running
+    jout(['success' => true, 'status' => 'processing', 'message' => 'Still processing']);
+}
+
+// ============================================================
+// cleanup_clip
+// Delete temp files for a finished job.
+// ============================================================
+if ($action === 'cleanup_clip') {
+
+    $job_id = preg_replace('/[^a-zA-Z0-9._-]/', '', $_POST['job_id'] ?? '');
+    if ($job_id) {
+        foreach (glob(TMP_DIR    . $job_id . '_*') as $f) @unlink($f);
+        foreach (glob(TMP_WEB_DIR . $job_id . '_*') as $f) @unlink($f);
+        vlog("cleanup_clip job=$job_id");
+    }
+    jout(['success' => true, 'message' => 'Cleaned up']);
+}
+
+// Unknown action
+jout(['success' => false, 'message' => 'Invalid action: ' . $action]);

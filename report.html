@@ -1,0 +1,29 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+echo "<!-- DEBUG: PHP is working -->\n";
+
+session_start();
+require_once 'db_connection.php';
+
+echo "<!-- DEBUG: DB connected -->\n";
+
+// For testing, use the assessment_id from URL or session
+$assessment_id = $_GET['assessment_id'] ?? 21;
+
+echo "<!-- DEBUG: Assessment ID = $assessment_id -->\n";
+
+// Fetch primary stress data
+$sql_primary = "SELECT * FROM stress_assessment_primary WHERE id = ?";
+$stmt = $conn->prepare($sql_primary);
+$stmt->bind_param("i", $assessment_id);
+$stmt->execute(); 
+$primary_data = $stmt->get_result()->fetch_assoc();
+
+echo "<!-- DEBUG: Primary data fetched -->\n";
+var_dump($primary_data); // Show what we got
+
+if (!$primary_data) {
+    die("<h1>No assessment found with ID: $assessment_id</h1>");
+}

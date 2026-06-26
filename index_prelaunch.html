@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StressReleasor - Free AI-Powered Stress Relief | Launching Soon</title>
+    <meta name="description" content="Get personalized stress relief through AI conversations and hypnotherapy audio. Free forever - 2 sessions per month. Created by certified therapist. Join waitlist for 3 months FREE unlimited access.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .logo-icon {
+            font-size: 32px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .btn-nav {
+            background: #667eea;
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .btn-nav:hover {
+            background: #5568d3;
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: #667eea;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><circle cx="200" cy="200" r="100" fill="white"/><circle cx="800" cy="400" r="150" fill="white"/><circle cx="1000" cy="100" r="80" fill="white"/></svg>');
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .launch-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 15px 30px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .countdown {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .countdown-item {
+            text-align: center;
+        }
+
+        .countdown-number {
+            display: block;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .countdown-label {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .hero-title {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-large {
+            padding: 18px 50px;
+            font-size: 20px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 60px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .hero-note {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            padding: 80px 0;
+            background: #f8f9ff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .problem-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .problem-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 0;
+        }
+
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .how-card {
+            background: #f8f9ff;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+        }
+
+        .how-number {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .how-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .how-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .how-note {
+            background: #fff3cd;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 40px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .how-note p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #856404;
+        }
+
+        .how-note strong {
+            color: #664d03;
+        }
+
+        /* Social Proof Section */
+        .social-proof-section {
+            padding: 80px 0;
+            background: #f8f9ff;
+        }
+
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .proof-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .proof-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+
+        .proof-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .proof-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+
+        .proof-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: 80px 0;
+        }
+
+        .pricing-subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 50px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border: 3px solid #667eea;
+            transform: scale(1.05);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-card.featured:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #667eea;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .pricing-header h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .price {
+            margin: 20px 0;
+        }
+
+        .price-amount {
+            font-size: 48px;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .price-period {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .price-description {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #667eea;
+            color: #667eea;
+        }
+
+        .btn-outline:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .pricing-note {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #667eea;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .pricing-guarantee {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background: #f8f9ff;
+            border-radius: 10px;
+        }
+
+        .guarantee-icon {
+            font-size: 32px;
+            margin-right: 10px;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            background: #f8f9ff;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .placeholder-image {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            margin: 0 auto;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+
+        .about-intro {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .credentials {
+            margin: 30px 0;
+        }
+
+        .credential-item {
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .credential-icon {
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        .about-mission {
+            font-size: 18px;
+            font-weight: 600;
+            color: #667eea;
+            margin-top: 30px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .faq-item {
+            background: #f8f9ff;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .faq-question {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .faq-answer {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Waitlist Section */
+        .waitlist-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .waitlist-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .waitlist-content h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .waitlist-subtitle {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .waitlist-value-prop {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .value-item {
+            text-align: center;
+        }
+
+        .value-number {
+            display: block;
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .value-label {
+            display: block;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .waitlist-form {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            background: white;
+        }
+
+        .form-note {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .waitlist-benefits {
+            margin-top: 40px;
+        }
+
+        .benefits-title {
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px 0;
+            text-align: left;
+            justify-content: center;
+        }
+
+        .benefit-icon {
+            font-size: 24px;
+        }
+
+        .success-message {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #4caf50;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            margin: 0 auto 20px;
+        }
+
+        .success-message h3 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            background: rgba(255,243,205,0.2);
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            opacity: 0.8;
+            margin-top: 15px;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+
+        .footer-column a {
+            display: block;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 250px;
+                height: calc(100vh - 70px);
+                background: white;
+                flex-direction: column;
+                padding: 30px 20px;
+                box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+                transition: right 0.3s ease;
+                gap: 20px;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                padding: 10px 0;
+                border-bottom: 1px solid #eee;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .proof-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .waitlist-value-prop {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <span class="logo-icon">🧘</span>
+                    <span class="logo-text">StressReleasor</span>
+                </div>
+                
+                <!-- Hamburger Menu Button -->
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <div class="nav-links" id="navLinks">
+                    <a href="#how-it-works" onclick="closeMobileMenu()">How It Works</a>
+                    <a href="#pricing" onclick="closeMobileMenu()">Pricing</a>
+                    <a href="#about" onclick="closeMobileMenu()">About</a>
+                    <a href="stressreleasor.php" class="btn-nav">Preview</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="launch-badge">
+                    <span>🚀 Launching in</span>
+                    <div class="countdown" id="countdown">
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="days">30</span>
+                            <span class="countdown-label">Days</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="hours">00</span>
+                            <span class="countdown-label">Hours</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="minutes">00</span>
+                            <span class="countdown-label">Minutes</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <h1 class="hero-title">Release Your Stress in Minutes</h1>
+                <p class="hero-subtitle">Talk to AI, get personalized relief. Free forever - no credit card needed.</p>
+                
+                <div class="hero-buttons">
+                    <button class="btn btn-primary btn-large" onclick="scrollToWaitlist()">
+                        Join Waitlist - Get 3 Months FREE Unlimited
+                    </button>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">FREE</span>
+                        <span class="stat-label">2 Sessions/Month</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">$14/mo</span>
+                        <span class="stat-label">Unlimited Access</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Available</span>
+                    </div>
+                </div>
+                
+                <p class="hero-note">✨ Waitlist members get 3 months unlimited FREE when we launch ($42 value)</p>
+            </div>
+        </div>
+        <div class="hero-background"></div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <h2 class="section-title">You're Stressed. Traditional Solutions Aren't Working.</h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <span class="problem-icon">💸</span>
+                    <h3>Therapy</h3>
+                    <p>$100-300/session, weeks of waiting lists</p>
+                </div>
+                <div class="problem-card">
+                    <span class="problem-icon">📱</span>
+                    <h3>Meditation Apps</h3>
+                    <p>Generic content that doesn't address YOUR stress</p>
+                </div>
+                <div class="problem-card">
+                    <span class="problem-icon">📚</span>
+                    <h3>Self-Help Books</h3>
+                    <p>Time-consuming, no personalization or guidance</p>
+                </div>
+                <div class="problem-card">
+                    <span class="problem-icon">💊</span>
+                    <h3>Medication</h3>
+                    <p>Side effects, doesn't teach coping skills</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="how-grid">
+                <div class="how-card">
+                    <div class="how-number">STEP 1</div>
+                    <div class="how-icon">💬</div>
+                    <h3>Tell Me What's Wrong</h3>
+                    <p>Share what's stressing you out. The AI asks a few questions to understand your situation - work pressure, relationship issues, health concerns, whatever it is.</p>
+                </div>
+                <div class="how-card">
+                    <div class="how-number">STEP 2</div>
+                    <div class="how-icon">🎯</div>
+                    <h3>AI Decides What You Need</h3>
+                    <p>Based on how long you've been stressed, the AI determines if you need quick relief or a deeper assessment and personalized protocol.</p>
+                </div>
+                <div class="how-card">
+                    <div class="how-number">STEP 3</div>
+                    <div class="how-icon">🎧</div>
+                    <h3>Get Your Personalized Audio</h3>
+                    <p>Listen to your custom hypnotherapy session created specifically for YOUR stress. Feel relief in minutes, not months.</p>
+                </div>
+            </div>
+            
+            <div class="how-note">
+                <p><strong>💡 Daily stress?</strong> Get quick relief audio in 2 minutes.</p>
+                <p><strong>🎯 Chronic stress?</strong> Get full assessment + transformation protocol.</p>
+                <p>The AI knows what you need and gives it to you automatically.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof-section">
+        <div class="container">
+            <h2 class="section-title">Why People Are Joining the Waitlist</h2>
+            <div class="proof-grid">
+                <div class="proof-card">
+                    <div class="proof-icon">💰</div>
+                    <h3>Save $42</h3>
+                    <p>3 months unlimited access FREE for waitlist members</p>
+                </div>
+                <div class="proof-card">
+                    <div class="proof-icon">⚡</div>
+                    <h3>First Access</h3>
+                    <p>Be the first to use it when we launch in 30 days</p>
+                </div>
+                <div class="proof-card">
+                    <div class="proof-icon">🎁</div>
+                    <h3>Free Guide</h3>
+                    <p>Get "7 Instant Stress Relief Techniques" immediately</p>
+                </div>
+                <div class="proof-card">
+                    <div class="proof-icon">🔒</div>
+                    <h3>Lock in Price</h3>
+                    <p>$14/month guaranteed - price may increase after launch</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <h2 class="section-title">Simple, Honest Pricing</h2>
+            <p class="pricing-subtitle">Free forever, or unlimited for less than a large pizza</p>
+            
+            <div class="pricing-grid">
+                <!-- FREE TIER -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Free</h3>
+                        <div class="price">
+                            <span class="price-amount">$0</span>
+                            <span class="price-period">/forever</span>
+                        </div>
+                        <p class="price-description">Perfect for occasional stress</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ 2 audio sessions per month</li>
+                        <li>✓ AI stress conversations</li>
+                        <li>✓ Personalized coping techniques</li>
+                        <li>✓ Access to technique library</li>
+                        <li>✓ No credit card required</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="scrollToWaitlist()">Start Free</button>
+                </div>
+
+                <!-- UNLIMITED TIER -->
+                <div class="pricing-card featured">
+                    <div class="popular-badge">BEST VALUE</div>
+                    <div class="pricing-header">
+                        <h3>Unlimited</h3>
+                        <div class="price">
+                            <span class="price-amount">$14</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                        <p class="price-description">or $119/year (save $49)</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ <strong>Unlimited</strong> audio sessions</li>
+                        <li>✓ Full deep assessments</li>
+                        <li>✓ Personalized protocols</li>
+                        <li>✓ Sleep audio library</li>
+                        <li>✓ Progress tracking</li>
+                        <li>✓ Priority support</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="scrollToWaitlist()">Get 3 Months FREE</button>
+                    <p class="pricing-note">Waitlist members get 3 months unlimited free</p>
+                </div>
+            </div>
+
+            <div class="pricing-guarantee">
+                <span class="guarantee-icon">🛡️</span>
+                <p><strong>100% Money-Back Guarantee</strong> - If you're not satisfied within 7 days, we'll refund you completely. No questions asked.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="placeholder-image">
+                        <span>👨‍⚕️</span>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h2>Created by Certified Hypnotherapist</h2>
+                    <p class="about-intro">I've helped hundreds of people through 247 Online Therapy. Now I'm making stress relief accessible to everyone through AI-powered personalization.</p>
+                    
+                    <div class="credentials">
+                        <div class="credential-item">
+                            <span class="credential-icon">✓</span>
+                            <span>Certified Clinical Hypnotherapist</span>
+                        </div>
+                        <div class="credential-item">
+                            <span class="credential-icon">✓</span>
+                            <span>Founder of 247 Online Therapy</span>
+                        </div>
+                        <div class="credential-item">
+                            <span class="credential-icon">✓</span>
+                            <span>Specialized in stress & anxiety treatment</span>
+                        </div>
+                        <div class="credential-item">
+                            <span class="credential-icon">✓</span>
+                            <span>Evidence-based therapeutic approaches</span>
+                        </div>
+                    </div>
+
+                    <p class="about-mission">My mission is simple: Make effective stress management affordable and accessible to everyone who needs it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Questions? We've Got Answers</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3 class="faq-question">What does "free forever" really mean?</h3>
+                    <p class="faq-answer">You get 2 personalized audio sessions per month, forever, without paying anything. No credit card required. If you need more than 2 sessions, upgrade to Unlimited for $14/month.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">How is this different from meditation apps?</h3>
+                    <p class="faq-answer">Unlike generic meditation apps, StressReleasor has a conversation with you to understand YOUR specific stress triggers, then creates personalized coping strategies and hypnotherapy audio tailored to your situation.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">How does the AI know what I need?</h3>
+                    <p class="faq-answer">After you describe your stress, the AI asks about duration and intensity. If it's recent/situational, you get quick relief. If it's been ongoing for weeks/months, the AI does a deeper assessment and creates a personalized transformation protocol.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">What happens after I use my 2 free sessions?</h3>
+                    <p class="faq-answer">Your sessions reset at the start of each month. If you need more before then, you can upgrade to Unlimited for $14/month and get unlimited sessions plus deeper assessment tools.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">What's included in the 3 free months for waitlist members?</h3>
+                    <p class="faq-answer">Everything in the Unlimited plan: unlimited audio sessions, full deep assessments, personalized protocols, sleep library, progress tracking, and priority support. After 3 months, you can continue for $14/month or switch to the free plan (2 sessions/month).</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">How long are the sessions?</h3>
+                    <p class="faq-answer">The conversation typically takes 2-5 minutes for quick relief or 8-10 minutes for deep assessment. The hypnotherapy audio sessions range from 10-20 minutes depending on your needs.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Can I cancel anytime?</h3>
+                    <p class="faq-answer">Absolutely! Monthly memberships can be cancelled at any time with no questions asked. You'll have access until the end of your billing period, and you can always use the free tier (2 sessions/month).</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Is my information private?</h3>
+                    <p class="faq-answer">Your privacy is our top priority. All conversations are encrypted and confidential. We never share your personal information or therapeutic content with anyone.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waitlist Section -->
+    <section id="waitlist" class="waitlist-section">
+        <div class="container">
+            <div class="waitlist-content">
+                <h2>Join 500+ People on the Waitlist</h2>
+                <p class="waitlist-subtitle">Get 3 months of unlimited access FREE when we launch (a $42 value)</p>
+                
+                <div class="waitlist-value-prop">
+                    <div class="value-item">
+                        <span class="value-number">$42</span>
+                        <span class="value-label">Worth of stress relief</span>
+                    </div>
+                    <div class="value-item">
+                        <span class="value-number">∞</span>
+                        <span class="value-label">Unlimited sessions for 3 months</span>
+                    </div>
+                    <div class="value-item">
+                        <span class="value-number">0</span>
+                        <span class="value-label">Credit card required</span>
+                    </div>
+                </div>
+                
+                <form id="waitlistForm" class="waitlist-form" onsubmit="submitWaitlist(event)">
+                    <div class="form-group">
+                        <input type="text" id="waitlistName" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="waitlistEmail" placeholder="Your Email" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-large">
+                        Claim My 3 Free Months ($42 Value)
+                    </button>
+                    <p class="form-note">No credit card required • Launch in 30 days</p>
+                </form>
+
+                <div class="waitlist-benefits">
+                    <p class="benefits-title">What you get immediately:</p>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">📘</span>
+                        <span>Free "7 Instant Stress Relief Techniques" guide (in your email)</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">⚡</span>
+                        <span>First access when we launch</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🎁</span>
+                        <span>3 months unlimited FREE ($42 value)</span>
+                    </div>
+                </div>
+
+                <div id="waitlistSuccess" class="success-message" style="display:none;">
+                    <div class="success-icon">✓</div>
+                    <h3>You're on the list!</h3>
+                    <p>Check your email for your free stress relief guide.</p>
+                    <p class="highlight"><strong>Your 3 free months start on launch day!</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">🧘</span>
+                        <span class="logo-text">StressReleasor</span>
+                    </div>
+                    <p>AI-powered stress relief created by certified therapists</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <a href="#how-it-works">How It Works</a>
+                        <a href="#pricing">Pricing</a>
+                        <a href="#about">About</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 StressReleasor.com. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        function initCountdown() {
+            const launchDate = new Date();
+            launchDate.setDate(launchDate.getDate() + 30); // 30 days from now
+            
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = launchDate - now;
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            }
+            
+            updateCountdown();
+            setInterval(updateCountdown, 60000); // Update every minute
+        }
+
+        // Mobile Menu Functions
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
+            navLinks.classList.toggle('active');
+            menuBtn.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
+            navLinks.classList.remove('active');
+            menuBtn.classList.remove('active');
+        }
+
+        // Smooth scroll to waitlist
+        function scrollToWaitlist() {
+            document.getElementById('waitlist').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Waitlist form submission
+        function submitWaitlist(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('waitlistName').value;
+            const email = document.getElementById('waitlistEmail').value;
+            const submitButton = event.target.querySelector('button[type="submit"]');
+            
+            // Disable button and show loading
+            submitButton.disabled = true;
+            submitButton.textContent = 'Joining...';
+            
+            // Prepare data
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('source', 'waitlist');
+            
+            // Submit to backend
+            fetch('submit-waitlist.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                console.log('Response status:', response.status);
+                return response.json();
+            })
+            .then(data => {
+                console.log('Response data:', data);
+                
+                if (data.success) {
+                    document.getElementById('waitlistForm').style.display = 'none';
+                    document.getElementById('waitlistSuccess').style.display = 'block';
+                } else {
+                    alert('Error: ' + data.message);
+                    console.error('Full error details:', data);
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Claim My 3 Free Months ($42 Value)';
+                }
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+                alert('Something went wrong. Please try again or contact support.');
+                submitButton.disabled = false;
+                submitButton.textContent = 'Claim My 3 Free Months ($42 Value)';
+            }); 
+        }
+
+        // Initialize countdown on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initCountdown();
+        });
+    </script>
+</body>
+</html>

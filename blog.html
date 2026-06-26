@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stress Relief Blog | StressReleasor</title>
+    <meta name="description" content="Expert tips, techniques, and insights on stress management, mental health, and well-being.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9ff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 32px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .btn-nav {
+            background: #667eea;
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .btn-nav:hover {
+            background: #5568d3;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: #667eea;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            font-size: 20px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Category Filters */
+        .category-filters {
+            background: white;
+            padding: 30px 0;
+            margin-top: -30px;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 25px;
+            border: 2px solid #e0e0e0;
+            background: white;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .filter-btn:hover {
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        .filter-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        /* Featured Post */
+        .featured-section {
+            padding: 60px 0;
+        }
+
+        .featured-post {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .featured-image {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            padding: 60px;
+        }
+
+        .featured-content {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            width: fit-content;
+        }
+
+        .featured-title {
+            font-size: 36px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #1a1a2e;
+        }
+
+        .featured-excerpt {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .post-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 25px;
+        }
+
+        .btn-read {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 15px 35px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            width: fit-content;
+        }
+
+        .btn-read:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+
+        /* Blog Grid */
+        .blog-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #1a1a2e;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .blog-image {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+
+        .blog-content {
+            padding: 30px;
+        }
+
+        .category-badge {
+            display: inline-block;
+            background: #f0f3ff;
+            color: #667eea;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .blog-title {
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 15px;
+            color: #1a1a2e;
+        }
+
+        .blog-excerpt {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #999;
+            padding-top: 20px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        /* Newsletter */
+        .newsletter-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 80px 0;
+            margin: 60px 0;
+            border-radius: 20px;
+        }
+
+        .newsletter-content {
+            text-align: center;
+            color: white;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-content h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .newsletter-content p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        .newsletter-btn {
+            padding: 15px 30px;
+            background: #1a1a2e;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            background: #2a2a3e;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            opacity: 0.8;
+            margin-top: 15px;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+
+        .footer-column a {
+            display: block;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 250px;
+                height: calc(100vh - 70px);
+                background: white;
+                flex-direction: column;
+                padding: 30px 20px;
+                box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+                transition: right 0.3s ease;
+                gap: 20px;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .page-header h1 {
+                font-size: 32px;
+            }
+
+            .featured-post {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-image {
+                padding: 40px;
+                font-size: 80px;
+            }
+
+            .featured-content {
+                padding: 40px 30px;
+            }
+
+            .featured-title {
+                font-size: 28px;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🧘</span>
+                    <span class="logo-text">StressReleasor</span>
+                </a>
+                
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <div class="nav-links" id="navLinks">
+                    <a href="index.html#how-it-works" onclick="closeMobileMenu()">How It Works</a>
+                    <a href="index.html#about" onclick="closeMobileMenu()">About</a>
+                    <a href="blog.html" onclick="closeMobileMenu()">Blog</a>
+                    <a href="stressreleasor.php" class="btn-nav">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Stress Relief Blog</h1>
+            <p>Expert tips, techniques, and insights to help you manage stress and improve your mental well-being</p>
+        </div>
+    </section>
+
+    <!-- Category Filters -->
+    <section class="category-filters">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterPosts('all')">All Articles</button>
+                <button class="filter-btn" onclick="filterPosts('stress-relief')">Stress Relief</button>
+                <button class="filter-btn" onclick="filterPosts('work-career')">Work & Career</button>
+                <button class="filter-btn" onclick="filterPosts('mental-health')">Mental Health</button>
+                <button class="filter-btn" onclick="filterPosts('relationships')">Relationships</button>
+                <button class="filter-btn" onclick="filterPosts('sleep')">Sleep & Rest</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Post -->
+    <section class="featured-section">
+        <div class="container">
+            <div class="featured-post">
+                <div class="featured-image">
+                    🧠
+                </div>
+                <div class="featured-content">
+                    <span class="featured-badge">Featured</span>
+                    <h2 class="featured-title">5 Quick Stress Relief Techniques You Can Use Right Now</h2>
+                    <p class="featured-excerpt">Discover powerful, science-backed methods to calm your nervous system in minutes. These simple techniques work anywhere, anytime.</p>
+                    <div class="post-meta">
+                        <span>📅 January 15, 2026</span>
+                        <span>⏱️ 5 min read</span>
+                    </div>
+                    <a href="blog-post-stress-techniques.html" class="btn-read">Read Article →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="blog-section">
+        <div class="container">
+            <h2 class="section-title">Latest Articles</h2>
+            
+            <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <a href="blog-post-workplace-stress.html" class="blog-card" data-category="work-career">
+                    <div class="blog-image">💼</div>
+                    <div class="blog-content">
+                        <span class="category-badge">Work & Career</span>
+                        <h3 class="blog-title">How to Handle Workplace Stress Without Burning Out</h3>
+                        <p class="blog-excerpt">Learn practical strategies to manage job pressure, set boundaries, and maintain your mental health at work.</p>
+                        <div class="blog-meta">
+                            <span>📅 January 14, 2026</span>
+                            <span>⏱️ 7 min read</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Blog Post 2 -->
+                <a href="blog-post-sleep-stress.html" class="blog-card" data-category="sleep">
+                    <div class="blog-image">😴</div>
+                    <div class="blog-content">
+                        <span class="category-badge">Sleep & Rest</span>
+                        <h3 class="blog-title">Why Stress Ruins Your Sleep (And What to Do About It)</h3>
+                        <p class="blog-excerpt">Understand the connection between stress and insomnia, plus proven techniques to sleep better tonight.</p>
+                        <div class="blog-meta">
+                            <span>📅 January 13, 2026</span>
+                            <span>⏱️ 6 min read</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Blog Post 3 -->
+                <a href="blog-post-stress-vs-anxiety.html" class="blog-card" data-category="mental-health">
+                    <div class="blog-image">🤔</div>
+                    <div class="blog-content">
+                        <span class="category-badge">Mental Health</span>
+                        <h3 class="blog-title">Understanding the Difference: Stress vs. Anxiety</h3>
+                        <p class="blog-excerpt">Learn to recognize the difference between normal stress and anxiety disorders, and when to seek help.</p>
+                        <div class="blog-meta">
+                            <span>📅 January 12, 2026</span>
+                            <span>⏱️ 8 min read</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Blog Post 4 -->
+                <a href="blog-post-relationships.html" class="blog-card" data-category="relationships">
+                    <div class="blog-image">❤️</div>
+                    <div class="blog-content">
+                        <span class="category-badge">Relationships</span>
+                        <h3 class="blog-title">How Your Stress Affects Your Relationships (And How to Fix It)</h3>
+                        <p class="blog-excerpt">Discover how stress impacts your relationships and learn communication strategies to maintain healthy connections.</p>
+                        <div class="blog-meta">
+                            <span>📅 January 11, 2026</span>
+                            <span>⏱️ 6 min read</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Blog Post 5 -->
+                <a href="blog-post-hypnotherapy.html" class="blog-card" data-category="stress-relief">
+                    <div class="blog-image">🎧</div>
+                    <div class="blog-content">
+                        <span class="category-badge">Stress Relief</span>
+                        <h3 class="blog-title">What is Hypnotherapy and How Does It Relieve Stress?</h3>
+                        <p class="blog-excerpt">Explore the science behind hypnotherapy and why it's one of the most effective stress relief methods.</p>
+                        <div class="blog-meta">
+                            <span>📅 January 10, 2026</span>
+                            <span>⏱️ 9 min read</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Blog Post 6 -->
+                <a href="blog-post-financial-stress.html" class="blog-card" data-category="stress-relief">
+                    <div class="blog-image">💰</div>
+                    <div class="blog-content">
+                        <span class="category-badge">Stress Relief</span>
+                        <h3 class="blog-title">Financial Stress: Breaking Free from Money Worries</h3>
+                        <p class="blog-excerpt">Practical steps to manage financial anxiety and build a healthier relationship with money.</p>
+                        <div class="blog-meta">
+                            <span>📅 January 9, 2026</span>
+                            <span>⏱️ 7 min read</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section container">
+        <div class="newsletter-content">
+            <h2>Get Stress Relief Tips Weekly</h2>
+            <p>Join 10,000+ people getting expert stress management techniques delivered to their inbox</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">🧘</span>
+                        <span class="logo-text">StressReleasor</span>
+                    </div>
+                    <p>Affordable AI-powered stress relief created by certified therapist</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <a href="index.html#how-it-works">How It Works</a>
+                        <a href="index.html#about">About</a>
+                        <a href="blog.html">Blog</a>
+                        <a href="stressreleasor.php">Get Started</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 StressReleasor.com. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.remove('active');
+        }
+
+        function filterPosts(category) {
+            // Update active button
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Filter posts
+            const posts = document.querySelectorAll('.blog-card');
+            posts.forEach(post => {
+                if (category === 'all' || post.dataset.category === category) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        }
+
+        document.addEventListener('click', function(event) {
+            const navLinks = document.getElementById('navLinks');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const isClickInsideNav = navLinks.contains(event.target);
+            const isClickOnMenuBtn = menuBtn.contains(event.target);
+            
+            if (!isClickInsideNav && !isClickOnMenuBtn && navLinks.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+    </script>
+</body>
+</html>
