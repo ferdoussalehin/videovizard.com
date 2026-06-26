@@ -1102,9 +1102,13 @@ if (isset($_POST['ajax_action']) && $_POST['ajax_action'] === 'save_cinematic_to
         foreach ($scenes_in as $i => $scene) {
             $seq_no      = $i + 1;
             $scene_num   = (int)($scene['num'] ?? $seq_no);  // use JS scene num if present
-            $caption_raw = trim($scene['caption'] ?? '');
-            $wan_prompt  = trim($scene['wan']     ?? '');
-            $image_file  = trim($scene['file']    ?? '');
+            $caption_raw  = trim($scene['caption'] ?? '');
+            $wan_prompt   = trim($scene['wan']     ?? '');
+            // image_prompt: separate, photography-detailed still-frame prompt
+            // (see parseScenes() IMAGE PROMPT extraction in JS). Falls back to
+            // the video prompt only if the client didn't send one (old scripts).
+            $image_prompt = trim($scene['image_prompt'] ?? '') ?: $wan_prompt;
+            $image_file   = trim($scene['file']    ?? '');
 
             // Use caption as main text; fall back to wan prompt excerpt, then scene label
             $text = $caption_raw ?: substr($wan_prompt, 0, 200);
@@ -1112,7 +1116,7 @@ if (isset($_POST['ajax_action']) && $_POST['ajax_action'] === 'save_cinematic_to
 
             $te  = mysqli_real_escape_string($conn, $text);
             $de  = mysqli_real_escape_string($conn, substr($text, 0, 50).(strlen($text)>50?'...':''));
-            $pe  = mysqli_real_escape_string($conn, $wan_prompt);
+            $pe  = mysqli_real_escape_string($conn, $image_prompt);
             $vpe = mysqli_real_escape_string($conn, $wan_prompt);
             $ife = mysqli_real_escape_string($conn, $image_file);
             $tke = mysqli_real_escape_string($conn, $title_raw);
@@ -1311,6 +1315,44 @@ if (isset($_POST['ajax_action']) && $_POST['ajax_action'] === 'save_cinematic_to
         ]);
     } catch (Throwable $e) {
         echo json_encode(['success'=>false,'message'=>$e->getMessage()]);
+    }
+    exit;
+}
+
+// ── AJAX: save_scene_prompts ───────────────────────────────────
+// Used by the per-card "Prompts" modal — lets the user view/edit the
+// image prompt and video prompt for a single scene and persist both
+// back to hdb_podcast_stories (prompt = image prompt, video_prompt =
+// video/motion prompt) without re-running the whole script generation.
+if (isset($_POST['ajax_action']) && $_POST['ajax_action'] === 'save_scene_prompts') {
+    ob_clean();
+    header('Content-Type: application/json; charset=utf-8');
+    try {
+        $story_id     = (int)($_POST['story_id'] ?? 0);
+        $image_prompt = trim($_POST['image_prompt'] ?? '');
+        $video_prompt = trim($_POST['video_prompt'] ?? '');
+
+        if (!$story_id) {
+            echo json_encode(['success' => false, 'message' => 'Missing story_id']);
+            exit;
+        }
+        if ($image_prompt === '' && $video_prompt === '') {
+            echo json_encode(['success' => false, 'message' => 'Nothing to save — both prompts are empty']);
+            exit;
+        }
+
+        $sets = [];
+        if ($image_prompt !== '') $sets[] = "prompt='" . mysqli_real_escape_string($conn, $image_prompt) . "'";
+        if ($video_prompt !== '') $sets[] = "video_prompt='" . mysqli_real_escape_string($conn, $video_prompt) . "'";
+        $sql = "UPDATE hdb_podcast_stories SET " . implode(', ', $sets) . " WHERE id=" . $story_id;
+
+        if (mysqli_query($conn, $sql)) {
+            echo json_encode(['success' => true, 'story_id' => $story_id]);
+        } else {
+            echo json_encode(['success' => false, 'message' => 'DB update failed: ' . mysqli_error($conn)]);
+        }
+    } catch (Throwable $e) {
+        echo json_encode(['success' => false, 'message' => $e->getMessage()]);
     }
     exit;
 }
@@ -1675,10 +1717,18 @@ if (isset($_POST['ajax_action']) && ($_POST['ajax_action'] === 'generate_scene_i
     // ── Inputs ────────────────────────────────────────────────────
     $video_prompt = trim($_POST['video_prompt'] ?? trim($_POST['wan_prompt'] ?? ''));
     if (!$video_prompt) $video_prompt = trim($_POST['wan_prompt'] ?? '');
-    // image prompt = video prompt + static-shot suffix for a sharp first-frame thumbnail
-    $image_prompt = $video_prompt
-        ? $video_prompt . ' Static establishing shot from the first frame, thumbnail-optimized, no motion blur.'
-        : '';
+    // image_prompt: the client now sends a separate, photography-detailed
+    // still-frame prompt (see parseScenes() IMAGE PROMPT extraction). Only
+    // fall back to deriving it from the video prompt for older callers
+    // that don't send one — that derivation is what produced vague,
+    // generic-looking images (it's just the motion prompt + one suffix
+    // line, with none of the shot/lens/lighting detail a still needs).
+    $image_prompt = trim($_POST['image_prompt'] ?? '');
+    if (!$image_prompt) {
+        $image_prompt = $video_prompt
+            ? $video_prompt . ' Static establishing shot from the first frame, thumbnail-optimized, no motion blur.'
+            : '';
+    }
 
     $scene_num  = (int)($_POST['scene_num']  ?? 0);
     $podcast_id = (int)($_POST['podcast_id'] ?? 0);
@@ -1977,6 +2027,36 @@ if (isset($_POST['ajax_action']) && ($_POST['ajax_action'] === 'generate_scene_i
 
     // ── Update podcast status ─────────────────────────────────────
     mysqli_query($conn, "UPDATE hdb_podcasts SET internal_status='scenes_ready', updated_at='$now' WHERE id=$podcast_id");
+
+    // ── Scene 1 image ready → set podcast thumbnail + scene_ready status ──
+    // Only scene 1's still becomes the podcast-level thumbnail (other scenes
+    // only feed the storyboard). Every thumbnail elsewhere in the app is
+    // loaded from podcast_thumbnails, so the file itself must be physically
+    // copied there too — pointing the column at podcast_images alone
+    // wouldn't render anywhere that reads from podcast_thumbnails. This
+    // runs AFTER the generic 'scenes_ready' update above and overwrites it
+    // with the more specific 'scene_ready' status — but only for scene 1,
+    // so every other scene still leaves the generic flag in place.
+    if ($scene_num === 1) {
+        @mysqli_query($conn, "ALTER TABLE hdb_podcasts ADD COLUMN IF NOT EXISTS thumbnail VARCHAR(255) DEFAULT NULL");
+        $webRoot    = rtrim($_SERVER['DOCUMENT_ROOT'] ?? __DIR__, '/');
+        $thumb_dir  = $webRoot . '/podcast_thumbnails';
+        if (!is_dir($thumb_dir)) @mkdir($thumb_dir, 0755, true);
+        $src_path   = $webRoot . '/' . $image_folder . '/' . $image_name;
+        $thumb_dest = $thumb_dir . '/' . $image_name;
+        $thumb_copied = @copy($src_path, $thumb_dest);
+        if ($thumb_copied) {
+            mysqli_query($conn, "UPDATE hdb_podcasts SET thumbnail='$ine', internal_status='scene_ready', updated_at='$now' WHERE id=$podcast_id");
+            logGeneration("FAL HANDLER: scene 1 thumbnail set + copied to podcast_thumbnails/$image_name | podcast=$podcast_id", "FAL");
+        } else {
+            // Copy failed (missing source / permissions) — still flip the
+            // status so the rest of the app doesn't stall waiting on it,
+            // but log loudly so it's investigated; thumbnail column is left
+            // untouched rather than pointing at a file that isn't there.
+            mysqli_query($conn, "UPDATE hdb_podcasts SET internal_status='scene_ready', updated_at='$now' WHERE id=$podcast_id");
+            logGeneration("FAL HANDLER: scene 1 thumbnail COPY FAILED src=$src_path dest=$thumb_dest | podcast=$podcast_id", "FAL_ERROR");
+        }
+    }
 
     $totalTime = round(microtime(true) - $t_handler, 2);
     logGeneration("FAL HANDLER: Complete total={$totalTime}s source=" . $falResult['source'] . " | podcast=$podcast_id scene=$story_id", "FAL_SUCCESS");
@@ -2384,8 +2464,11 @@ Each scene MUST follow:
 ### SCENE (n)
 Scene Description: [brief visual explanation]
 
+IMAGE PROMPT:
+[One detailed paragraph — minimum 60 words — describing the STILL FRAME for an AI image generator (FLUX/OpenAI). This is NOT a re-statement of the video prompt — it is a single photographic moment. It MUST include, in this order: (1) shot type and framing, e.g. \"cinematic close-up\" / \"macro shot\" / \"overhead flat-lay\"; (2) the exact subject and action frozen in that instant, with concrete sensory detail (texture, steam, condensation, crumb, color) rather than vague mood words; (3) the background/setting rendered with shallow depth of field and bokeh; (4) a lighting description (e.g. \"soft natural daylight from a window\", \"warm golden-hour rim light\"); (5) technical photography tags: lens (e.g. \"35mm\", \"85mm macro\"), \"photorealistic food/lifestyle photography\", \"shot on DSLR\", \"high detail texture\", \"shallow depth of field\", \"9:16 aspect ratio\". Avoid generic phrases like \"a joyful setting\" or \"a look of delight\" with nothing concrete around them — every abstract emotion word must be paired with a specific visual detail that shows it (e.g. not \"delight\" alone, but \"eyes crinkled in a genuine smile, the corner of the mouth lifted\").
+
 WAN 2.2 CINEMATIC PROMPT:
-[One detailed paragraph — minimum 80 words — describing this scene for AI video generation]
+[One detailed paragraph — minimum 80 words — describing this scene's MOTION for AI video generation: what moves, how the camera moves, what changes over the duration of the clip. Build on the IMAGE PROMPT's subject/setting/lighting so the two are visually consistent, but focus this one on movement and time, not static composition.]
 
 CAMERA MOVEMENT: [describe motion]
 LIGHTING STYLE: [define lighting]
@@ -2398,7 +2481,8 @@ STRICT RULES:
 - No talking, no dialogue
 - Default to faceless or POV-based shots UNLESS ADDITIONAL INSTRUCTIONS below specifies particular people/cast to show on screen — if it does, show them as instructed, consistently, in every relevant scene
 - Consistent character across all scenes
-- Default to bright cool-neutral lighting (NO warm tones) UNLESS ADDITIONAL INSTRUCTIONS below specifies a different time of day, mood, or ambience — if it does, follow that instead";
+- Default to bright cool-neutral lighting (NO warm tones) UNLESS ADDITIONAL INSTRUCTIONS below specifies a different time of day, mood, or ambience — if it does, follow that instead
+- The IMAGE PROMPT must always be concrete and specific enough that two different artists would draw nearly the same picture from it — no prompt should rely on a single adjective (\"joyful\", \"delicious\", \"cozy\") to do all the work";
 
     $input = "Business: $business\n" . $paramBlock . $promoting_block . $additional_block . $cta_block;
     $response = callAI($apiUrl, $apiKey, $systemPrompt, $input, 0.92, 120);
@@ -2433,8 +2517,11 @@ Each scene MUST follow:
 ### SCENE (n)
 Scene Description: [brief visual explanation]
 
+IMAGE PROMPT:
+[One detailed paragraph — minimum 60 words — describing the STILL FRAME for an AI image generator (FLUX/OpenAI). This is NOT a re-statement of the video prompt — it is a single photographic moment. It MUST include, in this order: (1) shot type and framing, e.g. \"cinematic close-up\" / \"macro shot\" / \"overhead flat-lay\"; (2) the exact subject and action frozen in that instant, with concrete sensory detail (texture, steam, condensation, crumb, color) rather than vague mood words; (3) the background/setting rendered with shallow depth of field and bokeh; (4) a lighting description (e.g. \"soft natural daylight from a window\", \"warm golden-hour rim light\"); (5) technical photography tags: lens (e.g. \"35mm\", \"85mm macro\"), \"photorealistic food/lifestyle photography\", \"shot on DSLR\", \"high detail texture\", \"shallow depth of field\", \"9:16 aspect ratio\". Avoid generic phrases like \"a joyful setting\" or \"a look of delight\" with nothing concrete around them — every abstract emotion word must be paired with a specific visual detail that shows it (e.g. not \"delight\" alone, but \"eyes crinkled in a genuine smile, the corner of the mouth lifted\").
+
 WAN 2.2 CINEMATIC PROMPT:
-[One detailed paragraph — minimum 80 words — describing this scene for AI video generation]
+[One detailed paragraph — minimum 80 words — describing this scene's MOTION for AI video generation: what moves, how the camera moves, what changes over the duration of the clip. Build on the IMAGE PROMPT's subject/setting/lighting so the two are visually consistent, but focus this one on movement and time, not static composition.]
 
 CAMERA MOVEMENT: [describe motion]
 LIGHTING STYLE: [define lighting]
@@ -2447,7 +2534,8 @@ STRICT RULES:
 - No talking, no dialogue
 - Default to faceless or POV-based shots UNLESS ADDITIONAL INSTRUCTIONS below specifies particular people/cast to show on screen — if it does, show them as instructed, consistently, in every relevant scene
 - Consistent character across all scenes
-- Default to bright cool-neutral lighting (NO warm tones) UNLESS ADDITIONAL INSTRUCTIONS below specifies a different time of day, mood, or ambience — if it does, follow that instead";
+- Default to bright cool-neutral lighting (NO warm tones) UNLESS ADDITIONAL INSTRUCTIONS below specifies a different time of day, mood, or ambience — if it does, follow that instead
+- The IMAGE PROMPT must always be concrete and specific enough that two different artists would draw nearly the same picture from it — no prompt should rely on a single adjective (\"joyful\", \"delicious\", \"cozy\") to do all the work";
 
     $additional      = $_SESSION['additional_info'] ?? '';
     $promoting_item  = $_SESSION['promoting_item']  ?? '';
@@ -3503,6 +3591,23 @@ async function handleUserMediaUpload(input) {
         <video id="videoPlayerEl" controls autoplay playsinline style="width:100%;border-radius:12px;background:#000;display:block;"></video>
     </div>
 </div>
+
+<!-- Scene Prompts modal -->
+<div id="promptsModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9999;align-items:center;justify-content:center;">
+    <div style="position:relative;width:92%;max-width:480px;background:#fff;border-radius:12px;padding:20px;max-height:85vh;overflow-y:auto;">
+        <button type="button" onclick="closePromptsModal()" style="position:absolute;top:10px;right:14px;background:none;border:none;font-size:22px;cursor:pointer;color:#64748b;">✕</button>
+        <div style="font-size:15px;font-weight:800;color:#0f2a44;margin-bottom:14px;">Scene Prompts</div>
+        <label style="font-size:11px;font-weight:700;color:#0f2a44;">🖼️ Image Prompt</label>
+        <textarea id="promptsModalImage" style="width:100%;min-height:110px;margin:6px 0 14px;padding:8px;border:1px solid #e2e8f0;border-radius:8px;font-size:12px;font-family:inherit;box-sizing:border-box;"></textarea>
+        <label style="font-size:11px;font-weight:700;color:#0f2a44;">🎬 Video Prompt</label>
+        <textarea id="promptsModalVideo" style="width:100%;min-height:110px;margin:6px 0 14px;padding:8px;border:1px solid #e2e8f0;border-radius:8px;font-size:12px;font-family:inherit;box-sizing:border-box;"></textarea>
+        <div id="promptsModalStatus" style="font-size:11px;color:#64748b;margin-bottom:8px;"></div>
+        <button type="button" id="promptsModalSaveBtn" onclick="savePromptsModal()"
+            style="width:100%;padding:10px;background:linear-gradient(135deg,#0f2a44,#143b63);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;">
+            💾 Save
+        </button>
+    </div>
+</div>
 <script>const FULL_SCRIPT = <?= json_encode($script) ?>;</script>
 <?php endif; ?>
 </div><!-- /.container -->
@@ -3563,12 +3668,25 @@ function parseScenes(scriptText) {
                 .replace(/\n+/g, ' ').trim();
             wanPrompt = cleanBlock.substring(0, 800);
         }
+        // IMAGE PROMPT — separate, photography-detailed still-frame prompt.
+        // Older scripts generated before this field existed won't have it,
+        // so fall back to the video prompt + a static-shot suffix (same
+        // derivation the backend used to do) rather than leaving it blank.
+        let imagePrompt = '';
+        const imgRe = /IMAGE\s*PROMPT\s*[:\n]([\s\S]+?)(?=WAN\s*2\.2|CAMERA|LIGHTING|EMOTIONAL|ON.?SCREEN|##|$)/i;
+        let imgM = block.match(imgRe);
+        if (imgM && imgM[1].trim().length > 15) imagePrompt = imgM[1].trim().replace(/\n+/g, ' ').substring(0, 1200);
+        if (!imagePrompt) {
+            imagePrompt = wanPrompt
+                ? wanPrompt + ' Static establishing shot from the first frame, thumbnail-optimized, no motion blur.'
+                : '';
+        }
         let caption = '';
         const capRe = /ON[.\s-]*SCREEN\s*(?:TEXT|CAPTION)?\s*[:\-]?\s*([^\n]+)/i, capM = block.match(capRe);
         if (capM) caption = capM[1].trim().replace(/^(NONE|none|-|N\/A)$/i, '').trim();
         let title = markers[i].header.replace(/#{1,3}|\*{1,2}|\bSCENE\s*\d+\b/gi,'').replace(/[—\-–:]/g,'').trim();
         if (!title) title = block.trim().split('\n')[0].substring(0,60) || ('Scene ' + num);
-        scenes.push({ num, title, wan: wanPrompt, caption });
+        scenes.push({ num, title, wan: wanPrompt, image_prompt: imagePrompt, caption });
     }
     return scenes;
 }
@@ -3596,6 +3714,7 @@ async function generateAllScenes() {
         return;
     }
     const scenes = parseScenes(FULL_SCRIPT);
+    currentScenes = scenes; // module-level copy for the Prompts modal save-sync
     console.log('[Gen] parsed', scenes.length, 'scenes:', scenes.map(s=>s.num));
     if (!scenes.length) {
         alert('No scenes found. Script preview:\n\n' + String(FULL_SCRIPT).substring(0,400));
@@ -3683,7 +3802,7 @@ async function generateAllScenes() {
             if (tm) titleVal = tm[1].trim();
         }
         const businessVal = document.querySelector('[name=business]')?.value || '';
-        const shellScenes = scenes.map(sc => ({ num: sc.num, wan: sc.wan, caption: sc.caption, file: '' }));
+        const shellScenes = scenes.map(sc => ({ num: sc.num, wan: sc.wan, image_prompt: sc.image_prompt || '', caption: sc.caption, file: '' }));
         const fd0  = new FormData();
         fd0.append('ajax_action', 'save_cinematic_to_db');
         fd0.append('scenes',   JSON.stringify(shellScenes));
@@ -3761,7 +3880,7 @@ async function generateAllScenes() {
                     <div style="font-size:11px;font-weight:700;color:#0f2a44;">Scene ${sc.num}</div>
                     <div style="font-size:10px;color:#64748b;margin-top:2px;">${(sc.caption||sc.title||'').substring(0,45)}</div>
                     <div style="font-size:9px;color:#94a3b8;margin-top:4px;font-family:monospace;word-break:break-all;" title="${data.image_folder}/${data.image_file}">${data.image_file}</div>
-                </div>` + (isVideo ? '' : genVideoButtonHTML(sc.num, podcastId, storyIdForVideo, sc.wan));
+                </div>` + (isVideo ? '' : genVideoButtonHTML(sc.num, podcastId, storyIdForVideo, sc.wan, sc.image_prompt));
             generatedScenes.push({ num:sc.num, wan:sc.wan, caption:sc.caption, file:data.image_file, source:data.source||'generated' });
         } else if (data && data.success) {
             // Success but image not actually ready yet (shouldn't normally happen now
@@ -3793,7 +3912,7 @@ async function generateAllScenes() {
                         <strong>Stage:</strong> ${stage}<br>
                         ${reason.substring(0,90)}
                     </div>
-                    <button onclick="retryScene(${sc.num},'${safeEnc(sc.wan)}','${safeEnc(sc.caption||'')}','${safeEnc(sc.title||'')}',${podcastId},${storyId})"
+                    <button onclick="retryScene(${sc.num},'${safeEnc(sc.wan)}','${safeEnc(sc.caption||'')}','${safeEnc(sc.title||'')}',${podcastId},${storyId},'${safeEnc(sc.image_prompt||'')}')"
                         style="padding:6px 16px;background:linear-gradient(135deg,#0f2a44,#143b63);color:#fff;border:none;border-radius:7px;font-size:11px;font-weight:700;cursor:pointer;margin-top:2px;">
                         🔁 Retry
                     </button>
@@ -3807,6 +3926,7 @@ async function generateAllScenes() {
         fd.append('ajax_action',  'generate_scene_image');
         fd.append('wan_prompt',   sc.wan);
         fd.append('video_prompt', sc.video_prompt || sc.wan);
+        fd.append('image_prompt', sc.image_prompt || '');
         fd.append('gen_mode',     document.querySelector('input[name="gen_mode"]:checked')?.value || 'modal.com');
         fd.append('caption',      sc.caption || '');
         fd.append('scene_num',    sc.num);
@@ -3887,6 +4007,9 @@ let _pollingStarted = false;
 let _storyIdMap     = {};  // module-level copy of storyIdMap for polling access
 let podcastId       = 0;   // current podcast — set by generateAllScenes(), read by generateAllVideos()
 let storyIdMap      = {};  // { scene_num: story_id } — module-level for the same reason
+let currentScenes   = [];  // module-level copy of the parsed scenes array, so the Prompts
+                            // modal (a top-level function) can sync edited prompts back
+                            // into the same objects genScene()/regenerateSceneImage() read from
 const POLL_INTERVAL_MS = 30000; // poll every 30 seconds
 
 function fmtMins(mins) {
@@ -4061,10 +4184,11 @@ async function saveScenesToDB(sceneData, parsedScenes) {
         if (label) label.textContent = '⚠️ DB save error: ' + e.message;
     }
 }
-async function retryScene(sceneNum, encodedWan, encodedCaption, encodedTitle, podcastId = 0, storyId = 0) {
-    const wan     = safeDec(encodedWan);
-    const caption = safeDec(encodedCaption);
-    const title   = safeDec(encodedTitle);
+async function retryScene(sceneNum, encodedWan, encodedCaption, encodedTitle, podcastId = 0, storyId = 0, encodedImagePrompt = '') {
+    const wan         = safeDec(encodedWan);
+    const caption     = safeDec(encodedCaption);
+    const title       = safeDec(encodedTitle);
+    const imagePrompt = safeDec(encodedImagePrompt) || wan;
     const card    = document.getElementById('scene-card-' + sceneNum);
     if (!card) return;
 
@@ -4078,8 +4202,10 @@ async function retryScene(sceneNum, encodedWan, encodedCaption, encodedTitle, po
         <div style="padding:8px 10px;"><div style="font-size:11px;font-weight:700;color:#0f2a44;">Scene ${sceneNum}</div></div>`;
 
     const fd = new FormData();
-    fd.append('ajax_action', 'generate_scene_image');
-    fd.append('wan_prompt',  wan);
+    fd.append('ajax_action',  'generate_scene_image');
+    fd.append('wan_prompt',   wan);
+    fd.append('video_prompt', wan);
+    fd.append('image_prompt', imagePrompt);
     fd.append('caption',     caption);
     fd.append('scene_num',   sceneNum);
     fd.append('podcast_id',  podcastId);
@@ -4104,7 +4230,7 @@ async function retryScene(sceneNum, encodedWan, encodedCaption, encodedTitle, po
                 <div style="padding:8px 10px;">
                     <div style="font-size:11px;font-weight:700;color:#0f2a44;">Scene ${sceneNum} ✅ Retry OK</div>
                     <div style="font-size:10px;color:#64748b;margin-top:2px;">${caption.substring(0,45)}</div>
-                </div>` + genVideoButtonHTML(sceneNum, podcastId, storyId, wan);
+                </div>` + genVideoButtonHTML(sceneNum, podcastId, storyId, wan, imagePrompt);
         } else {
             const stage  = data?.fail_stage || 'unknown';
             const reason = data?.error || 'Generation error';
@@ -4116,7 +4242,7 @@ async function retryScene(sceneNum, encodedWan, encodedCaption, encodedTitle, po
                     <div style="font-size:10px;color:#7f1d1d;background:#fee2e2;padding:4px 8px;border-radius:6px;width:100%;word-break:break-word;">
                         <strong>Stage:</strong> ${stage}<br>${reason.substring(0,90)}
                     </div>
-                    <button onclick="retryScene(${sceneNum},'${encodedWan}','${encodedCaption}','${encodedTitle}',${podcastId},${storyId})"
+                    <button onclick="retryScene(${sceneNum},'${encodedWan}','${encodedCaption}','${encodedTitle}',${podcastId},${storyId},'${encodedImagePrompt}')"
                         style="padding:6px 16px;background:linear-gradient(135deg,#0f2a44,#143b63);color:#fff;border:none;border-radius:7px;font-size:11px;font-weight:700;cursor:pointer;margin-top:2px;">
                         🔁 Retry again
                     </button>
@@ -4128,7 +4254,7 @@ async function retryScene(sceneNum, encodedWan, encodedCaption, encodedTitle, po
                 background:#fef2f2;gap:6px;padding:14px;text-align:center;">
                 <span style="font-size:26px;">❌</span>
                 <div style="font-size:10px;color:#dc2626;"><strong>Stage:</strong> network<br>${e.message.substring(0,80)}</div>
-                <button onclick="retryScene(${sceneNum},'${encodedWan}','${encodedCaption}','${encodedTitle}',${podcastId},${storyId})"
+                <button onclick="retryScene(${sceneNum},'${encodedWan}','${encodedCaption}','${encodedTitle}',${podcastId},${storyId},'${encodedImagePrompt}')"
                     style="padding:6px 16px;background:linear-gradient(135deg,#0f2a44,#143b63);color:#fff;border:none;border-radius:7px;font-size:11px;font-weight:700;cursor:pointer;margin-top:2px;">
                     🔁 Retry again
                 </button>
@@ -4437,16 +4563,124 @@ function videoThumbHTML(sceneNum, videoUrl) {
         </div>`;
 }
 
-function genVideoButtonHTML(sceneNum, podcastId, storyId, wanPrompt) {
+function genVideoButtonHTML(sceneNum, podcastId, storyId, wanPrompt, imagePrompt) {
     const encodedWan = safeEnc(wanPrompt);
+    const encodedImg = safeEnc(imagePrompt || '');
     return `
-        <div id="video-action-${sceneNum}" style="padding:0 10px 10px;">
+        <div id="video-action-${sceneNum}" style="padding:0 10px 10px;display:flex;flex-direction:column;gap:6px;">
+            <div style="display:flex;gap:6px;">
+                <button type="button" onclick="openPromptsModal(${sceneNum},${storyId},'${encodedImg}','${encodedWan}')"
+                    style="flex:1;padding:7px;background:#fff;color:#0f2a44;border:1.5px solid #0f2a44;border-radius:7px;font-size:11px;font-weight:700;cursor:pointer;">
+                    📝 Prompts
+                </button>
+                <button type="button" onclick="regenerateSceneImage(${sceneNum},${podcastId},${storyId},'${encodedImg}','${encodedWan}')"
+                    style="flex:1;padding:7px;background:#fff;color:#0f2a44;border:1.5px solid #0f2a44;border-radius:7px;font-size:11px;font-weight:700;cursor:pointer;">
+                    🖼️ Generate image
+                </button>
+            </div>
             <button type="button" onclick="generateSceneVideo(${sceneNum},${podcastId},${storyId},'${encodedWan}')"
                 style="width:100%;padding:7px;background:linear-gradient(135deg,#0f2a44,#143b63);color:#fff;border:none;border-radius:7px;font-size:11px;font-weight:700;cursor:pointer;">
                 🎬 Generate video
             </button>
-            <div id="video-status-${sceneNum}" style="font-size:9px;color:#94a3b8;text-align:center;margin-top:4px;"></div>
+            <div id="video-status-${sceneNum}" style="font-size:9px;color:#94a3b8;text-align:center;margin-top:2px;"></div>
         </div>`;
+}
+
+// ── "Generate image" — regenerate just the still for one scene, in place,
+// without touching the Prompts/Generate-video buttons next to it. This is
+// the per-card counterpart to the bulk "Generate Scene Images" flow, for
+// testing a single scene's (possibly just-edited) image prompt.
+async function regenerateSceneImage(sceneNum, podcastId, storyId, encodedImg, encodedWan) {
+    const imagePrompt = safeDec(encodedImg);
+    const wanPrompt    = safeDec(encodedWan);
+    const card        = document.getElementById('scene-card-' + sceneNum);
+    if (!card) return;
+    const mediaWrap = card.querySelector('div[style*="aspect-ratio:9/16"]');
+    const actionBox = document.getElementById('video-action-' + sceneNum);
+    const imgBtn    = actionBox ? actionBox.querySelectorAll('button')[1] : null;
+    if (imgBtn) { imgBtn.disabled = true; imgBtn.innerHTML = '<span class="spinner"></span> Generating…'; }
+    if (mediaWrap) {
+        mediaWrap.outerHTML = `<div style="position:relative;aspect-ratio:9/16;background:linear-gradient(135deg,#f8fafc,#e2e8f0);display:flex;align-items:center;justify-content:center;">
+            <div style="width:32px;height:32px;border:3px solid #e2e8f0;border-top-color:#0f2a44;border-radius:50%;animation:spin .8s linear infinite;"></div>
+        </div>`;
+    }
+    const fd = new FormData();
+    fd.append('ajax_action',  'generate_scene_image');
+    fd.append('wan_prompt',   wanPrompt);
+    fd.append('video_prompt', wanPrompt);
+    fd.append('image_prompt', imagePrompt);
+    fd.append('caption',      '');
+    fd.append('scene_num',    sceneNum);
+    fd.append('podcast_id',   podcastId);
+    fd.append('story_id',     storyId);
+    fd.append('gen_mode',     document.querySelector('input[name="gen_mode"]:checked')?.value || 'modal.com');
+    const newMediaWrap = card.querySelector('div[style*="aspect-ratio:9/16"]');
+    try {
+        const resp = await fetch('', { method:'POST', body:fd });
+        const data = await resp.json();
+        if (data && data.success && newMediaWrap) {
+            const src = (data.file || (data.image_folder + '/' + data.image_file)) + '?t=' + Date.now();
+            newMediaWrap.outerHTML = `<div style="position:relative;aspect-ratio:9/16;">
+                <img src="${src}" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+                <div style="position:absolute;top:5px;left:5px;padding:3px 8px;border-radius:5px;font-size:10px;font-weight:700;background:rgba(5,150,105,.88);color:#fff;">⚡ Regenerated</div>
+            </div>`;
+        } else if (newMediaWrap) {
+            const reason = (data?.error || 'Generation failed').substring(0,90);
+            newMediaWrap.outerHTML = `<div style="position:relative;aspect-ratio:9/16;display:flex;align-items:center;justify-content:center;background:#fef2f2;color:#dc2626;font-size:11px;text-align:center;padding:10px;">❌ ${reason}</div>`;
+        }
+    } catch(e) {
+        if (newMediaWrap) newMediaWrap.outerHTML = `<div style="position:relative;aspect-ratio:9/16;display:flex;align-items:center;justify-content:center;background:#fef2f2;color:#dc2626;font-size:11px;">❌ Network error</div>`;
+    }
+    if (imgBtn) { imgBtn.disabled = false; imgBtn.innerHTML = '🖼️ Generate image'; }
+}
+
+// ── "Prompts" modal — view/edit the image prompt + video prompt for a
+// single scene, and save both back to hdb_podcast_stories.
+let _promptsModalCtx = { sceneNum: 0, storyId: 0 };
+function openPromptsModal(sceneNum, storyId, encodedImg, encodedWan) {
+    _promptsModalCtx = { sceneNum, storyId };
+    document.getElementById('promptsModalImage').value = safeDec(encodedImg);
+    document.getElementById('promptsModalVideo').value = safeDec(encodedWan);
+    document.getElementById('promptsModalStatus').textContent = storyId ? '' : '⚠️ No story_id for this scene yet — saving will fail until the script is saved to DB.';
+    document.getElementById('promptsModal').style.display = 'flex';
+}
+function closePromptsModal() { document.getElementById('promptsModal').style.display = 'none'; }
+async function savePromptsModal() {
+    const { sceneNum, storyId } = _promptsModalCtx;
+    const imagePrompt = document.getElementById('promptsModalImage').value.trim();
+    const videoPrompt  = document.getElementById('promptsModalVideo').value.trim();
+    const statusEl = document.getElementById('promptsModalStatus');
+    const btn = document.getElementById('promptsModalSaveBtn');
+    if (!storyId) { statusEl.textContent = '⚠️ No story_id yet for this scene — save the script to DB first.'; return; }
+    btn.disabled = true;
+    const orig = btn.textContent;
+    btn.textContent = 'Saving…';
+    try {
+        const fd = new FormData();
+        fd.append('ajax_action',  'save_scene_prompts');
+        fd.append('story_id',     storyId);
+        fd.append('image_prompt', imagePrompt);
+        fd.append('video_prompt', videoPrompt);
+        const resp = await fetch('', { method:'POST', body:fd });
+        const data = await resp.json();
+        if (data.success) {
+            statusEl.textContent = '✅ Saved';
+            // Keep in-memory scene data + the card's action buttons in sync
+            // so the next "Generate image"/"Generate video" click on this
+            // card uses the just-edited prompts, not the stale originals.
+            const sc = currentScenes.find(s => s.num === sceneNum);
+            if (sc) { sc.image_prompt = imagePrompt; sc.wan = videoPrompt; }
+            const actionBox = document.getElementById('video-action-' + sceneNum);
+            if (actionBox) actionBox.outerHTML = genVideoButtonHTML(sceneNum, podcastId, storyId, videoPrompt, imagePrompt);
+            setTimeout(closePromptsModal, 700);
+        } else {
+            statusEl.textContent = '❌ ' + (data.message || 'Save failed');
+        }
+    } catch(e) {
+        statusEl.textContent = '❌ Network error: ' + e.message;
+    }
+    btn.disabled = false;
+    btn.textContent = orig;
 }
 
 async function generateSceneVideo(sceneNum, podcastId, storyId, encodedWan) {

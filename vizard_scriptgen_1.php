@@ -885,9 +885,11 @@ if (isset($_POST['ajax_action']) && $_POST['ajax_action'] === 'save_user_hook') 
 // No separate cache table — hdb_user_hooks IS the cache.
 if (isset($_POST['ajax_action']) && $_POST['ajax_action'] === 'get_ai_hook_recommendations') {
     if (ob_get_length()) ob_clean(); header('Content-Type: application/json');
-    $video_idea  = mysqli_real_escape_string($conn, trim($_POST['video_idea']  ?? ''));
-    $ai_group    = mysqli_real_escape_string($conn, trim($_POST['ai_group']    ?? ''));
-    $ai_subgroup = mysqli_real_escape_string($conn, trim($_POST['ai_subgroup'] ?? ''));
+    $video_idea     = mysqli_real_escape_string($conn, trim($_POST['video_idea']  ?? ''));
+    $ai_group       = mysqli_real_escape_string($conn, trim($_POST['ai_group']    ?? ''));
+    $ai_subgroup    = mysqli_real_escape_string($conn, trim($_POST['ai_subgroup'] ?? ''));
+    $promoting_item = trim($_POST['promoting_item'] ?? '');
+    $content_goals  = trim($_POST['content_goals']  ?? '');
     if (!$video_idea) { echo json_encode(['success'=>false,'error'=>'Missing video_idea']); exit; }
     mysqli_query($conn, "ALTER TABLE hdb_user_hooks ADD COLUMN IF NOT EXISTS video_idea VARCHAR(300) DEFAULT NULL");
 
@@ -920,9 +922,18 @@ if (isset($_POST['ajax_action']) && $_POST['ajax_action'] === 'get_ai_hook_recom
     // ── Call AI ───────────────────────────────────────────────────────────────
     require_once __DIR__ . '/config.php';
     $apiKey = $apiKey ?? $chatgpt_api_key ?? '';
-    // Anchor entirely on the video idea — the subgroup is mentioned only as
-    // light background context, not the primary subject of the hooks.
-    $prompt = "You are an expert short-form video strategist. The video is specifically about: \"$video_idea\". Pick the top 5 hook types and adapt them to open a video on THIS exact topic" . ($ai_subgroup ? " (the business is broadly in the \"$ai_subgroup\" space, but the hooks must be about \"$video_idea\" specifically, not the general business)" : "") . ". Return ONLY a valid JSON array of objects: [{\"hook_name\":\"...\",\"hook_type\":\"...\",\"adapted_hook\":\"...\",\"why\":\"...\"}]";
+    if ($content_goals === 'Promote') {
+        // Promote mode: hooks must read like ad copy — proof, urgency, or a
+        // direct question about the specific item — never a generic
+        // educational angle. Anchor to promoting_item when available since
+        // it's the literal, unparaphrased thing being sold.
+        $anchor = $promoting_item ?: $video_idea;
+        $prompt = "You are a direct-response marketing copywriter. The video promotes: \"$anchor\" (video title: \"$video_idea\")" . ($ai_subgroup ? " (business is broadly in the \"$ai_subgroup\" space, background only)" : "") . ". Generate 5 promotional opening hooks for this exact item/service — questions, bold claims, or social proof that make the viewer want to buy/visit/order right now. Every hook must reference the specific item by name. Return ONLY a valid JSON array of objects: [{\"hook_name\":\"...\",\"hook_type\":\"...\",\"adapted_hook\":\"...\",\"why\":\"...\"}]";
+    } else {
+        // Anchor entirely on the video idea — the subgroup is mentioned only as
+        // light background context, not the primary subject of the hooks.
+        $prompt = "You are an expert short-form video strategist. The video is specifically about: \"$video_idea\". Pick the top 5 hook types and adapt them to open a video on THIS exact topic" . ($ai_subgroup ? " (the business is broadly in the \"$ai_subgroup\" space, but the hooks must be about \"$video_idea\" specifically, not the general business)" : "") . ". Return ONLY a valid JSON array of objects: [{\"hook_name\":\"...\",\"hook_type\":\"...\",\"adapted_hook\":\"...\",\"why\":\"...\"}]";
+    }
     $ch = curl_init('https://api.openai.com/v1/chat/completions');
     curl_setopt_array($ch,[CURLOPT_RETURNTRANSFER=>true,CURLOPT_POST=>true,CURLOPT_TIMEOUT=>30,CURLOPT_CONNECTTIMEOUT=>10,
         CURLOPT_HTTPHEADER=>['Content-Type: application/json','Authorization: Bearer '.$apiKey],
@@ -1334,6 +1345,70 @@ if (isset($_POST['ajax_action']) && $_POST['ajax_action'] === 'generate_company_
     exit;
 }
 
+// ── AJAX: generate_promote_titles — for content_type='Promote' ──────────────
+// Unlike generate_company_video_ideas (which brainstorms generic educational
+// TOPICS for a niche), this anchors every title to the literal item/business
+// being promoted — e.g. "A tasty biryani from Hyderabad Biryani House" should
+// produce titles ABOUT that biryani, not generic Hyderabadi-cuisine topics.
+// Mirrors the title-suggestion approach in vizard_scriptgen_2.php.
+if (isset($_POST['ajax_action']) && $_POST['ajax_action'] === 'generate_promote_titles') {
+    if (ob_get_length()) ob_clean(); header('Content-Type: application/json');
+    $promoting_item = trim($_POST['promoting_item'] ?? $_POST['niche'] ?? '');
+    $group          = trim($_POST['group']    ?? '');
+    $subgroup       = trim($_POST['subgroup'] ?? '');
+    if (!$promoting_item) { echo json_encode(['success'=>false,'error'=>'No promoting_item']); exit; }
+    require_once __DIR__ . '/config.php';
+    $apiKey = isset($apiKey) ? $apiKey : (isset($chatgpt_api_key) ? $chatgpt_api_key : '');
+
+    $biz_ctx = trim(implode(' > ', array_filter([$group, $subgroup])));
+
+    $prompt  = "You are a marketing copywriter for short-form social videos.\n\n";
+    $prompt .= "What is being promoted: \"$promoting_item\"\n";
+    if ($biz_ctx) $prompt .= "Business context (background only): $biz_ctx\n";
+    $prompt .= "\nGenerate 6 video TITLE options for a promotional video about this specific item/service.\n";
+    $prompt .= "IMPORTANT: Every title must be anchored to THIS specific item — name it or clearly reference it. Do NOT drift into generic, educational, or category-level titles.\n";
+    $prompt .= "Titles should sound like real short-form video titles — catchy, inviting, sales-aware. Max 8 words each.\n";
+    $prompt .= "Good examples (for \"A tasty biryani from Hyderabad Biryani House\"): \"The Magic of Hyderabadi Biryani Awaits\", \"Savor the Taste of Hyderabadi Biryani\", \"Hyderabadi Biryani: A Culinary Journey\", \"Taste the Tradition of Hyderabadi Biryani\"\n";
+    $prompt .= "Bad examples (too generic/educational): \"How Biryani Is Made\", \"History of Hyderabadi Cuisine\", \"Indian Spice Blends Explained\"\n\n";
+    $prompt .= "Return ONLY a valid JSON array of 6 strings. No markdown, no explanation.";
+
+    $payload = json_encode([
+        'model' => 'gpt-4o-mini',
+        'messages' => [
+            ['role'=>'system','content'=>'You are a viral short-form video marketing strategist. Return ONLY a valid JSON array of strings.'],
+            ['role'=>'user','content'=>$prompt],
+        ],
+        'temperature' => 0.85,
+        'max_tokens'  => 400,
+    ]);
+    $ch = curl_init('https://api.openai.com/v1/chat/completions');
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true, CURLOPT_POST => true,
+        CURLOPT_TIMEOUT => 30, CURLOPT_CONNECTTIMEOUT => 10,
+        CURLOPT_HTTPHEADER => ['Content-Type: application/json', 'Authorization: Bearer ' . $apiKey],
+        CURLOPT_POSTFIELDS => $payload,
+    ]);
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+    if ($httpCode === 200) {
+        $data  = json_decode($response, true);
+        $raw   = trim($data['choices'][0]['message']['content'] ?? '');
+        $raw   = preg_replace('/^```json\s*|\s*```$/s', '', $raw);
+        $titles = json_decode($raw, true);
+        if (is_array($titles) && count($titles) > 0) {
+            vv_log("generate_promote_titles | promoting_item=$promoting_item titles=" . count($titles));
+            echo json_encode(['success' => true, 'ideas' => array_slice($titles, 0, 6)]);
+        } else {
+            echo json_encode(['success' => false, 'error' => 'Invalid AI response']);
+        }
+    } else {
+        $err = json_decode((string)$response, true);
+        echo json_encode(['success' => false, 'error' => isset($err['error']['message']) ? $err['error']['message'] : 'HTTP ' . $httpCode]);
+    }
+    exit;
+}
+
 // ── AJAX: upload_user_media — user uploads their own images/videos ──────────
 // Routed through the shared mediaIngest() library, scoped to this company so
 // it never mixes with another business's media. Mirrors vizard_scriptgen_2.php.
@@ -1701,6 +1776,7 @@ function vv_buildPrompt(array $d): string {
     $tone            = trim($d['tone']            ?? 'Friendly');
     $brand_name      = trim($d['brand_name']      ?? '');
     $content_goals   = trim($d['content_goals']   ?? 'Education');
+    $promoting_item  = trim($d['promoting_item']  ?? '');
     $growth_goals    = trim($d['growth_goals']    ?? 'Grow Followers');
     $target_audience = trim($d['audience']        ?? 'General Public');
     $target_location = trim($d['target_location'] ?? 'Global');
@@ -1808,6 +1884,20 @@ CAPTION RULES (2-3 sentences, write in $language):
 - End with CTA driving: $growth_goals — use this CTA: $cta
 - No hashtags in the caption";
 
+    // ── PROMOTE MODE: anchor every scene to the literal item/service being
+    // promoted, and pin the opening to the exact Title + Hook the user
+    // already approved — never let the AI re-improvise or drift into
+    // generic education about the category. Built once, reused below.
+    $promote_anchor_block = '';
+    $promote_pin_block    = '';
+    if ($content_goals === 'Promote' && $idea) {
+        $anchor_item = $promoting_item ?: $idea;
+        $promote_anchor_block = "\nPROMOTING: $anchor_item\nThis is a direct promotion for this specific item/service. Every scene must showcase or reference it by name — never drift into generic education about the category.\n";
+        if ($angle) {
+            $promote_pin_block = "\nMANDATORY OPENING (do not rewrite or paraphrase):\n- Scene 1 must be exactly this title, word-for-word: \"$idea\"\n- Scene 2 must be exactly this hook, word-for-word: \"$angle\"\n- Scene 3 onward continues the promotional structure (proof → urgency → CTA) — do not repeat the title/hook again.\n";
+        }
+    }
+
     // ── B-Roll ────────────────────────────────────────────────────────────────
     if (stripos($reelType, 'B-Roll') !== false) {
         return "You are an expert short-form video scriptwriter for the '$niche' industry.
@@ -1818,7 +1908,7 @@ Audience: $target_audience | Growth Goal: $growth_goals
 $location_ctx
 $brand_ctx
 Tone: $tone | Duration: $duration (~$words words) | $language_instruction
-
+$promote_anchor_block
 $goal_style_block
 
 FORMAT: B-Roll voiceover — ONE continuous narration broken into paragraphs.
@@ -1827,7 +1917,7 @@ OUTPUT RULES:
 - Write 3-5 paragraphs separated by [SCENE BREAK]
 - Each paragraph = 2-4 sentences, flowing naturally into the next
 - Every paragraph ends with: $BREAK
-- First paragraph: powerful opening statement or question
+- First paragraph: powerful opening statement or question" . ($angle && $content_goals === 'Promote' ? " — naturally work in this exact hook: \"$angle\"" : "") . "
 - Last paragraph: $cta $BREAK
 - NO labels, NO headings, NO scene numbers
 $meta_instruction";
@@ -1844,7 +1934,7 @@ Audience: $target_audience | Growth Goal: $growth_goals
 $location_ctx
 $brand_ctx
 Tone: $tone | Duration: $duration (~$words words) | $language_instruction
-
+$promote_anchor_block
 $goal_style_block
 
 STYLE:
@@ -1862,7 +1952,7 @@ PACING:
 - Use natural pauses: <break time=\"100ms\"/> (quick) / <break time=\"300ms\"/> (normal) / <break time=\"600ms\"/> (emphasis)
 
 STRUCTURE:
-- Start with a strong, natural hook — NOT \"Hi\" or \"Welcome\"
+- Start with a strong, natural hook — NOT \"Hi\" or \"Welcome\"" . ($angle && $content_goals === 'Promote' ? " — naturally work in this exact hook within the opening lines: \"$angle\"" : "") . "
 - Flow smoothly between ideas
 - End with this CTA naturally: $cta
 
@@ -1888,7 +1978,7 @@ Audience: $target_audience | Growth Goal: $growth_goals
 $location_ctx
 $brand_ctx
 Tone: $tone | Duration: $duration (~$pod_words words) | $language_instruction
-
+$promote_anchor_block
 $goal_style_block
 
 STYLE: Real human conversation (not scripted, not robotic).
@@ -1928,6 +2018,9 @@ $meta_instruction";
     }
 
     // ── Standard (default) ────────────────────────────────────────────────────
+    $first_scene_rule = ($promote_pin_block !== '')
+        ? "- Scene 1 and Scene 2 are FIXED — see MANDATORY OPENING above. Do not write your own hook."
+        : "- First scene: attention-grabbing hook — do NOT start with \"Hi\" or \"Welcome\"";
     return "You are an expert short-form video scriptwriter for the '$niche' industry.
 
 Write a script for: $idea
@@ -1936,7 +2029,7 @@ Audience: $target_audience | Growth Goal: $growth_goals
 $location_ctx
 $brand_ctx
 Angle: $angle | Tone: $tone | Duration: $duration (~$words words) | $language_instruction
-
+$promote_anchor_block$promote_pin_block
 $goal_style_block
 
 FORMAT: Standard short-form video — direct, engaging, scene-by-scene.
@@ -1946,7 +2039,7 @@ OUTPUT RULES:
 - CRITICAL: you MUST put [SCENE BREAK] between every scene — no exceptions
 - Each scene = 1-2 complete sentences, {$min_scene_words}–{$max_scene_words} words
 - Every scene ends with: $BREAK
-- First scene: attention-grabbing hook — do NOT start with \"Hi\" or \"Welcome\"
+$first_scene_rule
 - Last scene: $cta $BREAK
 - NO labels, NO headings, NO scene numbers
 - Each scene must be a COMPLETE thought a viewer can absorb in 4-7 seconds
@@ -1970,21 +2063,22 @@ if (isset($_POST['ajax_action']) && $_POST['ajax_action'] === 'generate_script')
     $apiKey = isset($apiKey) ? $apiKey : (isset($chatgpt_api_key) ? $chatgpt_api_key : '');
 
     $d = [
-        'niche'         => trim($_POST['niche']         ?? ''),
-        'title'         => trim($_POST['topic']         ?? $_POST['title'] ?? ''),
-        'topic'         => trim($_POST['topic']         ?? ''),
-        'hook'          => trim($_POST['hook']          ?? ''),
-        'angle'         => trim($_POST['hook']          ?? ''),
-        'duration'      => trim($_POST['duration']      ?? '60'),
-        'cta'           => trim($_POST['cta']           ?? ''),
-        'language'      => trim($_POST['language']      ?? 'English'),
-        'reel_type'     => trim($_POST['reel_type']     ?? 'Standard'),
-        'audience'      => trim($_POST['audience']      ?? 'General Public'),
-        'tone'          => trim($_POST['tone']          ?? 'Friendly'),
-        'content_goals' => 'Education',
-        'growth_goals'  => trim($_POST['growth_goals']  ?? 'Grow Followers'),
-        'brand_name'    => trim($_POST['brand_name']    ?? ''),
-        'voice_id'      => trim($_POST['voice_id']      ?? ''),
+        'niche'          => trim($_POST['niche']         ?? ''),
+        'title'          => trim($_POST['topic']         ?? $_POST['title'] ?? ''),
+        'topic'          => trim($_POST['topic']         ?? ''),
+        'hook'           => trim($_POST['hook']          ?? ''),
+        'angle'          => trim($_POST['hook']          ?? ''),
+        'duration'       => trim($_POST['duration']      ?? '60'),
+        'cta'            => trim($_POST['cta']           ?? ''),
+        'language'       => trim($_POST['language']      ?? 'English'),
+        'reel_type'      => trim($_POST['reel_type']     ?? 'Standard'),
+        'audience'       => trim($_POST['audience']      ?? 'General Public'),
+        'tone'           => trim($_POST['tone']          ?? 'Friendly'),
+        'content_goals'  => trim($_POST['content_goals'] ?? '') ?: 'Education',
+        'promoting_item' => trim($_POST['promoting_item'] ?? ''),
+        'growth_goals'   => trim($_POST['growth_goals']  ?? 'Grow Followers'),
+        'brand_name'     => trim($_POST['brand_name']    ?? ''),
+        'voice_id'       => trim($_POST['voice_id']      ?? ''),
     ];
 
     if (!$d['niche']) { echo json_encode(['success'=>false,'error'=>'Niche is missing']); exit; }
@@ -3894,7 +3988,7 @@ async function renderHookSelect(s) {
         } else {
             // No saved hooks — call AI, then save all results to DB
             body.innerHTML = '<div class="loading"><div class="dot"></div><div class="dot"></div><div class="dot"></div><span>Getting AI hook recommendations…</span></div>';
-            var aiRes = await post({ ajax_action: 'get_ai_hook_recommendations', video_idea: title, ai_group: ai_group, ai_subgroup: ai_subgroup });
+            var aiRes = await post({ ajax_action: 'get_ai_hook_recommendations', video_idea: title, ai_group: ai_group, ai_subgroup: ai_subgroup, promoting_item: ans.promoting_item || '', content_goals: settings.content_type || '' });
             aiRecs = (aiRes.success && aiRes.recommendations) ? aiRes.recommendations : [];
             // Note: backend already saves these to hdb_user_hooks on generation —
             // no separate save call needed here (avoids double-saving).
@@ -4149,6 +4243,7 @@ async function generateScript() {
             audience:        settings.audience        || 'General Public',
             tone:            settings.tone            || 'Friendly',
             content_goals:   settings.content_type,
+            promoting_item:  ans.promoting_item || '',
             target_location: settings.target_location || 'Global',
             growth_goals:    settings.growth_goals    || 'Grow Followers',
             brand_name:      PHP_BRAND_NAME           || '',
@@ -4215,6 +4310,7 @@ function _renderScript(scenes, wordCount, reelType) {
         tone:      settings.tone      || 'Friendly',
         audience:  settings.audience  || 'General Public',
         content_goals: settings.content_type,
+        promoting_item: ans.promoting_item || '',
         growth_goals:  settings.growth_goals  || 'Grow Followers',
         brand_name:    PHP_BRAND_NAME         || '',
         voice_id:  ans.voice_id       || '',
@@ -5235,17 +5331,24 @@ async function showIdeasListScreen(topic) {
     document.getElementById('modeIdeasList').style.display = '';
     window.scrollTo({ top:0, behavior:'smooth' });
 
-    document.getElementById('ideas-box-subtitle').textContent = topic
-        ? `Showing ideas for ${topic}`
-        : `Showing ideas for ${coIndustry.niche || coIndustry.subgroup || coIndustry.group}`;
+    var isPromote = settings.content_type === 'Promote';
+    var heading = document.querySelector('#modeIdeasList h2');
+    if (heading) heading.textContent = isPromote ? '🎬 Title Ideas for You' : '🎬 Video Ideas for You';
+    document.getElementById('ideas-box-subtitle').textContent = isPromote
+        ? (topic ? `Title options for promoting: ${topic}` : 'Title options for your promotion')
+        : (topic ? `Showing ideas for ${topic}` : `Showing ideas for ${coIndustry.niche || coIndustry.subgroup || coIndustry.group}`);
 
     ideasPage = 1;
     ideasHasMore = false;
     document.getElementById('ideas-chip-list').innerHTML =
-        `<div class="loading"><div class="dot"></div><div class="dot"></div><div class="dot"></div><span>Finding video ideas…</span></div>`;
+        `<div class="loading"><div class="dot"></div><div class="dot"></div><div class="dot"></div><span>${isPromote ? 'Finding title ideas…' : 'Finding video ideas…'}</span></div>`;
     document.getElementById('ideas-load-more-btn').style.display = 'none';
 
-    if (topic) {
+    if (isPromote) {
+        // Promote mode never brainstorms generic topics — titles are anchored
+        // directly to the literal item/service typed in, every time.
+        await _generateAiIdeas(false, topic);
+    } else if (topic) {
         // A typed topic always generates fresh ideas — no point checking the
         // generic subgroup cache for a specific one-off topic like this.
         await _generateAiIdeas(false, topic);
@@ -5283,35 +5386,48 @@ function _appendIdeaChip(list, idea) {
 }
 
 var _activeTopic = ''; // tracks the typed "what is this post about" topic, if any
+var _activePromotingItem = ''; // when content_type='Promote', the literal item/service being promoted
 
 async function _generateAiIdeas(append, topicOverride) {
     var list = document.getElementById('ideas-chip-list');
     if (!list) return;
     var mb = document.getElementById('ideas-load-more-btn');
     if (mb) { mb.disabled = true; mb.textContent = 'Loading...'; mb.style.display = ''; }
+    var isPromote = settings.content_type === 'Promote';
     var spinner = document.createElement('div');
     spinner.id = 'ai-spinner'; spinner.className = 'loading';
-    spinner.innerHTML = '<div class="dot"></div><div class="dot"></div><div class="dot"></div><span>Generating ideas...</span>';
+    spinner.innerHTML = '<div class="dot"></div><div class="dot"></div><div class="dot"></div><span>' + (isPromote ? 'Generating titles...' : 'Generating ideas...') + '</span>';
     if (!append) list.innerHTML = '';
     list.appendChild(spinner);
     var topicVal = (typeof topicOverride === 'string') ? topicOverride : _activeTopic;
     try {
-        console.log('[VIDEO_IDEAS] AI generate | group=' + (coIndustry.group||'') + ' subgroup=' + (coIndustry.subgroup||'') + ' topic=' + topicVal);
-        var d = await post({
-            ajax_action: 'generate_company_video_ideas',
-            group: coIndustry.group || '',
-            subgroup: coIndustry.subgroup || '',
-            niche: topicVal || '',
-            category_name: coIndustry.group || '',
-            subcategory_name: coIndustry.subgroup || ''
-        });
+        console.log('[VIDEO_IDEAS] AI generate | group=' + (coIndustry.group||'') + ' subgroup=' + (coIndustry.subgroup||'') + ' topic=' + topicVal + ' promote=' + isPromote);
+        var d;
+        if (isPromote) {
+            _activePromotingItem = topicVal || '';
+            d = await post({
+                ajax_action: 'generate_promote_titles',
+                promoting_item: topicVal || '',
+                group: coIndustry.group || '',
+                subgroup: coIndustry.subgroup || ''
+            });
+        } else {
+            d = await post({
+                ajax_action: 'generate_company_video_ideas',
+                group: coIndustry.group || '',
+                subgroup: coIndustry.subgroup || '',
+                niche: topicVal || '',
+                category_name: coIndustry.group || '',
+                subcategory_name: coIndustry.subgroup || ''
+            });
+        }
         console.log('[VIDEO_IDEAS] AI generate response:', d);
         var sp = document.getElementById('ai-spinner'); if (sp) sp.remove();
         if (d.success && d.ideas && d.ideas.length > 0) {
             d.ideas.forEach(function(idea) { _appendIdeaChip(list, idea); });
-            if (mb) { mb.style.display = ''; mb.textContent = '+ More Ideas'; mb.disabled = false; }
+            if (mb) { mb.style.display = isPromote ? 'none' : ''; mb.textContent = '+ More Ideas'; mb.disabled = false; }
         } else {
-            if (!append) list.innerHTML = '<div class="ideas-empty"><div class="ideas-empty-icon">💡</div><div>Could not generate ideas. Type your own below.</div></div>';
+            if (!append) list.innerHTML = '<div class="ideas-empty"><div class="ideas-empty-icon">💡</div><div>Could not generate ' + (isPromote ? 'titles' : 'ideas') + '. Type your own below.</div></div>';
             if (mb) mb.style.display = 'none';
         }
     } catch(e) {
@@ -5511,6 +5627,7 @@ function selectIdeaAndStart(idea) {
         industry_desc:  coIndustry.subgroup,
         niche:          coIndustry.niche,
         title:          idea,
+        promoting_item: settings.content_type === 'Promote' ? _activePromotingItem : '',
     };
     stepOpts = {};
     // Jump to hook step — now index 0, since group/subgroup/niche/video-idea

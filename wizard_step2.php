@@ -76,6 +76,15 @@
 		if (defined('WIZARD_INCLUDED') && WIZARD_INCLUDED) return; else exit;
 	}
 
+	// Without this, multi-byte characters (curly apostrophes, em dashes,
+	// etc. that GPT loves to use in generated captions) get double-encoded
+	// into mojibake once they round-trip through MySQL -- a curly
+	// apostrophe shows up as three garbage characters instead of one --
+	// even though the columns themselves are utf8mb4. The PHP-to-MySQL
+	// connection itself defaults to a different charset unless told
+	// otherwise.
+	mysqli_set_charset($conn, 'utf8mb4');
+
 	// ── Resolve team_lead_id for this podcast row ────────────────────────────────
 	// Team Member  → use hdb_users.team_lead_id (never 0)
 	// Team Leader / anyone else → use their own admin_id

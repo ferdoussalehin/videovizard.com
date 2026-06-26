@@ -3,6 +3,9 @@
 ffmpeg/
 ffmpeg_jobs/
 images/
+# congig
+config.php
+meta/config.php
 # All users media
 user_media/
 # All podcast foleders

@@ -527,7 +527,20 @@ function image_to_video(
     $z_out      = "1.12-0.0010*on";
     $xy_centre  = "x=iw/2-(iw/zoom/2):y=ih/2-(ih/zoom/2)";
     $zp_base    = "s={$W}x{$H}:fps={$fps}:d={$frames}";
-    $pre        = "scale=-2:{$ZB}"; // tall scale, aspect preserved, no stretch
+    // Scale to COVER the crop box (w>=crop_w AND h>=ZB), aspect preserved —
+    // not just "scale height to ZB". A plain "scale=-2:{$ZB}" only gives a
+    // wide-enough result when the source is WIDER than the target 9:16
+    // ratio (e.g. 16:9 landscape photos). For sources that are already
+    // portrait but slightly narrower than 9:16 (e.g. 572x1024, DAR~0.559
+    // vs target 0.5625), scaling by height alone yields a width just under
+    // crop_w (~1340 vs 1350 needed), which is exactly what made `crop`
+    // throw "Invalid too big or non positive size for width '1350'" and
+    // killed every scene's encode with exit=234.
+    // force_original_aspect_ratio=increase picks whichever scale factor
+    // (by width or by height) makes the result >= both target dims, so
+    // crop always has enough pixels to take its slice from, regardless of
+    // whether the source is wider or narrower than 9:16.
+    $pre        = "scale=w={$crop_w}:h={$ZB}:force_original_aspect_ratio=increase";
 
     $variants = [
         // 0: pan left → right, zooming in slowly
