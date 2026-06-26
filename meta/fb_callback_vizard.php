@@ -149,52 +149,39 @@ file_put_contents(__DIR__ . '/tokens.json', json_encode([
     'updated_at'       => date('Y-m-d H:i:s'),
 ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 
-// ── Step 5: Save to DB ────────────────────────────────────────────────────────
-$admin_id   = (int)($_SESSION['admin_id']        ?? 0);
+// ── Step 5: Let the user choose which page(s) to connect ─────────────────────
+$admin_id   = (int)($_SESSION['admin_id']         ?? 0);
 $company_id = (int)($_SESSION['oauth_company_id'] ?? 0);
-unset($_SESSION['oauth_company_id']);
-if ($admin_id) {
-    $dbFile = __DIR__ . '/../dbconnect_hdb.php';
-    if (file_exists($dbFile)) {
-        include $dbFile; // provides $conn
+$expiry     = date('Y-m-d H:i:s', strtotime('+60 days'));
+$returnUrl  = $_SESSION['fb_oauth_return'] ?? '../vizard_scheduler.php?fb_connected=1';
 
-        $expiry = date('Y-m-d H:i:s', strtotime('+60 days'));
-
-        // Wipe every stale Facebook page row for this admin before writing
-        // fresh ones — prevents old rows with wrong token type from surviving.
-        // Instagram rows are managed separately by ig_callback_vizard.php.
-        mysqli_query($conn, "DELETE FROM hdb_oauth_tokens WHERE admin_id=$admin_id AND company_id=$company_id AND platform LIKE 'facebook%'");
-        fb_log("Cleared old facebook tokens for admin=$admin_id");
-
-        foreach ($pagesOut as $page) {
-            $pageId    = mysqli_real_escape_string($conn, substr($page['id'],   0, 100));
-            $pageName  = mysqli_real_escape_string($conn, substr($page['name'], 0, 200));
-            $pageToken = mysqli_real_escape_string($conn, $page['access_token']);
-            $exp       = mysqli_real_escape_string($conn, $expiry);
-            $now       = date('Y-m-d H:i:s');
-            $nowE      = mysqli_real_escape_string($conn, $now);
-
-            // Facebook page row — platform stored as 'facebook_page_{id}' so the
-            // posting code (which filters LIKE 'facebook_page_%') finds the page token.
-            $fbPlatE = mysqli_real_escape_string($conn, 'facebook_page_' . substr($page['id'], 0, 50));
-            mysqli_query($conn,
-                "INSERT INTO hdb_oauth_tokens
-                     (company_id,admin_id,platform,access_token,channel_id,channel_name,token_expiry,created_at,updated_at)
-                 VALUES ($company_id,$admin_id,'$fbPlatE','$pageToken','$pageId','$pageName','$exp','$nowE','$nowE')
-                 ON DUPLICATE KEY UPDATE
-                     company_id=$company_id, access_token='$pageToken', channel_name='$pageName',
-                     token_expiry='$exp', updated_at='$nowE'"
-            );
-        }
-        fb_log("admin=$admin_id company=$company_id tokens saved to DB");
-    }
-} else {
+if (!$admin_id) {
     fb_log('Warning: no admin_id in session — tokens.json saved but DB skipped');
+    unset($_SESSION['fb_oauth_return'], $_SESSION['oauth_company_id']);
+    header('Location: ' . $returnUrl);
+    exit;
 }
 
-// ── Step 6: Redirect back to scheduler ───────────────────────────────────────
-$returnUrl = $_SESSION['fb_oauth_return'] ?? '../vizard_scheduler.php?fb_connected=1';
-unset($_SESSION['fb_oauth_return']);
+// Stash the available pages so the picker (and the single-page shortcut) can use them.
+$_SESSION['fb_pending'] = [
+    'pages'      => $pagesOut,
+    'company_id' => $company_id,
+    'expiry'     => $expiry,
+    'return'     => $returnUrl,
+];
 
-header('Location: ' . $returnUrl);
+// Only one page → nothing to choose, save it and go straight back.
+if (count($pagesOut) === 1) {
+    include __DIR__ . '/../dbconnect_hdb.php';     // provides $conn
+    require_once __DIR__ . '/fb_save_pages.php';
+    fb_save_selected_pages($conn, $admin_id, $company_id, $pagesOut, $expiry);
+    fb_log("admin=$admin_id auto-saved single page");
+    unset($_SESSION['fb_pending'], $_SESSION['fb_oauth_return'], $_SESSION['oauth_company_id']);
+    header('Location: ' . $returnUrl);
+    exit;
+}
+
+// ── Step 6: Multiple pages → show the page picker ────────────────────────────
+fb_log("admin=$admin_id has " . count($pagesOut) . " pages — showing selector");
+header('Location: fb_select_pages.php');
 exit;

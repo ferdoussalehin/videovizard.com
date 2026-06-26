@@ -526,7 +526,12 @@ if (isset($_POST['ajax_action'])) {
             }
 
             if ($platform === 'facebook') {
-                // Load Facebook page tokens from DB
+                // Which pages did the user pick in the Post Now modal? (empty = all)
+                $want_ids = json_decode($_POST['fb_page_ids'] ?? '[]', true);
+                if (!is_array($want_ids)) $want_ids = [];
+                $want_ids = array_map('strval', $want_ids);
+
+                // Load Facebook page tokens from DB (one row per connected page)
                 $pages_db = [];
                 $tq = mysqli_query($conn,
                     "SELECT platform, access_token, channel_id, channel_name
@@ -539,11 +544,13 @@ if (isset($_POST['ajax_action'])) {
                         'access_token' => $tr['access_token'],
                     ];
                 }
+                // Narrow to the chosen pages (empty selection = post to all connected pages)
+                if (!empty($want_ids)) {
+                    $pages_db = array_values(array_filter($pages_db, function ($p) use ($want_ids) {
+                        return in_array((string)$p['id'], $want_ids, true);
+                    }));
+                }
                 if (empty($pages_db)) { echo json_encode(['success'=>false,'error'=>'Facebook not connected — click Connect Facebook in Social Accounts']); exit; }
-
-                $selected_page = $pages_db[0]; // use first page
-                $page_token = $selected_page['access_token'];
-                $page_id    = $selected_page['id'];
             } else {
                 // Load Instagram token (Instagram Login API — token works on graph.instagram.com)
                 $iq = mysqli_fetch_assoc(mysqli_query($conn,
@@ -555,32 +562,46 @@ if (isset($_POST['ajax_action'])) {
             }
 
             if ($platform === 'facebook') {
-                // Post video to Facebook page using Page Access Token
-                error_log("[fb_post] admin=$admin_id page_id=$page_id token_prefix=" . substr($page_token, 0, 12));
-                $ch = curl_init("https://graph.facebook.com/v24.0/{$page_id}/videos");
-                curl_setopt_array($ch, [
-                    CURLOPT_RETURNTRANSFER => true,
-                    CURLOPT_POST           => true,
-                    CURLOPT_POSTFIELDS     => [
-                        'source'       => new CURLFile($video_path),
-                        'description'  => $caption,
-                        'access_token' => $page_token,
-                    ],
-                    CURLOPT_TIMEOUT        => 300,
-                    CURLOPT_SSL_VERIFYPEER => false,
-                ]);
-                $resp = curl_exec($ch);
-                $err  = curl_error($ch);
-                curl_close($ch);
-                $res = json_decode($resp, true);
-                error_log("[fb_post] response: " . $resp);
-                if (!empty($res['id'])) {
-                    $vid = mysqli_real_escape_string($conn, $res['id']);
-                    mysqli_query($conn,"UPDATE hdb_podcasts SET facebook_status='posted',facebook_post_id='$vid',facebook_posted_at=NOW(),facebook_error=NULL,updated_at=NOW() WHERE id=$podcast_id");
+                // Post the video to each selected Facebook page (Page Access Token).
+                $ok_ids = []; $fail_msgs = [];
+                foreach ($pages_db as $pg) {
+                    $page_id    = $pg['id'];
+                    $page_token = $pg['access_token'];
+                    error_log("[fb_post] admin=$admin_id page_id=$page_id token_prefix=" . substr($page_token, 0, 12));
+                    $ch = curl_init("https://graph.facebook.com/v24.0/{$page_id}/videos");
+                    curl_setopt_array($ch, [
+                        CURLOPT_RETURNTRANSFER => true,
+                        CURLOPT_POST           => true,
+                        CURLOPT_POSTFIELDS     => [
+                            'source'       => new CURLFile($video_path),
+                            'description'  => $caption,
+                            'access_token' => $page_token,
+                        ],
+                        CURLOPT_TIMEOUT        => 300,
+                        CURLOPT_SSL_VERIFYPEER => false,
+                    ]);
+                    $resp = curl_exec($ch);
+                    $err  = curl_error($ch);
+                    curl_close($ch);
+                    $res = json_decode($resp, true);
+                    error_log("[fb_post] page=$page_id response: " . $resp);
+                    if (!empty($res['id'])) {
+                        $ok_ids[] = $res['id'];
+                    } else {
+                        $msg = $res['error']['message'] ?? $err ?? $resp;
+                        $fail_msgs[] = ($pg['name'] ?: $page_id) . ": " . $msg;
+                    }
+                }
+
+                if (!empty($ok_ids)) {
+                    $vid     = mysqli_real_escape_string($conn, implode(',', $ok_ids));
+                    $errnote = empty($fail_msgs) ? 'NULL' : "'" . mysqli_real_escape_string($conn, implode(' | ', $fail_msgs)) . "'";
+                    mysqli_query($conn,"UPDATE hdb_podcasts SET facebook_status='posted',facebook_post_id='$vid',facebook_posted_at=NOW(),facebook_error=$errnote,updated_at=NOW() WHERE id=$podcast_id");
                     maybe_mark_all_posted($conn, $podcast_id, $admin_id, $company_id);
-                    echo json_encode(['success'=>true,'post_id'=>$res['id'],'platform'=>'facebook']);
+                    $detail = count($ok_ids) . ' page(s) posted' . (empty($fail_msgs) ? '' : '; ' . count($fail_msgs) . ' failed');
+                    echo json_encode(['success'=>true,'post_id'=>implode(',', $ok_ids),'platform'=>'facebook','detail'=>$detail]);
                 } else {
-                    $msg = $res['error']['message'] ?? $err ?? $resp;
+                    $msg     = implode(' | ', $fail_msgs) ?: 'Unknown error';
                     $err_esc = mysqli_real_escape_string($conn, $msg);
                     mysqli_query($conn,"UPDATE hdb_podcasts SET facebook_status='failed',facebook_error='$err_esc',updated_at=NOW() WHERE id=$podcast_id");
                     echo json_encode(['success'=>false,'error'=>"Facebook: $msg"]);
@@ -1117,6 +1138,17 @@ if (isset($_POST['ajax_action'])) {
 $scopes              = get_admin_scopes($conn, $admin_id);
 $connected_platforms = get_connected_platforms($conn, $admin_id, $company_id);
 
+// All connected Facebook pages (one row each: platform='facebook_page_<id>') —
+// surfaced in the Post Now modal so the user can pick which page(s) to post to.
+$fb_pages = [];
+$fpq = mysqli_query($conn,
+    "SELECT channel_id, channel_name FROM hdb_oauth_tokens
+     WHERE admin_id=$admin_id AND company_id=$company_id AND platform LIKE 'facebook_page_%' AND token_expiry > NOW()
+     ORDER BY channel_name");
+if ($fpq) while ($fr = mysqli_fetch_assoc($fpq)) {
+    $fb_pages[] = ['id' => $fr['channel_id'], 'name' => $fr['channel_name']];
+}
+
 // YouTube OAuth URL — store return page in session so callback knows where to go
 $_SESSION['yt_oauth_return'] = 'vizard_scheduler.php';
 $yt_state = bin2hex(random_bytes(16)).'|'.$admin_id.'|'.$company_id;
@@ -1565,6 +1597,7 @@ const PLAT_ICONS = {facebook:'📘',tiktok:'🎵',instagram:'📸',youtube:'▶�
 const PLATS      = ['facebook','tiktok','instagram','youtube','twitter','linkedin'];
 const CONNECTED  = <?= json_encode(array_keys($connected_platforms)) ?>;
 const OAUTH_URLS = <?= json_encode($platform_oauth_urls) ?>;
+const FB_PAGES   = <?= json_encode($fb_pages) ?>;   // connected Facebook pages [{id,name}]
 const platformMeta = {
     facebook:  {icon:'📘',label:'Facebook',    color:'#1877f2'},
     instagram: {icon:'📸',label:'Instagram',   color:'#e1306c'},
@@ -1802,6 +1835,20 @@ function openPostNow(podcastId, title, videoFile) {
             html += `<span style="font-size:10px;color:var(--muted);font-weight:600;">SOON</span>`;
         }
         html += `</div></div>`;
+
+        // Facebook: list the connected pages so the user can choose which to post to.
+        if (key === 'facebook' && isConn && FB_PAGES.length) {
+            html += `<div class="pn-fb-pages" style="padding:8px 0 12px 38px;display:flex;flex-direction:column;gap:7px;">
+                <div style="font-size:11px;color:var(--muted);font-weight:600;">Post to which page(s)?</div>`;
+            for (const pg of FB_PAGES) {
+                html += `<label style="display:flex;align-items:center;gap:7px;font-size:12px;cursor:pointer;">
+                    <input type="checkbox" class="pn-fb-page" value="${esc(pg.id)}" checked
+                        style="width:14px;height:14px;accent-color:var(--accent);cursor:pointer;">
+                    ${esc(pg.name||pg.id)}
+                </label>`;
+            }
+            html += `</div>`;
+        }
     }
 
     html += `<div style="margin-top:14px;">
@@ -1861,7 +1908,13 @@ async function postNowSubmit(podcastId) {
             const action = platform === 'facebook' ? 'post_now_facebook' : 'post_now_instagram';
             if (status) status.textContent = platform === 'instagram' ? '⏳ Processing video…' : '⏳ Uploading…';
             try {
-                const d = await api(action, {podcast_id: podcastId});
+                const params = {podcast_id: podcastId};
+                if (platform === 'facebook') {
+                    params.fb_page_ids = JSON.stringify(
+                        [...document.querySelectorAll('.pn-fb-page:checked')].map(c => c.value)
+                    );
+                }
+                const d = await api(action, params);
                 if (d.success) {
                     if (status) status.textContent = '✅ Posted!';
                     if (chk) chk.disabled = true;

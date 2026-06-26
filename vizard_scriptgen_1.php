@@ -1894,7 +1894,17 @@ CAPTION RULES (2-3 sentences, write in $language):
         $anchor_item = $promoting_item ?: $idea;
         $promote_anchor_block = "\nPROMOTING: $anchor_item\nThis is a direct promotion for this specific item/service. Every scene must showcase or reference it by name — never drift into generic education about the category.\n";
         if ($angle) {
-            $promote_pin_block = "\nMANDATORY OPENING (do not rewrite or paraphrase):\n- Scene 1 must be exactly this title, word-for-word: \"$idea\"\n- Scene 2 must be exactly this hook, word-for-word: \"$angle\"\n- Scene 3 onward continues the promotional structure (proof → urgency → CTA) — do not repeat the title/hook again.\n";
+            $hook_word_count = str_word_count($angle);
+            // Hooks read as ad copy and often run 15-20 words — too long for a
+            // single on-screen scene (6-18 word budget depending on duration).
+            // Rather than shortening the hook (loses the sensory/proof payoff),
+            // split it verbatim across two consecutive scenes at its most
+            // natural pause point instead of cramming it into one.
+            if ($hook_word_count > 10) {
+                $promote_pin_block = "\nMANDATORY OPENING (do not rewrite, shorten, or paraphrase — only split):\n- Scene 1 must be exactly this title, word-for-word: \"$idea\"\n- This hook is long ($hook_word_count words): \"$angle\"\n  Split it verbatim across Scene 2 AND Scene 3 at its most natural pause point (e.g. a comma, \"that\", \"and\", or clause break). Do NOT shorten, paraphrase, or drop any words — only break it into two scenes worth of on-screen text.\n- All remaining scenes continue the promotional structure (proof → urgency → CTA) — do not repeat the title/hook again.\n";
+            } else {
+                $promote_pin_block = "\nMANDATORY OPENING (do not rewrite or paraphrase):\n- Scene 1 must be exactly this title, word-for-word: \"$idea\"\n- Scene 2 must be exactly this hook, word-for-word: \"$angle\"\n- All remaining scenes continue the promotional structure (proof → urgency → CTA) — do not repeat the title/hook again.\n";
+            }
         }
     }
 
@@ -2019,7 +2029,7 @@ $meta_instruction";
 
     // ── Standard (default) ────────────────────────────────────────────────────
     $first_scene_rule = ($promote_pin_block !== '')
-        ? "- Scene 1 and Scene 2 are FIXED — see MANDATORY OPENING above. Do not write your own hook."
+        ? "- The opening scenes are FIXED — see MANDATORY OPENING above. Do not write your own title or hook."
         : "- First scene: attention-grabbing hook — do NOT start with \"Hi\" or \"Welcome\"";
     return "You are an expert short-form video scriptwriter for the '$niche' industry.
 

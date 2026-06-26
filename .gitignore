@@ -1,9 +1,10 @@
+.gitignore
 .claude/*
 .well-known/
 ffmpeg/
 ffmpeg_jobs/
 images/
-# congig
+# config
 config.php
 meta/config.php
 # All users media

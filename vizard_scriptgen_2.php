@@ -1497,6 +1497,187 @@ function generateWithFalAI(string $prompt, string $falApiKey, int $maxRetries = 
     logGeneration("FAL: All $maxRetries attempts failed (last HTTP=$httpCode err=$curlError)", "FAL_ERROR");
     return ['success' => false, 'error' => 'fal.ai failed after retries', 'source' => 'fal.ai'];
 }
+
+// ── FAL.AI IMAGE-TO-VIDEO — single scene, synchronous, NEW/independent ───
+// This is a brand new path, separate from the existing hdb_video_gen_que
+// cron+webhook pipeline (cron_video_gen.php / fal_webhook.php are not
+// touched by this). It exists for the per-card "Generate video" button so
+// a single scene can be tested end-to-end in one request: take the EXACT
+// image file already on disk for this scene (not a freshly re-generated
+// one, and not anything the browser sends) + its video/motion prompt,
+// submit to fal.ai's WAN 2.2 image-to-video model, and wait for the
+// result — same "send, wait, get the file back" shape as
+// generateWithFalAI() above uses for stills.
+//
+// Using the actual saved scene image as the i2v input (rather than only
+// the text prompt) is the whole point: the video animates the same image
+// the user already approved/regenerated to their liking, so there's no
+// surprise — the prompt only needs to describe motion, not re-describe
+// the subject from scratch.
+//
+// ⚠️ CONFIRM BEFORE RELYING ON THIS: FAL_WAN_I2V_MODEL is the fal.ai model
+// slug for WAN 2.2 image-to-video, and the payload below uses the
+// minimal/likely parameter names (prompt, image_url, duration). Model
+// slugs and accepted parameters are provider-specific and do change —
+// verify both against your fal.ai dashboard/docs before going live. A
+// wrong slug will fail cleanly (404) the first time you test it.
+if (!defined('FAL_WAN_I2V_MODEL')) {
+    define('FAL_WAN_I2V_MODEL', 'fal-ai/wan-i2v'); // TODO: confirm exact slug for WAN 2.2 i2v
+}
+
+/**
+ * generateVideoWithFalAI()
+ * Submits a local image file + motion prompt to fal.ai's queue endpoint,
+ * polls status_url until COMPLETED (or it fails/times out), downloads the
+ * resulting clip, and returns it base64-encoded — mirroring
+ * generateWithFalAI()'s {success, video, source} shape so the caller's
+ * save logic looks the same as the image path.
+ */
+function generateVideoWithFalAI(string $imageLocalPath, string $videoPrompt, string $falApiKey, int $durationSec = 5, int $maxRetries = 2): array {
+    $t0 = microtime(true);
+    logGeneration("FAL VIDEO: Starting | model=" . FAL_WAN_I2V_MODEL . " prompt_len=" . strlen($videoPrompt), "FAL_VIDEO");
+
+    if (!is_file($imageLocalPath)) {
+        logGeneration("FAL VIDEO: source image not found: $imageLocalPath", "FAL_VIDEO_ERROR");
+        return ['success' => false, 'error' => 'Source image not found on disk: ' . $imageLocalPath, 'source' => 'fal.ai'];
+    }
+    $imgBytes = @file_get_contents($imageLocalPath);
+    if ($imgBytes === false || strlen($imgBytes) < 100) {
+        return ['success' => false, 'error' => 'Could not read source image', 'source' => 'fal.ai'];
+    }
+    $ext  = strtolower(pathinfo($imageLocalPath, PATHINFO_EXTENSION));
+    $mime = ($ext === 'jpg' || $ext === 'jpeg') ? 'image/jpeg' : ($ext === 'webp' ? 'image/webp' : 'image/png');
+    // Inline data: URI — same trick generateWithFalAI() already relies on
+    // for sync_mode image responses, used here in reverse for the input
+    // image, so no public URL/upload step is needed for the source frame.
+    $imageDataUri = 'data:' . $mime . ';base64,' . base64_encode($imgBytes);
+
+    $payload = json_encode([
+        'prompt'    => $videoPrompt,
+        'image_url' => $imageDataUri,
+        'duration'  => max(3, min(10, $durationSec)),
+        // Additional model-specific params (resolution, fps, motion
+        // strength, negative_prompt, seed, etc.) may be supported/required
+        // by FAL_WAN_I2V_MODEL — add them here per fal.ai's docs page for
+        // that exact model once confirmed.
+    ]);
+
+    $httpCode  = 0;
+    $curlError = '';
+
+    for ($attempt = 0; $attempt < $maxRetries; $attempt++) {
+        if ($attempt > 0) { sleep(3); logGeneration("FAL VIDEO: retry attempt $attempt", "FAL_VIDEO"); }
+
+        // ── Step 1: submit to the fal.ai queue ────────────────────
+        $ch = curl_init('https://queue.fal.run/' . FAL_WAN_I2V_MODEL);
+        curl_setopt_array($ch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POST           => true,
+            CURLOPT_POSTFIELDS     => $payload,
+            CURLOPT_TIMEOUT        => 60,
+            CURLOPT_CONNECTTIMEOUT => 30,
+            CURLOPT_NOSIGNAL       => true,
+            CURLOPT_HTTPHEADER     => [
+                'Content-Type: application/json',
+                'Authorization: Key ' . $falApiKey,
+            ],
+        ]);
+        $res       = curl_exec($ch);
+        $httpCode  = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $curlErrno = curl_errno($ch);
+        $curlError = curl_error($ch);
+        curl_close($ch);
+
+        if ($httpCode === 402) {
+            logGeneration("FAL VIDEO: Insufficient credits (402)", "FAL_VIDEO_ERROR");
+            return ['success' => false, 'error' => 'Insufficient fal.ai credits', 'source' => 'fal.ai'];
+        }
+        if ($curlErrno !== 0 || $httpCode < 200 || $httpCode >= 300 || !$res) {
+            logGeneration("FAL VIDEO: submit attempt=$attempt HTTP=$httpCode err=$curlError resp=" . substr((string)$res, 0, 300), "FAL_VIDEO_WARN");
+            continue;
+        }
+
+        $submitData  = json_decode($res, true);
+        $statusUrl   = $submitData['status_url']   ?? null;
+        $responseUrl = $submitData['response_url'] ?? null;
+        if (!$statusUrl || !$responseUrl) {
+            logGeneration("FAL VIDEO: no status_url/response_url attempt=$attempt resp=" . substr((string)$res, 0, 300), "FAL_VIDEO_WARN");
+            continue;
+        }
+
+        // ── Step 2: poll status_url until COMPLETED ───────────────
+        // This is what makes the call "synchronous" from the caller's
+        // point of view — the PHP request blocks here, polling every 4s,
+        // until fal.ai finishes (or this attempt's budget runs out).
+        $pollDeadline = time() + 280;
+        $status       = '';
+        while (time() < $pollDeadline) {
+            sleep(4);
+            $sch = curl_init($statusUrl);
+            curl_setopt_array($sch, [
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_TIMEOUT        => 30,
+                CURLOPT_HTTPHEADER     => ['Authorization: Key ' . $falApiKey],
+            ]);
+            $sres = curl_exec($sch);
+            curl_close($sch);
+            $sdata  = $sres ? json_decode($sres, true) : null;
+            $status = $sdata['status'] ?? '';
+            if ($status === 'COMPLETED') break;
+            if ($status === 'ERROR' || $status === 'FAILED') {
+                logGeneration("FAL VIDEO: job reported $status attempt=$attempt resp=" . substr((string)$sres, 0, 300), "FAL_VIDEO_WARN");
+                break;
+            }
+        }
+        if ($status !== 'COMPLETED') {
+            logGeneration("FAL VIDEO: did not complete in time (last status='$status') attempt=$attempt", "FAL_VIDEO_WARN");
+            continue;
+        }
+
+        // ── Step 3: fetch the completed result ────────────────────
+        $rch = curl_init($responseUrl);
+        curl_setopt_array($rch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT        => 30,
+            CURLOPT_HTTPHEADER     => ['Authorization: Key ' . $falApiKey],
+        ]);
+        $rres = curl_exec($rch);
+        curl_close($rch);
+        $rdata    = $rres ? json_decode($rres, true) : null;
+        $videoUrl = $rdata['video']['url'] ?? ($rdata['videos'][0]['url'] ?? null);
+        if (!$videoUrl) {
+            logGeneration("FAL VIDEO: no video URL in result attempt=$attempt resp=" . substr((string)$rres, 0, 300), "FAL_VIDEO_WARN");
+            continue;
+        }
+
+        // ── Step 4: download the clip ──────────────────────────────
+        $vch = curl_init($videoUrl);
+        curl_setopt_array($vch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT        => 120,
+            CURLOPT_CONNECTTIMEOUT => 15,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_SSL_VERIFYPEER => false,
+        ]);
+        $videoBytes = curl_exec($vch);
+        $vHttp      = curl_getinfo($vch, CURLINFO_HTTP_CODE);
+        $vErrno     = curl_errno($vch);
+        curl_close($vch);
+        $dlOk = ($vErrno === 0 && $vHttp === 200 && $videoBytes !== false && strlen($videoBytes) >= 5000);
+
+        if (!$dlOk) {
+            logGeneration("FAL VIDEO: download FAILED attempt=$attempt http=$vHttp", "FAL_VIDEO_WARN");
+            continue;
+        }
+
+        $elapsed = round(microtime(true) - $t0, 2);
+        logGeneration("FAL VIDEO: SUCCESS attempt=$attempt total={$elapsed}s bytes=" . strlen($videoBytes), "FAL_VIDEO_SUCCESS");
+        return ['success' => true, 'video' => base64_encode($videoBytes), 'source' => 'fal.ai/wan-i2v', 'elapsed' => $elapsed];
+    }
+
+    logGeneration("FAL VIDEO: All $maxRetries attempts failed (last HTTP=$httpCode err=$curlError)", "FAL_VIDEO_ERROR");
+    return ['success' => false, 'error' => 'fal.ai video generation failed after retries', 'source' => 'fal.ai'];
+}
 /**
  * generateWithModalAI()
  * Calls the Modal/FLUX image endpoint directly (single sync HTTP call).
@@ -2323,6 +2504,163 @@ if (isset($_POST['ajax_action']) && $_POST['ajax_action'] === 'generate_scene_vi
         'status'      => $flag == 2 ? 'processing' : 'queued',
         'scene'       => $scene_num,
         'message'     => $flag == 2 ? 'Video is being generated…' : 'Video queued — generation starts shortly…',
+    ]);
+    exit;
+}
+
+// ── AJAX: generate_scene_video_sync — NEW, independent of the cron pipeline ──
+// Per-card "Generate video" button. Does NOT touch hdb_video_gen_que,
+// cron_video_gen.php, or fal_webhook.php — this is a self-contained
+// synchronous path, same shape as generate_scene_image: take the scene's
+// EXISTING approved image (read fresh from hdb_podcast_stories/disk, not
+// from anything the browser sends) + its video prompt, submit to fal.ai,
+// block until the result comes back, save the clip to
+// user_media/user_id_{admin}_company_id_{company}/video_podcasts, and mark
+// the story done. Closing the browser DOES cancel this one (no queue/cron
+// behind it) — that's expected for a single-scene "test it now" action.
+if (isset($_POST['ajax_action']) && $_POST['ajax_action'] === 'generate_scene_video_sync') {
+    ob_start();
+    ini_set('display_errors', 0);
+    set_time_limit(330); // submit + poll loop (≤280s) + download, with headroom
+    ignore_user_abort(true);
+    register_shutdown_function(function() {
+        $err = error_get_last();
+        if ($err && in_array($err['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR])) {
+            while (ob_get_level()) ob_end_clean();
+            if (!headers_sent()) header('Content-Type: application/json; charset=utf-8');
+            echo json_encode(['success' => false, 'error' => 'PHP fatal: ' . $err['message'], 'fail_stage' => 'php_fatal']);
+        }
+    });
+    session_write_close(); // same reasoning as generate_scene_image — don't block other scenes' requests
+
+    $t_handler  = microtime(true);
+    $podcast_id = (int)($_POST['podcast_id'] ?? 0);
+    $story_id   = (int)($_POST['story_id']   ?? 0);
+    $scene_num  = (int)($_POST['scene_num']  ?? 0);
+    $video_prompt_in = trim($_POST['video_prompt'] ?? trim($_POST['wan_prompt'] ?? ''));
+
+    if ($podcast_id && !$story_id && $scene_num) {
+        $fb = mysqli_fetch_assoc(mysqli_query($conn,
+            "SELECT id FROM hdb_podcast_stories WHERE podcast_id=$podcast_id AND seq_no=$scene_num LIMIT 1"
+        ));
+        if ($fb) $story_id = (int)$fb['id'];
+    }
+    if (!$podcast_id || !$story_id) {
+        ob_end_clean(); header('Content-Type: application/json; charset=utf-8');
+        echo json_encode(['success' => false, 'error' => 'Missing podcast_id or story_id', 'scene' => $scene_num, 'fail_stage' => 'input']);
+        exit;
+    }
+
+    // ── Pull the scene's CURRENT approved image + saved prompts ───────
+    // Reading these fresh from the DB (rather than trusting whatever the
+    // browser sends) guarantees the video always animates the exact image
+    // the user last approved/regenerated — no surprise mismatch.
+    $story_row = mysqli_fetch_assoc(mysqli_query($conn,
+        "SELECT image_file, image_folder, video_prompt, prompt FROM hdb_podcast_stories WHERE id=$story_id AND podcast_id=$podcast_id LIMIT 1"
+    ));
+    if (!$story_row) {
+        ob_end_clean(); header('Content-Type: application/json; charset=utf-8');
+        echo json_encode(['success' => false, 'error' => 'Scene not found', 'scene' => $scene_num, 'fail_stage' => 'lookup']);
+        exit;
+    }
+    $img_file   = trim($story_row['image_file']   ?? '');
+    $img_folder = trim($story_row['image_folder'] ?? '');
+    if ($img_file === '' || preg_match('/\.(mp4|mov|webm|m4v)$/i', $img_file)) {
+        ob_end_clean(); header('Content-Type: application/json; charset=utf-8');
+        echo json_encode(['success' => false, 'error' => 'No still image on this scene yet — generate the image first', 'scene' => $scene_num, 'fail_stage' => 'no_image']);
+        exit;
+    }
+
+    // Only AI-generated images get animated — never a real uploaded photo.
+    $ifn_e = mysqli_real_escape_string($conn, $img_file);
+    $ifo_e = mysqli_real_escape_string($conn, $img_folder);
+    $img_data_row = mysqli_fetch_assoc(mysqli_query($conn,
+        "SELECT is_ai_generated FROM hdb_image_data WHERE image_name='$ifn_e' AND image_folder='$ifo_e' LIMIT 1"
+    ));
+    if (empty($img_data_row['is_ai_generated'])) {
+        ob_end_clean(); header('Content-Type: application/json; charset=utf-8');
+        echo json_encode(['success' => false, 'error' => 'This scene uses a real photo, not an AI-generated image — video generation is not available for it.', 'scene' => $scene_num, 'fail_stage' => 'not_ai_image']);
+        exit;
+    }
+
+    // Prefer a freshly-edited prompt from the client (e.g. just changed in
+    // the Prompts modal but not saved yet); fall back to what's saved.
+    $video_prompt = $video_prompt_in ?: trim((string)($story_row['video_prompt'] ?? '')) ?: trim((string)($story_row['prompt'] ?? ''));
+    if (!$video_prompt) {
+        ob_end_clean(); header('Content-Type: application/json; charset=utf-8');
+        echo json_encode(['success' => false, 'error' => 'No video prompt available for this scene', 'scene' => $scene_num, 'fail_stage' => 'input']);
+        exit;
+    }
+
+    if (empty($falApiKey)) {
+        ob_end_clean(); header('Content-Type: application/json; charset=utf-8');
+        echo json_encode(['success' => false, 'error' => 'fal.ai API key not configured in config.php', 'scene' => $scene_num, 'fail_stage' => 'config']);
+        exit;
+    }
+
+    $webRoot         = rtrim($_SERVER['DOCUMENT_ROOT'] ?? __DIR__, '/');
+    $local_image_path = $webRoot . '/' . $img_folder . '/' . $img_file;
+
+    $scene_count_row = mysqli_fetch_assoc(mysqli_query($conn,
+        "SELECT COUNT(*) AS cnt FROM hdb_podcast_stories WHERE podcast_id = $podcast_id"
+    ));
+    $scene_count_val = max(1, (int)($scene_count_row['cnt'] ?? 6));
+    $scene_duration  = max(3, min(10, (int)floor(30 / $scene_count_val)));
+
+    logGeneration("FAL VIDEO HANDLER: Starting sync i2v | podcast=$podcast_id story=$story_id scene=$scene_num img=$img_folder/$img_file", "FAL_VIDEO");
+    $vidResult = generateVideoWithFalAI($local_image_path, $video_prompt, $falApiKey, $scene_duration, 2);
+
+    if (!$vidResult['success'] || empty($vidResult['video'])) {
+        logGeneration("FAL VIDEO HANDLER: FAILED | podcast=$podcast_id scene=$story_id error=" . ($vidResult['error'] ?? ''), "FAL_VIDEO_ERROR");
+        ob_end_clean(); header('Content-Type: application/json; charset=utf-8');
+        echo json_encode(['success' => false, 'error' => $vidResult['error'] ?? 'Video generation failed', 'scene' => $scene_num, 'fail_stage' => 'video_gen']);
+        exit;
+    }
+
+    // ── Save the clip to user_media/.../video_podcasts ────────────────
+    // "All thumbnails/videos load from there" — same admin/company-scoped
+    // folder convention used everywhere else in this file (see line ~549).
+    $video_dir_rel = "user_media/user_id_{$admin_id}_company_id_{$company_id}/video_podcasts";
+    $video_dir_abs = $webRoot . '/' . $video_dir_rel;
+    if (!is_dir($video_dir_abs)) @mkdir($video_dir_abs, 0755, true);
+
+    $video_bytes = base64_decode($vidResult['video']);
+    $video_name  = 'scene_' . $podcast_id . '_' . $story_id . '.mp4';
+    $video_abs   = $video_dir_abs . '/' . $video_name;
+
+    if (file_put_contents($video_abs, $video_bytes) === false) {
+        logGeneration("FAL VIDEO HANDLER: could not write $video_abs", "FAL_VIDEO_ERROR");
+        ob_end_clean(); header('Content-Type: application/json; charset=utf-8');
+        echo json_encode(['success' => false, 'error' => 'Generated video could not be saved to disk', 'scene' => $scene_num, 'fail_stage' => 'save']);
+        exit;
+    }
+
+    // ── Update hdb_podcast_stories — reuse image_file/image_folder for the
+    // clip (same convention the cron pipeline already uses: once a scene
+    // has a video, those columns just point at the .mp4 instead of a
+    // still), and mark videogen_flag = 3 (done). ───────────────────────
+    @mysqli_query($conn, "ALTER TABLE hdb_podcast_stories ADD COLUMN IF NOT EXISTS videogen_flag INT(2) DEFAULT 0");
+    $now      = date('Y-m-d H:i:s');
+    $vne_e    = mysqli_real_escape_string($conn, $video_name);
+    $vfe_e    = mysqli_real_escape_string($conn, $video_dir_rel);
+    mysqli_query($conn, "UPDATE hdb_podcast_stories SET image_file='$vne_e', image_folder='$vfe_e', videogen_flag=3, updated_at='$now' WHERE id=$story_id");
+
+    $totalTime = round(microtime(true) - $t_handler, 2);
+    logGeneration("FAL VIDEO HANDLER: Complete total={$totalTime}s bytes=" . strlen($video_bytes) . " | podcast=$podcast_id scene=$story_id", "FAL_VIDEO_SUCCESS");
+
+    ob_end_clean(); header('Content-Type: application/json; charset=utf-8');
+    echo json_encode([
+        'success'     => true,
+        'video_ready' => true,
+        'video_file'  => $video_name,
+        'video_folder'=> $video_dir_rel,
+        'video_url'   => $video_dir_rel . '/' . $video_name,
+        'scene'       => $scene_num,
+        'story_id'    => $story_id,
+        'podcast_id'  => $podcast_id,
+        'source'      => $vidResult['source'] ?? 'fal.ai',
+        'elapsed_s'   => $totalTime,
+        'message'     => 'Scene ' . $scene_num . ' video generated',
     ]);
     exit;
 }
@@ -4578,7 +4916,7 @@ function genVideoButtonHTML(sceneNum, podcastId, storyId, wanPrompt, imagePrompt
                     🖼️ Generate image
                 </button>
             </div>
-            <button type="button" onclick="generateSceneVideo(${sceneNum},${podcastId},${storyId},'${encodedWan}')"
+            <button type="button" id="video-gen-btn-${sceneNum}" onclick="generateSceneVideoNow(${sceneNum},${podcastId},${storyId},'${encodedWan}')"
                 style="width:100%;padding:7px;background:linear-gradient(135deg,#0f2a44,#143b63);color:#fff;border:none;border-radius:7px;font-size:11px;font-weight:700;cursor:pointer;">
                 🎬 Generate video
             </button>
@@ -4681,6 +5019,46 @@ async function savePromptsModal() {
     }
     btn.disabled = false;
     btn.textContent = orig;
+}
+
+// ── NEW: synchronous single-scene video generation ───────────────────────
+// Independent of generateSceneVideo() below (left untouched) and of the
+// whole cron/queue pipeline it polls against. This calls
+// generate_scene_video_sync, which submits the scene's already-approved
+// image + video prompt straight to fal.ai and blocks until the clip comes
+// back — one request, one wait, one result, same shape as image
+// generation. Can take 1-3+ minutes; the button shows that.
+async function generateSceneVideoNow(sceneNum, podcastId, storyId, encodedWan) {
+    const wan       = safeDec(encodedWan);
+    const card      = document.getElementById('scene-card-' + sceneNum);
+    const actionBox = document.getElementById('video-action-' + sceneNum);
+    const statusEl  = document.getElementById('video-status-' + sceneNum);
+    const btn       = document.getElementById('video-gen-btn-' + sceneNum);
+    if (btn) { btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> Generating…'; }
+    if (statusEl) statusEl.textContent = 'Sending to fal.ai — this can take 1-3 minutes…';
+
+    const fd = new FormData();
+    fd.append('ajax_action', 'generate_scene_video_sync');
+    fd.append('podcast_id',  podcastId);
+    fd.append('story_id',    storyId);
+    fd.append('scene_num',   sceneNum);
+    fd.append('video_prompt', wan);
+    try {
+        const resp = await fetch('', { method:'POST', body:fd });
+        const data = await resp.json();
+        if (data.success && data.video_ready) {
+            const mediaWrap = card ? card.querySelector('div[style*="aspect-ratio:9/16"]') : null;
+            if (mediaWrap) mediaWrap.outerHTML = videoThumbHTML(sceneNum, data.video_url + '?t=' + Date.now());
+            if (statusEl) statusEl.textContent = '✅ Video ready (' + (data.elapsed_s ?? '?') + 's)';
+            if (btn) { btn.disabled = false; btn.innerHTML = '🔁 Regenerate video'; }
+        } else {
+            if (statusEl) statusEl.textContent = '❌ ' + (data.error || 'Video generation failed');
+            if (btn) { btn.disabled = false; btn.innerHTML = '🔁 Retry video'; }
+        }
+    } catch(e) {
+        if (statusEl) statusEl.textContent = '❌ Network error: ' + e.message;
+        if (btn) { btn.disabled = false; btn.innerHTML = '🔁 Retry video'; }
+    }
 }
 
 async function generateSceneVideo(sceneNum, podcastId, storyId, encodedWan) {
